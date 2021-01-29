@@ -83,31 +83,6 @@
   </url>
   
   <url>
-    <loc>/blog/news/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/releases/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2018/10/06/easy-documentation-with-docsy/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2018/10/06/the-second-blog-post/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/2018/01/04/another-great-release/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/docs/getting-started/example-page/</loc>
     <lastmod>2021-01-28T22:23:06-08:00</lastmod>
   </url>
@@ -119,21 +94,6 @@
   
   <url>
     <loc>/docs/tasks/ponycopters/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2021-01-28T22:23:06-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/community/</loc>
     <lastmod>2021-01-28T22:23:06-08:00</lastmod>
   </url>
   
