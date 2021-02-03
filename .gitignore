@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+resources/
+node_modules/
+tech-doc-hugo
+
