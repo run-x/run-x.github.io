@@ -325,9 +325,13 @@ if (!doNotTrack) {
 <nav id="TableOfContents">
   <ul>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#setup">Setup</a></li>
-    <li><a href="#try-it-out">Try it out!</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#macos">MacOS</a></li>
+      </ul>
+    </li>
+    <li><a href="#env-creation">Env creation</a></li>
+    <li><a href="#service-creation">Service creation</a></li>
   </ul>
 </nav>
 
@@ -368,22 +372,61 @@ if (!doNotTrack) {
         <div class="lead">The first steps in working with Opta.</div>
 	
 	<h2 id="prerequisites">Prerequisites</h2>
-<p>Runxc currently has the following system prerequisites to operate normally:</p>
+<p>Opta currently has the following system prerequisites to operate normally:</p>
 <ul>
 <li>A supported macos or debian distro release.</li>
 <li>An installation of <a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)  in your system&rsquo;s path.</li>
 <li>An installation of <a href="https://docker.com/products/docker-desktop">docker</a> (v19+)  in your system&rsquo;s path</li>
 <li>An installation of <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
 docker-for-mac) in your system&rsquo;s path.</li>
-<li>An installation of the</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>Runxc is a binary which can currently be gotten by contacting Ankur at his <a href="mailto:ankur@dev.runx">ankur@dev.runx</a> email.</p>
-<h2 id="setup">Setup</h2>
-<p>Is there any initial setup users need to do after installation to try your project?</p>
-<h2 id="try-it-out">Try it out!</h2>
-<p>Can your users test their installation, for example by running a command or deploying a Hello World example?</p>
+<h3 id="macos">MacOS</h3>
+<pre><code>curl https://dev-runx-opta-binaries.s3.amazonaws.com/mac/0.3/opta -o /usr/local/bin/opta &amp;&amp; chmod u+x /usr/local/bin/opta &amp;&amp; xattr -d com.apple.quarantine /usr/local/bin/opta
+</code></pre><p>This installs the <code>opta</code> cli.</p>
+<h2 id="env-creation">Env creation</h2>
+<p>In this step we will create an environment (example staging, qa, prod) for your organization.
+For this we need to create an <code>opta.yml</code> file which defines the environment. Here&rsquo;s how this file should look like:</p>
+<pre><code>meta:
+  name: staging
+  providers:
+    aws:
+      region: us-east-1
+      allowed_account_ids: [ 889760294590 ]  # replace this with your AWS account id
+  variables:
+    domain: &quot;staging.example.com&quot;  # replace this with a domain you own
+    datadog_api_key: &quot;&quot;
 
+_init: {}
+</code></pre><p>Save this file at <code>staging/opta.yml</code> and run:</p>
+<pre><code>opta apply staging/opta.yml
+</code></pre><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces transparently.</p>
+<h2 id="service-creation">Service creation</h2>
+<p>In this step we will create a service with your application&rsquo;s logic.
+We will create another <code>opta.yml</code> file, which defines high level configuration of this service. Here is how this file should look like:</p>
+<pre><code></code></pre><p>meta:
+envs:
+- parent: &ldquo;staging/opta.yml&rdquo;
+variables:
+ENV: staging # You can set any environment variables you want here
+name: MyApp
+variables:
+tag: &quot;&quot;
+modules:</p>
+<ul>
+<li>MyApp:
+type: k8s-service
+target_port: 5000  # Change this based on your
+domain: &ldquo;{parent[domain]}&rdquo;  # optional: used to expose the service to the internet at this domain
+tag: &ldquo;{tag}&rdquo;
+env_vars:
+- _link: MyRdsDb  # This is defined below
+secrets:
+- ALGOLIA_ADMIN_KEY</li>
+<li>MyRdsDb:
+type: aws-rds  # Creates an AWS RDS DB for you</li>
+</ul>
+<pre><code></code></pre>
         <div class="section-index">
     
     
