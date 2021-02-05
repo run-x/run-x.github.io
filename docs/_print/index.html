@@ -366,11 +366,11 @@ focused on the app</li>
 <p>Opta currently has the following system prerequisites to operate normally:</p>
 <ul>
 <li>A supported macos or debian distro release.</li>
-<li>An installation of <a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)  in your system&rsquo;s path.</li>
-<li>An installation of <a href="https://docker.com/products/docker-desktop">docker</a> (v19+)  in your system&rsquo;s path.</li>
-<li>Working AWS CLI configured with proper credentials</li>
-<li>An installation of <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
-docker-for-mac) in your system&rsquo;s path.</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a></li>
+<li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
+<li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
+docker-for-mac)</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <h3 id="macos">MacOS</h3>
@@ -378,7 +378,8 @@ docker-for-mac) in your system&rsquo;s path.</li>
 </code></pre><p>This installs the <code>opta</code> cli.</p>
 <h2 id="env-creation">Env creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
-For this we need to create an <code>opta.yml</code> file which defines the environment. Here&rsquo;s how this file should look like:</p>
+For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
+<p>Create the following file at <code>staging/opta.yml</code> directory and update the fields specific to your AWS account setup.</p>
 <pre><code>meta:
   name: staging
   providers:
@@ -395,13 +396,14 @@ _init: {}
 </code></pre><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces transparently.</p>
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service with your application&rsquo;s logic.
-We will create another <code>opta.yml</code> file, which defines high level configuration of this service. Here is how this file should look like:</p>
+We will create another <code>opta.yml</code> file, which defines high level configuration of this service.</p>
+<p>Create this file at <code>MyApp/opta.yml</code> and update the fields specific to your service setup.</p>
 <pre><code>meta:
+  name: MyApp 
   envs:
     - parent: &quot;staging/opta.yml&quot;
       variables:
         ENV: staging # You can set any environment variables you want here
-  name: MyApp 
   variables:
     tag: &quot;&quot;
 modules:
@@ -417,7 +419,12 @@ modules:
         - ALGOLIA_ADMIN_KEY
   - MyRdsDb:
       type: aws-rds  # Creates an AWS RDS DB for you
-</code></pre>
+</code></pre><p>Save this file at <code>MyApp/opta.yml</code> and run:</p>
+<pre><code>opta apply MyApp/opta.yml
+</code></pre><p>Now your service&rsquo;s infrastructure and networking is ready to be deployed</p>
+<h2 id="service-deployment">Service Deployment</h2>
+<p>TBD</p>
+
 </div>
 
 
