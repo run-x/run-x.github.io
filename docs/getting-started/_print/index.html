@@ -176,10 +176,13 @@ This the multi-page printable view of this section.
 docker-for-mac)</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<h3 id="macos">MacOS</h3>
-<pre><code>curl https://dev-runx-opta-binaries.s3.amazonaws.com/mac/0.3/opta -o /usr/local/bin/opta &amp;&amp; chmod u+x /usr/local/bin/opta &amp;&amp; xattr -d com.apple.quarantine /usr/local/bin/opta
-</code></pre><p>This installs the <code>opta</code> cli.</p>
-<h2 id="env-creation">Env creation</h2>
+<blockquote>
+<p>Latest version: 0.4</p>
+</blockquote>
+<h3 id="macos-or-linux">MacOS or Linux</h3>
+<pre><code>/bin/bash -c &quot;$(curl -fsSL 
+	https://install.sh)&quot;
+</code></pre><h2 id="env-creation">Env creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
 For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
 <p>Create the following file at <code>staging/opta.yml</code> directory and update the fields specific to your AWS account setup.</p>
