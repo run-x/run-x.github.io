@@ -19,17 +19,17 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Reference | </title><meta property="og:title" content="Reference" />
-<meta property="og:description" content="Low level reference docs for your project.
+<meta property="og:description" content="Opta config reference
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/docs/reference/" />
 
 <meta itemprop="name" content="Reference">
-<meta itemprop="description" content="Low level reference docs for your project.
+<meta itemprop="description" content="Opta config reference
 ">
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Reference"/>
-<meta name="twitter:description" content="Low level reference docs for your project.
+<meta name="twitter:description" content="Opta config reference
 "/>
 
 
@@ -147,7 +147,7 @@ This the multi-page printable view of this section.
 
 
 <h1 class="title">Reference</h1>
-<div class="lead">Low level reference docs for your project.</div>
+<div class="lead">Opta config reference</div>
 
 
 
@@ -163,7 +163,47 @@ This the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-fae1ff8e3c30cfdbe85045f64e0a7b36">Parameter Reference</a></li>
+<li>1: <a href="#pg-72c5d09166371766164cc6e996c6eb71">Application configuration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-759e7913781507df02685132bce7d2da">Continuous Deployment</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3: <a href="#pg-2ff9cf99cf551ee98d51b28a16dd4813">Environment configuration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-573999a4a99ad126194b2e265acec65a">Ingress</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-7025dac43ef7b1895e274991d3530148">Installation</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-ab275c9f2c0050db064eeecb0382c84e">Secrets</a></li>
 
 
     
@@ -174,15 +214,6 @@ This the multi-page printable view of this section.
 
 <div class="content">
       
-
-<div class="pageinfo pageinfo-primary">
-<p>This is a placeholder page that shows you how to use this template site.</p>
-
-</div>
-
-<p>If your project has an API, configuration, or other reference - anything that users need to look up that’s at an even lower level than a single task - put (or link to it) here. You can serve and link to generated reference docs created using Doxygen,
-Javadoc, or other doc generation tools by putting them in your <code>static/</code> directory. Find out more in <a href="https://docsy.dev/docs/adding-content/content/#adding-static-content">Adding static content</a>. For OpenAPI reference, Docsy also provides a <a href="https://www.docsy.dev/docs/adding-content/shortcodes/#swaggerui">Swagger UI layout and shortcode</a> that renders <a href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> using any OpenAPI YAML or JSON file as source.</p>
-
 </div>
 </div>
 
@@ -195,6 +226,44 @@ Javadoc, or other doc generation tools by putting them in your <code>static/</co
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-72c5d09166371766164cc6e996c6eb71">1 - Application configuration</h1>
+    <div class="lead">Configuration details for the application yaml</div>
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyApp </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># the environments where this needs to be deployed</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># path to the env file (could be a github path)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">min_size</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">MyApp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># type of the app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Change this based on your application container</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># optional: used to expose the service to the internet at this domain</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">_link</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyRdsDb </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Sets the DB access keys as env variables in your app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">MyRdsDb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Database name</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Type of the database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+</div>
+
+
+
+    
+	
   
     
     
@@ -203,298 +272,113 @@ Javadoc, or other doc generation tools by putting them in your <code>static/</co
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fae1ff8e3c30cfdbe85045f64e0a7b36">1 - Parameter Reference</h1>
-    <div class="lead">A short lead description about this content page. It can be <strong>bold</strong> or <em>italic</em> and can be split over multiple paragraphs.</div>
+	<h1 id="pg-759e7913781507df02685132bce7d2da">2 - Continuous Deployment</h1>
+    <div class="lead">Instructions to integrate with CI/CD platform of your choice</div>
+	<h2 id="github-actions">Github Actions</h2>
+<p>Coming soon</p>
+<h2 id="circle-ci">Circle CI</h2>
+<p>Coming soon</p>
+
+</div>
+
+
+
+    
 	
+  
+    
+    
+	
+    
 
-<div class="pageinfo pageinfo-primary">
-<p>This is a placeholder page. Replace it with your own content.</p>
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2ff9cf99cf551ee98d51b28a16dd4813">3 - Environment configuration</h1>
+    <div class="lead">Configuration details for the environment yaml</div>
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># currently we only support AWS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1 </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># AWS region where you want to deploy your apps</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_account_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">889760294590</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># replace this with your AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.example.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># replace this with a domain you own</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">datadog_api_key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">_init</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>TODO:</p>
+<ul>
+<li>Specify the nodegroup size, min, max</li>
+<li>Link of instructions to setup domain</li>
+</ul>
 
 </div>
 
-<p>Text can be <strong>bold</strong>, <em>italic</em>, or <del>strikethrough</del>. <a href="https://gohugo.io">Links</a> should be blue with no underlines (unless hovered over).</p>
-<p>There should be whitespace between paragraphs. Vape migas chillwave sriracha poutine try-hard distillery. Tattooed shabby chic small batch, pabst art party heirloom letterpress air plant pop-up. Sustainable chia skateboard art party banjo cardigan normcore affogato vexillologist quinoa meggings man bun master cleanse shoreditch readymade. Yuccie prism four dollar toast tbh cardigan iPhone, tumblr listicle live-edge VHS. Pug lyft normcore hot chicken biodiesel, actually keffiyeh thundercats photo booth pour-over twee fam food truck microdosing banh mi. Vice activated charcoal raclette unicorn live-edge post-ironic. Heirloom vexillologist coloring book, beard deep v letterpress echo park humblebrag tilde.</p>
-<p>90&rsquo;s four loko seitan photo booth gochujang freegan tumeric listicle fam ugh humblebrag. Bespoke leggings gastropub, biodiesel brunch pug fashion axe meh swag art party neutra deep v chia. Enamel pin fanny pack knausgaard tofu, artisan cronut hammock meditation occupy master cleanse chartreuse lumbersexual. Kombucha kogi viral truffaut synth distillery single-origin coffee ugh slow-carb marfa selfies. Pitchfork schlitz semiotics fanny pack, ugh artisan vegan vaporware hexagon. Polaroid fixie post-ironic venmo wolf ramps <strong>kale chips</strong>.</p>
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-573999a4a99ad126194b2e265acec65a">4 - Ingress</h1>
+    <div class="lead">How to expose your app on the internet</div>
+	<p>Coming soon!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7025dac43ef7b1895e274991d3530148">5 - Installation</h1>
+    <div class="lead">Installation instructions for Opta CLI</div>
+	<h2 id="prerequisites">Prerequisites</h2>
+<p>Opta currently has the following system prerequisites to operate normally:</p>
+<ul>
+<li>A supported macos or debian distro release.</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a></li>
+<li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
+<li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with docker-for-mac)</li>
+</ul>
+<h2 id="installation">Installation</h2>
 <blockquote>
-<p>There should be no margin above this first sentence.</p>
-<p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.</p>
-<p>There should be no margin below this final sentence.</p>
+<p>Latest version: 0.4</p>
 </blockquote>
-<h2 id="first-header-2">First Header 2</h2>
-<p>This is a normal paragraph following a header. Knausgaard kale chips snackwave microdosing cronut copper mug swag synth bitters letterpress glossier <strong>craft beer</strong>. Mumblecore bushwick authentic gochujang vegan chambray meditation jean shorts irony. Viral farm-to-table kale chips, pork belly palo santo distillery activated charcoal aesthetic jianbing air plant woke lomo VHS organic. Tattooed locavore succulents heirloom, small batch sriracha echo park DIY af. Shaman you probably haven&rsquo;t heard of them copper mug, crucifix green juice vape <em>single-origin coffee</em> brunch actually. Mustache etsy vexillologist raclette authentic fam. Tousled beard humblebrag asymmetrical. I love turkey, I love my job, I love my friends, I love Chardonnay!</p>
-<p>Deae legum paulatimque terra, non vos mutata tacet: dic. Vocant docuique me plumas fila quin afuerunt copia haec o neque.</p>
-<p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.</p>
-<p>Scenester tumeric pickled, authentic crucifix post-ironic fam freegan VHS pork belly 8-bit yuccie PBR&amp;B. <strong>I love this life we live in</strong>.</p>
-<h2 id="second-header-2">Second Header 2</h2>
-<blockquote>
-<p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.</p>
-</blockquote>
-<h3 id="header-3">Header 3</h3>
-<pre><code>This is a code block following a header.
-</code></pre><p>Next level leggings before they sold out, PBR&amp;B church-key shaman echo park. Kale chips occupy godard whatever pop-up freegan pork belly selfies. Gastropub Belinda subway tile woke post-ironic seitan. Shabby chic man bun semiotics vape, chia messenger bag plaid cardigan.</p>
-<h4 id="header-4">Header 4</h4>
-<ul>
-<li>This is an unordered list following a header.</li>
-<li>This is an unordered list following a header.</li>
-<li>This is an unordered list following a header.</li>
-</ul>
-<h5 id="header-5">Header 5</h5>
-<ol>
-<li>This is an ordered list following a header.</li>
-<li>This is an ordered list following a header.</li>
-<li>This is an ordered list following a header.</li>
-</ol>
-<h6 id="header-6">Header 6</h6>
-<table>
-<thead>
-<tr>
-<th>What</th>
-<th>Follows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>A table</td>
-<td>A header</td>
-</tr>
-<tr>
-<td>A table</td>
-<td>A header</td>
-</tr>
-<tr>
-<td>A table</td>
-<td>A header</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>There&rsquo;s a horizontal rule above and below this.</p>
-<hr>
-<p>Here is an unordered list:</p>
-<ul>
-<li>Liverpool F.C.</li>
-<li>Chelsea F.C.</li>
-<li>Manchester United F.C.</li>
-</ul>
-<p>And an ordered list:</p>
-<ol>
-<li>Michael Brecker</li>
-<li>Seamus Blake</li>
-<li>Branford Marsalis</li>
-</ol>
-<p>And an unordered task list:</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> Create a Hugo theme</li>
-<li><input checked="" disabled="" type="checkbox"> Add task lists to it</li>
-<li><input disabled="" type="checkbox"> Take a vacation</li>
-</ul>
-<p>And a &ldquo;mixed&rdquo; task list:</p>
-<ul>
-<li><input disabled="" type="checkbox"> Pack bags</li>
-<li>?</li>
-<li><input disabled="" type="checkbox"> Travel!</li>
-</ul>
-<p>And a nested list:</p>
-<ul>
-<li>Jackson 5
-<ul>
-<li>Michael</li>
-<li>Tito</li>
-<li>Jackie</li>
-<li>Marlon</li>
-<li>Jermaine</li>
-</ul>
-</li>
-<li>TMNT
-<ul>
-<li>Leonardo</li>
-<li>Michelangelo</li>
-<li>Donatello</li>
-<li>Raphael</li>
-</ul>
-</li>
-</ul>
-<p>Definition lists can be used with Markdown syntax. Definition headers are bold.</p>
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-<hr>
-<p>Tables should have bold headings and alternating shaded rows.</p>
-<table>
-<thead>
-<tr>
-<th>Artist</th>
-<th>Album</th>
-<th>Year</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Michael Jackson</td>
-<td>Thriller</td>
-<td>1982</td>
-</tr>
-<tr>
-<td>Prince</td>
-<td>Purple Rain</td>
-<td>1984</td>
-</tr>
-<tr>
-<td>Beastie Boys</td>
-<td>License to Ill</td>
-<td>1986</td>
-</tr>
-</tbody>
-</table>
-<p>If a table is too wide, it should scroll horizontally.</p>
-<table>
-<thead>
-<tr>
-<th>Artist</th>
-<th>Album</th>
-<th>Year</th>
-<th>Label</th>
-<th>Awards</th>
-<th>Songs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Michael Jackson</td>
-<td>Thriller</td>
-<td>1982</td>
-<td>Epic Records</td>
-<td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical</td>
-<td>Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life</td>
-</tr>
-<tr>
-<td>Prince</td>
-<td>Purple Rain</td>
-<td>1984</td>
-<td>Warner Brothers Records</td>
-<td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal</td>
-<td>Let&rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&rsquo;m a Star, Purple Rain</td>
-</tr>
-<tr>
-<td>Beastie Boys</td>
-<td>License to Ill</td>
-<td>1986</td>
-<td>Mercury Records</td>
-<td>noawardsbutthistablecelliswide</td>
-<td>Rhymin &amp; Stealin, The New Style, She&rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>Code snippets like <code>var foo = &quot;bar&quot;;</code> can be shown inline.</p>
-<p>Also, <code>this should vertically align</code> <del><code>with this</code></del> <del>and this</del>.</p>
-<p>Code can also be shown in a block element.</p>
-<pre><code>foo := &quot;bar&quot;;
-bar := &quot;foo&quot;;
-</code></pre><p>Code can also use syntax highlighting.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-  <span style="color:#000">input</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#4e9a06">`var foo = &#34;bar&#34;;`</span>
-
-  <span style="color:#000">lexer</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">lexers</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;javascript&#34;</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#000">iterator</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">lexer</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Tokenise</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">nil</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">input</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#000">style</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">styles</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;github&#34;</span><span style="color:#000;font-weight:bold">)</span>
-  <span style="color:#000">formatter</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">html</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">New</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">html</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">WithLineNumbers</span><span style="color:#000;font-weight:bold">())</span>
-
-  <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">buff</span> <span style="color:#000">bytes</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Buffer</span>
-  <span style="color:#000">formatter</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Format</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">buff</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">style</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">iterator</span><span style="color:#000;font-weight:bold">)</span>
-
-  <span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Println</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buff</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">String</span><span style="color:#000;font-weight:bold">())</span>
-<span style="color:#000;font-weight:bold">}</span>
-</code></pre></div><pre><code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-</code></pre><p>Inline code inside table cells should still be distinguishable.</p>
-<table>
-<thead>
-<tr>
-<th>Language</th>
-<th>Code</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Javascript</td>
-<td><code>var foo = &quot;bar&quot;;</code></td>
-</tr>
-<tr>
-<td>Ruby</td>
-<td><code>foo = &quot;bar&quot;{</code></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>Small images should be shown at their actual size.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/240px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt=""></p>
-<p>Large images should always scale down and fit in the content container.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg/1024px-Picea_abies_shoot_with_buds%2C_Sogndal%2C_Norway.jpg" alt=""></p>
-<p><em>The photo above of the Spruce Picea abies shoot with foliage buds: Bjørn Erik Pedersen, CC-BY-SA.</em></p>
-<h2 id="components">Components</h2>
-<h3 id="alerts">Alerts</h3>
-<p>
-
-<div class="alert alert-primary" role="alert">
-
-
-    This is an alert.
-
+<h3 id="macos-or-linux">MacOS or Linux</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+</code></pre></div>
 </div>
 
 
 
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
+    
+	
+  
+    
+    
+	
+    
 
-    This is an alert with a title.
-
-</div>
-
-
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    This is an alert with a title and <strong>Markdown</strong>.
-
-</div>
-
-
-
-<div class="alert alert-success" role="alert">
-
-
-    This is a successful alert.
-
-</div>
-
-
-
-<div class="alert alert-warning" role="alert">
-
-
-    This is a warning.
-
-</div>
-
-
-
-<div class="alert alert-warning" role="alert">
-<h4 class="alert-heading">Warning</h4>
-
-    This is a warning with a title.
-
-</div>
-</p>
-<h2 id="another-heading">Another Heading</h2>
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ab275c9f2c0050db064eeecb0382c84e">6 - Secrets</h1>
+    <div class="lead">Creating secrets for your application</div>
+	<p>Coming soon</p>
 
 </div>
 
