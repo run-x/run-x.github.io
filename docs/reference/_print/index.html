@@ -203,7 +203,23 @@ This the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-ab275c9f2c0050db064eeecb0382c84e">Secrets</a></li>
+<li>6: <a href="#pg-1e0fbf81e249b947d05fdd437ed9d06c">Kubectl Configuration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-f1640a899c8cfd3b8985e9a7ec130835">Observability Integrations</a></li>
+
+
+    
+  
+    
+    
+	
+<li>8: <a href="#pg-ab275c9f2c0050db064eeecb0382c84e">Secrets</a></li>
 
 
     
@@ -376,10 +392,91 @@ This the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ab275c9f2c0050db064eeecb0382c84e">6 - Secrets</h1>
-    <div class="lead">Creating secrets for your application</div>
-	<p>Coming soon</p>
+	<h1 id="pg-1e0fbf81e249b947d05fdd437ed9d06c">6 - Kubectl Configuration</h1>
+    <div class="lead">How to configure kubectl for your Opta Kubernetes Cluster</div>
+	<p>You can run the following command to configure kubectl to talk to a kubernetes cluster for a particular environment.
+You need to have kubectl installed for this to work.</p>
+<p>Note: The following commands needs to be run from the directory where your app&rsquo;s <code>opta.yml</code> is present</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta configure_kubectl --env staging
+</code></pre></div>
+</div>
 
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f1640a899c8cfd3b8985e9a7ec130835">7 - Observability Integrations</h1>
+    <div class="lead">Configuring observability tool for your applications</div>
+	<p>Current Opta&rsquo;s observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
+<h2 id="datadog">Datadog</h2>
+<p>Opta makes it very easy to setup Datadog monitoring and logging for your applications. All you have to do is provide your Datadog api key during creation of the <a href="/docs/reference/environment_config">environment</a>.</p>
+<p>Run the following command from the directory where your environment&rsquo;s <code>opta.yml</code> is present.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply --var <span style="color:#000">datadog_api_key</span><span style="color:#ce5c00;font-weight:bold">={</span>your_api_key<span style="color:#ce5c00;font-weight:bold">}</span>
+</code></pre></div><p>This will setup datadog monitoring and logging on your kubernetes cluster. And now you can use datadog clients to send any metrics or use their APM directly in your app.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ab275c9f2c0050db064eeecb0382c84e">8 - Secrets</h1>
+    <div class="lead">Creating secrets for your application</div>
+	<p>Opta provides in-built secret management for your applications.</p>
+<ul>
+<li>Define the secrets in the service&rsquo;s opta.yaml file.</li>
+<li>Use the <code>opta secret</code> cli to update the value and list secrets.</li>
+</ul>
+<ol>
+<li>You can define/provision all the secrets you would need for an application in the service&rsquo;s opta.yaml file like this:</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyApp </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># You can set any environment variables you want here</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">MyApp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Change this based on your</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET_1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET_2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>So when you run <code>opta apply</code> on this file, it will provision the secrets for you.</p>
+<ol start="2">
+<li>Now you can use the following command (from the dir where above file) to list all your secrets</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret list MyApp --env staging
+</code></pre></div><ol start="3">
+<li>To set the values of the secrets, you can use the cli</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret update MyApp MY_SECRET_1 SECRET_VALUE --env staging
+</code></pre></div><p>Note: The secret needs to be set individually for each service and environment</p>
+<ol start="4">
+<li>You can print the value of an existing secret with the cli</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret view MyApp MY_SECRET_1 --evn staging
+</code></pre></div>
 </div>
 
 
