@@ -1,10 +1,3 @@
-# Development
-- Fetch git submodules: `git submodule update --init --recursive`
-- Install hugo: `brew install hugo`
-- Install npm dependancies: `npm install`
-- Run hugo server: `hugo server`
+This repository contains the compiled assets for docs.runx.dev
 
-You can now see the site at http://localhost:1313 Any changes you make will get instantly updated in the browser!
-
-# Deployment
-We have continuous deployment set up. Once your PR gets merged, it will automatically get deployed to https://docs.runx.dev
+*Don't* edit the code here directly. Instead, edit the source at [opta-docs](https://github.com/run-x/opta-docs). Once your PR merges there, it will automatically get deployed to this repository.
