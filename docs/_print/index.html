@@ -245,6 +245,14 @@ This the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>4.1: <a href="#pg-9fd2056c2f3198b6d0a2db53cc0db62d">Modules</a></li>
+
+
+    
+  
 
     </ul>
     
@@ -700,6 +708,312 @@ We will create another <code>opta.yml</code> file, which defines high level conf
   
   
 
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-9fd2056c2f3198b6d0a2db53cc0db62d">4.1 - Modules</h1>
+    <div class="lead">Reference on the structure, input and output of different Modules</div>
+	<h1 id="whats-an-opta-module">What&rsquo;s an opta module?</h1>
+<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which are our wrapper over <a href="https://www.terraform.io/docs/language/modules/index.html">terraform modules</a>.
+Just like regular software libraries/packages, our modules are groups of distinct resources which we want to create over
+and over for different users/environments. Opta yamls either directly or indirectly (via macros) reference these constructs
+under the <code>modules</code> field, of either the Layer&rsquo;s base as follows:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;kennethreitz/httpbin&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;dummy.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">liveness_probe_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">readiness_probe_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_prefix</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/showoff&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">external_image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">BLAH</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">malarkey</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Or on the Layer&rsquo;s <code>blocks</code> fields, as follows:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">blocks</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This block holds 2 modules, named linkerd, datadog</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">linkerd</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">linkerd-init</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">datadog</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">datadog</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">api_key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{datadog_api_key}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This block holds one module of type k8s-hello-world-service named hello</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-hello-world-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">hello_world_domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;hello-world.{domain}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>You&rsquo;ll note that the module instance can have user-specified names which will come into play later with references.</p>
+<h2 id="variables">Variables</h2>
+<p>You&rsquo;ll note that there can be many, varying, fields per module instance such as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;api_key&rdquo; etc&hellip;
+These are called <em>variables</em> and this is how specific data passed into the</p>
+<h3 id="types">Types</h3>
+<p>All modules have their own list of supported variables, but the one common to all is <em>type</em>. The type variable is simply
+the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
+modules built in &ndash; future work may allow users to specify their own.</p>
+<h2 id="outputs-and-references">Outputs and References</h2>
+<p>To pass data along the chain to new resources created in the same block or succeeding blocks, modules often have output
+fields (e.g. the database password, the vpc id, the K8s api endpoint, etc&hellip;). These field can be referenced directly
+or indirectly</p>
+<h2 id="directly">Directly</h2>
+<p>Currently, a module can reference the outputs of another in its variable by passing it as a string wrapped in ${{}}</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">aws-eks-init</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks-init</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">cluster_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">main</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">subnet_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.aws-network-init.private_subnet_ids}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">key_arn</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.aws-state-init.kms_account_key_arn}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h2 id="indirectly">Indirectly</h2>
+<h3 id="inheritance">Inheritance</h3>
+<p>For convenience&rsquo;s sake, the outputs of the parent layer are passed to the child and any variable in the child&rsquo;s module
+with the same name as the output will get it automatically. For instance, the elasticache redis instances we create
+are all encrypted at rest. In order to do this we need a KMS key arn which we setup for you via the _init macro which
+you should run to setup your base environment. Because the variable is called kms_account_key_arn, and the output is
+also called kms_account_key_arn, if you have the base environment setup as the parent, then you never need to think
+about it yourself.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Parent has kms_account_key_arn</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># invisible kms_account_key_arn reference added here</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h3 id="linking">Linking</h3>
+<p>The k8s-service module type is the first (but not the last) module to support special processing. In this case, it&rsquo;s
+in regard to the <em>links</em> variable. The links variable takes as input a map where the key is the name of another
+module in the layer (not in a future block) and the value a list of strings representing resource manipulation
+permissions (e.g. IAM permissions wrappers). The module processor then transforms your module&rsquo;s input to intelligently
+integrate your k8&rsquo;s service deployment to the now &ldquo;linked&rdquo; resources.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">doc_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">write</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">doc_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-documentdb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test-docdb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3-bucket</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>This intelligent integration is supported for the following module types:</p>
+<h4 id="aws-rds">aws-rds</h4>
+<p>An aws-rds link adds secrets to your deployment for the database name, user, password, and host, which are added to your
+container as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, <em>{module_name}_db_name</em>, and <em>{module_name}_db_host</em>.
+The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a database
+and that should not come up for +95% of the use cases (these permissions mean modifying the database itself, like
+destroying it or increasing its size, which an app should not concern itself with).</p>
+<h4 id="aws-redis">aws-redis</h4>
+<p>An aws-redis link adds secrets to your deployment for the redis cache host, and auth-token (password) which are added to your
+container as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.
+The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a redis cache
+and that should not come up for +95% of the use cases (these permissions mean modifying the cache itself, like
+destroying it or increasing its size, which an app should not concern itself with).</p>
+<h4 id="aws-documentdb">aws-documentdb</h4>
+<p>tl;dr same as aws-rds, but no db_name</p>
+<p>An aws-documentdb link adds secrets to your deployment for the database user, password, and host, which are added to your
+container as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.
+The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a database
+and that should not come up for +95% of the use cases (these permissions mean modifying the database itself, like
+destroying it or increasing its size, which an app should not concern itself with).</p>
+<h4 id="aws-s3">aws-s3</h4>
+<p>An aws-s3 link adds the necessary IAM permissions to read (e.g. list objects and get objects) and write (e.g. list, get,
+create, destroy, and update objects) to the given s3 bucket. The current permissions are (wait for it), &ldquo;read&rdquo; and &ldquo;write&rdquo;</p>
+<h1 id="current-module-types">Current Module Types</h1>
+<p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
+<h2 id="aws-documentdb-1">aws-documentdb</h2>
+<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets created by the _init
+macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
+at rest with a kms key created in the env setup via the _init macro and in transit via tls.</p>
+<p><em>Variables</em></p>
+<ul>
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the documentdb cluster <a href="https://aws.amazon.com/documentdb/pricing/">instances</a>.
+Default db.r5.large</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>db_user</code> &ndash; DB user</li>
+<li><code>db_password</code> &ndash; DB password</li>
+<li><code>db_host</code> &ndash; DB host</li>
+</ul>
+<p><em>NOTE</em> For documentdb to work with SSL encryption (and password authentication requires that), it needs to fetch the
+<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">SSL certificates and have them ready in the local machine</a>.
+Fortunately, the opta k8s-service module has already taken care of that. You&rsquo;ll find them at <code>/config/rds_ca.pem&quot;</code></p>
+<h2 id="aws-rds-1">aws-rds</h2>
+<p>This module creates a postgres Aurora RDS database instance. It is made in the private subnets created by the _init
+macro and so can only be accessed in the VPC or through some proxy (e.g. VPN).</p>
+<p><em>Variables</em></p>
+<ul>
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Auror cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
+Default db.r5.large</li>
+<li><code>engine_version</code> &ndash; Optional. The version of the database to use. Default 11.9.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>db_user</code> &ndash; DB user</li>
+<li><code>db_password</code> &ndash; DB password</li>
+<li><code>db_host</code> &ndash; DB host</li>
+<li><code>db_name</code> &ndash; DB name</li>
+</ul>
+<h2 id="aws-redis-1">aws-redis</h2>
+<p>This module creates a redis cache via elasticache. It is made with one failover instance across azs, and is encrypted
+at rest with a kms key created in the env setup via the _init macro and in transit via tls. It is made in the private
+subnets created by the _init macro and so can only be accessed in the VPC or through some proxy (e.g. VPN).</p>
+<p><em>Variables</em></p>
+<ul>
+<li><code>node_type</code> &ndash; Optional. This is the redis instance type used for the <a href="https://aws.amazon.com/elasticache/pricing/">instances</a>.
+Default cache.m4.large.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
+<li><code>cache_host</code> &ndash; The host to contact to access the cluster.</li>
+</ul>
+<p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not support the TLS transit encryption. There
+should be no trouble with any of the language sdks however, and they should all support ssl enabled.</p>
+<h2 id="aws-s3-bucket">aws-s3-bucket</h2>
+<p>This module creates an S3 bucket for storage purposes. It is created with server-side AES256 encryption.</p>
+<p><em>Variables</em></p>
+<ul>
+<li><code>bucket_name</code>&ndash; Required. The name of the bucket to create.</li>
+<li><code>block_public</code> &ndash; Optional. Block all public access. Default true</li>
+<li><code>bucket_policy</code> &ndash; Optional. A custom s3 policy json/yaml to add.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>bucket_id</code> &ndash; The id/name of the bucket.</li>
+<li><code>bucket_arn</code> &ndash; The arn of the bucket.</li>
+</ul>
+<h2 id="k8s-service">k8s-service</h2>
+<p>The most import module for deploying apps, k8s-service deploys a k8s app into your EKS cluster as a <a href="https://helm.sh/docs/topics/charts/">helm chart</a>.</p>
+<p>It creates the following for you in K8s:</p>
+<ul>
+<li>A <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a> just for your app&rsquo;s resources.
+The namespace name will be the name of the layer.</li>
+<li>A <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployment</a> with your app&rsquo;s containers.</li>
+<li>A <a href="https://kubernetes.io/docs/concepts/services-networking/service/">service</a> for your deployment.
+The service name will be the name of the module</li>
+<li>A <a href="https://kubernetes.io/docs/concepts/configuration/secret/">secret</a> holding your sensitive key-value pairs. This is
+different than standard envars because they&rsquo;re encrypted in the K8s state storage and is hidden in the k8s api.</li>
+<li>A <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">service account</a> which maps
+to an iam role special to this app (aws sdks will work from the start)</li>
+<li>A <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">horizontal pod autoscaler</a> to scale up
+your containers depending on cpu and memory usage.</li>
+<li>Optionally, an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress</a> to expose your app to the
+world if you set a domain.</li>
+</ul>
+<p>Under the hood, it expects you to have linkerd setup, which is taken care of for you
+with the _init macro. With the service mesh set up, you app will be efficiently load balanced and reap all of the
+lightweight service meshes <a href="https://linkerd.io/2/features/">benefits</a>.</p>
+<p>tl;dr<br>
+It deploys your service in kubernetes as a rolling update securely and with simple autoscaling right off the bat&ndash; you
+can even expose it to the world, complete with load balancing both internally and externally.</p>
+<h4 id="externalinternal-image">External/Internal Image</h4>
+<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
+by setting the <code>image</code> variable to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If that&rsquo;s not set then
+it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
+command to push to it!</p>
+<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
+<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
+<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
+be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
+user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
+just checks the tcp connection on the given port.</p>
+<h4 id="autoscaling">Autoscaling</h4>
+<p>As mentioned, autoscaling is handled by the official Horizontal Pod Autoscaler. We currently only support autoscaling
+based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
+to scale. As mentioned in the k8s docs, the horizontal pod autoscaler assumes a linear relationship between # of replicas
+and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
+The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
+if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
+the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
+<h4 id="container-resources">Container Resources</h4>
+<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
+A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
+With opta, we expose such settings to the user, while keeping sensible defaults.</p>
+<h4 id="ingress">Ingress</h4>
+<p>Yet another benefit of K8s is a standardized form of exposing your app to the world via ingress and api gateways. Our
+environment _init macro adds the <a href="https://kubernetes.github.io/ingress-nginx/">nginx ingress controller</a> to the K8s
+clusters. This ingress is bound to a Network Load Balancer which is in turn bound to the hosted zone created by the same
+macro. Assuming that the nameservers where delegated properly, traffic should be coming into your cluster automatically.
+The ingress can then be used to control where the traffic flows depending on host and path_prefix among other fields
+to be supported in the future by opta.</p>
+<p><em>Variables</em></p>
+<ul>
+<li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
+<code>http: [PORT_NUMBER_HERE]</code> or <code>tcp: [PORT_NUMBER_HERE]</code>. Use http if you just have a vanilla http server and tcp for
+websockets.</li>
+<li><code>min_autoscaling</code> &ndash; Optional. The minimum number of replicas your app can autoscale to. Default 1</li>
+<li><code>max_autoscaling</code> &ndash; Optional. The maximum number of replicas your app can autoscale to. Default 3</li>
+<li><code>image</code> &ndash; Optional. If you specify this, then it will use the image specified for its deploys and not make an ECR
+repo itself.</li>
+<li><code>tag</code> &ndash; Optional, use this if you are using an internal image whose repo is managed by the module. The tag specifies
+what image tag to pull from the image repo. We recommend tagging based on git commit sha</li>
+<li><code>env_vars</code> &ndash; Optional. A list of maps holding name+value fields for envars to add to your container
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">BLAH</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">malarkey</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>secrets</code> &ndash; Optional. Same format as env_vars, but these values will be stored in the secrets resource, not directly
+in the pod spec.</li>
+<li><code>autoscaling_target_cpu_percentage</code> &ndash;  Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>liveness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>readiness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>container_resource_limits</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;200m&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;256Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>container_resource_requests</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
+<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by opta which you wish to give to your service.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
+when using external images.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
   
 
     
