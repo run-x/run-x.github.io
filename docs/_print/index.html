@@ -191,6 +191,22 @@ This the multi-page printable view of this section.
   
 
   
+    
+    
+	
+<li>2.1: <a href="#pg-c80b756d66131f94289838a8f5e5dfb6">Application configuration</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.2: <a href="#pg-6bd8245a72005c9ce664cfcb3875a0af">Environment configuration</a></li>
+
+
+    
+  
 
     </ul>
     
@@ -210,10 +226,29 @@ This the multi-page printable view of this section.
   
 
   
+
+    </ul>
+    
+  
     
     
 	
-<li>3.1: <a href="#pg-72c5d09166371766164cc6e996c6eb71">Application configuration</a></li>
+<li>4: <a href="#pg-8dbd4e302cd86a4d0f71f71ce3b300de">Tutorials</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.1: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
 
 
     
@@ -221,7 +256,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.2: <a href="#pg-759e7913781507df02685132bce7d2da">Continuous Deployment</a></li>
+<li>4.2: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
 
 
     
@@ -229,7 +264,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.3: <a href="#pg-2ff9cf99cf551ee98d51b28a16dd4813">Environment configuration</a></li>
+<li>4.3: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
 
 
     
@@ -237,7 +272,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.4: <a href="#pg-573999a4a99ad126194b2e265acec65a">Ingress</a></li>
+<li>4.4: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
 
 
     
@@ -245,15 +280,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.5: <a href="#pg-f1640a899c8cfd3b8985e9a7ec130835">Observability Integrations</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3.6: <a href="#pg-ab275c9f2c0050db064eeecb0382c84e">Secrets</a></li>
+<li>4.5: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -386,6 +413,8 @@ For this we need to create an <code>opta.yml</code> file which defines the envir
 <p>Create the following file at <code>staging/opta.yml</code> directory and update the fields specific to your AWS account setup.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Provide a unique org_id here, usually your company name</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">org_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># Provide your AWS account and region here</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -412,6 +441,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The docker port your service listens on</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The path to expose this app on</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -434,7 +464,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 <p>To deploy the service:</p>
 <ul>
 <li>Build docker image: <code>docker build ...</code></li>
-<li>Upload docker image: <code>opta upload --tag &lt;tag&gt; image</code> where <code>&lt;tag&gt;</code> is what you want to call this version. Usually the git sha.</li>
+<li>Upload docker image: <code>opta push --tag &lt;tag&gt; image</code> where <code>&lt;tag&gt;</code> is what you want to call this version. Usually the git sha.</li>
 <li>Apply the change: <code>opta apply --var tag=&lt;tag&gt;</code></li>
 </ul>
 <p>Now your service will be accessible at <a href="https://my_app.staging.startup.com">https://my_app.staging.startup.com</a>! Congrats!</p>
@@ -454,10 +484,6 @@ We will create another <code>opta.yml</code> file, which defines high level conf
   
 
   
-
-    
-	
-  
     
     
 	
@@ -465,32 +491,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">3 - Reference</h1>
-    <div class="lead">Opta config reference</div>
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-72c5d09166371766164cc6e996c6eb71">3.1 - Application configuration</h1>
+	<h1 id="pg-c80b756d66131f94289838a8f5e5dfb6">2.1 - Application configuration</h1>
     <div class="lead">Configuration details for the application yaml</div>
 	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyApp </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -528,33 +529,13 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-759e7913781507df02685132bce7d2da">3.2 - Continuous Deployment</h1>
-    <div class="lead">Instructions to integrate with CI/CD platform of your choice</div>
-	<h2 id="github-actions">Github Actions</h2>
-<p>Coming soon</p>
-<h2 id="circle-ci">Circle CI</h2>
-<p>Coming soon</p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-2ff9cf99cf551ee98d51b28a16dd4813">3.3 - Environment configuration</h1>
+	<h1 id="pg-6bd8245a72005c9ce664cfcb3875a0af">2.2 - Environment configuration</h1>
     <div class="lead">Configuration details for the environment yaml</div>
 	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">org_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># unique org id</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># currently we only support AWS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1 </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># AWS region where you want to deploy your apps</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_account_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">889760294590</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># replace this with your AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -575,6 +556,10 @@ We will create another <code>opta.yml</code> file, which defines high level conf
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -582,13 +567,89 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-573999a4a99ad126194b2e265acec65a">3.4 - Ingress</h1>
+	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">3 - Reference</h1>
+    <div class="lead">Opta config reference</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-8dbd4e302cd86a4d0f71f71ce3b300de">4 - Tutorials</h1>
+    <div class="lead">Tutorials on Opta</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">4.1 - Continuous Deployment</h1>
+    <div class="lead">Instructions to integrate with CI/CD platform of your choice</div>
+	<h2 id="github-actions">Github Actions</h2>
+<p>Coming soon</p>
+<h2 id="circle-ci">Circle CI</h2>
+<p>Coming soon</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">4.2 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>You can specify a domain for each environment which can be used by all
 the services running in that environment.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">org_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;region&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -648,7 +709,30 @@ staging				1h			ns4
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f1640a899c8cfd3b8985e9a7ec130835">3.5 - Observability Integrations</h1>
+	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">4.3 - Kubectl Configuration</h1>
+    <div class="lead">How to configure kubectl for your Opta Kubernetes Cluster</div>
+	<p>You can run the following command to configure kubectl to talk to a kubernetes cluster for a particular environment.
+You need to have kubectl installed for this to work.</p>
+<p>Note: The following commands needs to be run from the directory where your app&rsquo;s <code>opta.yml</code> is present</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta configure-kubectl --env staging
+</code></pre></div><p>Each service gets created in it&rsquo;s own kubernetes namespace.
+You can use <code>kubctl get namespaces</code> to list all the namespaces. The name of the namespace should be same as the name of the service.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1a374c31804770873724683b0616ffae">4.4 - Observability Integrations</h1>
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Current Opta&rsquo;s observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
@@ -671,7 +755,7 @@ staging				1h			ns4
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ab275c9f2c0050db064eeecb0382c84e">3.6 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">4.5 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications.</p>
 <ul>
@@ -682,15 +766,13 @@ staging				1h			ns4
 <li>You can define/provision all the secrets you would need for an application in the service&rsquo;s opta.yaml file like this:</li>
 </ol>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyApp </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># You can set any environment variables you want here</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">MyApp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Change this based on your</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
