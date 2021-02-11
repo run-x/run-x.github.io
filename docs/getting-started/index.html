@@ -171,6 +171,31 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsinstallation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+        
+      
+      
+      
+        
+          
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
     <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
   </li>
   <ul>
@@ -348,11 +373,7 @@ if (!doNotTrack) {
 <nav id="TableOfContents">
   <ul>
     <li><a href="#prerequisites">Prerequisites</a></li>
-    <li><a href="#installation">Installation</a>
-      <ul>
-        <li><a href="#macos-or-linux">MacOS or Linux</a></li>
-      </ul>
-    </li>
+    <li><a href="#installation">Installation</a></li>
     <li><a href="#environment-creation">Environment creation</a></li>
     <li><a href="#service-creation">Service creation</a></li>
     <li><a href="#service-deployment">Service Deployment</a></li>
@@ -406,12 +427,7 @@ if (!doNotTrack) {
 docker-for-mac)</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<blockquote>
-<p>Latest version: 0.5</p>
-</blockquote>
-<h3 id="macos-or-linux">MacOS or Linux</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
-</code></pre></div><p><em>If you want a different version, just set the env var <code>VERSION=&lt;v&gt;</code> before running the above script</em></p>
+<p>Check out the <a href="/docs/installation">Installation instructions</a>.</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
 For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
@@ -493,6 +509,8 @@ We will create another <code>opta.yml</code> file, which defines high level conf
             
         
             
+        
+            
                 <div class="entry">
                     <h5>
                         <a href="/docs/getting-started/application_config/">Application configuration</a>
@@ -525,7 +543,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified February 10, 2021: <a  href="/commit/600df3cedd7a7f0db503a890940bcb68351d374b">Open Update org_id in docs (#14) (600df3c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified February 10, 2021: <a  href="/commit/28aa7db0056d4a3faee1d752869c5ed2a54748a3">Move release history to docs (#15) (28aa7db)</a>
 </div>
 </div>
 

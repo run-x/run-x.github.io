@@ -160,7 +160,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-6e17e09fffc1050f46600282def85180">Overview</a></li>
+<li>1: <a href="#pg-6121397c9c1b82e0a74996f89313317c">Installation</a></li>
 
 
     
@@ -179,42 +179,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-93aadc1aba179e6928539400a09b9e4e">Getting Started</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>2.1: <a href="#pg-c80b756d66131f94289838a8f5e5dfb6">Application configuration</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.2: <a href="#pg-6bd8245a72005c9ce664cfcb3875a0af">Environment configuration</a></li>
-
-
-    
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-8df6ea6904416b571ff9bc73afb50933">Reference</a></li>
+<li>2: <a href="#pg-6e17e09fffc1050f46600282def85180">Overview</a></li>
 
 
     
@@ -233,7 +198,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-8dbd4e302cd86a4d0f71f71ce3b300de">Tutorials</a></li>
+<li>3: <a href="#pg-93aadc1aba179e6928539400a09b9e4e">Getting Started</a></li>
 
 
     
@@ -248,7 +213,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.1: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
+<li>3.1: <a href="#pg-c80b756d66131f94289838a8f5e5dfb6">Application configuration</a></li>
 
 
     
@@ -256,7 +221,53 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.2: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>3.2: <a href="#pg-6bd8245a72005c9ce664cfcb3875a0af">Environment configuration</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-8df6ea6904416b571ff9bc73afb50933">Reference</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-8dbd4e302cd86a4d0f71f71ce3b300de">Tutorials</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.1: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
 
 
     
@@ -264,7 +275,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
+<li>5.2: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
 
 
     
@@ -272,7 +283,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.4: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
+<li>5.3: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
 
 
     
@@ -280,7 +291,15 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.5: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>5.4: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.5: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -323,7 +342,109 @@ This the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-6e17e09fffc1050f46600282def85180">1 - Overview</h1>
+	<h1 id="pg-6121397c9c1b82e0a74996f89313317c">1 - Installation</h1>
+    <div class="lead">Installation Instructions</div>
+	<h2 id="macos-or-linux">MacOS or Linux</h2>
+<p>Run this script to install the latest version of opta (see below for changelog
+and release history).</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+</code></pre></div><p>You can specify a particular version as well.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+</code></pre></div><h2 id="releases">Releases</h2>
+<h3 id="07">0.7</h3>
+<h4 id="changelog">Changelog</h4>
+<ul>
+<li>Introduced org_id in env yaml files</li>
+<li>Bugfixes</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/32dfe0ae4cc0f61dc6ad34bed69932cf05af0538">32dfe0a</a></p>
+<hr>
+<h3 id="06">0.6</h3>
+<h4 id="changelog-1">Changelog</h4>
+<ul>
+<li>Added support for websockets</li>
+<li>Updated port syntax (BREAKING CHANGE)</li>
+<li>Bunch of bugfixes!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/8dec38d34d72eb82dd46e2f5f423b627e50d5729">8dec38d</a></p>
+<hr>
+<h3 id="05">0.5</h3>
+<h4 id="changelog-2">Changelog</h4>
+<ul>
+<li>Added opta configure-kubectl</li>
+<li>Updated link syntax (BREAKING CHANGE)</li>
+<li>Bugfix for deleting/renaming resources</li>
+<li>Bugfix for deleting rds/docdb</li>
+<li>Added opta push</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/85185d87719e5f86219d47d35b5872d4a5dc237a">85185d8</a></p>
+<hr>
+<h3 id="04">0.4</h3>
+<h4 id="changelog-3">Changelog</h4>
+<ul>
+<li>Added opta secret list</li>
+<li>Added opta output</li>
+<li>Added support for document db</li>
+<li>Bugfix for redis</li>
+<li>Misc cleanup</li>
+<li>zip packaging for faster runtime!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/0a60153da5d2756ccc3220ab346f8ba276357deb">0a60153</a></p>
+<hr>
+<h3 id="03">0.3</h3>
+<h4 id="changelog-4">Changelog</h4>
+<ul>
+<li>No changes in opta but the binaries are generated by an automated mechanism</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/163fb775ce31c1c45568ba3de1e04447e23da59c">163fb77</a></p>
+<hr>
+<h3 id="02">0.2</h3>
+<h4 id="changelog-5">Changelog</h4>
+<ul>
+<li>Added tests</li>
+<li>Added sentry and amplitude</li>
+<li>Added support for multiple environments</li>
+<li>Added support for s3</li>
+<li>Added support for elastic cache</li>
+<li>Misc stability and bug fixes</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/dcd6a83bd8737ad3f0b4a22455d94fc8dc4fbd86">dcd6a83</a></p>
+<hr>
+<h3 id="01">0.1</h3>
+<h4 id="changelog-6">Changelog</h4>
+<ul>
+<li>First release!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/ff53aad6a0a3b86cffb9e21b3112fd7b29b26e65">ff53aad</a></p>
+<hr>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-6e17e09fffc1050f46600282def85180">2 - Overview</h1>
     <div class="lead">What is Opta?</div>
 	<p>Opta, is a cloud infrastructure management tool specifically designed to reduce
 complexity and improve iteration speed.</p>
@@ -388,7 +509,7 @@ focused on the app</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-93aadc1aba179e6928539400a09b9e4e">2 - Getting Started</h1>
+	<h1 id="pg-93aadc1aba179e6928539400a09b9e4e">3 - Getting Started</h1>
     <div class="lead">The first steps in working with Opta.</div>
 	<h2 id="prerequisites">Prerequisites</h2>
 <p>Opta currently has the following system prerequisites to operate normally:</p>
@@ -401,12 +522,7 @@ focused on the app</li>
 docker-for-mac)</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<blockquote>
-<p>Latest version: 0.5</p>
-</blockquote>
-<h3 id="macos-or-linux">MacOS or Linux</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
-</code></pre></div><p><em>If you want a different version, just set the env var <code>VERSION=&lt;v&gt;</code> before running the above script</em></p>
+<p>Check out the <a href="/docs/installation">Installation instructions</a>.</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
 For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
@@ -491,7 +607,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c80b756d66131f94289838a8f5e5dfb6">2.1 - Application configuration</h1>
+	<h1 id="pg-c80b756d66131f94289838a8f5e5dfb6">3.1 - Application configuration</h1>
     <div class="lead">Configuration details for the application yaml</div>
 	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">MyApp </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -529,7 +645,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6bd8245a72005c9ce664cfcb3875a0af">2.2 - Environment configuration</h1>
+	<h1 id="pg-6bd8245a72005c9ce664cfcb3875a0af">3.2 - Environment configuration</h1>
     <div class="lead">Configuration details for the environment yaml</div>
 	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -567,7 +683,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">3 - Reference</h1>
+	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">4 - Reference</h1>
     <div class="lead">Opta config reference</div>
 	
 </div>
@@ -596,7 +712,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8dbd4e302cd86a4d0f71f71ce3b300de">4 - Tutorials</h1>
+	<h1 id="pg-8dbd4e302cd86a4d0f71f71ce3b300de">5 - Tutorials</h1>
     <div class="lead">Tutorials on Opta</div>
 	
 </div>
@@ -621,7 +737,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="">
     
-	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">4.1 - Continuous Deployment</h1>
+	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">5.1 - Continuous Deployment</h1>
     <div class="lead">Instructions to integrate with CI/CD platform of your choice</div>
 	<h2 id="github-actions">Github Actions</h2>
 <p>Coming soon</p>
@@ -642,7 +758,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">4.2 - Ingress</h1>
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">5.2 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>You can specify a domain for each environment which can be used by all
@@ -709,7 +825,7 @@ staging				1h			ns4
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">4.3 - Kubectl Configuration</h1>
+	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">5.3 - Kubectl Configuration</h1>
     <div class="lead">How to configure kubectl for your Opta Kubernetes Cluster</div>
 	<p>You can run the following command to configure kubectl to talk to a kubernetes cluster for a particular environment.
 You need to have kubectl installed for this to work.</p>
@@ -732,7 +848,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1a374c31804770873724683b0616ffae">4.4 - Observability Integrations</h1>
+	<h1 id="pg-1a374c31804770873724683b0616ffae">5.4 - Observability Integrations</h1>
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Current Opta&rsquo;s observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
@@ -755,7 +871,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">4.5 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">5.5 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications.</p>
 <ul>
