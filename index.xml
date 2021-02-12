@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> – Opta</title>
+    <title>Opta – Opta</title>
     <link>/</link>
-    <description>Recent content in Opta on </description>
+    <description>Recent content on Opta</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
