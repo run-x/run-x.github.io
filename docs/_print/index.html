@@ -214,22 +214,6 @@ This the multi-page printable view of this section.
   
 
   
-    
-    
-	
-<li>3.1: <a href="#pg-c80b756d66131f94289838a8f5e5dfb6">Application configuration</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3.2: <a href="#pg-6bd8245a72005c9ce664cfcb3875a0af">Environment configuration</a></li>
-
-
-    
-  
 
     </ul>
     
@@ -279,7 +263,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>5.1: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
+<li>5.1: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
 
 
     
@@ -287,7 +271,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>5.2: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>5.2: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
 
 
     
@@ -295,7 +279,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>5.3: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
+<li>5.3: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
 
 
     
@@ -303,15 +287,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>5.4: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
-
-
-    
-  
-    
-    
-	
-<li>5.5: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>5.4: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -560,32 +536,34 @@ For this we need to create an <code>opta.yml</code> file which defines the envir
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service with your application&rsquo;s logic.
 We will create another <code>opta.yml</code> file, which defines high level configuration of this service.</p>
-<p>Create this file at <code>my_app/opta.yml</code> and update the fields specific to your service setup.</p>
+<p>Create this file at <code>myapp/opta.yml</code> and update the fields specific to your service setup.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The environment to deploy to</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># This is needed for deploys to work properly!</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The docker port your service listens on</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The path to expose this app on</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;my_app.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Use parent variables to distinguish b/w various environments</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># DB credentials will be passed down to your app as env variables</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">my_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Now, cd to the <code>my_app</code> dir and run:</p>
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># This is needed for deploys to work properly!</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The docker port your service listens on</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The path to expose this app on</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># Use parent variables to distinguish b/w various environments</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENV</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># DB credentials will be passed down to your app as env variables</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">MY_SECRET</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Now, cd to the <code>myapp</code> dir and run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
 </code></pre></div><p>This sets up your service&rsquo;s infrastructure (database, etc) and now it&rsquo;s ready to be deployed
 (next section).</p>
@@ -596,7 +574,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 <li>Upload docker image: <code>opta push --tag &lt;tag&gt; image</code> where <code>&lt;tag&gt;</code> is what you want to call this version. Usually the git sha.</li>
 <li>Apply the change: <code>opta apply --var tag=&lt;tag&gt;</code></li>
 </ul>
-<p>Now your service will be accessible at <a href="https://my_app.staging.startup.com">https://my_app.staging.startup.com</a>! Congrats!</p>
+<p>Now your service will be accessible at <a href="https://myapp.staging.startup.com">https://myapp.staging.startup.com</a>! Congrats!</p>
 
 </div>
 
@@ -612,76 +590,6 @@ We will create another <code>opta.yml</code> file, which defines high level conf
   
   
 
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-c80b756d66131f94289838a8f5e5dfb6">3.1 - Application configuration</h1>
-    <div class="lead">Configuration details for the application yaml</div>
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># the environments where this needs to be deployed</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># path to the env file (could be a github path)</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">min_size</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># name for your app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># type of the app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Change this based on your application container</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># optional: used to expose the service to the internet at this domain</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">my_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Sets the DB access keys as env variables in your app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Database name</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Type of the database</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div>
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-6bd8245a72005c9ce664cfcb3875a0af">3.2 - Environment configuration</h1>
-    <div class="lead">Configuration details for the environment yaml</div>
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">org_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># unique org id</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1 </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># AWS region where you want to deploy your apps</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_account_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">889760294590</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># replace this with your AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.example.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># replace this with a domain you own</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">_init</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>TODO:</p>
-<ul>
-<li>Specify the nodegroup size, min, max</li>
-<li>Link of instructions to setup domain</li>
-</ul>
-
-</div>
-
-
-
-    
-	
   
 
     
@@ -722,17 +630,16 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 	<h1 id="pg-9fd2056c2f3198b6d0a2db53cc0db62d">4.1 - Modules</h1>
     <div class="lead">Reference on the structure, input and output of different Modules</div>
 	<h1 id="whats-an-opta-module">What&rsquo;s an opta module?</h1>
-<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which are our wrapper over <a href="https://www.terraform.io/docs/language/modules/index.html">terraform modules</a>.
-Just like regular software libraries/packages, our modules are groups of distinct resources which we want to create over
-and over for different users/environments. Opta yamls either directly or indirectly (via macros) reference these constructs
-under the <code>modules</code> field, of either the Layer&rsquo;s base as follows:</p>
+<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
+need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;kennethreitz/httpbin&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;latest&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;dummy.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -750,62 +657,23 @@ under the <code>modules</code> field, of either the Layer&rsquo;s base as follow
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Or on the Layer&rsquo;s <code>blocks</code> fields, as follows:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">blocks</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This block holds 2 modules, named linkerd, datadog</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">linkerd</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">linkerd-init</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">datadog</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">datadog</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">api_key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{datadog_api_key}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This block holds one module of type k8s-hello-world-service named hello</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-hello-world-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">hello_world_domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;hello-world.{domain}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>You&rsquo;ll note that the module instance can have user-specified names which will come into play later with references.</p>
 <h2 id="variables">Variables</h2>
-<p>You&rsquo;ll note that there can be many, varying, fields per module instance such as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;api_key&rdquo; etc&hellip;
-These are called <em>variables</em> and this is how specific data passed into the</p>
+<p>You&rsquo;ll note that there can be many, varying, fields per module instance such
+as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;api_key&rdquo; etc&hellip;  These are called <em>variables</em> and this
+is how specific data passed into the modules</p>
 <h3 id="types">Types</h3>
 <p>All modules have their own list of supported variables, but the one common to all is <em>type</em>. The type variable is simply
 the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
 modules built in &ndash; future work may allow users to specify their own.</p>
-<h2 id="outputs-and-references">Outputs and References</h2>
-<p>To pass data along the chain to new resources created in the same block or succeeding blocks, modules often have output
-fields (e.g. the database password, the vpc id, the K8s api endpoint, etc&hellip;). These field can be referenced directly
-or indirectly</p>
-<h2 id="directly">Directly</h2>
-<p>Currently, a module can reference the outputs of another in its variable by passing it as a string wrapped in ${{}}</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">aws-eks-init</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks-init</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">cluster_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">main</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">subnet_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.aws-network-init.private_subnet_ids}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">key_arn</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.aws-state-init.kms_account_key_arn}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h2 id="indirectly">Indirectly</h2>
-<h3 id="inheritance">Inheritance</h3>
-<p>For convenience&rsquo;s sake, the outputs of the parent layer are passed to the child and any variable in the child&rsquo;s module
-with the same name as the output will get it automatically. For instance, the elasticache redis instances we create
-are all encrypted at rest. In order to do this we need a KMS key arn which we setup for you via the _init macro which
-you should run to setup your base environment. Because the variable is called kms_account_key_arn, and the output is
-also called kms_account_key_arn, if you have the base environment setup as the parent, then you never need to think
-about it yourself.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Parent has kms_account_key_arn</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># invisible kms_account_key_arn reference added here</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h3 id="linking">Linking</h3>
-<p>The k8s-service module type is the first (but not the last) module to support special processing. In this case, it&rsquo;s
-in regard to the <em>links</em> variable. The links variable takes as input a map where the key is the name of another
-module in the layer (not in a future block) and the value a list of strings representing resource manipulation
-permissions (e.g. IAM permissions wrappers). The module processor then transforms your module&rsquo;s input to intelligently
-integrate your k8&rsquo;s service deployment to the now &ldquo;linked&rdquo; resources.</p>
+<h3 id="linking">Linking</h3>
+<p>The k8s-service module type is the first (but not the last) module to support
+special processing. In this case, it&rsquo;s in regard to the <em>links</em> variable. The
+links variable takes as input a map where the key is the name of another module
+in the file and the value a list of strings representing resource permissions.
+The module processor then transforms your module&rsquo;s input to intelligently
+integrate your k8&rsquo;s service deployment to the now &ldquo;linked&rdquo; resources (described
+in the next section).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -817,45 +685,21 @@ integrate your k8&rsquo;s service deployment to the now &ldquo;linked&rdquo; res
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">doc_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">docdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">write</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">doc_db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">docdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-documentdb</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">test-docdb</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3-bucket</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>This intelligent integration is supported for the following module types:</p>
-<h4 id="aws-rds">aws-rds</h4>
-<p>An aws-rds link adds secrets to your deployment for the database name, user, password, and host, which are added to your
-container as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, <em>{module_name}_db_name</em>, and <em>{module_name}_db_host</em>.
-The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a database
-and that should not come up for +95% of the use cases (these permissions mean modifying the database itself, like
-destroying it or increasing its size, which an app should not concern itself with).</p>
-<h4 id="aws-redis">aws-redis</h4>
-<p>An aws-redis link adds secrets to your deployment for the redis cache host, and auth-token (password) which are added to your
-container as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.
-The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a redis cache
-and that should not come up for +95% of the use cases (these permissions mean modifying the cache itself, like
-destroying it or increasing its size, which an app should not concern itself with).</p>
-<h4 id="aws-documentdb">aws-documentdb</h4>
-<p>tl;dr same as aws-rds, but no db_name</p>
-<p>An aws-documentdb link adds secrets to your deployment for the database user, password, and host, which are added to your
-container as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.
-The permission list is to be empty because we currently do not support giving apps IAM permissions to manipulate a database
-and that should not come up for +95% of the use cases (these permissions mean modifying the database itself, like
-destroying it or increasing its size, which an app should not concern itself with).</p>
-<h4 id="aws-s3">aws-s3</h4>
-<p>An aws-s3 link adds the necessary IAM permissions to read (e.g. list objects and get objects) and write (e.g. list, get,
-create, destroy, and update objects) to the given s3 bucket. The current permissions are (wait for it), &ldquo;read&rdquo; and &ldquo;write&rdquo;</p>
-<h1 id="current-module-types">Current Module Types</h1>
+</span></code></pre></div><h1 id="module-types">Module Types</h1>
 <p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
-<h2 id="aws-documentdb-1">aws-documentdb</h2>
+<h2 id="aws-documentdb">aws-documentdb</h2>
 <p>This module creates an AWS Documentdb  cluster. It is made in the private subnets created by the _init
 macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
 at rest with a kms key created in the env setup via the _init macro and in transit via tls.</p>
@@ -870,12 +714,22 @@ Default db.r5.large</li>
 <li><code>db_password</code> &ndash; DB password</li>
 <li><code>db_host</code> &ndash; DB host</li>
 </ul>
-<p><em>NOTE</em> For documentdb to work with SSL encryption (and password authentication requires that), it needs to fetch the
-<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">SSL certificates and have them ready in the local machine</a>.
-Fortunately, the opta k8s-service module has already taken care of that. You&rsquo;ll find them at <code>/config/rds_ca.pem&quot;</code></p>
-<h2 id="aws-rds-1">aws-rds</h2>
-<p>This module creates a postgres Aurora RDS database instance. It is made in the private subnets created by the _init
-macro and so can only be accessed in the VPC or through some proxy (e.g. VPN).</p>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, this adds connection credentials to your container
+as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.</p>
+<p>In addition to these credentials, you also need to enable SSL encryption when
+connecting (<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">AWS docs</a>).
+Fortunately, the opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
+find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
+<p>As an example, this is how the mongoose/node connection looks like:</p>
+<pre><code>await mongoose.connect(&quot;mongodb://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;, {
+  ssl: true,
+  sslCA: require('fs').readFileSync(`/config/rds_ca.pem`)
+});
+</code></pre><h2 id="aws-rds">aws-rds</h2>
+<p>This module creates a postgres Aurora RDS database instance. It is made in the
+private subnets created by the <em>init</em> macro and so can only be accessed in the
+VPC or through some proxy (e.g. VPN).</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Auror cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
@@ -889,9 +743,15 @@ Default db.r5.large</li>
 <li><code>db_host</code> &ndash; DB host</li>
 <li><code>db_name</code> &ndash; DB name</li>
 </ul>
-<h2 id="aws-redis-1">aws-redis</h2>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container as
+<em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, <em>{module_name}_db_name</em>,
+and <em>{module_name}_db_host</em>.</p>
+<p>The permission list is to be empty because we currently do not support giving
+apps IAM permissions to manipulate a database.</p>
+<h2 id="aws-redis">aws-redis</h2>
 <p>This module creates a redis cache via elasticache. It is made with one failover instance across azs, and is encrypted
-at rest with a kms key created in the env setup via the _init macro and in transit via tls. It is made in the private
+at rest with a kms key created in the env setup via the <em>init</em> macro and in transit via tls. It is made in the private
 subnets created by the _init macro and so can only be accessed in the VPC or through some proxy (e.g. VPN).</p>
 <p><em>Variables</em></p>
 <ul>
@@ -903,8 +763,12 @@ Default cache.m4.large.</li>
 <li><code>cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
 <li><code>cache_host</code> &ndash; The host to contact to access the cluster.</li>
 </ul>
-<p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not support the TLS transit encryption. There
-should be no trouble with any of the language sdks however, and they should all support ssl enabled.</p>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to yourcontainer
+as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.</p>
+<p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not
+support the TLS transit encryption. There should be no trouble with any of the
+language sdks however, as they all support TLS.</p>
 <h2 id="aws-s3-bucket">aws-s3-bucket</h2>
 <p>This module creates an S3 bucket for storage purposes. It is created with server-side AES256 encryption.</p>
 <p><em>Variables</em></p>
@@ -918,29 +782,15 @@ should be no trouble with any of the language sdks however, and they should all 
 <li><code>bucket_id</code> &ndash; The id/name of the bucket.</li>
 <li><code>bucket_arn</code> &ndash; The arn of the bucket.</li>
 </ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, this adds the necessary IAM permissions to read
+(e.g. list objects and get objects) and/or write (e.g. list, get,
+create, destroy, and update objects) to the given s3 bucket.
+The current permissions are (wait for it), &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
+specified when you add the link.</p>
 <h2 id="k8s-service">k8s-service</h2>
-<p>The most import module for deploying apps, k8s-service deploys a k8s app into your EKS cluster as a <a href="https://helm.sh/docs/topics/charts/">helm chart</a>.</p>
-<p>It creates the following for you in K8s:</p>
-<ul>
-<li>A <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a> just for your app&rsquo;s resources.
-The namespace name will be the name of the layer.</li>
-<li>A <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">deployment</a> with your app&rsquo;s containers.</li>
-<li>A <a href="https://kubernetes.io/docs/concepts/services-networking/service/">service</a> for your deployment.
-The service name will be the name of the module</li>
-<li>A <a href="https://kubernetes.io/docs/concepts/configuration/secret/">secret</a> holding your sensitive key-value pairs. This is
-different than standard envars because they&rsquo;re encrypted in the K8s state storage and is hidden in the k8s api.</li>
-<li>A <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/">service account</a> which maps
-to an iam role special to this app (aws sdks will work from the start)</li>
-<li>A <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">horizontal pod autoscaler</a> to scale up
-your containers depending on cpu and memory usage.</li>
-<li>Optionally, an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress</a> to expose your app to the
-world if you set a domain.</li>
-</ul>
-<p>Under the hood, it expects you to have linkerd setup, which is taken care of for you
-with the _init macro. With the service mesh set up, you app will be efficiently load balanced and reap all of the
-lightweight service meshes <a href="https://linkerd.io/2/features/">benefits</a>.</p>
-<p>tl;dr<br>
-It deploys your service in kubernetes as a rolling update securely and with simple autoscaling right off the bat&ndash; you
+<p>The most import module for deploying apps, k8s-service deploys a kubernetes app.
+It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
 can even expose it to the world, complete with load balancing both internally and externally.</p>
 <h4 id="externalinternal-image">External/Internal Image</h4>
 <p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
@@ -955,9 +805,9 @@ be sent to a replica or be temporarily rerouted to other replicas. Essentially s
 user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
 just checks the tcp connection on the given port.</p>
 <h4 id="autoscaling">Autoscaling</h4>
-<p>As mentioned, autoscaling is handled by the official Horizontal Pod Autoscaler. We currently only support autoscaling
+<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
 based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
-to scale. As mentioned in the k8s docs, the horizontal pod autoscaler assumes a linear relationship between # of replicas
+to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
 and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
 The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
 if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
@@ -967,12 +817,8 @@ the average memory usage was 160mb, it would logically try to double the number 
 A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
 With opta, we expose such settings to the user, while keeping sensible defaults.</p>
 <h4 id="ingress">Ingress</h4>
-<p>Yet another benefit of K8s is a standardized form of exposing your app to the world via ingress and api gateways. Our
-environment _init macro adds the <a href="https://kubernetes.github.io/ingress-nginx/">nginx ingress controller</a> to the K8s
-clusters. This ingress is bound to a Network Load Balancer which is in turn bound to the hosted zone created by the same
-macro. Assuming that the nameservers where delegated properly, traffic should be coming into your cluster automatically.
-The ingress can then be used to control where the traffic flows depending on host and path_prefix among other fields
-to be supported in the future by opta.</p>
+<p>You can control if and how you want to expose your app to the world! Check out
+the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
@@ -1054,28 +900,7 @@ when using external images.</li>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">5.1 - Continuous Deployment</h1>
-    <div class="lead">Instructions to integrate with CI/CD platform of your choice</div>
-	<h2 id="github-actions">Github Actions</h2>
-<p>Coming soon</p>
-<h2 id="circle-ci">Circle CI</h2>
-<p>Coming soon</p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">5.2 - Ingress</h1>
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">5.1 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>You can specify a domain for each environment which can be used by all
@@ -1107,26 +932,26 @@ staging				1h			ns4
 <p>A service can be exposed on a subdomain of the environment domain or on a path.</p>
 <h4 id="exposing-on-a-subdomain">Exposing on a subdomain</h4>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;my_app.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://my_app.staging.startup.com">https://my_app.staging.startup.com</a></p>
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">myapp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent[domain]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://myapp.staging.startup.com">https://myapp.staging.startup.com</a></p>
 <h4 id="exposing-on-a-path">Exposing on a path</h4>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/my_app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://staging.startup.com/my_app">https://staging.startup.com/my_app</a></p>
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">myapp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/myapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://staging.startup.com/myapp">https://staging.startup.com/myapp</a></p>
 
 </div>
 
@@ -1142,7 +967,7 @@ staging				1h			ns4
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">5.3 - Kubectl Configuration</h1>
+	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">5.2 - Kubectl Configuration</h1>
     <div class="lead">How to configure kubectl for your Opta Kubernetes Cluster</div>
 	<p>You can run the following command to configure kubectl to talk to a kubernetes cluster for a particular environment.
 You need to have kubectl installed for this to work.</p>
@@ -1165,7 +990,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1a374c31804770873724683b0616ffae">5.4 - Observability Integrations</h1>
+	<h1 id="pg-1a374c31804770873724683b0616ffae">5.3 - Observability Integrations</h1>
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Current Opta&rsquo;s observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
@@ -1188,7 +1013,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">5.5 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">5.4 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications.</p>
 <ul>
