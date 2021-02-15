@@ -200,7 +200,7 @@ This the multi-page printable view of this section.
     
 	<h1 id="pg-9fd2056c2f3198b6d0a2db53cc0db62d">1 - Modules</h1>
     <div class="lead">Reference on the structure, input and output of different Modules</div>
-	<h1 id="whats-an-opta-module">What&rsquo;s an opta module?</h1>
+	<h1 id="whats-an-opta-module">What&rsquo;s an Opta module?</h1>
 <p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
 need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -232,7 +232,7 @@ need to get created. Opta yamls reference these under the <code>modules</code> f
 <h2 id="variables">Variables</h2>
 <p>You&rsquo;ll note that there can be many, varying, fields per module instance such
 as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;api_key&rdquo; etc&hellip;  These are called <em>variables</em> and this
-is how specific data passed into the modules</p>
+is how specific data is passed into the modules.</p>
 <h3 id="types">Types</h3>
 <p>All modules have their own list of supported variables, but the one common to all is <em>type</em>. The type variable is simply
 the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
@@ -271,9 +271,9 @@ in the next section).</p>
 </span></code></pre></div><h1 id="module-types">Module Types</h1>
 <p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
 <h2 id="aws-documentdb">aws-documentdb</h2>
-<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets created by the _init
+<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets automatically created for the environment.
 macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
-at rest with a kms key created in the env setup via the _init macro and in transit via tls.</p>
+at rest with a kms key created in the env setup and in transit via tls.</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the documentdb cluster <a href="https://aws.amazon.com/documentdb/pricing/">instances</a>.
@@ -290,7 +290,7 @@ Default db.r5.large</li>
 as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.</p>
 <p>In addition to these credentials, you also need to enable SSL encryption when
 connecting (<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">AWS docs</a>).
-Fortunately, the opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
+Fortunately, the Opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
 find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
 <p>As an example, this is how the mongoose/node connection looks like:</p>
 <pre><code>await mongoose.connect(&quot;mongodb://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;, {
@@ -299,11 +299,11 @@ find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
 });
 </code></pre><h2 id="aws-rds">aws-rds</h2>
 <p>This module creates a postgres Aurora RDS database instance. It is made in the
-private subnets created by the <em>init</em> macro and so can only be accessed in the
+private subnets automatically created during environment setup and so can only be accessed in the
 VPC or through some proxy (e.g. VPN).</p>
 <p><em>Variables</em></p>
 <ul>
-<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Auror cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Aurora cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
 Default db.r5.large</li>
 <li><code>engine_version</code> &ndash; Optional. The version of the database to use. Default 11.9.</li>
 </ul>
@@ -335,7 +335,7 @@ Default cache.m4.large.</li>
 <li><code>cache_host</code> &ndash; The host to contact to access the cluster.</li>
 </ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, it adds connection credentials to yourcontainer
+<p>When linked to a k8s-service, it adds connection credentials to your container
 as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.</p>
 <p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not
 support the TLS transit encryption. There should be no trouble with any of the
@@ -363,33 +363,6 @@ specified when you add the link.</p>
 <p>The most import module for deploying apps, k8s-service deploys a kubernetes app.
 It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
 can even expose it to the world, complete with load balancing both internally and externally.</p>
-<h4 id="externalinternal-image">External/Internal Image</h4>
-<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
-by setting the <code>image</code> variable to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If that&rsquo;s not set then
-it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
-command to push to it!</p>
-<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
-<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
-<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
-<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
-be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
-user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
-just checks the tcp connection on the given port.</p>
-<h4 id="autoscaling">Autoscaling</h4>
-<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
-based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
-to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
-and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
-The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
-if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
-the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
-<h4 id="container-resources">Container Resources</h4>
-<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
-A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
-With opta, we expose such settings to the user, while keeping sensible defaults.</p>
-<h4 id="ingress">Ingress</h4>
-<p>You can control if and how you want to expose your app to the world! Check out
-the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
@@ -416,17 +389,44 @@ in the pod spec.</li>
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;256Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li><code>container_resource_requests</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100m&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
-<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by opta which you wish to give to your service.</li>
+<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by Opta which you wish to give to your service.</li>
 </ul>
 <p><em>Outputs</em></p>
 <ul>
 <li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
 when using external images.</li>
 </ul>
+<h4 id="externalinternal-image">External/Internal Image</h4>
+<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
+by setting the <code>image</code> variable to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If that&rsquo;s not set then
+it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
+command to push to it!</p>
+<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
+<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
+<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
+be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
+user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
+just checks the tcp connection on the given port.</p>
+<h4 id="autoscaling">Autoscaling</h4>
+<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
+based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
+to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
+and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
+The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
+if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
+the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
+<h4 id="container-resources">Container Resources</h4>
+<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
+A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
+With Opta, we expose such settings to the user, while keeping sensible defaults.</p>
+<h4 id="ingress">Ingress</h4>
+<p>You can control if and how you want to expose your app to the world! Check out
+the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 
 </div>
 

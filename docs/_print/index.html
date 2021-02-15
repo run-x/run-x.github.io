@@ -465,7 +465,7 @@ the benefits of &ldquo;directly&rdquo; managing their cloud resources.</p>
 <p>Opta was designed with the following use cases in mind:</p>
 <ul>
 <li>A young startup seeking to quickly create reliable and scalable infrastructure while keeping their engineers
-focused on the app</li>
+focused on the app.</li>
 <li>A mature business seeking to move legacy infrastructure to the cloud.</li>
 </ul>
 <h2 id="where-should-i-go-next">Where should I go next?</h2>
@@ -503,7 +503,7 @@ focused on the app</li>
 <p>Opta currently has the following system prerequisites to operate normally:</p>
 <ul>
 <li>A supported macos or debian distro release.</li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a></li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
 <li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
 <li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
@@ -514,7 +514,7 @@ docker-for-mac)</li>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
 For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
-<p>Create the following file at <code>staging/opta.yml</code> directory and update the fields specific to your AWS account setup.</p>
+<p>Create the following file at <code>staging/opta.yml</code> and update the fields specific to your AWS account setup.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Provide a unique org_id here, usually your company name</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -525,14 +525,14 @@ For this we need to create an <code>opta.yml</code> file which defines the envir
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_account_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">889760294590</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Provide your domain here, assuming you own startup.com :)</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.startup.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Provide your domain here, assuming you own example.com :)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.example.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">_init</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{}<span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now, cd to the <code>staging</code> dir and run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
 </code></pre></div><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces transparently.</p>
-<p><em>Note: using a domain needs extra setup, please check out the <a href="/docs/reference/ingress">Ingress docs</a>.</em></p>
+<p><em>Note: using a domain needs extra setup, please check out the <a href="/docs/tutorials/ingress">Ingress docs</a>.</em></p>
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service with your application&rsquo;s logic.
 We will create another <code>opta.yml</code> file, which defines high level configuration of this service.</p>
@@ -540,7 +540,8 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">envs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The environment to deploy to</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># The list environments where this app will be deployed.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Relative path to the file from the directory where `opta apply` is called.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -557,11 +558,13 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENV</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># DB credentials will be passed down to your app as env variables</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># DB credentials will be passed down to your app as env variables.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The variables exported for `aws-rds` are:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># mydb_user, mydb_name, mydb_password, mydb_host</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">mydb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">MY_SECRET</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">mydb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now, cd to the <code>myapp</code> dir and run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
@@ -629,7 +632,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
     
 	<h1 id="pg-9fd2056c2f3198b6d0a2db53cc0db62d">4.1 - Modules</h1>
     <div class="lead">Reference on the structure, input and output of different Modules</div>
-	<h1 id="whats-an-opta-module">What&rsquo;s an opta module?</h1>
+	<h1 id="whats-an-opta-module">What&rsquo;s an Opta module?</h1>
 <p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
 need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -661,7 +664,7 @@ need to get created. Opta yamls reference these under the <code>modules</code> f
 <h2 id="variables">Variables</h2>
 <p>You&rsquo;ll note that there can be many, varying, fields per module instance such
 as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;api_key&rdquo; etc&hellip;  These are called <em>variables</em> and this
-is how specific data passed into the modules</p>
+is how specific data is passed into the modules.</p>
 <h3 id="types">Types</h3>
 <p>All modules have their own list of supported variables, but the one common to all is <em>type</em>. The type variable is simply
 the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
@@ -700,9 +703,9 @@ in the next section).</p>
 </span></code></pre></div><h1 id="module-types">Module Types</h1>
 <p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
 <h2 id="aws-documentdb">aws-documentdb</h2>
-<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets created by the _init
+<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets automatically created for the environment.
 macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
-at rest with a kms key created in the env setup via the _init macro and in transit via tls.</p>
+at rest with a kms key created in the env setup and in transit via tls.</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the documentdb cluster <a href="https://aws.amazon.com/documentdb/pricing/">instances</a>.
@@ -719,7 +722,7 @@ Default db.r5.large</li>
 as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.</p>
 <p>In addition to these credentials, you also need to enable SSL encryption when
 connecting (<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">AWS docs</a>).
-Fortunately, the opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
+Fortunately, the Opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
 find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
 <p>As an example, this is how the mongoose/node connection looks like:</p>
 <pre><code>await mongoose.connect(&quot;mongodb://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;, {
@@ -728,11 +731,11 @@ find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
 });
 </code></pre><h2 id="aws-rds">aws-rds</h2>
 <p>This module creates a postgres Aurora RDS database instance. It is made in the
-private subnets created by the <em>init</em> macro and so can only be accessed in the
+private subnets automatically created during environment setup and so can only be accessed in the
 VPC or through some proxy (e.g. VPN).</p>
 <p><em>Variables</em></p>
 <ul>
-<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Auror cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Aurora cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
 Default db.r5.large</li>
 <li><code>engine_version</code> &ndash; Optional. The version of the database to use. Default 11.9.</li>
 </ul>
@@ -764,7 +767,7 @@ Default cache.m4.large.</li>
 <li><code>cache_host</code> &ndash; The host to contact to access the cluster.</li>
 </ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, it adds connection credentials to yourcontainer
+<p>When linked to a k8s-service, it adds connection credentials to your container
 as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.</p>
 <p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not
 support the TLS transit encryption. There should be no trouble with any of the
@@ -792,33 +795,6 @@ specified when you add the link.</p>
 <p>The most import module for deploying apps, k8s-service deploys a kubernetes app.
 It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
 can even expose it to the world, complete with load balancing both internally and externally.</p>
-<h4 id="externalinternal-image">External/Internal Image</h4>
-<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
-by setting the <code>image</code> variable to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If that&rsquo;s not set then
-it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
-command to push to it!</p>
-<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
-<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
-<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
-<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
-be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
-user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
-just checks the tcp connection on the given port.</p>
-<h4 id="autoscaling">Autoscaling</h4>
-<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
-based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
-to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
-and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
-The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
-if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
-the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
-<h4 id="container-resources">Container Resources</h4>
-<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
-A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
-With opta, we expose such settings to the user, while keeping sensible defaults.</p>
-<h4 id="ingress">Ingress</h4>
-<p>You can control if and how you want to expose your app to the world! Check out
-the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 <p><em>Variables</em></p>
 <ul>
 <li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
@@ -845,17 +821,44 @@ in the pod spec.</li>
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;256Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li><code>container_resource_requests</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100m&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
-<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by opta which you wish to give to your service.</li>
+<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by Opta which you wish to give to your service.</li>
 </ul>
 <p><em>Outputs</em></p>
 <ul>
 <li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
 when using external images.</li>
 </ul>
+<h4 id="externalinternal-image">External/Internal Image</h4>
+<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
+by setting the <code>image</code> variable to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If that&rsquo;s not set then
+it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
+command to push to it!</p>
+<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
+<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
+<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
+be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
+user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
+just checks the tcp connection on the given port.</p>
+<h4 id="autoscaling">Autoscaling</h4>
+<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
+based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
+to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
+and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
+The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
+if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
+the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
+<h4 id="container-resources">Container Resources</h4>
+<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
+A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
+With Opta, we expose such settings to the user, while keeping sensible defaults.</p>
+<h4 id="ingress">Ingress</h4>
+<p>You can control if and how you want to expose your app to the world! Check out
+the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 
 </div>
 
@@ -974,7 +977,7 @@ You need to have kubectl installed for this to work.</p>
 <p>Note: The following commands needs to be run from the directory where your app&rsquo;s <code>opta.yml</code> is present</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta configure-kubectl --env staging
 </code></pre></div><p>Each service gets created in it&rsquo;s own kubernetes namespace.
-You can use <code>kubctl get namespaces</code> to list all the namespaces. The name of the namespace should be same as the name of the service.</p>
+You can use <code>kubctl get namespaces</code> to list all the namespaces. The name of the namespace for a given service should be the same as the name of the service.</p>
 
 </div>
 
@@ -992,7 +995,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
     
 	<h1 id="pg-1a374c31804770873724683b0616ffae">5.3 - Observability Integrations</h1>
     <div class="lead">Configuring observability tool for your applications</div>
-	<p>Current Opta&rsquo;s observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
+	<p>Opta&rsquo;s current observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
 <p>Opta makes it very easy to setup Datadog monitoring and logging for your applications. All you have to do is provide your Datadog api key during creation of the <a href="/docs/reference/environment_config">environment</a>.</p>
 <p>Run the following command from the directory where your environment&rsquo;s <code>opta.yml</code> is present.</p>
@@ -1015,13 +1018,13 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
     
 	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">5.4 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
-	<p>Opta provides in-built secret management for your applications.</p>
+	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
 <ul>
-<li>Define the secrets in the service&rsquo;s opta.yaml file.</li>
+<li>Define the secrets in the service&rsquo;s opta.yml file.</li>
 <li>Use the <code>opta secret</code> cli to update the value and list secrets.</li>
 </ul>
 <ol>
-<li>You can define/provision all the secrets you would need for an application in the service&rsquo;s opta.yaml file like this:</li>
+<li>You can define/provision all the secrets you would need for an application in the service&rsquo;s opta.yml file like this:</li>
 </ol>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1039,7 +1042,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET_2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>So when you run <code>opta apply</code> on this file, it will provision the secrets for you.</p>
 <ol start="2">
-<li>Now you can use the following command (from the dir where above file) to list all your secrets</li>
+<li>Now you can use the following command (from the dir where above file is located) to list all your secrets</li>
 </ol>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret list my_app --env staging
 </code></pre></div><ol start="3">
@@ -1050,7 +1053,7 @@ You can use <code>kubctl get namespaces</code> to list all the namespaces. The n
 <ol start="4">
 <li>You can print the value of an existing secret with the cli</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret view my_app MY_SECRET_1 --evn staging
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret view my_app MY_SECRET_1 --env staging
 </code></pre></div>
 </div>
 
