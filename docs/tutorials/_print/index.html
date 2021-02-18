@@ -178,7 +178,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>2: <a href="#pg-5b96ef224df2cb76031f57bc78e2a4e2">Debugging</a></li>
 
 
     
@@ -186,7 +186,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-8805d9b322a9f3871dd1c4c06f329e6e">Kubectl Configuration</a></li>
+<li>3: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
 
 
     
@@ -303,7 +303,69 @@ This the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">2 - Ingress</h1>
+	<h1 id="pg-5b96ef224df2cb76031f57bc78e2a4e2">2 - Debugging</h1>
+    <div class="lead">How to debug your app</div>
+	<blockquote>
+<p>Ideally, you should set up <a href="/docs/tutorials/observability">observability</a> so that manual debugging is not needed.</p>
+</blockquote>
+<p>Opta uses kubernetes under the hood, so we recommend using the standard
+kubernetes tool <code>kubectl</code> for most debugging use cases. This page will give you
+a brief tutorial on how to use this tool.</p>
+<h3 id="install-kubectl">Install kubectl</h3>
+<p>On mac, you can install it via:</p>
+<pre><code>brew install kubectl
+</code></pre><p>More detailed instructions are available on the <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">offical site</a></p>
+<h3 id="configure-kubectl">Configure kubectl</h3>
+<p>Before you can use <code>kubectl</code>, you need to connect it to your kubernetes cluster
+(created by opta). This is pretty simple in the opta world! Just run:</p>
+<pre><code>  opta configure-kubectl
+</code></pre><h3 id="view-pods">View pods</h3>
+<blockquote>
+<p>Kubernetes uses the word &ldquo;pod&rdquo; for containers<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. So every service will have one or more pods (as specified in your opta yml).</p>
+</blockquote>
+<p>You can see the pods for a given service by running:</p>
+<pre><code>kubectl get pods -n &lt;service-name&gt;
+</code></pre><blockquote>
+<p>If this doesn&rsquo;t show any pods, that means your service hasn&rsquo;t been deployed. Check out the <a href="/docs/getting-started/#service-deployment">deployment docs</a> to fix that.</p>
+</blockquote>
+<p>Note that <code>&lt;service-name&gt;</code> is specified in your opta yml:</p>
+<pre><code>  meta:
+    name: blah # service-name
+  modules:
+    app: # module-name
+      type: k8s-service
+</code></pre><h3 id="view-logs-for-a-pod">View logs for a pod</h3>
+<p>Note down the name of one of your pods and then run the following command to see it&rsquo;s logs:</p>
+<pre><code>kubectl logs -f &lt;pod-name&gt; k8s-service -n &lt;service-name&gt;
+</code></pre><p>To view logs from <em>all</em> your pods, you can run:</p>
+<pre><code>kubectl logs -f deployments/&lt;service-name&gt;-&lt;module-name&gt;-k8s-service k8s-service -n &lt;service-name&gt;
+</code></pre><h3 id="ssh-into-a-pod">SSH into a pod</h3>
+<p>Note down the name of one of your pods and then run the following command to ssh into it:</p>
+<pre><code>kubectl exec -it &lt;pod-name&gt; -n &lt;service-name&gt; -- bash
+</code></pre><section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://kubernetes.io/docs/concepts/workloads/pods/">Detailed pods docs</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">3 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>You can specify a domain for each environment which can be used by all
@@ -355,29 +417,6 @@ staging				1h			ns4
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/myapp</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://staging.startup.com/myapp">https://staging.startup.com/myapp</a></p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-8805d9b322a9f3871dd1c4c06f329e6e">3 - Kubectl Configuration</h1>
-    <div class="lead">How to configure kubectl for your Opta Kubernetes Cluster</div>
-	<p>You can run the following command to configure kubectl to talk to a kubernetes cluster for a particular environment.
-You need to have kubectl installed for this to work.</p>
-<p>Note: The following commands needs to be run from the directory where your app&rsquo;s <code>opta.yml</code> is present</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta configure-kubectl --env staging
-</code></pre></div><p>Each service gets created in it&rsquo;s own kubernetes namespace.
-You can use <code>kubctl get namespaces</code> to list all the namespaces. The name of the namespace for a given service should be the same as the name of the service.</p>
 
 </div>
 
