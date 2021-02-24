@@ -492,7 +492,7 @@ For this we need to create an <code>opta.yml</code> file which defines the envir
 </span></code></pre></div><p>Now, cd to the <code>staging</code> dir and run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
 </code></pre></div><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces transparently.</p>
-<p><em>Note: while we create the &ldquo;domain&rdquo; setting it up so that it actually receives internet traffic and has ssl takes some extra
+<p><em>Note: while we create the &ldquo;domain&rdquo;, setting it up so that it actually receives internet traffic and has ssl takes some extra
 steps, please check out the <a href="/docs/tutorials/ingress">Ingress docs</a>.</em></p>
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service with your application&rsquo;s logic.
@@ -535,8 +535,8 @@ not have a docker image for it in the cloud yet. To deploy, we need to first bui
 the yaml again, this time specifying the now existing remote image and tag. You can do so by following these steps to
 deploy the service:</p>
 <ul>
-<li>Build docker image: <code>docker build -t test-service:v1 ...</code> set v1 to what you want to call this version. Usually the git sha
-(if you don&rsquo;t have a dockerfile ready you can always pull an existing image and retag it <code>docker pull kennethreitz/httpbin &amp;&amp; docker tag kennethreitz/httpbin:latest test-service:v1</code>)</li>
+<li>Build docker image: <code>docker build -t test-service:v1 ...</code> set v1 to what you want to call this version. Usually the git sha. In this example you can pull an existing image and retag it
+<code>docker pull kennethreitz/httpbin &amp;&amp; docker tag kennethreitz/httpbin:latest test-service:v1</code></li>
 <li>Upload docker image: <code>opta push test-service:v1</code></li>
 <li>Apply the change: <code>opta apply ---image-tag v1</code></li>
 </ul>
@@ -546,7 +546,9 @@ you can totally hit the load balancer directly) and setting the host header to m
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta configure-kubectl
 <span style="color:#204a87">export</span> <span style="color:#000">DOMAIN</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">`</span>kubectl get services -n ingress-nginx ingress-nginx-controller --output <span style="color:#000">jsonpath</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;{.status.loadBalancer.ingress[0].hostname}&#39;</span><span style="color:#4e9a06">`</span>
 curl --header <span style="color:#4e9a06">&#34;Host: subdomain.staging.example.com&#34;</span>  http://<span style="color:#4e9a06">${</span><span style="color:#000">DOMAIN</span><span style="color:#4e9a06">}</span>/get <span style="color:#8f5902;font-style:italic"># NOTE: not https because ssl is part of the extra setup</span>
-</code></pre></div><p>To fully setup the public dns and ssl, please checkout the <a href="/docs/tutorials/ingress">Ingress docs</a>.</p>
+</code></pre></div><ul>
+<li>To fully setup the public dns and ssl, please checkout the <a href="/docs/tutorials/ingress">Ingress docs</a>.</li>
+</ul>
 
 </div>
 
@@ -894,10 +896,7 @@ your environment will now be picking up public traffic on your domain and have h
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Opta&rsquo;s current observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
-<p>Opta makes it very easy to setup Datadog monitoring and logging for your applications. All you have to do is provide your Datadog api key during creation of the <a href="/docs/reference/environment_config">environment</a>.</p>
-<p>Run the following command from the directory where your environment&rsquo;s <code>opta.yml</code> is present.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply --var <span style="color:#000">datadog_api_key</span><span style="color:#ce5c00;font-weight:bold">={</span>your_api_key<span style="color:#ce5c00;font-weight:bold">}</span>
-</code></pre></div><p>This will setup datadog monitoring and logging on your kubernetes cluster. And now you can use datadog clients to send any metrics or use their APM directly in your app.</p>
+<p>Find the instructions to setup datadog with opta <a href="/docs/tutorials/datadog_integration">here</a></p>
 
 </div>
 

@@ -536,10 +536,7 @@ your environment will now be picking up public traffic on your domain and have h
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Opta&rsquo;s current observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
-<p>Opta makes it very easy to setup Datadog monitoring and logging for your applications. All you have to do is provide your Datadog api key during creation of the <a href="/docs/reference/environment_config">environment</a>.</p>
-<p>Run the following command from the directory where your environment&rsquo;s <code>opta.yml</code> is present.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply --var <span style="color:#000">datadog_api_key</span><span style="color:#ce5c00;font-weight:bold">={</span>your_api_key<span style="color:#ce5c00;font-weight:bold">}</span>
-</code></pre></div><p>This will setup datadog monitoring and logging on your kubernetes cluster. And now you can use datadog clients to send any metrics or use their APM directly in your app.</p>
+<p>Find the instructions to setup datadog with opta <a href="/docs/tutorials/datadog_integration">here</a></p>
 
 </div>
 
