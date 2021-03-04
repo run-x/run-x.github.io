@@ -244,7 +244,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.4: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>3.4: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance for Opta</a></li>
 
 
     
@@ -252,7 +252,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.5: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
+<li>3.5: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
 
 
     
@@ -260,7 +260,15 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3.6: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>3.6: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.7: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -789,7 +797,107 @@ a brief tutorial on how to use this tool.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">3.4 - Ingress</h1>
+	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">3.4 - IAM Guidance for Opta</h1>
+    <div class="lead">How to configure your iam to work with Opta</div>
+	<h1 id="overview">Overview</h1>
+<p>Identity access management, IAM, is how a user can control permissions to read and/or modify resources in their
+cloud accounts. When opta runs, it uses your currently configured credentials for your role/user of your cloud provider
+to read your state, and update/create resources as needed. Due to the large amount and variety of resources opta
+is responsible for, we recommend folks to use a role/user with account admin privileges for opta, but we hope to
+begin providing more specific policies in the future. Furthermore, the k8s cluster needs authentication and
+authorization to read and write resources to itself, which is tied to the cloud provider&rsquo;s IAM. Below, we go over the
+specifics for the setup for each cloud.</p>
+<h1 id="aws">AWS</h1>
+<p>When creating a new AWS account, there are two routes you can go by</p>
+<ol>
+<li>Create and link accounts with <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html">AWS Organizations</a>
+and then use <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">AWS SSO</a> (yes, there are other SSO
+options, but we won&rsquo;t cover those).</li>
+<li>Create separate AWS accounts the old-fashioned way.</li>
+</ol>
+<p>We recommend using the AWS Organization route as, although it&rsquo;s a little extra setup, will make your life way easier when
+scaling to multiple environments and accounts and AWS accounts themselves don&rsquo;t cost anything so fiscal prudence is not
+a problem. Nonetheless, here are the instructions for both routes.</p>
+<h2 id="org--sso">Org + SSO</h2>
+<p>For this approach, you will need a &ldquo;root account&rdquo; to start with, which you can create via the traditional method. As
+the creator, you will be bestowed with admin privileges. From there you can follow the official steps <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html">here</a>
+to setup your organization&ndash; you&rsquo;ll want to focus on the &ldquo;Create a member account&rdquo; section, and don&rsquo;t worry about the
+organizational units or service control policies for now.</p>
+<p>Once that&rsquo;s setup, we can create SSO for your Organization by going to the root AWS account and following the official
+<a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/step1.html">steps</a>. You&rsquo;ll want to focus on steps 1, 2, and
+3 for now, and for step 2 if you&rsquo;re using gsuite, go ahead and use that as your source by following <a href="https://aws.amazon.com/blogs/security/how-to-use-g-suite-as-external-identity-provider-aws-sso/">this</a>.
+Once that&rsquo;s settled, you can <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">assign user access</a>
+to the different accounts in your organization. For opta usage, we recommend to use the SSO Admin access/permission set.</p>
+<p><em>NOTE</em> If you want to deploy opta in the root account (which we advise against), feel free to use the New Account section
+instructions from down below</p>
+<h2 id="new-account">New Account</h2>
+<p>Outside of SSO, if one were to use opta then you have to create a new IAM for opta which your human teammates
+could then &ldquo;<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">assume</a>&rdquo;. This assumption allows IAM
+users (and other roles too) to get credentials for the assumed role (time limited) and interact with the AWS API on their
+behalf. <em>This way many people can get the same permissions and act as the same entity without compromising their own
+personal credentials</em>. For role assumption, two things are required:</p>
+<ol>
+<li>The role to be assumed must have its trust policy include the role that would assume it (explicitly or through a group).
+<img src="/images/iam_tutorial_image_1.png" alt="image alt text"></li>
+<li>The assumer role/user must have the IAM permission to assume the opta role.
+<img src="/images/iam_tutorial_image_2.png" alt="image alt text"></li>
+</ol>
+<p>To create such a role and permission, you can start by following the official IAM role creation instructions
+<a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html#roles-creatingrole-user-console">here</a>.
+When prompted &ldquo;Specify accounts that can use this role&rdquo; add the own account id. This satisfies requirement 1 as now
+the role will be ok with ANY IAM role/user in your account to assume it (you can refine the list later). Continue and
+give it the Administrator Access policy (should be one of the first on the list), and create it (you can add tags if you
+so wish). Now you have a role capable of executing AWS requests with admin privileges.
+<img src="/images/iam_tutorial_image_3.png" alt="image alt text"></p>
+<p>To satisfy requirement 2, all you have to do is follow this <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_permissions-to-switch.html">guide</a>
+for all the IAM users/roles you have in question. You can then test it out by running the following with you current credentials:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">aws sts assume-role --role-arn <span style="color:#4e9a06">&#34;THE_OPTA_ROLE_ARN&#34;</span> --role-session-name DUMMY_SESSION
+</code></pre></div><p>The output should be the temporary credentials to assume the opta role. Just set the envars as so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#204a87">export</span> <span style="color:#000">AWS_ACCESS_KEY_ID</span><span style="color:#ce5c00;font-weight:bold">=</span>RoleAccessKeyID
+<span style="color:#204a87">export</span> <span style="color:#000">AWS_SECRET_ACCESS_KEY</span><span style="color:#ce5c00;font-weight:bold">=</span>RoleSecretKey
+<span style="color:#204a87">export</span> <span style="color:#000">AWS_SESSION_TOKEN</span><span style="color:#ce5c00;font-weight:bold">=</span>RoleSessionToken
+</code></pre></div><p>You can now run opta and any other AWS cli/sdk with the opta role.</p>
+<h3 id="cross-account-access">Cross Account Access</h3>
+<p>If you want to give a user access to run opta in account a while their IAM role/user is in account b, simply refine
+the opta role you created in account a to allow role assumption from account b (again, you can further specify which
+iam users/roles are) and make sure that you allowed role assumption in the assumer to the new account.</p>
+<h3 id="long-term-credentials">Long Term Credentials</h3>
+<p>For long term credentials (e.g. to hardcode into a CI system), we recommend you create an IAM user who can then assume
+the role used by opta and using its credentials, assuming the opta role as part of the process.</p>
+<p>{
+&ldquo;Version&rdquo;: &ldquo;2012-10-17&rdquo;,
+&ldquo;Statement&rdquo;: [
+{
+&ldquo;Sid&rdquo;: &ldquo;&rdquo;,
+&ldquo;Effect&rdquo;: &ldquo;Allow&rdquo;,
+&ldquo;Principal&rdquo;: {
+&ldquo;Federated&rdquo;: &ldquo;arn:aws:iam::889760294590:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/E41D0A2CAFBA4E01C6DBDD6035DC52D3&rdquo;
+},
+&ldquo;Action&rdquo;: &ldquo;sts:AssumeRoleWithWebIdentity&rdquo;,
+&ldquo;Condition&rdquo;: {
+&ldquo;StringEquals&rdquo;: {
+&ldquo;oidc.eks.us-east-1.amazonaws.com/id/E41D0A2CAFBA4E01C6DBDD6035DC52D3:sub&rdquo;: &ldquo;system:serviceaccount:ankur-test:app&rdquo;
+}
+}
+}
+]
+}</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">3.5 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>With opta, you can specify a domain for each environment which can be used by all the services running in that
@@ -892,7 +1000,7 @@ your environment will now be picking up public traffic on your domain and have h
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1a374c31804770873724683b0616ffae">3.5 - Observability Integrations</h1>
+	<h1 id="pg-1a374c31804770873724683b0616ffae">3.6 - Observability Integrations</h1>
     <div class="lead">Configuring observability tool for your applications</div>
 	<p>Opta&rsquo;s current observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
 <h2 id="datadog">Datadog</h2>
@@ -912,7 +1020,7 @@ your environment will now be picking up public traffic on your domain and have h
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">3.6 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">3.7 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
 <ul>
@@ -1260,14 +1368,11 @@ in the pod spec.</li>
 <li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
 <li><code>liveness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
 <li><code>readiness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
-<li><code>container_resource_limits</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;200m&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;256Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div></li>
-<li><code>container_resource_requests</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;100m&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;128Mi&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div></li>
+<li><code>resource_request</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
+</li>
 <li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
 <li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by Opta which you wish to give to your service.</li>
 </ul>
@@ -1300,6 +1405,7 @@ the average memory usage was 160mb, it would logically try to double the number 
 <p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
 A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
 With Opta, we expose such settings to the user, while keeping sensible defaults.</p>
+<p><em>NOTE</em> We expose the resource requests and set the limits to twice the request values.</p>
 <h4 id="ingress">Ingress</h4>
 <p>You can control if and how you want to expose your app to the world! Check out
 the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
