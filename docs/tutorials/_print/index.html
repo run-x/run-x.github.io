@@ -321,13 +321,8 @@ This the multi-page printable view of this section.
     
 	<h1 id="pg-83887ce2e0d6dbc08b4950ccb6e53c2c">2 - Datadog Integration</h1>
     <div class="lead">Instructions on how to integrate your environment with Datadog</div>
-	<p>So, just to make sure we&rsquo;re all on the same page, <a href="https://www.datadoghq.com/">Datadog</a> is a cloud monitoring/security
-company many folks like to use. They do logging, events, statistics, application performance metrics (apms), etc&hellip;
-If you don&rsquo;t know them please check them out so that you may have an educated opinion on liking/not liking them (rest
-assured, the needs mentioned above are the core of SRE, you <em>will</em> have to address them before growing too big, and
-Datadog is a big figure in that product market).</p>
-<p>One of the main integrations they support is with Kubernetes, which is the platform opta is using to run your apps. With
-this integration you can have:</p>
+	<p>Opta provides deep integration with <a href="https://www.datadoghq.com/">Datadog</a>.</p>
+<p>With this integration you can have:</p>
 <ul>
 <li>Metrics on both the whole cluster (e.g. how many servers are we running? How much cpu/memory are
 they using? How many containers does each have?).</li>
@@ -338,8 +333,7 @@ running? How often are they dying).</li>
 <li>Application performance metrics.</li>
 <li>Log storage/forwarding from your containers.</li>
 </ul>
-<p>For opta users, we created an opta module &ldquo;datadog&rdquo; for setting this up. All you gotta do is add it in your environment
-opta yaml like so:</p>
+<p>To enable Datadog integration, all you gotta do is add it in your environment opta yaml like so:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -353,9 +347,8 @@ opta yaml like so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">datadog</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Yes, just one line!</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Run opta apply once more, where opta will prompt you to add your datadog key (only the first time, it&rsquo;s securely stored
-for successive runs), and that&rsquo;s it! Logs are gathered from stdout, and the APM and custom metric envars will be
-setup and ready to use on all your application containers. Every piece of data coming from the environment will be
+</span></code></pre></div><p>Run <code>opta apply</code> once more, where opta will prompt you to add your datadog key (only the first time, it&rsquo;s securely stored
+for successive runs). Logs, APM and custom metric envars will be setup and ready to use on all your application containers. Every piece of data coming from the environment will be
 tagged with <code>env</code> set to the layer name, and service deployments will have a <code>service</code> tag set to its layer name and
 <code>version</code> set to the image tag used.</p>
 <p>For a high level view of your cluster, you can view your kubernetes dashboards on the following url:
@@ -554,15 +547,15 @@ environment. This is done with the aws-dns module like so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>As is, the aws-dns will create the &ldquo;hosted zone&rdquo; resource which you can think of as the object managing your dns rules
-for the domain you listed. Technically, you can put any domain you wish (e.g. google.com), but in order for it to
-receive public traffic and get ssl (to have https instead of http connections), you have to do some extra setup which
+</span></code></pre></div><p>As is, the aws-dns will create the &ldquo;hosted zone&rdquo; resource which manages your dns rules
+for the domain you listed. In order for it to receive public traffic and get ssl
+(to have https instead of http connections), you have to do some extra setup which
 <em>proves</em> that you own it.</p>
 <p>This extra setup is updating the domain&rsquo;s nameservers to point to your opta environment&rsquo;s AWS &ldquo;hosted zone&rdquo;. This is how you do it:</p>
 <ul>
 <li>Run <code>opta apply</code> on the yaml file at least once to create the underlying resources</li>
 <li>Run <code>opta output</code> and note down the nameservers that get printed. It&rsquo;s usually a set of 4 servers.</li>
-<li>Assuming you own startup.com and want to map staging.startup.com to this environment. Then you&rsquo;d add the following NS records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.
+<li>Assuming you own example.com and want to map staging.example.com to this environment. Then you&rsquo;d add the following NS records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.
 <pre><code>staging				1h			ns1
 staging				1h			ns2
 staging				1h			ns3
@@ -622,9 +615,9 @@ your environment will now be picking up public traffic on your domain and have h
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">myapp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent.domain}/blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent.domain}/v1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://myapp.staging.startup.com/blah">https://myapp.staging.startup.com/blah</a></p>
+</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://myapp.staging.startup.com/v1">https://myapp.staging.startup.com/v1</a></p>
 
 </div>
 

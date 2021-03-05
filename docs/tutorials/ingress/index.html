@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/tutorials/ingress/" />
 <meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-04T11:46:00-08:00" /><meta property="og:site_name" content="Opta" />
+<meta property="article:modified_time" content="2021-03-05T15:29:56-08:00" /><meta property="og:site_name" content="Opta" />
 <meta itemprop="name" content="Ingress">
 <meta itemprop="description" content="How to expose your app on the internet
 ">
 <meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-03-04T11:46:00-08:00" />
-<meta itemprop="wordCount" content="400">
+<meta itemprop="dateModified" content="2021-03-05T15:29:56-08:00" />
+<meta itemprop="wordCount" content="382">
 
 
 
@@ -327,7 +327,15 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferencemodules" href="/docs/reference/modules/">Modules</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceenvironment_modules" href="/docs/reference/environment_modules/">Environment Modules</a>
+        
+      
+      
+      
+        
+          
+          
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docsreferenceservice_modules" href="/docs/reference/service_modules/">Service Modules</a>
         
       
       
@@ -465,15 +473,15 @@ environment. This is done with the aws-dns module like so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>As is, the aws-dns will create the &ldquo;hosted zone&rdquo; resource which you can think of as the object managing your dns rules
-for the domain you listed. Technically, you can put any domain you wish (e.g. google.com), but in order for it to
-receive public traffic and get ssl (to have https instead of http connections), you have to do some extra setup which
+</span></code></pre></div><p>As is, the aws-dns will create the &ldquo;hosted zone&rdquo; resource which manages your dns rules
+for the domain you listed. In order for it to receive public traffic and get ssl
+(to have https instead of http connections), you have to do some extra setup which
 <em>proves</em> that you own it.</p>
 <p>This extra setup is updating the domain&rsquo;s nameservers to point to your opta environment&rsquo;s AWS &ldquo;hosted zone&rdquo;. This is how you do it:</p>
 <ul>
 <li>Run <code>opta apply</code> on the yaml file at least once to create the underlying resources</li>
 <li>Run <code>opta output</code> and note down the nameservers that get printed. It&rsquo;s usually a set of 4 servers.</li>
-<li>Assuming you own startup.com and want to map staging.startup.com to this environment. Then you&rsquo;d add the following NS records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.
+<li>Assuming you own example.com and want to map staging.example.com to this environment. Then you&rsquo;d add the following NS records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.
 <pre><code>staging				1h			ns1
 staging				1h			ns2
 staging				1h			ns3
@@ -533,13 +541,13 @@ your environment will now be picking up public traffic on your domain and have h
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">myapp</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent.domain}/blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;myapp.{parent.domain}/v1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://myapp.staging.startup.com/blah">https://myapp.staging.startup.com/blah</a></p>
+</span></code></pre></div><p>Following the domain examples above, this will expose the service at <a href="https://myapp.staging.startup.com/v1">https://myapp.staging.startup.com/v1</a></p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified March 4, 2021: <a  href="/commit/0ba1f7b2383c24521ef9cca3e9f43f4478a999fc">Opta IAM guidance and some cleanup (#30) (0ba1f7b)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 5, 2021: <a  href="/commit/a5a35adf00f9b9c108be08158bd6e66c07b13590">Docs update (#29) (a5a35ad)</a>
 </div>
 </div>
 
