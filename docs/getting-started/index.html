@@ -509,13 +509,10 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">SECRET_1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Now run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
-</code></pre></div><p>This sets up your service&rsquo;s infrastructure (database, private docker repo, etc) and now it&rsquo;s ready to be deployed
-(next section).</p>
+</span></code></pre></div><p>Now you are ready to deploy your service.</p>
 <h2 id="service-deployment">Service Deployment</h2>
-<p>In the example above, we created all the resources for the service except the actual deployment. This is because we do
-not have a docker image for it in the cloud yet. To deploy, we need to first build the image, push it, and then apply
+<p>In the example above, we have created all the resources for the environment but haven&rsquo;t yet created the resources for the service. We also haven&rsquo;t deployed your container to the service. Both of these things happens in a single next step.
+To deploy, we need to first build the image, push it, and then apply
 the yaml again, this time specifying the now existing remote image and tag. You can do so by following these steps to
 deploy the service:</p>
 <ul>
@@ -580,7 +577,7 @@ curl --header <span style="color:#4e9a06">&#34;Host: subdomain.staging.example.c
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified March 5, 2021: <a  href="/commit/a5a35adf00f9b9c108be08158bd6e66c07b13590">Docs update (#29) (a5a35ad)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified March 11, 2021: <a  href="/commit/ad95bda54e25d7e1dc3164a969cf949927cf18f7">change-log (#31) (ad95bda)</a>
 </div>
 </div>
 
