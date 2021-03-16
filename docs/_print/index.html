@@ -896,24 +896,6 @@ iam users/roles are) and make sure that you allowed role assumption in the assum
 <h3 id="long-term-credentials">Long Term Credentials</h3>
 <p>For long term credentials (e.g. to hardcode into a CI system), we recommend you create an IAM user who can then assume
 the role used by opta and using its credentials, assuming the opta role as part of the process.</p>
-<p>{
-&ldquo;Version&rdquo;: &ldquo;2012-10-17&rdquo;,
-&ldquo;Statement&rdquo;: [
-{
-&ldquo;Sid&rdquo;: &ldquo;&rdquo;,
-&ldquo;Effect&rdquo;: &ldquo;Allow&rdquo;,
-&ldquo;Principal&rdquo;: {
-&ldquo;Federated&rdquo;: &ldquo;arn:aws:iam::889760294590:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/E41D0A2CAFBA4E01C6DBDD6035DC52D3&rdquo;
-},
-&ldquo;Action&rdquo;: &ldquo;sts:AssumeRoleWithWebIdentity&rdquo;,
-&ldquo;Condition&rdquo;: {
-&ldquo;StringEquals&rdquo;: {
-&ldquo;oidc.eks.us-east-1.amazonaws.com/id/E41D0A2CAFBA4E01C6DBDD6035DC52D3:sub&rdquo;: &ldquo;system:serviceaccount:ankur-test:app&rdquo;
-}
-}
-}
-]
-}</p>
 
 </div>
 
