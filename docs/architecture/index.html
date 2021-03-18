@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.80.0" /><link rel="alternate" type="text/html" href="/docs/architecture/_print/">
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -17,26 +18,18 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Secrets | Opta</title><meta property="og:title" content="Secrets" />
-<meta property="og:description" content="Creating secrets for your application
+<title>Architecture | Opta</title><meta property="og:title" content="Architecture" />
+<meta property="og:description" content="An overview of the Architecture Opta sets up. 
 " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/docs/tutorials/secrets/" />
-<meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-03-17T18:48:07-07:00" /><meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="Secrets">
-<meta itemprop="description" content="Creating secrets for your application
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/architecture/" />
+<meta property="og:site_name" content="Opta" />
+<meta itemprop="name" content="Architecture">
+<meta itemprop="description" content="An overview of the Architecture Opta sets up. 
 ">
-<meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-03-17T18:48:07-07:00" />
-<meta itemprop="wordCount" content="190">
-
-
-
-<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Secrets"/>
-<meta name="twitter:description" content="Creating secrets for your application
+<meta name="twitter:title" content="Architecture"/>
+<meta name="twitter:description" content="An overview of the Architecture Opta sets up. 
 "/>
 
 
@@ -103,7 +96,7 @@ if (!doNotTrack) {
 
 
   </head>
-  <body class="td-page">
+  <body class="td-section">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -260,10 +253,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/tutorials/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Tutorials</a>
+    <a  href="/docs/tutorials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tutorials</a>
   </li>
   <ul>
-    <li class="collapse show" id="docstutorials">
+    <li class="collapse " id="docstutorials">
       
       
       
@@ -319,7 +312,7 @@ if (!doNotTrack) {
         
           
           
-          <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docstutorialssecrets" href="/docs/tutorials/secrets/">Secrets</a>
+          <a class="td-sidebar-link td-sidebar-link__page " id="m-docstutorialssecrets" href="/docs/tutorials/secrets/">Secrets</a>
         
       
       
@@ -341,10 +334,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/architecture/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Architecture</a>
+    <a  href="/docs/architecture/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Architecture</a>
   </li>
   <ul>
-    <li class="collapse " id="docsarchitecture">
+    <li class="collapse show" id="docsarchitecture">
       
       
       
@@ -417,13 +410,28 @@ if (!doNotTrack) {
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
   
   
-    <a id="print" href="/docs/tutorials/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+    <a id="print" href="/docs/architecture/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
   
   </div>
 
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#aws">AWS</a>
+      <ul>
+        <li><a href="#security-concerns">Security Concerns</a></li>
+      </ul>
+    </li>
+    <li><a href="#k8s">K8s</a>
+      <ul>
+        <li><a href="#security-concerns-1">Security Concerns</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -442,9 +450,6 @@ if (!doNotTrack) {
 
 
 
-
-
-
 <li class="breadcrumb-item" >
 	<a href="/docs/">Documentation</a>
 </li>
@@ -452,15 +457,8 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item" >
-	<a href="/docs/tutorials/">Tutorials</a>
-</li>
-
-
-
-
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/tutorials/secrets/">Secrets</a>
+	<a href="/docs/architecture/">Architecture</a>
 </li>
 
 	</ol>
@@ -468,52 +466,152 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Secrets</h1>
-    <div class="lead">Creating secrets for your application</div>
-	       
-	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
+	<h1>Architecture</h1>
+        <div class="lead">An overview of the Architecture Opta sets up.</div>
+	
+	<p>The core principle of Opta is to not have our users compromise between cost, UX and implementation. To that end, Opta
+sets up a sophisticated, yet robust, architecture for your services and environments behind the scenes. This
+architecture can be broken up between resources in the base cloud provider (e.g. AWS, GCP), and internal to the
+kubernetes clusters we deploy. Below are the specifications and answers for the common security questions.</p>
+<h2 id="aws">AWS</h2>
+<p><img src="/images/opta_aws_architecture.png" alt="image alt text">
+For AWS our environments are currently setup within a single region, but our networking is set up across 3 availability
+zones by default, split between a private and public subnet (which we provision as we do not use the default vpc).
+The public subnet is solely used for the public load balancer, while the ec2s (VMs) and databases all exist within
+the private subnet.</p>
+<p>We deploy the EKS cluster with one nodegroup spanning all the private subnets created. The current EKS cluster version
+is 1.18, but this can be manually overridden if needed (and we get security patches as needed automatically via EKS).
+Currently, there is a public cluster endpoint, but this may be revisited once a story for VPN support is planned out.
+<a href="https://aws.amazon.com/blogs/containers/using-eks-encryption-provider-support-for-defense-in-depth/">Encryption for the secrets is also provided via KMS</a>.</p>
+<p>For databases, we currently have modules for postgres (AWS Aurora), redis (AWS Elasticache), and the mongodb compatible
+documentdb (AWS Documentdb). We only offer 1 instance per db (no read or write replicas), but we hope to add this
+feature as customers demand. The postgres and documentdb databases are built with 5 day retention of backups in case of
+emergency. The username and passwords are created with the database and are passed securely to the K8s services as
+secrets (pls see K8s section for security around secrets).</p>
+<p>There also is a module for S3 storage, which creates a private bucket by default (but can be set to public via fields)
+and all the buckets are encrypted at rest with AES 256 regardless.</p>
+<p>Lastly, DNS and SSL are currently handled via one Route53 hosted zone and one ACM certificate respectively. ACM cert
+verification is done with Route53 record manipulation in the given hosted zone. Records will be added to the hosted
+zone directing to the load balancer via an open source integration (see K8s section).</p>
+<h3 id="security-concerns">Security Concerns</h3>
 <ul>
-<li>Define the secrets in the service&rsquo;s opta.yml file.</li>
-<li>Use the <code>opta secret</code> cli to update the value and list secrets.</li>
+<li>All databases and ec2s are run within the private subnets (i.e. can access the internet via a nat gateway, but
+nothing external can reach them).</li>
+<li>All databases (redis, documentdb, sql) are encrypted at rest with a KMS key provisioned by the environment.</li>
+<li>All database connections use SSL encryption.</li>
+<li>All S3 buckets are encrypted with AES 256.</li>
+<li>All networking access is managed via security groups either auto-provisioned by EKS, or manually crafted to just
+expose to the VPC and just the ports required for standard usage (i.e. 5432 for postgres).</li>
+<li>The EKS node ec2s are created with just the AmazonEKSClusterPolicy</li>
+<li>The EKS storage (e.g. K8s secrets) is encrypted at rest via KMS</li>
+<li>K8s service accounts are mapped to IAM roles via the officially sanctioned <a href="https://docs.aws.amazon.com/eks/latest/userguide/enable-iam-roles-for-service-accounts.html">OIDC</a>
+manner, with no long-lived credentials.</li>
+<li>No long-lived IAM credentials are ever created.</li>
+<li>All ECR images/repos are private to the account.</li>
+<li>S3 buckets created privately by default.</li>
+<li>5 day backup retentions for the postgres/documentdb databases.</li>
+<li>Currently, the EKS cluster is built with a public endpoint for the simple usage (can add private option later on once
+VPN feature is added).</li>
 </ul>
-<ol>
-<li>You can define/provision all the secrets you would need for an application in the service&rsquo;s opta.yml file like this:</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my_app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">my_app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">target_port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5000</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{tag}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">ENV</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent[name]}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET_1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">MY_SECRET_2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>So when you run <code>opta apply</code> on this file, it will provision the secrets for you.</p>
-<ol start="2">
-<li>Now you can use the following command (from the dir where above file is located) to list all your secrets</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret list my_app --env staging
-</code></pre></div><ol start="3">
-<li>To set the values of the secrets, you can use the cli</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret update my_app MY_SECRET_1 SECRET_VALUE --env staging
-</code></pre></div><p>Note: The secret needs to be set individually for each service and environment</p>
-<ol start="4">
-<li>You can print the value of an existing secret with the cli</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta secret view my_app MY_SECRET_1 --env staging
-</code></pre></div>
+<h2 id="k8s">K8s</h2>
+<p><img src="/images/opta_internal_kubernetes_architecture.png" alt="image alt text"></p>
+<p>The K8s topology is divided into namespaces of 2 types: 3rd party integrations and opta services. The third party
+integrations consist of respected open source projects which handle background tasks or features expansions. These
+currently consist of:</p>
+<p><a href="https://linkerd.io/">Linkerd</a>: Linkerd is the second most popular service mesh currently out there (right behind
+Istio) and is the one we provide for our users. We chose it over Istio due to its absurdly simple maintenance and
+upgrade stories while still offering the vast majority of the important service mesh features (e.g. traffic control,
+grpc+http load balancing, mTLS, golden metrics). Linkerd also takes pride in its security and has undergone intense
+security audits. The typical opta user should not even see it.</p>
+<p><a href="https://github.com/kubernetes-sigs/metrics-server">Metrics Server</a>: The official metric server, distributed separately
+for EKS (comes with GKE) and used to power the standard horizontal pod autoscaler metrics (e.g. automatically scale up
+or scale down your server as needed for current load).</p>
+<p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a>: The official node
+autoscaler, distributed separately for EKS (comes with GKE) and used to add/remove underlying machines (e.g. ec2s of
+compute instances) serving as the nodes.</p>
+<p><a href="https://kubernetes.github.io/ingress-nginx/">Ingress Nginx</a>: An official ingress (i.e. how to expose the cluster to
+the outside world) which uses a fleet of nginx containers to route incoming traffic from a load balancer to inside the
+cluster and a desired service.</p>
+<p><a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>: An official project used to automatically add DNS
+records for load balancers created by the cluster.</p>
+<p><a href="https://github.com/DataDog/helm-charts/tree/master/charts/datadog">Datadog</a>: The official K8s integration for Datadog
+which sends cluster metrics + events and container logs over to your datadog account. We also configure it to accept
+any custom metrics or apm automatically by using their official client libraries. This integration is not part of the
+opta K8s base, but most be added separately w/ the Datadog K8s module.</p>
+<p>All of these additions (as well as the Opta services), are managed via <a href="https://helm.sh/">Helm Charts</a> (using V3), and
+are deployed separately to their own namespace.</p>
+<p>Opta services are also deployed to unique namespaces formed out of their layer name (base name on the opta yaml&ndash; there
+should never be more than one k8s service per opta yaml). Each opta service consists of one K8s service, deployment (and
+its affiliated pods), horizontal pod autoscaler, configmap, service account, and optionally an ingress if they so wish
+to expose their opta service&rsquo;s api to the public. The deployment manages the different pods (e.g. containers/servers)
+of your application while the K8s service is used with Linkerd to route cluster-internal traffic&ndash; as is, any service
+can be contacted via a domain of the form MODULE_NAME.LAYERNAME, such as app.hello-world for the Getting Started example. The horizontal pod
+autoscaler is responsible for increasing/decreasing the number of pods of the deployment as needed based on cpu ad memory
+usage. The service account ties the deployment to a given cloud IAM AWS role/GCP service account to get any permissions
+for cloud resources (e.g. GCS/S3 access). There are no further K8s roles added to the service account meaning that
+one Opta service will not be able to manipulate the K8s resources for another. The secret (always encrypted at rest) is
+used for sensitive custom data, as well as database access credentials. Lastly, we have a configmap (for EKS) which
+currently holds the latest public key needed for documentdb usage.</p>
+<h3 id="security-concerns-1">Security Concerns</h3>
+<ul>
+<li><a href="https://github.com/linkerd/linkerd2/blob/main/SECURITY_AUDIT.pdf">Here is Linkerd&rsquo;s security audit</a></li>
+<li>All cross-service communication is encrypted via mTLS</li>
+<li>All 3rd party charts used are the official ones when applicable or provided by bitnami and version-locked.</li>
+<li>All IAM roles for 3rd party charts are endowed with just the required permissions for their roles following the
+principle of least privilege.</li>
+<li>All opta service deployments are bound to service accounts, with no extra K8s roles.</li>
+<li>Opta currently does not modify the aws-auth configmap for EKS.</li>
+<li>We use Helm V3</li>
+</ul>
+
+        <div class="section-index">
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">Last modified March 17, 2021: <a  href="/commit/923a361e9841dd512e7f4edd446983796cec5450">Architecture/security page (#34) (923a361)</a>
 </div>
 </div>
-
 
           </main>
         </div>
