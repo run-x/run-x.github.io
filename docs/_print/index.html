@@ -451,7 +451,17 @@ focused on the app.</li>
     
 	<h1 id="pg-6121397c9c1b82e0a74996f89313317c">2 - Installation</h1>
     <div class="lead">Installation Instructions</div>
-	<h2 id="macos-or-linux">MacOS or Linux</h2>
+	<h2 id="prerequisites">Prerequisites</h2>
+<p>Opta currently has the following system prerequisites to operate normally:</p>
+<ul>
+<li>A supported macos or debian distro release.</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
+<li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
+<li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
+docker-for-mac)</li>
+</ul>
+<h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install the latest version of opta (see below for changelog
 and release history).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
@@ -587,17 +597,7 @@ and release history).</p>
     
 	<h1 id="pg-93aadc1aba179e6928539400a09b9e4e">3 - Getting Started</h1>
     <div class="lead">The first steps in working with Opta.</div>
-	<h2 id="prerequisites">Prerequisites</h2>
-<p>Opta currently has the following system prerequisites to operate normally:</p>
-<ul>
-<li>A supported macos or debian distro release.</li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
-<li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
-<li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
-<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
-docker-for-mac)</li>
-</ul>
-<h2 id="installation">Installation</h2>
+	<h2 id="installation">Installation</h2>
 <p>Check out the <a href="/docs/installation">Installation instructions</a>.</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
@@ -1468,11 +1468,11 @@ need to get created. Opta yamls reference these under the <code>modules</code> f
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENV</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{env}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">mydatabase</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called mydatabase</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myredis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called myredis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called mydatabase</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called myredis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>You&rsquo;ll note that the module instance can have user-specified names which will come into play later with references.</p>
 <h2 id="fields">Fields</h2>
@@ -1493,22 +1493,23 @@ special processing. In this case, it&rsquo;s in regard to the <em>links</em> fie
 links field takes as input a list of maps with a single element where the
 key is the name of another module in the file, and the value a list of
 strings representing resource permissions.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">meta</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">balonstagingey</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">database</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rds</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">docdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">write</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">database</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">docdb</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1527,19 +1528,18 @@ at rest with a kms key created in the env setup and in transit via tls.</p>
 <li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the documentdb cluster <a href="https://aws.amazon.com/documentdb/pricing/">instances</a>.
 Default db.r5.large</li>
 </ul>
-<p><em>Outputs</em></p>
-<ul>
-<li><code>db_user</code> &ndash; DB user</li>
-<li><code>db_password</code> &ndash; DB password</li>
-<li><code>db_host</code> &ndash; DB host</li>
-</ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, this adds connection credentials to your container
-as <em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, and <em>{module_name}_db_host</em>.</p>
+<p>When linked to a k8s-service, this adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>docdb</code></p>
 <p>In addition to these credentials, you also need to enable SSL encryption when
 connecting (<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">AWS docs</a>).
 Fortunately, the Opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
-find the AWS CA at <code>/config/rds_ca.pem&quot;</code></p>
+find the AWS CA at <code>/config/rds_ca.pem</code></p>
 <p>As an example, this is how the mongoose/node connection looks like:</p>
 <pre><code>await mongoose.connect(&quot;mongodb://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;, {
   ssl: true,
@@ -1555,17 +1555,15 @@ VPC or through some proxy (e.g. VPN).</p>
 Default db.r5.large</li>
 <li><code>engine_version</code> &ndash; Optional. The version of the database to use. Default 11.9.</li>
 </ul>
-<p><em>Outputs</em></p>
-<ul>
-<li><code>db_user</code> &ndash; DB user</li>
-<li><code>db_password</code> &ndash; DB password</li>
-<li><code>db_host</code> &ndash; DB host</li>
-<li><code>db_name</code> &ndash; DB name</li>
-</ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, it adds connection credentials to your container as
-<em>{module_name}_db_user</em>, <em>{module_name}_db_password</em>, <em>{module_name}_db_name</em>,
-and <em>{module_name}_db_host</em>.</p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_name</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>rds</code></p>
 <p>The permission list is to be empty because we currently do not support giving
 apps IAM permissions to manipulate a database.</p>
 <h2 id="aws-redis">aws-redis</h2>
@@ -1577,14 +1575,13 @@ subnets created by the _init macro and so can only be accessed in the VPC or thr
 <li><code>node_type</code> &ndash; Optional. This is the redis instance type used for the <a href="https://aws.amazon.com/elasticache/pricing/">instances</a>.
 Default cache.m4.large.</li>
 </ul>
-<p><em>Outputs</em></p>
-<ul>
-<li><code>cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
-<li><code>cache_host</code> &ndash; The host to contact to access the cluster.</li>
-</ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, it adds connection credentials to your container
-as <em>{module_name}_cache_host</em> and <em>{module_name}_cache_auth_token</em>.</p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables</p>
+<ul>
+<li><code>{module_name}_cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
+<li><code>{module_name}_cache_host</code> &ndash; The host to contact to access the cluster.</li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>redis</code></p>
 <p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not
 support the TLS transit encryption. There should be no trouble with any of the
 language sdks however, as they all support TLS.</p>
@@ -1605,7 +1602,7 @@ language sdks however, as they all support TLS.</p>
 <p>When linked to a k8s-service, this adds the necessary IAM permissions to read
 (e.g. list objects and get objects) and/or write (e.g. list, get,
 create, destroy, and update objects) to the given s3 bucket.
-The current permissions are (wait for it), &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
+The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
 specified when you add the link.</p>
 <h2 id="k8s-service">k8s-service</h2>
 <p>The most important module for deploying apps, k8s-service deploys a kubernetes app.
@@ -1620,18 +1617,17 @@ websockets.</li>
 <li><code>max_containers</code> &ndash; Optional. The maximum number of replicas your app can autoscale to. Default 3</li>
 <li><code>image</code> &ndash; Required. Set to AUTO to create a private repo for your own images. Otherwises attempts to pull image from public dockerhub</li>
 <li><code>env_vars</code> &ndash; Optional. A list of maps holding name+value fields for envars to add to your container
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">BLAH</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">malarkey</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FLAG</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div></li>
 <li><code>secrets</code> &ndash; Optional. Same format as env_vars, but these values will be stored in the secrets resource, not directly
 in the pod spec.</li>
 <li><code>autoscaling_target_cpu_percentage</code> &ndash;  Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
 <li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
-<li><code>liveness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
-<li><code>readiness_probe_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>healthcheck_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
 <li><code>resource_request</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
 </li>
 <li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
@@ -1647,7 +1643,7 @@ when using external images.</li>
 by setting the <code>image</code> field to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If you set the value to &ldquo;AUTO&rdquo; however,
 it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
 command to push to it!</p>
-<h4 id="livenessreadiness-probe">Liveness/Readiness Probe</h4>
+<h4 id="healthcheck-probe">Healthcheck Probe</h4>
 <p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
 <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
 <p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
