@@ -298,7 +298,7 @@ This the multi-page printable view of this section.
 </span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Update deployment</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Note that this version should be the same as your CLI version</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">uses</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">run-x/deploy-action@v0.7.1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">uses</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">run-x/deploy-action@v0.11.9</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">with</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">env</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx-staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app:latest</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -373,6 +373,14 @@ tagged with <code>env</code> set to the layer name, and service deployments will
 	<blockquote>
 <p>Ideally, you should set up <a href="/docs/tutorials/observability">observability</a> so that manual debugging is not needed.</p>
 </blockquote>
+<p>Opta provides 2 helpful commands to help with debugging:</p>
+<h3 id="view-logs">View logs</h3>
+<pre><code>opta logs
+</code></pre><p>This will show you logs from all your app instances.</p>
+<h3 id="ssh-into-an-instance">SSH into an instance</h3>
+<pre><code>opta shell
+</code></pre><p>This will open up a shell into one of your app instances.</p>
+<h3 id="kubectl">Kubectl</h3>
 <p>Opta uses kubernetes under the hood, so we recommend using the standard
 kubernetes tool <code>kubectl</code> for most debugging use cases. This page will give you
 a brief tutorial on how to use this tool.</p>
@@ -386,7 +394,7 @@ a brief tutorial on how to use this tool.</p>
 <pre><code>  opta configure-kubectl
 </code></pre><h3 id="view-pods">View pods</h3>
 <blockquote>
-<p>Kubernetes uses the word &ldquo;pod&rdquo; for containers<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>. So every service will have one or more pods (as specified in your opta yml).</p>
+<p>Kubernetes uses the word &ldquo;pod&rdquo; for containers[^1]. So every service will have one or more pods (as specified in your opta yml).</p>
 </blockquote>
 <p>You can see the pods for a given service by running:</p>
 <pre><code>kubectl get pods -n &lt;service-name&gt;
@@ -399,23 +407,7 @@ a brief tutorial on how to use this tool.</p>
   modules:
     app: # module-name
       type: k8s-service
-</code></pre><h3 id="view-logs-for-a-pod">View logs for a pod</h3>
-<p>Note down the name of one of your pods and then run the following command to see it&rsquo;s logs:</p>
-<pre><code>kubectl logs -f &lt;pod-name&gt; k8s-service -n &lt;service-name&gt;
-</code></pre><p>To view logs from <em>all</em> your pods, you can run:</p>
-<pre><code>kubectl logs -f deployments/&lt;service-name&gt;-&lt;module-name&gt;-k8s-service k8s-service -n &lt;service-name&gt;
-</code></pre><h3 id="ssh-into-a-pod">SSH into a pod</h3>
-<p>Note down the name of one of your pods and then run the following command to ssh into it:</p>
-<pre><code>kubectl exec -it &lt;pod-name&gt; -n &lt;service-name&gt; -- bash
-</code></pre><section class="footnotes" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn:1" role="doc-endnote">
-<p><a href="https://kubernetes.io/docs/concepts/workloads/pods/">Detailed pods docs</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-
+</code></pre>
 </div>
 
 
