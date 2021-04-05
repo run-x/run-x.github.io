@@ -388,11 +388,11 @@ This the multi-page printable view of this section.
     <div class="lead">What is Opta?</div>
 	<p>Opta, is a cloud infrastructure management tool specifically designed to reduce
 complexity and improve iteration speed.</p>
-<p>Opta enables you to set up infra on your AWS account via high-level config files
+<p>Opta enables you to set up infra on your AWS/GCP account/project via high-level config files
 (that describe microservices and databases) and low level details like access
 permissions, network and secret management are handled automatically.</p>
 <p>This way setting up a new environment takes &lt;30min and setting up a new service
-takes &lt;10min. All without any Infra/AWS/Kubernetes expertise PLUS you get an
+takes &lt;10min. All without any Infra/AWS/GCP/Kubernetes expertise PLUS you get an
 industry standard setup (including monitoring) from day 1.</p>
 <h2 id="why-do-i-want-it">Why do I want it?</h2>
 <p>Modern cloud infrastructure has become an engineering field in and of itself, with a high learning curve and limited
@@ -455,11 +455,14 @@ focused on the app.</li>
 <p>Opta currently has the following system prerequisites to operate normally:</p>
 <ul>
 <li>A supported macos or debian distro release.</li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
 <li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
 <li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
-docker-for-mac)</li>
+docker-for-mac)
+If you&rsquo;re using the GCP provider:</li>
+<li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a>
+If you&rsquo;re using the AWS provider:</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
 </ul>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install the latest version of opta (see below for changelog
@@ -468,9 +471,32 @@ and release history).</p>
 </code></pre></div><p>You can specify a particular version as well.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="releases">Releases</h2>
+<h3 id="01110">0.11.10</h3>
+<ul>
+<li>Added support for GCP!</li>
+</ul>
 <h3 id="0119">0.11.9</h3>
 <ul>
-<li>Bug fixes</li>
+<li>AWS Nodegroup module added</li>
+</ul>
+<h3 id="0118">0.11.8</h3>
+<h4 id="changelog">Changelog</h4>
+<ul>
+<li>Fix for when tf.state is empty</li>
+</ul>
+<h3 id="0117">0.11.7</h3>
+<ul>
+<li>Added release automation</li>
+</ul>
+<h3 id="0116">0.11.6</h3>
+<ul>
+<li>Removed buggy rollback from cli</li>
+</ul>
+<h3 id="0115">0.11.5</h3>
+<h4 id="changelog-1">Changelog</h4>
+<ul>
+<li>Fixing the terraform init issue with envs</li>
+<li>fixing tests</li>
 </ul>
 <h3 id="0114">0.11.4</h3>
 <ul>
@@ -485,21 +511,21 @@ and release history).</p>
 <li>opta validate</li>
 <li>opta deploy sets up infra and deploys in one go</li>
 </ul>
-<h4 id="changelog">Changelog</h4>
+<h4 id="changelog-2">Changelog</h4>
 <ul>
 <li>opta deploy, opta logs and opta shell</li>
 <li>Bugfixes</li>
 </ul>
 <hr>
 <h3 id="010">0.10</h3>
-<h4 id="changelog-1">Changelog</h4>
+<h4 id="changelog-3">Changelog</h4>
 <ul>
 <li>opta deploy, opta logs and opta shell</li>
 <li>Bugfixes</li>
 </ul>
 <hr>
 <h3 id="09">0.9</h3>
-<h4 id="changelog-2">Changelog</h4>
+<h4 id="changelog-4">Changelog</h4>
 <ul>
 <li>Revamped the Opta API</li>
 <li>Implemented opta inspect</li>
@@ -507,7 +533,7 @@ and release history).</p>
 </ul>
 <hr>
 <h3 id="07">0.7</h3>
-<h4 id="changelog-3">Changelog</h4>
+<h4 id="changelog-5">Changelog</h4>
 <ul>
 <li>Introduced org_id in env yaml files</li>
 <li>Bugfixes</li>
@@ -515,7 +541,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/32dfe0ae4cc0f61dc6ad34bed69932cf05af0538">32dfe0a</a></p>
 <hr>
 <h3 id="06">0.6</h3>
-<h4 id="changelog-4">Changelog</h4>
+<h4 id="changelog-6">Changelog</h4>
 <ul>
 <li>Added support for websockets</li>
 <li>Updated port syntax (BREAKING CHANGE)</li>
@@ -524,7 +550,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/8dec38d34d72eb82dd46e2f5f423b627e50d5729">8dec38d</a></p>
 <hr>
 <h3 id="05">0.5</h3>
-<h4 id="changelog-5">Changelog</h4>
+<h4 id="changelog-7">Changelog</h4>
 <ul>
 <li>Added opta configure-kubectl</li>
 <li>Updated link syntax (BREAKING CHANGE)</li>
@@ -535,7 +561,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/85185d87719e5f86219d47d35b5872d4a5dc237a">85185d8</a></p>
 <hr>
 <h3 id="04">0.4</h3>
-<h4 id="changelog-6">Changelog</h4>
+<h4 id="changelog-8">Changelog</h4>
 <ul>
 <li>Added opta secret list</li>
 <li>Added opta output</li>
@@ -547,14 +573,14 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/0a60153da5d2756ccc3220ab346f8ba276357deb">0a60153</a></p>
 <hr>
 <h3 id="03">0.3</h3>
-<h4 id="changelog-7">Changelog</h4>
+<h4 id="changelog-9">Changelog</h4>
 <ul>
 <li>No changes in opta but the binaries are generated by an automated mechanism</li>
 </ul>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/163fb775ce31c1c45568ba3de1e04447e23da59c">163fb77</a></p>
 <hr>
 <h3 id="02">0.2</h3>
-<h4 id="changelog-8">Changelog</h4>
+<h4 id="changelog-10">Changelog</h4>
 <ul>
 <li>Added tests</li>
 <li>Added sentry and amplitude</li>
@@ -566,7 +592,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/dcd6a83bd8737ad3f0b4a22455d94fc8dc4fbd86">dcd6a83</a></p>
 <hr>
 <h3 id="01">0.1</h3>
-<h4 id="changelog-9">Changelog</h4>
+<h4 id="changelog-11">Changelog</h4>
 <ul>
 <li>First release!</li>
 </ul>
@@ -607,9 +633,53 @@ and release history).</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
 For this we need to create an <code>opta.yml</code> file which defines the environment.</p>
-<p>Create the following file at <code>staging/opta.yml</code> and update the fields specific to your AWS account setup.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Create the following file at <code>staging/opta.yml</code> and update the fields specific to your AWS/GCP account setup.
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-1" data-toggle="tab" href="#tab11" role="tab"
+		   aria-controls="nav-home" aria-selected="true">AWS</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-1" data-toggle="tab" href="#tab12" role="tab"
+		   aria-controls="nav-home" aria-selected="false">GCP</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="1">
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" id="tab11" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Add your own name/org_name -- the name + org_name must be universally unique</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -623,7 +693,47 @@ For this we need to create an <code>opta.yml</code> file which defines the envir
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">node_instance_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">t3.medium </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">max_nodes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Now, cd to the <code>staging</code> dir and run:</p>
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab12" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Add your own name/org_name -- the name + org_name must be universally unique</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">google</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-central1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">project</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXX</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.example.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Need to specify supported subdomains individually for GCP</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">subdomain </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-gke</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">node_instance_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;n2-highcpu-4&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">max_nodes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+</div>
+Now, cd to the <code>staging</code> dir and run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply
 </code></pre></div><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces transparently.</p>
 <p><em>Note: while we create the &ldquo;domain&rdquo;, setting it up so that it actually receives internet traffic and has ssl takes some extra
@@ -631,8 +741,52 @@ steps, please check out the <a href="/docs/tutorials/ingress">Ingress docs</a>.<
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service with your application&rsquo;s logic.
 We will create another <code>opta.yml</code> file, which defines high level configuration of this service.</p>
-<p>Create an <code>opta.yml</code> and update the fields specific to your service setup.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Create an <code>opta.yml</code> and update the fields specific to your service setup.
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-1" data-toggle="tab" href="#tab11" role="tab"
+		   aria-controls="nav-home" aria-selected="true">AWS</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-1" data-toggle="tab" href="#tab12" role="tab"
+		   aria-controls="nav-home" aria-selected="false">GCP</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="1">
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" id="tab11" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -661,7 +815,58 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">API_KEY</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Now you are ready to deploy your service.</p>
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab12" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">max_containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;subdomain.{parent.domain}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">AUTO</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">resource_request</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">512</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">min_containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{vars.min_containers}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">max_containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{vars.max_containers}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># autoscales to this limit</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">healthcheck_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">APPENV</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{env}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">secrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Checkout the secrets tutorial on how to use these</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">API_KEY</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+</div></p>
+<p>Now you are ready to deploy your service.</p>
 <h2 id="service-deployment">Service Deployment</h2>
 <p>In the example above, we have created all the resources for the environment but haven&rsquo;t yet created the resources for the service. We also haven&rsquo;t deployed your container to the service. Both of these things happens in a single next step.
 To deploy, we need to first build the image, push it, and then apply
@@ -685,7 +890,10 @@ curl --header <span style="color:#4e9a06">&#34;Host: subdomain.staging.example.c
 <li>To fully setup the public dns and ssl, please checkout the <a href="/docs/tutorials/ingress">Ingress docs</a>.</li>
 <li>Run <code>opta</code> to check various other options the cli provides, like streaming logs, or ssh into your container.</li>
 </ul>
-
+<h2 id="cleanup">Cleanup</h2>
+<p>Once you&rsquo;re finished playing around with these examples, you may clean up by running the following command from the environment directory:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy
+</code></pre></div>
 </div>
 
 
@@ -834,7 +1042,7 @@ running? How often are they dying).</li>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.example.com</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">datadog</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Yes, just one line!</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">datadog</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Yes, just one line! Same for GCP!</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Run <code>opta apply</code> once more, where opta will prompt you to add your datadog key (only the first time, it&rsquo;s securely stored
 for successive runs). Logs, APM and custom metric envars will be setup and ready to use on all your application containers. Every piece of data coming from the environment will be
 tagged with <code>env</code> set to the layer name, and service deployments will have a <code>service</code> tag set to its layer name and
@@ -977,6 +1185,36 @@ iam users/roles are) and make sure that you allowed role assumption in the assum
 <h3 id="long-term-credentials">Long Term Credentials</h3>
 <p>For long term credentials (e.g. to hardcode into a CI system), we recommend you create an IAM user who can then assume
 the role used by opta and using its credentials, assuming the opta role as part of the process.</p>
+<h1 id="gcp">GCP</h1>
+<h2 id="basic-management-architecture">Basic management architecture</h2>
+<p>In GCP, Google has created a distinct IAM/project/org flow which may seems backwards from the AWS model. Due to Google&rsquo;s
+wide array of business products, GCP is often tightly integrated, as shall be explained:</p>
+<p>Usage of GCP begins by first <a href="https://cloud.google.com/resource-manager/docs/creating-managing-organization">creating the organization</a>
+under which all projects (equivalent to AWS accounts) would be created. This is done through either a <a href="https://support.google.com/a/answer/53926">Google Workspace</a>
+(formerly called G Suite the same workspace used to setup your company&rsquo;s gmail, Google Calendar, Google Drive, etc&hellip;)
+or a <a href="https://cloud.google.com/identity">Cloud Identy</a> (we advise to choose the Google Workspace). The first project
+is created automatically upon signing in to GCP for the first time, although you can easily spin up many more as the need
+arises, and can even bundle them into folders. Runx currently recommends 1 project per environment.</p>
+<p><img src="/images/gcp-org.png" alt="image alt text"></p>
+<p>You will, however, need to create at least one <a href="https://cloud.google.com/billing/docs/concepts">billing account</a> and
+link it to the project before using any service. A billing account is how payment for GCP is handled, and they exist
+as separate entities from the project (under the hood they link to a <a href="https://support.google.com/paymentscenter/topic/9017382?ref_topic=9037778">google payments profile</a>
+but most users should not be concerned about this). An organization can have multiple billing accounts which can in turn
+be linked to multiple projects to handle their payments (a project can only have 1 linked billing account). In this manner
+can a company use different/the same budgets for different projects, and add restrictions or perform analysis as needed.</p>
+<p><img src="/images/gcp-billing.png" alt="image alt text"></p>
+<p><a href="https://cloud.google.com/iam/docs/overview#concepts_related_identity">IAM for humans</a> can similarly be handled by google
+accounts setup in your google workspace/cloud identity, but also private google accounts or Google Groups (again, we
+recommend using the workspace). These identities exist outside GCP, so are global to all orgs and can be given
+access at the org level, project level, or folder level. As such, cross-account/project access doesn&rsquo;t really apply
+and one just needs to ensure they have the desired permissions on the different projects in mind.</p>
+<h3 id="opta-usage">Opta usage</h3>
+<p>Once a project is setup with a correct billing account, opta only needs to run as a project owner for the given
+project (in time opta will create a refined role so the full owner scope is not needed). You can do this by running:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">gcloud auth application-default login
+</code></pre></div><h3 id="long-term-credentials-1">Long Term Credentials</h3>
+<p>Long term credentials can be generated by creating a service account (akin to AWS IAM roles) with the required permissions
+and <a href="https://cloud.google.com/docs/authentication/production#create_service_account">generating service account keys for it</a>.</p>
 
 </div>
 
@@ -996,8 +1234,52 @@ the role used by opta and using its credentials, assuming the opta role as part 
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>With opta, you can specify a domain for each environment which can be used by all the services running in that
-environment. This is done with the aws-dns module like so:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+environment. This is done with the aws-dns/gcp-dns module like so:
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-1" data-toggle="tab" href="#tab11" role="tab"
+		   aria-controls="nav-home" aria-selected="true">AWS</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-1" data-toggle="tab" href="#tab12" role="tab"
+		   aria-controls="nav-home" aria-selected="false">GCP</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="1">
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" id="tab11" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1009,11 +1291,49 @@ environment. This is done with the aws-dns module like so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>As is, the aws-dns will create the &ldquo;hosted zone&rdquo; resource which manages your dns rules
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab12" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">google</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-central1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">project</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">jds-throwaway-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-dns</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- this entry</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.example.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-gke</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+</div></p>
+<p>As is, the aws-dns/gcp-dns will create the &ldquo;hosted zone&rdquo; resource which manages your dns rules
 for the domain you listed. In order for it to receive public traffic and get ssl
 (to have https instead of http connections), you have to do some extra setup which
 <em>proves</em> that you own it.</p>
-<p>This extra setup is updating the domain&rsquo;s nameservers to point to your opta environment&rsquo;s AWS &ldquo;hosted zone&rdquo;. This is how you do it:</p>
+<p>This extra setup is updating the domain&rsquo;s nameservers to point to your opta environment&rsquo;s AWS/GCP &ldquo;hosted zone&rdquo;. This is how you do it:</p>
 <ul>
 <li>Run <code>opta apply</code> on the yaml file at least once to create the underlying resources</li>
 <li>Run <code>opta output</code> and note down the nameservers that get printed. It&rsquo;s usually a set of 4 servers.</li>
@@ -1028,9 +1348,53 @@ staging				1h			ns4
 <p>You can verify that you did this properly by running this command:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dig staging.startup.com NS
 </code></pre></div><p>You should see your name servers under the <code>ANSWER SECTION</code> part.</p>
-<p>Once this is done and verified, please update your opta yaml aws-dns section to have a new field <code>delegated: true</code> like
-so:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Once this is done and verified, please update your opta yaml aws-dns/gcp-dns section to have a new field <code>delegated: true</code> like
+so:
+<nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link active" id="nav-2" data-toggle="tab" href="#tab21" role="tab"
+		   aria-controls="nav-home" aria-selected="true">AWS</a>
+
+		
+		
+
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link" id="nav-2" data-toggle="tab" href="#tab22" role="tab"
+		   aria-controls="nav-home" aria-selected="false">GCP</a>
+
+		
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="2">
+
+
+
+
+
+
+
+
+<div class="tab-pane fade show active" id="tab21" role="tabpanel" aria-labelledby="nav-tabName1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1043,7 +1407,45 @@ so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>Now run <code>opta apply</code> one more time and opta will now generate your ssl certificates and attach them. Congratulations,
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="tab22" role="tabpanel" aria-labelledby="nav-tabName2">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">google</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-central1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">project</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">jds-throwaway-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.example.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">myapp </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-gke</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+</div></p>
+<p>Now run <code>opta apply</code> one more time and opta will now generate your ssl certificates and attach them. Congratulations,
 your environment will now be picking up public traffic on your domain and have https!</p>
 <h3 id="exposing-a-service">Exposing a service</h3>
 <p>A service can be exposed on a subdomain of the environment domain or on a path via the public_uri field.</p>
@@ -1218,11 +1620,15 @@ manner, with no long-lived credentials.</li>
 <li>Currently, the EKS cluster is built with a public endpoint for the simple usage (can add private option later on once
 VPN feature is added).</li>
 </ul>
+<h2 id="gcp">GCP</h2>
+<p><em>Coming soon!</em></p>
 <h2 id="k8s">K8s</h2>
 <p><img src="/images/opta_internal_kubernetes_architecture.png" alt="image alt text"></p>
 <p>The K8s topology is divided into namespaces of 2 types: 3rd party integrations and opta services. The third party
 integrations consist of respected open source projects which handle background tasks or features expansions. These
 currently consist of:</p>
+<p><em>Note</em>: GCP does an awesome job in support K8s and actually includes several of the following integrations/features by
+default. Watch for the notes at the end of each description.</p>
 <p><a href="https://linkerd.io/">Linkerd</a>: Linkerd is the second most popular service mesh currently out there (right behind
 Istio) and is the one we provide for our users. We chose it over Istio due to its absurdly simple maintenance and
 upgrade stories while still offering the vast majority of the important service mesh features (e.g. traffic control,
@@ -1230,13 +1636,13 @@ grpc+http load balancing, mTLS, golden metrics). Linkerd also takes pride in its
 security audits. The typical opta user should not even see it.</p>
 <p><a href="https://github.com/kubernetes-sigs/metrics-server">Metrics Server</a>: The official metric server, distributed separately
 for EKS (comes with GKE) and used to power the standard horizontal pod autoscaler metrics (e.g. automatically scale up
-or scale down your server as needed for current load).</p>
+or scale down your server as needed for current load). <em>Builtin on GKE</em></p>
 <p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a>: The official node
 autoscaler, distributed separately for EKS (comes with GKE) and used to add/remove underlying machines (e.g. ec2s of
-compute instances) serving as the nodes.</p>
+compute instances) serving as the nodes. <em>Builtin on GKE</em></p>
 <p><a href="https://kubernetes.github.io/ingress-nginx/">Ingress Nginx</a>: An official ingress (i.e. how to expose the cluster to
 the outside world) which uses a fleet of nginx containers to route incoming traffic from a load balancer to inside the
-cluster and a desired service.</p>
+cluster and a desired service. <em>Not used on GKE</em></p>
 <p><a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>: An official project used to automatically add DNS
 records for load balancers created by the cluster.</p>
 <p><a href="https://github.com/DataDog/helm-charts/tree/master/charts/datadog">Datadog</a>: The official K8s integration for Datadog
@@ -1297,7 +1703,79 @@ principle of least privilege.</li>
     
 	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">6 - Reference</h1>
     <div class="lead">Opta config reference</div>
-	
+	<h1 id="whats-an-opta-module">What&rsquo;s an Opta module?</h1>
+<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
+need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">AUTO</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;app.{parent.domain}/app&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">resource_request</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">512</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">healthcheck_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENV</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{env}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called mydatabase</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called myredis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>You&rsquo;ll note that the module instance can have user-specified names which will come into play later with references.
+Opta modules are composed of the following entities/behaviors:</p>
+<h2 id="fields">Fields</h2>
+<p>You&rsquo;ll note that there can be many, varying, fields per module instance such
+as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;image&rdquo; etc&hellip;  These are called <em>fields</em> and this
+is how specific data is passed into the modules.</p>
+<h3 id="names">Names</h3>
+<p>All modules have a name field, which is used to create the name of the cloud resources in conjunction with the layer
+name (root name of opta.yml). A user can specify this with the <code>name</code> field, but it defaults to the module type (without
+the hyphens) if not given.</p>
+<h3 id="types">Types</h3>
+<p>All modules have their own list of supported fields, but the one common to all is <em>type</em>. The type field is simply
+the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
+modules built in &ndash; future work may allow users to specify their own.</p>
+<h3 id="linking">Linking</h3>
+<p>The k8s-service module type is the first (but not the last) module to support
+special processing. In this case, it&rsquo;s in regard to the <em>links</em> field. The
+links field takes as input a list of maps with a single element where the
+key is the name of another module in the file, and the value a list of
+strings representing resource permissions.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">docdb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">write</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">docdb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-documentdb</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bucket</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test-bucket&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
 </div>
 
 
@@ -1318,38 +1796,14 @@ principle of least privilege.</li>
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3080ce5258971a18683fddeacc891571">6.1 - Environment Modules</h1>
     <div class="lead">Input and output of different Environment Modules</div>
-	<h1 id="whats-an-opta-module">What&rsquo;s an Opta module?</h1>
-<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
-need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-dns</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.example.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-eks</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">node_instance_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">t3.medium </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">max_nodes</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">15</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Optional</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h2 id="fields">Fields</h2>
-<p>You&rsquo;ll note that there can be many, varying, fields per module instance such
-as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;image&rdquo; etc&hellip;  These are called <em>fields</em> and this
-is how specific data is passed into the modules.</p>
-<h3 id="types">Types</h3>
-<p>All modules have their own list of supported fields, but the one common to all is <em>type</em>. The type field is simply
-the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
-modules built in &ndash; future work may allow users to specify their own.</p>
-<h1 id="environment-module-types">Environment Module Types</h1>
-<p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
+	<h1 id="environment-module-types">Environment Module Types</h1>
+<p>Here is the list of module types for the user to use in an environment opta yaml (a root one with no environments on
+top specified), with their inputs and outputs:</p>
+<h1 id="aws">AWS</h1>
 <h2 id="aws-base">aws-base</h2>
 <p>This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the
 db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them
@@ -1396,7 +1850,7 @@ is used for ssl.</li>
 <h2 id="aws-eks">aws-eks</h2>
 <p>This module creates an <a href="https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html">EKS cluster</a>, and a default
 nodegroup to host your applications in. This needs to be added in the environment opta yml if you wish to deploy services
-as opta services run on Kubernetes (just EKS for now).</p>
+as opta services run on Kubernetes.</p>
 <p><em>Fields</em></p>
 <ul>
 <li><code>min_nodes</code> &ndash; Optional. The minimum number of nodes to be set by the autoscaler in for the default nodegroup. Defaults to 3.</li>
@@ -1406,25 +1860,91 @@ as opta services run on Kubernetes (just EKS for now).</p>
 to t3.medium (highly unrecommended to set to smaller)</li>
 <li><code>k8s_version</code> &ndash; Optional. The Kubernetes version for the cluster. Must be <a href="https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html">supported by EKS</a></li>
 </ul>
-<h2 id="datadog">datadog</h2>
-<p>This module setups the <a href="https://docs.datadoghq.com/agent/kubernetes/?tab=helm">Datadog Kubernetes</a> integration onto
-the EKS cluster created for this environment. Please read the <a href="/docs/tutorials/datadog">datadog tutorial</a> for all the
-details of the features.</p>
-<p><em>Fields</em>
-None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.</p>
-<p><em>Outputs</em>
-None</p>
 <h2 id="k8s-base">k8s-base</h2>
 <p>This module is responsible for all the base infrastructure we package into the opta K8s environments. This includes:</p>
 <ul>
 <li><a href="https://github.com/kubernetes/autoscaler">Autoscaler</a> for scaling up and down the ec2s as needed</li>
-<li><a href="https://github.com/kubernetes-sigs/external-dns">External</a> DNS to automatically hook up the ingress to the hosted zone and its domain</li>
+<li><a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a> to automatically hook up the ingress to the hosted zone and its domain</li>
 <li><a href="https://github.com/kubernetes/ingress-nginx">Ingress Nginx</a> to expose services to the public</li>
 <li><a href="https://github.com/kubernetes-sigs/metrics-server">Metrics server</a> for scaling different deployments based on cpu/memory usage</li>
 <li><a href="https://linkerd.io/">Linkerd</a> as our service mesh.</li>
 </ul>
 <p><em>Fields</em>
 None for the user, we allow no configuration at the time.</p>
+<p><em>Outputs</em>
+None</p>
+<h1 id="gcp">GCP</h1>
+<h2 id="gcp-base">gcp-base</h2>
+<p>This module is the &ldquo;base&rdquo; module for creating an environment in gcp. It sets up the VPC, private subnet, firewall,
+default kms key, private service access, and activate the container registry. Defaults are set to work 99% of the time, assuming no funny
+networking constraints (you&rsquo;ll know them if you have them), so <em>no need to set any of the fields or no what the outputs do</em>.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>private_ipv4_cidr_block</code> &ndash; Optional. This is the cidr block for VM instances in the VPC. Defaults to &ldquo;10.0.0.0/19&rdquo;</li>
+<li><code>cluster_ipv4_cidr_block</code> &ndash; Optional. This is the cidr block reserved for pod ips in the GKE cluster. Defaults to &ldquo;10.0.32.0/19&rdquo;</li>
+<li><code>services_ipv4_cidr_block</code> &ndash; Optional This is the cidr block reserved for service cluster ips in the GKE cluster. Defaults to &ldquo;10.0.64.0/20&rdquo;</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li>kms_account_key_id &ndash; The id of the <a href="https://cloud.google.com/security-key-management">KMS</a> key (this is what handles
+encryption for redis, gke, etc&hellip;)</li>
+<li>kms_account_key_self_link &ndash; The self link of the default
+KMS key (sometimes things need the ID, sometimes the ARN, so we&rsquo;re giving both)</li>
+<li>vpc_id &ndash; The ID of the <a href="https://cloud.google.com/vpc/docs/vpc">VPC</a> we created for this environment</li>
+<li>private_subnet_id &ndash; The ID of the private <a href="https://cloud.google.com/vpc/docs/vpc#subnet-ranges">subnets</a>
+we setup for your environment</li>
+</ul>
+<h2 id="gcp-dns">gcp-dns</h2>
+<p>This module creates a GCP <a href="https://cloud.google.com/dns/docs/zones">managed zone</a> for
+your given domain. The <a href="#k8s-base">k8s-base</a> module automatically hooks up the load balancer to it
+for the domain and subdomain specified, but in order for this to actually receive traffic you will need to complete
+the <a href="/docs/tutorials/ingress">dns setup</a>.</p>
+<p><em>Fields</em></p>
+<ul>
+<li>domain &ndash; Required. The domain you want (you will also get the subdomains for your use)</li>
+<li>delegated &ndash; Optional. Set to true once the extra dns setup is complete and it will add the ssl certs.</li>
+<li>subdomains &ndash; Optional. A list of subdomains to also get ssl certs for.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li>zone_id &ndash; The ID of the hosted zone created</li>
+<li>name_servers &ndash; The name servers of your hosted zone (very important for the dns setup)</li>
+<li>domain &ndash; The domain again</li>
+<li>cert_arn &ndash; The arn of the <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">ACM certificate </a> which
+is used for ssl.</li>
+</ul>
+<h2 id="gcp-gke">gcp-gke</h2>
+<p>This module creates an <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview">GKE cluster</a>, and a default
+node pool to host your applications in. This needs to be added in the environment opta yml if you wish to deploy services
+as opta services run on Kubernetes.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>min_nodes</code> &ndash; Optional. The minimum number of nodes to be set by the autoscaler in for the default nodegroup. Defaults to 3.</li>
+<li><code>max_nodes</code> &ndash; Optional. The minimum number of nodes to be set by the autoscaler in for the default nodegroup. Defaults to 5.</li>
+<li><code>node_disk_size</code> &ndash; Optional. The size of disk to give the nodes' ec2s. Defaults to 20(GB)</li>
+<li><code>node_instance_type</code> &ndash; Optional. The <a href="https://cloud.google.com/compute/docs/machine-types">gcloud machine type</a> for the nodes. Defaults
+to n2-highcpu-4 (highly unrecommended to set to smaller)</li>
+<li><code>gke_channel</code> &ndash; Optional. The GKE K8s <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">release channel</a>
+to bind the cluster too. Gives you automatic K8s version management for the lcuster and node pools. Defaults to &ldquo;REGULAR&rdquo;</li>
+</ul>
+<h2 id="gcp-k8s-base">gcp-k8s-base</h2>
+<p>This module is responsible for all the base infrastructure we package into the opta K8s environments. This includes:</p>
+<ul>
+<li><a href="https://github.com/kubernetes/ingress-nginx">Ingress Nginx</a> to expose services to the public</li>
+<li><a href="https://linkerd.io/">Linkerd</a> as our service mesh.</li>
+<li>A custom load balancer and dns routing built to handle the Ingress Nginx which we set up.
+<em>Fields</em>
+None for the user, we allow no configuration at the time.</li>
+</ul>
+<p><em>Outputs</em>
+None</p>
+<h1 id="cloud-agnostic">Cloud agnostic</h1>
+<h2 id="datadog">datadog</h2>
+<p>This module setups the <a href="https://docs.datadoghq.com/agent/kubernetes/?tab=helm">Datadog Kubernetes</a> integration onto
+the EKS cluster created for this environment. Please read the <a href="/docs/tutorials/datadog">datadog tutorial</a> for all the
+details of the features.</p>
+<p><em>Fields</em>
+None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.</p>
 <p><em>Outputs</em>
 None</p>
 
@@ -1444,79 +1964,10 @@ None</p>
     
 	<h1 id="pg-ed2cba9668e1d0f0343f0088cf6a826a">6.2 - Service Modules</h1>
     <div class="lead">Input and output of different Service Modules</div>
-	<h1 id="whats-an-opta-module">What&rsquo;s an Opta module?</h1>
-<p>The heart of Opta is a set of &ldquo;Modules&rdquo; which basically map to AWS resources that
-need to get created. Opta yamls reference these under the <code>modules</code> field.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">AUTO</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;app.{parent.domain}/app&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">resource_request</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">512</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">healthcheck_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ENV</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{env}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called mydatabase</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called myredis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>You&rsquo;ll note that the module instance can have user-specified names which will come into play later with references.</p>
-<h2 id="fields">Fields</h2>
-<p>You&rsquo;ll note that there can be many, varying, fields per module instance such
-as &ldquo;type&rdquo;, &ldquo;env_vars&rdquo;, &ldquo;image&rdquo; etc&hellip;  These are called <em>fields</em> and this
-is how specific data is passed into the modules.</p>
-<h3 id="names">Names</h3>
-<p>All modules have a name field, which is used to create the name of the cloud resources in conjunction with the layer
-name (root name of opta.yml). A user can specify this with the <code>name</code> field, but it defaults to the module type (without
-the hyphens) if not given.</p>
-<h3 id="types">Types</h3>
-<p>All modules have their own list of supported fields, but the one common to all is <em>type</em>. The type field is simply
-the module reference (e.g. the library/package to use in this &ldquo;import&rdquo;). Opta currently comes with its list of valid
-modules built in &ndash; future work may allow users to specify their own.</p>
-<h3 id="linking">Linking</h3>
-<p>The k8s-service module type is the first (but not the last) module to support
-special processing. In this case, it&rsquo;s in regard to the <em>links</em> field. The
-links field takes as input a list of maps with a single element where the
-key is the name of another module in the file, and the value a list of
-strings representing resource permissions.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">myapp</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">parent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../env/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the k8-service module type called app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rds</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">redis</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">docdb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[]</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">write</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rds</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-rds module type called database</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-postgres</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">redis</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># This is an instance of the aws-redis module type called redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-redis</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">docdb</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-documentdb</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bucket</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;test-bucket&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h1 id="module-types">Module Types</h1>
-<p>Here is the list of module types for the user to use, with their inputs and outputs:</p>
+	<h1 id="module-types">Module Types</h1>
+<p>Here is the list of module types for the user to use in an service opta yaml (referencing one or more environments),
+with their inputs and outputs:</p>
+<h1 id="aws">AWS</h1>
 <h2 id="aws-documentdb">aws-documentdb</h2>
 <p>This module creates an AWS Documentdb  cluster. It is made in the private subnets automatically created for the environment.
 macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
@@ -1664,6 +2115,100 @@ With Opta, we expose such settings to the user, while keeping sensible defaults.
 <h4 id="ingress">Ingress</h4>
 <p>You can control if and how you want to expose your app to the world! Check out
 the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
+<h1 id="gcp">GCP</h1>
+<h2 id="gcp-gcs">gcp-gcs</h2>
+<p>This module creates an gcs bucket for storage purposes. It is created with encryption based on the default kms key
+created for you in the base, as well as the standard AES-256 encryption.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>bucket_name</code>&ndash; Required. The name of the bucket to create.</li>
+<li><code>block_public</code> &ndash; Optional. Block all public access. Default true</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>bucket_id</code> &ndash; The id of the bucket.</li>
+<li><code>bucket_name</code> &ndash; The name of the bucket.</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a gcp-k8s-service, this adds the necessary IAM permissions to read
+(e.g. list objects and get objects) and/or write (e.g. list, get,
+create, destroy, and update objects) to the given gcs bucket.
+The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
+specified when you add the link.</p>
+<h2 id="gcp-postgres">gcp-postgres</h2>
+<p>This module creates a postgres <a href="https://cloud.google.com/sql/docs/introduction">GCP Cloud SQL</a> database. It is made with
+the <a href="https://cloud.google.com/vpc/docs/private-services-access">private service access</a>, ensuring private communication.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>instance_tier</code> &ndash; Optional. This is the RDS instance type used for the cloud sql instance <a href="https://cloud.google.com/sql/pricing">instances</a>.
+Default &ldquo;db-f1-micro&rdquo;</li>
+<li><code>engine_version</code> &ndash; Optional. The major version of the database to use. Default 11</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_name</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>rds</code></p>
+<p>The permission list is to be empty because we currently do not support giving
+apps IAM permissions to manipulate a database.</p>
+<h2 id="gcp-redis">gcp-redis</h2>
+<p>This module creates a redis cache via <a href="https://cloud.google.com/memorystore/docs/redis/redis-overview">Memorystore</a>.
+It is made with their standard high availability offering, but (unlike in AWS) there is no
+<a href="https://stackoverflow.com/questions/58032778/gcp-cloud-memorystore-data-encryption-at-rest">encryption at rest</a>
+and in-transit encryption is not offered as terraform support is in beta. It is made in the with private service access
+ensuring private communication.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>node_type</code> &ndash; Optional. This is the redis instance type used for the <a href="https://aws.amazon.com/elasticache/pricing/">instances</a>.
+Default cache.m4.large.</li>
+<li><code>redis_version</code> - the Memorystore offered redis version to use. Default REDIS_5_0</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables</p>
+<ul>
+<li><code>{module_name}_cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
+<li><code>{module_name}_cache_host</code> &ndash; The host to contact to access the cluster.</li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>redis</code></p>
+<h2 id="gcp-k8s-service">gcp-k8s-service</h2>
+<p>The most important module for deploying apps, gcp-k8s-service deploys a kubernetes app on gcp.
+It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
+can even expose it to the world, complete with load balancing both internally and externally.</p>
+<p><em>Note</em>: This is nigh-identical to the original AWS version, save that (due to the new IAM method) it is not possible to pass in
+IAM permissions at the moment. This will be addressed in accordance to need from users.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
+<code>http: [PORT_NUMBER_HERE]</code> or <code>tcp: [PORT_NUMBER_HERE]</code>. Use http if you just have a vanilla http server and tcp for
+websockets.</li>
+<li><code>min_containers</code> &ndash; Optional. The minimum number of replicas your app can autoscale to. Default 1</li>
+<li><code>max_containers</code> &ndash; Optional. The maximum number of replicas your app can autoscale to. Default 3</li>
+<li><code>image</code> &ndash; Required. Set to AUTO to create a private repo for your own images. Otherwises attempts to pull image from public dockerhub</li>
+<li><code>env_vars</code> &ndash; Optional. A list of maps holding name+value fields for envars to add to your container
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FLAG</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>secrets</code> &ndash; Optional. Same format as env_vars, but these values will be stored in the secrets resource, not directly
+in the pod spec.</li>
+<li><code>autoscaling_target_cpu_percentage</code> &ndash;  Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>healthcheck_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>resource_request</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
+</li>
+<li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
+when using external images.</li>
+</ul>
 
 </div>
 

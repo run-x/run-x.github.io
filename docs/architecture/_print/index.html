@@ -216,11 +216,15 @@ manner, with no long-lived credentials.</li>
 <li>Currently, the EKS cluster is built with a public endpoint for the simple usage (can add private option later on once
 VPN feature is added).</li>
 </ul>
+<h2 id="gcp">GCP</h2>
+<p><em>Coming soon!</em></p>
 <h2 id="k8s">K8s</h2>
 <p><img src="/images/opta_internal_kubernetes_architecture.png" alt="image alt text"></p>
 <p>The K8s topology is divided into namespaces of 2 types: 3rd party integrations and opta services. The third party
 integrations consist of respected open source projects which handle background tasks or features expansions. These
 currently consist of:</p>
+<p><em>Note</em>: GCP does an awesome job in support K8s and actually includes several of the following integrations/features by
+default. Watch for the notes at the end of each description.</p>
 <p><a href="https://linkerd.io/">Linkerd</a>: Linkerd is the second most popular service mesh currently out there (right behind
 Istio) and is the one we provide for our users. We chose it over Istio due to its absurdly simple maintenance and
 upgrade stories while still offering the vast majority of the important service mesh features (e.g. traffic control,
@@ -228,13 +232,13 @@ grpc+http load balancing, mTLS, golden metrics). Linkerd also takes pride in its
 security audits. The typical opta user should not even see it.</p>
 <p><a href="https://github.com/kubernetes-sigs/metrics-server">Metrics Server</a>: The official metric server, distributed separately
 for EKS (comes with GKE) and used to power the standard horizontal pod autoscaler metrics (e.g. automatically scale up
-or scale down your server as needed for current load).</p>
+or scale down your server as needed for current load). <em>Builtin on GKE</em></p>
 <p><a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler">Cluster Autoscaler</a>: The official node
 autoscaler, distributed separately for EKS (comes with GKE) and used to add/remove underlying machines (e.g. ec2s of
-compute instances) serving as the nodes.</p>
+compute instances) serving as the nodes. <em>Builtin on GKE</em></p>
 <p><a href="https://kubernetes.github.io/ingress-nginx/">Ingress Nginx</a>: An official ingress (i.e. how to expose the cluster to
 the outside world) which uses a fleet of nginx containers to route incoming traffic from a load balancer to inside the
-cluster and a desired service.</p>
+cluster and a desired service. <em>Not used on GKE</em></p>
 <p><a href="https://github.com/kubernetes-sigs/external-dns">External DNS</a>: An official project used to automatically add DNS
 records for load balancers created by the cluster.</p>
 <p><a href="https://github.com/DataDog/helm-charts/tree/master/charts/datadog">Datadog</a>: The official K8s integration for Datadog

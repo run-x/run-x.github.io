@@ -424,7 +424,12 @@ if (!doNotTrack) {
     <li><a href="#macos-or-linux">MacOS or Linux</a></li>
     <li><a href="#releases">Releases</a>
       <ul>
+        <li><a href="#01110">0.11.10</a></li>
         <li><a href="#0119">0.11.9</a></li>
+        <li><a href="#0118">0.11.8</a></li>
+        <li><a href="#0117">0.11.7</a></li>
+        <li><a href="#0116">0.11.6</a></li>
+        <li><a href="#0115">0.11.5</a></li>
         <li><a href="#0114">0.11.4</a></li>
         <li><a href="#0112">0.11.2</a></li>
         <li><a href="#010">0.10</a></li>
@@ -446,7 +451,10 @@ if (!doNotTrack) {
           </div>
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
-  
+<div class="pageinfo pageinfo-primary">
+    Initial GCP support just added! Please come see it in the references and getting started. Architecture diagram
+    to be added once stabilized with some time.
+</div>
 
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
@@ -481,11 +489,14 @@ if (!doNotTrack) {
 <p>Opta currently has the following system prerequisites to operate normally:</p>
 <ul>
 <li>A supported macos or debian distro release.</li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
 <li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
 <li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
-docker-for-mac)</li>
+docker-for-mac)
+If you&rsquo;re using the GCP provider:</li>
+<li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a>
+If you&rsquo;re using the AWS provider:</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
 </ul>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install the latest version of opta (see below for changelog
@@ -494,9 +505,32 @@ and release history).</p>
 </code></pre></div><p>You can specify a particular version as well.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="releases">Releases</h2>
+<h3 id="01110">0.11.10</h3>
+<ul>
+<li>Added support for GCP!</li>
+</ul>
 <h3 id="0119">0.11.9</h3>
 <ul>
-<li>Bug fixes</li>
+<li>AWS Nodegroup module added</li>
+</ul>
+<h3 id="0118">0.11.8</h3>
+<h4 id="changelog">Changelog</h4>
+<ul>
+<li>Fix for when tf.state is empty</li>
+</ul>
+<h3 id="0117">0.11.7</h3>
+<ul>
+<li>Added release automation</li>
+</ul>
+<h3 id="0116">0.11.6</h3>
+<ul>
+<li>Removed buggy rollback from cli</li>
+</ul>
+<h3 id="0115">0.11.5</h3>
+<h4 id="changelog-1">Changelog</h4>
+<ul>
+<li>Fixing the terraform init issue with envs</li>
+<li>fixing tests</li>
 </ul>
 <h3 id="0114">0.11.4</h3>
 <ul>
@@ -511,21 +545,21 @@ and release history).</p>
 <li>opta validate</li>
 <li>opta deploy sets up infra and deploys in one go</li>
 </ul>
-<h4 id="changelog">Changelog</h4>
+<h4 id="changelog-2">Changelog</h4>
 <ul>
 <li>opta deploy, opta logs and opta shell</li>
 <li>Bugfixes</li>
 </ul>
 <hr>
 <h3 id="010">0.10</h3>
-<h4 id="changelog-1">Changelog</h4>
+<h4 id="changelog-3">Changelog</h4>
 <ul>
 <li>opta deploy, opta logs and opta shell</li>
 <li>Bugfixes</li>
 </ul>
 <hr>
 <h3 id="09">0.9</h3>
-<h4 id="changelog-2">Changelog</h4>
+<h4 id="changelog-4">Changelog</h4>
 <ul>
 <li>Revamped the Opta API</li>
 <li>Implemented opta inspect</li>
@@ -533,7 +567,7 @@ and release history).</p>
 </ul>
 <hr>
 <h3 id="07">0.7</h3>
-<h4 id="changelog-3">Changelog</h4>
+<h4 id="changelog-5">Changelog</h4>
 <ul>
 <li>Introduced org_id in env yaml files</li>
 <li>Bugfixes</li>
@@ -541,7 +575,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/32dfe0ae4cc0f61dc6ad34bed69932cf05af0538">32dfe0a</a></p>
 <hr>
 <h3 id="06">0.6</h3>
-<h4 id="changelog-4">Changelog</h4>
+<h4 id="changelog-6">Changelog</h4>
 <ul>
 <li>Added support for websockets</li>
 <li>Updated port syntax (BREAKING CHANGE)</li>
@@ -550,7 +584,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/8dec38d34d72eb82dd46e2f5f423b627e50d5729">8dec38d</a></p>
 <hr>
 <h3 id="05">0.5</h3>
-<h4 id="changelog-5">Changelog</h4>
+<h4 id="changelog-7">Changelog</h4>
 <ul>
 <li>Added opta configure-kubectl</li>
 <li>Updated link syntax (BREAKING CHANGE)</li>
@@ -561,7 +595,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/85185d87719e5f86219d47d35b5872d4a5dc237a">85185d8</a></p>
 <hr>
 <h3 id="04">0.4</h3>
-<h4 id="changelog-6">Changelog</h4>
+<h4 id="changelog-8">Changelog</h4>
 <ul>
 <li>Added opta secret list</li>
 <li>Added opta output</li>
@@ -573,14 +607,14 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/0a60153da5d2756ccc3220ab346f8ba276357deb">0a60153</a></p>
 <hr>
 <h3 id="03">0.3</h3>
-<h4 id="changelog-7">Changelog</h4>
+<h4 id="changelog-9">Changelog</h4>
 <ul>
 <li>No changes in opta but the binaries are generated by an automated mechanism</li>
 </ul>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/163fb775ce31c1c45568ba3de1e04447e23da59c">163fb77</a></p>
 <hr>
 <h3 id="02">0.2</h3>
-<h4 id="changelog-8">Changelog</h4>
+<h4 id="changelog-10">Changelog</h4>
 <ul>
 <li>Added tests</li>
 <li>Added sentry and amplitude</li>
@@ -592,7 +626,7 @@ and release history).</p>
 <p>Github: <a href="https://github.com/run-x/runxc/commit/dcd6a83bd8737ad3f0b4a22455d94fc8dc4fbd86">dcd6a83</a></p>
 <hr>
 <h3 id="01">0.1</h3>
-<h4 id="changelog-9">Changelog</h4>
+<h4 id="changelog-11">Changelog</h4>
 <ul>
 <li>First release!</li>
 </ul>
@@ -644,7 +678,7 @@ and release history).</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified April 1, 2021: <a  href="/commit/5970f3b903c833f3751574c25a1a10dda0451cad">Merge branch &#39;main&#39; of github.com:run-x/opta-docs into main (5970f3b)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified April 5, 2021: <a  href="/commit/3c0c7bc82550be547b39de41b10e4279372139f2">GCP docs (#36) (3c0c7bc)</a>
 </div>
 </div>
 
