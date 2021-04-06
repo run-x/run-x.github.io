@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><link rel="alternate" type="text/html" href="/docs/overview/_print/">
+<meta name="generator" content="Hugo 0.80.0" /><link rel="alternate" type="text/html" href="/docs/modules-reference/service-modules/_print/">
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
@@ -18,19 +18,16 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Overview | Opta</title><meta property="og:title" content="Overview" />
-<meta property="og:description" content="What is Opta?
-" />
+<title>Service modules | Opta</title><meta property="og:title" content="Service modules" />
+<meta property="og:description" content="Documentation for the Runx products." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/docs/overview/" />
+<meta property="og:url" content="/docs/modules-reference/service-modules/" />
 <meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="Overview">
-<meta itemprop="description" content="What is Opta?
-">
+<meta itemprop="name" content="Service modules">
+<meta itemprop="description" content="Documentation for the Runx products.">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Overview"/>
-<meta name="twitter:description" content="What is Opta?
-"/>
+<meta name="twitter:title" content="Service modules"/>
+<meta name="twitter:description" content="Documentation for the Runx products."/>
 
 
 <script type="application/javascript">
@@ -178,10 +175,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/overview/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Overview</a>
+    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsoverview">
+    <li class="collapse " id="docsoverview">
       
       
       
@@ -326,10 +323,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/modules-reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules reference</a>
+    <a  href="/docs/modules-reference/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Modules reference</a>
   </li>
   <ul>
-    <li class="collapse " id="docsmodules-reference">
+    <li class="collapse show" id="docsmodules-reference">
       
       
       
@@ -393,10 +390,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/modules-reference/service-modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service modules</a>
+    <a  href="/docs/modules-reference/service-modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service modules</a>
   </li>
   <ul>
-    <li class="collapse " id="docsmodules-referenceservice-modules">
+    <li class="collapse show" id="docsmodules-referenceservice-modules">
       
       
       
@@ -476,24 +473,13 @@ if (!doNotTrack) {
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
   
   
-    <a id="print" href="/docs/overview/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+    <a id="print" href="/docs/modules-reference/service-modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
   
   </div>
 
 
 
 
-
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#why-do-i-want-it">Why do I want it?</a>
-      <ul>
-        <li><a href="#what-is-it-good-for">What is it good for?</a></li>
-      </ul>
-    </li>
-    <li><a href="#where-should-i-go-next">Where should I go next?</a></li>
-  </ul>
-</nav>
 
 
 
@@ -515,6 +501,9 @@ if (!doNotTrack) {
 
 
 
+
+
+
 <li class="breadcrumb-item" >
 	<a href="/docs/">Documentation</a>
 </li>
@@ -522,8 +511,15 @@ if (!doNotTrack) {
 
 
 
+<li class="breadcrumb-item" >
+	<a href="/docs/modules-reference/">Modules reference</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/overview/">Overview</a>
+	<a href="/docs/modules-reference/service-modules/">Service modules</a>
 </li>
 
 	</ol>
@@ -531,45 +527,10 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Overview</h1>
-        <div class="lead">What is Opta?</div>
+	<h1>Service modules</h1>
+        
 	
-	<p>Opta, is a cloud infrastructure management tool specifically designed to reduce
-complexity and improve iteration speed.</p>
-<p>Opta enables you to set up infra on your AWS/GCP account/project via high-level config files
-(that describe microservices and databases) and low level details like access
-permissions, network and secret management are handled automatically.</p>
-<p>This way setting up a new environment takes &lt;30min and setting up a new service
-takes &lt;10min. All without any Infra/AWS/GCP/Kubernetes expertise PLUS you get an
-industry standard setup (including monitoring) from day 1.</p>
-<h2 id="why-do-i-want-it">Why do I want it?</h2>
-<p>Modern cloud infrastructure has become an engineering field in and of itself, with a high learning curve and limited
-hiring pool. Unfortunately, good cloud infrastructure is also required by software products if one wishes it to
-be highly available and scalable. While there are platform-as-a-service (PaaS) products in the market offering to
-handle the complexity of the cloud providers, running customer applications in their simplified cloud, these products
-replace the old problems with new ones. By having a middleman between them and the servers, customers will naturally
-have higher infrastructure prices (that&rsquo;s how middleman businesses work), which grow and become more severe as they
-scale. Debugging will become more difficult by the same principles. Most importantly of all, the customers will be
-surrendering ownership and control of their infrastructure, meaning:</p>
-<ul>
-<li>Difficult integration with custom resources even if the PaaS' underlying cloud provider has it.</li>
-<li>Added delay of release of new features/version from the underlying cloud provider.</li>
-<li>Inheriting deficiencies of the new layer with limited abilities to configure and remediate</li>
-<li>Inheritance of security vulnerabilities.</li>
-</ul>
-<p>Opta provides an alternative model by deploying and maintaining resources directly in the cloud provider and under the
-customers own account, while yet offering an opinionated framework taking care of default settings and &ldquo;golden path&rdquo;
-resource integrations automatically. Required infrastructure knowledge is kept to a minimum while the customer reaps
-the benefits of &ldquo;directly&rdquo; managing their cloud resources.</p>
-<h3 id="what-is-it-good-for">What is it good for?</h3>
-<p>Opta was designed with the following use cases in mind:</p>
-<ul>
-<li>A young startup seeking to quickly create reliable and scalable infrastructure while keeping their engineers
-focused on the app.</li>
-<li>A mature business seeking to move legacy infrastructure to the cloud.</li>
-</ul>
-<h2 id="where-should-i-go-next">Where should I go next?</h2>
-<p>Read the <a href="/docs/getting-started/">Getting Started Guide</a> or check out some <a href="/docs/examples/">Examples</a>.</p>
+	<p>This section provides the list of module types for the user to use in an service opta yaml (referencing one or more environments), with their inputs and outputs.</p>
 
         <div class="section-index">
     
@@ -604,13 +565,27 @@ focused on the app.</li>
             
         
             
-        
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/modules-reference/service-modules/aws/">AWS service modules</a>
+                    </h5>
+                    <p></p>
+                </div>
             
         
             
         
             
         
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/modules-reference/service-modules/gcp/">GCP service modules</a>
+                    </h5>
+                    <p></p>
+                </div>
             
         
             

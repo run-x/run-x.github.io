@@ -194,7 +194,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance for Opta</a></li>
+<li>4: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance</a></li>
 
 
     
@@ -210,15 +210,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-1a374c31804770873724683b0616ffae">Observability Integrations</a></li>
-
-
-    
-  
-    
-    
-	
-<li>7: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>6: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -422,7 +414,7 @@ a brief tutorial on how to use this tool.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">4 - IAM Guidance for Opta</h1>
+	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">4 - IAM Guidance</h1>
     <div class="lead">How to configure your iam to work with Opta</div>
 	<h1 id="overview">Overview</h1>
 <p>Identity access management, IAM, is how a user can control permissions to read and/or modify resources in their
@@ -801,27 +793,7 @@ your environment will now be picking up public traffic on your domain and have h
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1a374c31804770873724683b0616ffae">6 - Observability Integrations</h1>
-    <div class="lead">Configuring observability tool for your applications</div>
-	<p>Opta&rsquo;s current observability tool of choice is Datadog. We will be adding support for more tools in near future. Reach out to us at <a href="mailto:support@runx.dev">support@runx.dev</a> if you have a preference for which tool you would like to see here.</p>
-<h2 id="datadog">Datadog</h2>
-<p>Find the instructions to setup datadog with opta <a href="/docs/tutorials/datadog_integration">here</a></p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">7 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">6 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
 <ul>
