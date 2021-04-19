@@ -1736,7 +1736,7 @@ strings representing resource permissions.</p>
 	<h2 id="aws-base">aws-base</h2>
 <p>This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the
 db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them
-if you have them), so <em>no need to set any of the fields or no what the outputs do</em>.</p>
+if you have them), so <em>no need to set any of the fields or know what the outputs do</em>.</p>
 <p><em>Fields</em></p>
 <ul>
 <li><code>total_ipv4_cidr_block</code> &ndash; Optional. This is the total cidr block for the VPC. Defaults to &ldquo;10.0.0.0/16&rdquo;</li>
@@ -1822,7 +1822,7 @@ None</p>
 	<h2 id="gcp-base">gcp-base</h2>
 <p>This module is the &ldquo;base&rdquo; module for creating an environment in gcp. It sets up the VPC, private subnet, firewall,
 default kms key, private service access, and activate the container registry. Defaults are set to work 99% of the time, assuming no funny
-networking constraints (you&rsquo;ll know them if you have them), so <em>no need to set any of the fields or no what the outputs do</em>.</p>
+networking constraints (you&rsquo;ll know them if you have them), so <em>no need to set any of the fields or know what the outputs do</em>.</p>
 <p><em>Fields</em></p>
 <ul>
 <li><code>private_ipv4_cidr_block</code> &ndash; Optional. This is the cidr block for VM instances in the VPC. Defaults to &ldquo;10.0.0.0/19&rdquo;</li>
