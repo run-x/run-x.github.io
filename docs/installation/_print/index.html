@@ -179,11 +179,9 @@ This the multi-page printable view of this section.
 <li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
 <li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
 <li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
-docker-for-mac)
-If you&rsquo;re using the GCP provider:</li>
-<li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a>
-If you&rsquo;re using the AWS provider:</li>
-<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2)</li>
+docker-for-mac)</li>
+<li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a> (For GCP only)</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2) (For AWS only)</li>
 </ul>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install the latest version of opta (see below for changelog
@@ -192,6 +190,10 @@ and release history).</p>
 </code></pre></div><p>You can specify a particular version as well.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="releases">Releases</h2>
+<h3 id="01116">0.11.16</h3>
+<ul>
+<li>Added support for multiple public_uri</li>
+</ul>
 <h3 id="01110">0.11.10</h3>
 <ul>
 <li>Added support for GCP!</li>
