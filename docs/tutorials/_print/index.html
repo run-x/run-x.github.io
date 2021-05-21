@@ -170,7 +170,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
+<li>1: <a href="#pg-7e66bfe13c83cda56372b408d4112cf6">Custom image</a></li>
 
 
     
@@ -178,7 +178,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-83887ce2e0d6dbc08b4950ccb6e53c2c">Datadog Integration</a></li>
+<li>2: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
 
 
     
@@ -186,7 +186,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-5b96ef224df2cb76031f57bc78e2a4e2">Debugging</a></li>
+<li>3: <a href="#pg-83887ce2e0d6dbc08b4950ccb6e53c2c">Datadog Integration</a></li>
 
 
     
@@ -194,7 +194,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance</a></li>
+<li>4: <a href="#pg-5b96ef224df2cb76031f57bc78e2a4e2">Debugging</a></li>
 
 
     
@@ -202,7 +202,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>5: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance</a></li>
 
 
     
@@ -210,7 +210,15 @@ This the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>6: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+
+
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
 
 
     
@@ -241,7 +249,29 @@ This the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">1 - Continuous Deployment</h1>
+	<h1 id="pg-7e66bfe13c83cda56372b408d4112cf6">1 - Custom image</h1>
+    <div class="lead">Instructions to use a custom docker image</div>
+	<p>To use your own custom docker image, you can set <code>image: AUTO</code> in your service module.</p>
+<p>Now you should first build your docker container via <code>docker build</code> and then run:</p>
+<pre><code>opta deploy --image &lt;image&gt;:&lt;tag&gt;
+</code></pre><p>This will upload your image to the appropriate cloud repository (ECR or GCR) and then initiate a deploy with this image.</p>
+<p>No need to manually manage the repositories!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">2 - Continuous Deployment</h1>
     <div class="lead">Instructions to integrate with the CI/CD platform of your choice</div>
 	<h2 id="github-action">Github Action</h2>
 <p>If you are using Github Actions for your CI, you can use the <a href="https://github.com/run-x/deploy-action"><code>run-x/deploy-action</code></a> action. This action will push your local docker image up to a remote registry and then deploy that image.</p>
@@ -311,7 +341,7 @@ This the multi-page printable view of this section.
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-83887ce2e0d6dbc08b4950ccb6e53c2c">2 - Datadog Integration</h1>
+	<h1 id="pg-83887ce2e0d6dbc08b4950ccb6e53c2c">3 - Datadog Integration</h1>
     <div class="lead">Instructions on how to integrate your environment with Datadog</div>
 	<p>Opta provides deep integration with <a href="https://www.datadoghq.com/">Datadog</a>.</p>
 <p>With this integration you can have:</p>
@@ -360,7 +390,7 @@ tagged with <code>env</code> set to the layer name, and service deployments will
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5b96ef224df2cb76031f57bc78e2a4e2">3 - Debugging</h1>
+	<h1 id="pg-5b96ef224df2cb76031f57bc78e2a4e2">4 - Debugging</h1>
     <div class="lead">How to debug your app</div>
 	<blockquote>
 <p>Ideally, you should set up <a href="/docs/tutorials/observability">observability</a> so that manual debugging is not needed.</p>
@@ -414,7 +444,7 @@ a brief tutorial on how to use this tool.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">4 - IAM Guidance</h1>
+	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">5 - IAM Guidance</h1>
     <div class="lead">How to configure your iam to work with Opta</div>
 	<h1 id="overview">Overview</h1>
 <p>Identity access management, IAM, is how a user can control permissions to read and/or modify resources in their
@@ -526,7 +556,7 @@ and <a href="https://cloud.google.com/docs/authentication/production#create_serv
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">5 - Ingress</h1>
+	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">6 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>With opta, you can specify a domain for each environment which can be used by all the services running in that
@@ -793,7 +823,7 @@ your environment will now be picking up public traffic on your domain and have h
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">6 - Secrets</h1>
+	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">7 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
 <ul>
