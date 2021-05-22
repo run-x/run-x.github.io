@@ -224,7 +224,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-8dbd4e302cd86a4d0f71f71ce3b300de">Tutorials</a></li>
+<li>4: <a href="#pg-16da4f3a2fa4200c697330d4a1ebceef">Miscellaneous</a></li>
 
 
     
@@ -239,7 +239,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.1: <a href="#pg-7e66bfe13c83cda56372b408d4112cf6">Custom image</a></li>
+<li>4.1: <a href="#pg-344c26030b00128b32e0798417cbe0b3">Analytics</a></li>
 
 
     
@@ -247,7 +247,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.2: <a href="#pg-f107a9a5510ab74922b9a96e5ca94e5e">Continuous Deployment</a></li>
+<li>4.2: <a href="#pg-5a4b2481b822bd159d1f39d374881e9e">Continuous Deployment</a></li>
 
 
     
@@ -255,7 +255,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-83887ce2e0d6dbc08b4950ccb6e53c2c">Datadog Integration</a></li>
+<li>4.3: <a href="#pg-6b290f5eb36fa6a2e82f504f900c9417">Datadog Integration</a></li>
 
 
     
@@ -263,7 +263,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.4: <a href="#pg-5b96ef224df2cb76031f57bc78e2a4e2">Debugging</a></li>
+<li>4.4: <a href="#pg-c2a701ce2f49fcd73d938db9b2d50370">Debugging</a></li>
 
 
     
@@ -271,7 +271,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.5: <a href="#pg-9d0b9641c9f6229bb5bedf0bcd2431a9">IAM Guidance</a></li>
+<li>4.5: <a href="#pg-e0de368bc743459c8d0c9ff40e5680f1">IAM Guidance</a></li>
 
 
     
@@ -279,7 +279,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.6: <a href="#pg-fc48c3d786e14f954240ac60661342b3">Ingress</a></li>
+<li>4.6: <a href="#pg-24f20e816bdd4fc6f1bfa7b887dc38da">Ingress</a></li>
 
 
     
@@ -287,7 +287,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>4.7: <a href="#pg-10de6b7200433cebbfbebcaa1583a5c0">Secrets</a></li>
+<li>4.7: <a href="#pg-afeb742cc7aa88b89d660d5f2c33cbde">Secrets</a></li>
 
 
     
@@ -396,7 +396,7 @@ This the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-23695faee9f53cc21616fd61b8186a04">Architecture</a></li>
+<li>6: <a href="#pg-23695faee9f53cc21616fd61b8186a04">Architecture &amp; Security</a></li>
 
 
     
@@ -410,6 +410,14 @@ This the multi-page printable view of this section.
   
 
     </ul>
+    
+  
+    
+    
+	
+<li>7: <a href="#pg-7e66bfe13c83cda56372b408d4112cf6">Custom image</a></li>
+
+
     
   
 
@@ -952,8 +960,8 @@ and release history).</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8dbd4e302cd86a4d0f71f71ce3b300de">4 - Tutorials</h1>
-    <div class="lead">Tutorials on Opta</div>
+	<h1 id="pg-16da4f3a2fa4200c697330d4a1ebceef">4 - Miscellaneous</h1>
+    <div class="lead">Miscellaneous concepts for Opta</div>
 	
 </div>
 
@@ -977,13 +985,18 @@ and release history).</p>
 
 <div class="td-content" style="">
     
-	<h1 id="pg-7e66bfe13c83cda56372b408d4112cf6">4.1 - Custom image</h1>
-    <div class="lead">Instructions to use a custom docker image</div>
-	<p>To use your own custom docker image, you can set <code>image: AUTO</code> in your service module.</p>
-<p>Now you should first build your docker container via <code>docker build</code> and then run:</p>
-<pre><code>opta deploy --image &lt;image&gt;:&lt;tag&gt;
-</code></pre><p>This will upload your image to the appropriate cloud repository (ECR or GCR) and then initiate a deploy with this image.</p>
-<p>No need to manually manage the repositories!</p>
+	<h1 id="pg-344c26030b00128b32e0798417cbe0b3">4.1 - Analytics</h1>
+    <div class="lead">Runx analytics on opta usage.</div>
+	<p>By default, opta executions send metrics and logs back to runx to gain intelligence of the product&rsquo;s usage, errors, and
+to give superior support for the users. Like with the stdout users see, these reports do not hold ANY secrets or
+passwords.</p>
+<h3 id="disable-reporting">Disable Reporting</h3>
+<p>We, however, understand and respect that some users may have strict privacy requirements and to support them we
+have added the <code>OPTA_DISABLE_REPORTING</code> environment variable. If someone wishes to opt-out opta reporting, all they
+have to do is set the aforementioned environment variable in the shell running opta
+to some value like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#204a87">export</span> <span style="color:#000">OPTA_DISABLE_REPORTING</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
+</code></pre></div><p>Opta will then not send any metrics or logs back to runx in any subsequent calls.</p>
 
 </div>
 
@@ -999,7 +1012,7 @@ and release history).</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f107a9a5510ab74922b9a96e5ca94e5e">4.2 - Continuous Deployment</h1>
+	<h1 id="pg-5a4b2481b822bd159d1f39d374881e9e">4.2 - Continuous Deployment</h1>
     <div class="lead">Instructions to integrate with the CI/CD platform of your choice</div>
 	<h2 id="github-action">Github Action</h2>
 <p>If you are using Github Actions for your CI, you can use the <a href="https://github.com/run-x/deploy-action"><code>run-x/deploy-action</code></a> action. This action will push your local docker image up to a remote registry and then deploy that image.</p>
@@ -1069,7 +1082,7 @@ and release history).</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-83887ce2e0d6dbc08b4950ccb6e53c2c">4.3 - Datadog Integration</h1>
+	<h1 id="pg-6b290f5eb36fa6a2e82f504f900c9417">4.3 - Datadog Integration</h1>
     <div class="lead">Instructions on how to integrate your environment with Datadog</div>
 	<p>Opta provides deep integration with <a href="https://www.datadoghq.com/">Datadog</a>.</p>
 <p>With this integration you can have:</p>
@@ -1118,7 +1131,7 @@ tagged with <code>env</code> set to the layer name, and service deployments will
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5b96ef224df2cb76031f57bc78e2a4e2">4.4 - Debugging</h1>
+	<h1 id="pg-c2a701ce2f49fcd73d938db9b2d50370">4.4 - Debugging</h1>
     <div class="lead">How to debug your app</div>
 	<blockquote>
 <p>Ideally, you should set up <a href="/docs/tutorials/observability">observability</a> so that manual debugging is not needed.</p>
@@ -1157,7 +1170,13 @@ a brief tutorial on how to use this tool.</p>
   modules:
     app: # module-name
       type: k8s-service
-</code></pre>
+</code></pre><h3 id="debug-logging">Debug logging</h3>
+<p>Opta supports a verbose debug state wherein the log level is set to debug, and the auto-generated terraform files and
+directories are preserved after execution. This configuration serves for troubleshooting errors in deployment and
+preserving the full terraform infrastructure as code for the archives or other reasons. To enable this state, simply
+set the <code>OPTA_DEBUG</code> environment variables to some value like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#204a87">export</span> <span style="color:#000">OPTA_DEBUG</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span>
+</code></pre></div>
 </div>
 
 
@@ -1172,7 +1191,7 @@ a brief tutorial on how to use this tool.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9d0b9641c9f6229bb5bedf0bcd2431a9">4.5 - IAM Guidance</h1>
+	<h1 id="pg-e0de368bc743459c8d0c9ff40e5680f1">4.5 - IAM Guidance</h1>
     <div class="lead">How to configure your iam to work with Opta</div>
 	<h1 id="overview">Overview</h1>
 <p>Identity access management, IAM, is how a user can control permissions to read and/or modify resources in their
@@ -1284,7 +1303,7 @@ and <a href="https://cloud.google.com/docs/authentication/production#create_serv
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-fc48c3d786e14f954240ac60661342b3">4.6 - Ingress</h1>
+	<h1 id="pg-24f20e816bdd4fc6f1bfa7b887dc38da">4.6 - Ingress</h1>
     <div class="lead">How to expose your app on the internet</div>
 	<h3 id="setting-the-domain-for-an-environment">Setting the domain for an Environment</h3>
 <p>With opta, you can specify a domain for each environment which can be used by all the services running in that
@@ -1551,7 +1570,7 @@ your environment will now be picking up public traffic on your domain and have h
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-10de6b7200433cebbfbebcaa1583a5c0">4.7 - Secrets</h1>
+	<h1 id="pg-afeb742cc7aa88b89d660d5f2c33cbde">4.7 - Secrets</h1>
     <div class="lead">Creating secrets for your application</div>
 	<p>Opta provides in-built secret management for your applications. Any secrets like database passwords, api keys, should not be written in the code (including opta.yml) because if the code is leaked accidentally, your infrastructure is exposed to hackers. Hence we store these secrets in a specific secret store. To use the secrets functionality:</p>
 <ul>
@@ -2067,7 +2086,7 @@ in the pod spec.</li>
 </span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
 </li>
 <li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
-<li><code>additional_iam_roles</code> &ndash; Optional. A list of extra IAM role arns not captured by Opta which you wish to give to your service.</li>
+<li><code>additional_iam_policies</code> &ndash; Optional. A list of extra IAM role policies not captured by Opta which you wish to give to your service.</li>
 </ul>
 <p><em>Outputs</em></p>
 <ul>
@@ -2235,7 +2254,7 @@ when using external images.</li>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-23695faee9f53cc21616fd61b8186a04">6 - Architecture</h1>
+	<h1 id="pg-23695faee9f53cc21616fd61b8186a04">6 - Architecture &amp; Security</h1>
     <div class="lead">An overview of the Architecture Opta sets up.</div>
 	<p>The core principle of Opta is to not have our users compromise between cost, UX and implementation. To that end, Opta
 sets up a sophisticated, yet robust, architecture for your services and environments behind the scenes. This
@@ -2351,6 +2370,28 @@ principle of least privilege.</li>
   
 
   
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7e66bfe13c83cda56372b408d4112cf6">7 - Custom image</h1>
+    <div class="lead">Instructions to use a custom docker image</div>
+	<p>To use your own custom docker image, you can set <code>image: AUTO</code> in your service module.</p>
+<p>Now you should first build your docker container via <code>docker build</code> and then run:</p>
+<pre><code>opta deploy --image &lt;image&gt;:&lt;tag&gt;
+</code></pre><p>This will upload your image to the appropriate cloud repository (ECR or GCR) and then initiate a deploy with this image.</p>
+<p>No need to manually manage the repositories!</p>
+
+</div>
+
+
 
     
 	
