@@ -17,22 +17,33 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Search Results | Opta</title><meta property="og:title" content="Search Results" />
-<meta property="og:description" content="" />
+<title>GCP service modules | Opta</title><meta property="og:title" content="GCP service modules" />
+<meta property="og:description" content="gcp-gcs This module creates an gcs bucket for storage purposes. It is created with encryption based on the default kms key created for you in the base, as well as the standard AES-256 encryption.
+Fields
+ bucket_name&ndash; Required. The name of the bucket to create. block_public &ndash; Optional. Block all public access. Default true  Outputs
+ bucket_id &ndash; The id of the bucket. bucket_name &ndash; The name of the bucket." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/search/" />
+<meta property="og:url" content="/modules-reference/service-modules/gcp/" />
+<meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-05-24T14:47:12-07:00" /><meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="Search Results">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="GCP service modules">
+<meta itemprop="description" content="gcp-gcs This module creates an gcs bucket for storage purposes. It is created with encryption based on the default kms key created for you in the base, as well as the standard AES-256 encryption.
+Fields
+ bucket_name&ndash; Required. The name of the bucket to create. block_public &ndash; Optional. Block all public access. Default true  Outputs
+ bucket_id &ndash; The id of the bucket. bucket_name &ndash; The name of the bucket.">
+<meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-05-24T14:47:12-07:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="683">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Search Results"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="GCP service modules"/>
+<meta name="twitter:description" content="gcp-gcs This module creates an gcs bucket for storage purposes. It is created with encryption based on the default kms key created for you in the base, as well as the standard AES-256 encryption.
+Fields
+ bucket_name&ndash; Required. The name of the bucket to create. block_public &ndash; Optional. Block all public access. Default true  Outputs
+ bucket_id &ndash; The id of the bucket. bucket_name &ndash; The name of the bucket."/>
 
 
 <script type="application/javascript">
@@ -97,7 +108,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Search Results | Opta</title>
+    <title>GCP service modules | Opta</title>
   </head>
   <body class="td-page">
     <header>
@@ -163,7 +174,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+    <a  href="/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
   </li>
   <ul>
     <li class="collapse show" id="">
@@ -372,7 +383,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/modules-reference/service-modules/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Service modules</a>
+    <a  href="/modules-reference/service-modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service modules</a>
   </li>
   <ul>
     <li class="collapse show" id="modules-referenceservice-modules">
@@ -388,7 +399,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-modules-referenceservice-modulesgcp" href="/modules-reference/service-modules/gcp/">GCP</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-modules-referenceservice-modulesgcp" href="/modules-reference/service-modules/gcp/">GCP</a>
       
       
     </li>
@@ -475,11 +486,22 @@ if (!doNotTrack) {
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
   
   
+    <a id="print" href="/modules-reference/service-modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  
   </div>
 
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#gcp-gcs">gcp-gcs</a></li>
+    <li><a href="#gcp-postgres">gcp-postgres</a></li>
+    <li><a href="#gcp-redis">gcp-redis</a></li>
+    <li><a href="#gcp-k8s-service">gcp-k8s-service</a></li>
+  </ul>
+</nav>
 
 
 
@@ -492,20 +514,136 @@ if (!doNotTrack) {
 
 
 
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/modules-reference/">Modules reference</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/modules-reference/service-modules/">Service modules</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/search/">Search Results</a>
+	<a href="/modules-reference/service-modules/gcp/">GCP</a>
 </li>
 
 	</ol>
 </nav	>
 
             
-<section class="row td-search-result">
-<div class="col-12 col-md-8 offset-md-2">
-<h2 class="ml-4">Search Results</h2>
+<div class="td-content">
+	<h1>GCP service modules</h1>
+	
+	<h2 id="gcp-gcs">gcp-gcs</h2>
+<p>This module creates an gcs bucket for storage purposes. It is created with encryption based on the default kms key
+created for you in the base, as well as the standard AES-256 encryption.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>bucket_name</code>&ndash; Required. The name of the bucket to create.</li>
+<li><code>block_public</code> &ndash; Optional. Block all public access. Default true</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>bucket_id</code> &ndash; The id of the bucket.</li>
+<li><code>bucket_name</code> &ndash; The name of the bucket.</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a gcp-k8s-service, this adds the necessary IAM permissions to read
+(e.g. list objects and get objects) and/or write (e.g. list, get,
+create, destroy, and update objects) to the given gcs bucket.
+The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
+specified when you add the link.</p>
+<h2 id="gcp-postgres">gcp-postgres</h2>
+<p>This module creates a postgres <a href="https://cloud.google.com/sql/docs/introduction">GCP Cloud SQL</a> database. It is made with
+the <a href="https://cloud.google.com/vpc/docs/private-services-access">private service access</a>, ensuring private communication.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>instance_tier</code> &ndash; Optional. This is the RDS instance type used for the cloud sql instance <a href="https://cloud.google.com/sql/pricing">instances</a>.
+Default &ldquo;db-f1-micro&rdquo;</li>
+<li><code>engine_version</code> &ndash; Optional. The major version of the database to use. Default 11</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_name</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>rds</code></p>
+<p>The permission list is to be empty because we currently do not support giving
+apps IAM permissions to manipulate a database.</p>
+<h2 id="gcp-redis">gcp-redis</h2>
+<p>This module creates a redis cache via <a href="https://cloud.google.com/memorystore/docs/redis/redis-overview">Memorystore</a>.
+It is made with their standard high availability offering, but (unlike in AWS) there is no
+<a href="https://stackoverflow.com/questions/58032778/gcp-cloud-memorystore-data-encryption-at-rest">encryption at rest</a>
+and in-transit encryption is not offered as terraform support is in beta. It is made in the with private service access
+ensuring private communication.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>node_type</code> &ndash; Optional. This is the redis instance type used for the <a href="https://aws.amazon.com/elasticache/pricing/">instances</a>.
+Default cache.m4.large.</li>
+<li><code>redis_version</code> - the Memorystore offered redis version to use. Default REDIS_5_0</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables</p>
+<ul>
+<li><code>{module_name}_cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
+<li><code>{module_name}_cache_host</code> &ndash; The host to contact to access the cluster.</li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>redis</code></p>
+<h2 id="gcp-k8s-service">gcp-k8s-service</h2>
+<p>The most important module for deploying apps, gcp-k8s-service deploys a kubernetes app on gcp.
+It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
+can even expose it to the world, complete with load balancing both internally and externally.</p>
+<p><em>Note</em>: This is nigh-identical to the original AWS version, save that (due to the new IAM method) it is not possible to pass in
+IAM permissions at the moment. This will be addressed in accordance to need from users.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
+<code>http: [PORT_NUMBER_HERE]</code> or <code>tcp: [PORT_NUMBER_HERE]</code>. Use http if you just have a vanilla http server and tcp for
+websockets.</li>
+<li><code>min_containers</code> &ndash; Optional. The minimum number of replicas your app can autoscale to. Default 1</li>
+<li><code>max_containers</code> &ndash; Optional. The maximum number of replicas your app can autoscale to. Default 3</li>
+<li><code>image</code> &ndash; Required. Set to AUTO to create a private repo for your own images. Otherwises attempts to pull image from public dockerhub</li>
+<li><code>env_vars</code> &ndash; Optional. A list of maps holding name+value fields for envars to add to your container
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FLAG</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>secrets</code> &ndash; Optional. Same format as env_vars, but these values will be stored in the secrets resource, not directly
+in the pod spec.</li>
+<li><code>autoscaling_target_cpu_percentage</code> &ndash;  Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>healthcheck_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>resource_request</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
+</li>
+<li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
+when using external images.</li>
+</ul>
 
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 24, 2021: <a  href="/commit/d9ad27822ec4cfb87553c847457428d1eda51dfa">remove front page (#42) (d9ad278)</a>
 </div>
-</section>
+</div>
 
 
           </main>

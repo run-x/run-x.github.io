@@ -17,22 +17,30 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Search Results | Opta</title><meta property="og:title" content="Search Results" />
-<meta property="og:description" content="" />
+<title>AWS service modules | Opta</title><meta property="og:title" content="AWS service modules" />
+<meta property="og:description" content="aws-documentdb This module creates an AWS Documentdb cluster. It is made in the private subnets automatically created for the environment. macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted at rest with a kms key created in the env setup and in transit via tls.
+Fields
+ instance_class &ndash; Optional. This is the RDS instance type used for the documentdb cluster instances." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/search/" />
+<meta property="og:url" content="/modules-reference/service-modules/aws/" />
+<meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-05-24T14:47:12-07:00" /><meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="Search Results">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="AWS service modules">
+<meta itemprop="description" content="aws-documentdb This module creates an AWS Documentdb cluster. It is made in the private subnets automatically created for the environment. macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted at rest with a kms key created in the env setup and in transit via tls.
+Fields
+ instance_class &ndash; Optional. This is the RDS instance type used for the documentdb cluster instances.">
+<meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-05-24T14:47:12-07:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="1273">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Search Results"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="AWS service modules"/>
+<meta name="twitter:description" content="aws-documentdb This module creates an AWS Documentdb cluster. It is made in the private subnets automatically created for the environment. macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted at rest with a kms key created in the env setup and in transit via tls.
+Fields
+ instance_class &ndash; Optional. This is the RDS instance type used for the documentdb cluster instances."/>
 
 
 <script type="application/javascript">
@@ -97,7 +105,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Search Results | Opta</title>
+    <title>AWS service modules | Opta</title>
   </head>
   <body class="td-page">
     <header>
@@ -163,7 +171,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+    <a  href="/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
   </li>
   <ul>
     <li class="collapse show" id="">
@@ -372,7 +380,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/modules-reference/service-modules/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Service modules</a>
+    <a  href="/modules-reference/service-modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service modules</a>
   </li>
   <ul>
     <li class="collapse show" id="modules-referenceservice-modules">
@@ -382,7 +390,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-modules-referenceservice-modulesaws" href="/modules-reference/service-modules/aws/">AWS</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-modules-referenceservice-modulesaws" href="/modules-reference/service-modules/aws/">AWS</a>
       
       
       
@@ -475,11 +483,27 @@ if (!doNotTrack) {
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
   
   
+    <a id="print" href="/modules-reference/service-modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  
   </div>
 
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#aws-documentdb">aws-documentdb</a></li>
+    <li><a href="#aws-postgres">aws-postgres</a></li>
+    <li><a href="#aws-redis">aws-redis</a></li>
+    <li><a href="#aws-s3">aws-s3</a></li>
+    <li><a href="#k8s-service">k8s-service</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -492,20 +516,190 @@ if (!doNotTrack) {
 
 
 
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/modules-reference/">Modules reference</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/modules-reference/service-modules/">Service modules</a>
+</li>
+
+
+
+
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/search/">Search Results</a>
+	<a href="/modules-reference/service-modules/aws/">AWS</a>
 </li>
 
 	</ol>
 </nav	>
 
             
-<section class="row td-search-result">
-<div class="col-12 col-md-8 offset-md-2">
-<h2 class="ml-4">Search Results</h2>
+<div class="td-content">
+	<h1>AWS service modules</h1>
+	
+	<h2 id="aws-documentdb">aws-documentdb</h2>
+<p>This module creates an AWS Documentdb  cluster. It is made in the private subnets automatically created for the environment.
+macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted
+at rest with a kms key created in the env setup and in transit via tls.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the documentdb cluster <a href="https://aws.amazon.com/documentdb/pricing/">instances</a>.
+Default db.r5.large</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, this adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>docdb</code></p>
+<p>In addition to these credentials, you also need to enable SSL encryption when
+connecting (<a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/connect_programmatically.html">AWS docs</a>).
+Fortunately, the Opta k8s-service module has already taken care of that. On linking, you&rsquo;ll
+find the AWS CA at <code>/config/rds_ca.pem</code></p>
+<p>As an example, this is how the mongoose/node connection looks like:</p>
+<pre><code>await mongoose.connect(&quot;mongodb://&lt;USER&gt;:&lt;PASSWORD&gt;@&lt;HOST&gt;, {
+  ssl: true,
+  sslCA: require('fs').readFileSync(`/config/rds_ca.pem`)
+});
+</code></pre><h2 id="aws-postgres">aws-postgres</h2>
+<p>This module creates a postgres Aurora RDS database instance. It is made in the
+private subnets automatically created during environment setup and so can only be accessed in the
+VPC or through some proxy (e.g. VPN).</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>instance_class</code> &ndash; Optional. This is the RDS instance type used for the Aurora cluster <a href="https://aws.amazon.com/rds/instance-types/">instances</a>.
+Default db.r5.large</li>
+<li><code>engine_version</code> &ndash; Optional. The version of the database to use. Default 11.9.</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
+<ul>
+<li><code>{module_name}_db_user</code></li>
+<li><code>{module_name}_db_password</code></li>
+<li><code>{module_name}_db_name</code></li>
+<li><code>{module_name}_db_host</code></li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>rds</code></p>
+<p>The permission list is to be empty because we currently do not support giving
+apps IAM permissions to manipulate a database.</p>
+<h2 id="aws-redis">aws-redis</h2>
+<p>This module creates a redis cache via elasticache. It is made with one failover instance across azs, and is encrypted
+at rest with a kms key created in the env setup via the <em>init</em> macro and in transit via tls. It is made in the private
+subnets created by the _init macro and so can only be accessed in the VPC or through some proxy (e.g. VPN).</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>node_type</code> &ndash; Optional. This is the redis instance type used for the <a href="https://aws.amazon.com/elasticache/pricing/">instances</a>.
+Default cache.m4.large.</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables</p>
+<ul>
+<li><code>{module_name}_cache_auth_token</code> &ndash; The auth token/password of the cluster.</li>
+<li><code>{module_name}_cache_host</code> &ndash; The host to contact to access the cluster.</li>
+</ul>
+<p>In the above example file, the <em>{module_name}</em> would be replaced with <code>redis</code></p>
+<p><em>NOTE</em> Redis CLI will not work against this cluster because redis cli does not
+support the TLS transit encryption. There should be no trouble with any of the
+language sdks however, as they all support TLS.</p>
+<h2 id="aws-s3">aws-s3</h2>
+<p>This module creates an S3 bucket for storage purposes. It is created with server-side AES256 encryption.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>bucket_name</code>&ndash; Required. The name of the bucket to create.</li>
+<li><code>block_public</code> &ndash; Optional. Block all public access. Default true</li>
+<li><code>bucket_policy</code> &ndash; Optional. A custom s3 policy json/yaml to add.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>bucket_id</code> &ndash; The id/name of the bucket.</li>
+<li><code>bucket_arn</code> &ndash; The arn of the bucket.</li>
+</ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service, this adds the necessary IAM permissions to read
+(e.g. list objects and get objects) and/or write (e.g. list, get,
+create, destroy, and update objects) to the given s3 bucket.
+The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
+specified when you add the link.</p>
+<h2 id="k8s-service">k8s-service</h2>
+<p>The most important module for deploying apps, k8s-service deploys a kubernetes app.
+It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
+can even expose it to the world, complete with load balancing both internally and externally.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>port</code> &ndash; Required. Specifies what port your app was made to be listened to. Currently it must be a map of the form
+<code>http: [PORT_NUMBER_HERE]</code> or <code>tcp: [PORT_NUMBER_HERE]</code>. Use http if you just have a vanilla http server and tcp for
+websockets.</li>
+<li><code>min_containers</code> &ndash; Optional. The minimum number of replicas your app can autoscale to. Default 1</li>
+<li><code>max_containers</code> &ndash; Optional. The maximum number of replicas your app can autoscale to. Default 3</li>
+<li><code>image</code> &ndash; Required. Set to AUTO to create a private repo for your own images. Otherwises attempts to pull image from public dockerhub</li>
+<li><code>env_vars</code> &ndash; Optional. A list of maps holding name+value fields for envars to add to your container
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">FLAG</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div></li>
+<li><code>secrets</code> &ndash; Optional. Same format as env_vars, but these values will be stored in the secrets resource, not directly
+in the pod spec.</li>
+<li><code>autoscaling_target_cpu_percentage</code> &ndash;  Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>autoscaling_target_mem_percentage</code> &ndash; Optional. See the <a href="#autoscaling">autoscaling</a> section. Default 80</li>
+<li><code>healthcheck_path</code> &ndash; Optional. See the See the <a href="#livenessreadiness-probe">liveness/readiness</a> section. Default &ldquo;/healthcheck&rdquo;</li>
+<li><code>resource_request</code> &ndash; Optional. See the <a href="#container-resources">container resources</a> section. Default
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">cpu</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">100</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in millicores</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">memory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">128</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># in megabytes</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>CPU is given in millicores, and Memory is in megabytes.</p>
+</li>
+<li><code>public_uri</code> &ndash; Optional. The full domain to expose your app under as well as path prefix. Must be the full parent domain or a subdomain referencing the parent as such: &ldquo;dummy.{parent[domain]}/my/path/prefix&rdquo;</li>
+<li><code>additional_iam_policies</code> &ndash; Optional. A list of extra IAM role policies not captured by Opta which you wish to give to your service.</li>
+</ul>
+<p><em>Outputs</em></p>
+<ul>
+<li><code>docker_repo_url</code> &ndash; The url of the docker repo created to host this app&rsquo;s images in this environment. Does not exist
+when using external images.</li>
+</ul>
+<h4 id="externalinternal-image">External/Internal Image</h4>
+<p>Furthermore, this module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
+by setting the <code>image</code> field to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If you set the value to &ldquo;AUTO&rdquo; however,
+it will automatically create a secure container repository with ECR on your account. You can then use the <code>opta push</code>
+command to push to it!</p>
+<h4 id="healthcheck-probe">Healthcheck Probe</h4>
+<p>One of the benefits of K8s is that it comes with built in checks for the responsiveness of your server. These are called
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"><em>liveness</em> and <em>readiness</em> probes</a>.</p>
+<p>tl;dr A liveness probe determines whether your server should be restarted, and readiness probe determines if traffic should
+be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. Opta requires the
+user to have such health check endpoints for all http apps (a hello world get endpoint would do) but for websockets it
+just checks the tcp connection on the given port.</p>
+<h4 id="autoscaling">Autoscaling</h4>
+<p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
+based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
+to scale. As mentioned in the k8s docs, the horizontal pod autoscaler (which is what we use) assumes a linear relationship between # of replicas
+and cpu (twice the replicas means half expected cpu usage), which works well assuming low overhead.
+The autoscaler then uses this logic to try and balance the cpu/memory usage at the percentage of request. So, for example,
+if the target memory is 80% and we requested 100mb, then it&rsquo;ll try to keep the memory usage at 80mb. If it finds that
+the average memory usage was 160mb, it would logically try to double the number of replicas.</p>
+<h4 id="container-resources">Container Resources</h4>
+<p>One of the other benefits of kubernetes is that a user can have fine control over the <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/">resources used by each of their containers</a>.
+A user can control the cpu, memory and disk usage with which scheduling is made, and the max limit after which the container is killed.
+With Opta, we expose such settings to the user, while keeping sensible defaults.</p>
+<p><em>NOTE</em> We expose the resource requests and set the limits to twice the request values.</p>
+<h4 id="ingress">Ingress</h4>
+<p>You can control if and how you want to expose your app to the world! Check out
+the <a href="/docs/tutorials/ingress">Ingress</a> docs for more details.</p>
 
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 24, 2021: <a  href="/commit/d9ad27822ec4cfb87553c847457428d1eda51dfa">remove front page (#42) (d9ad278)</a>
 </div>
-</section>
+</div>
 
 
           </main>

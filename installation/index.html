@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.80.0" /><link rel="alternate" type="text/html" href="/installation/_print/">
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -17,22 +18,19 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Search Results | Opta</title><meta property="og:title" content="Search Results" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/search/" />
-<meta property="article:modified_time" content="2021-05-24T14:47:12-07:00" /><meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="Search Results">
-<meta itemprop="description" content="">
-<meta itemprop="dateModified" content="2021-05-24T14:47:12-07:00" />
-<meta itemprop="wordCount" content="0">
-
-
-
-<meta itemprop="keywords" content="" />
+<title>Installation | Opta</title><meta property="og:title" content="Installation" />
+<meta property="og:description" content="Installation Instructions
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/installation/" />
+<meta property="og:site_name" content="Opta" />
+<meta itemprop="name" content="Installation">
+<meta itemprop="description" content="Installation Instructions
+">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Search Results"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Installation"/>
+<meta name="twitter:description" content="Installation Instructions
+"/>
 
 
 <script type="application/javascript">
@@ -97,9 +95,9 @@ if (!doNotTrack) {
 
 
 
-    <title>Search Results | Opta</title>
+    <title>Installation | Opta</title>
   </head>
-  <body class="td-page">
+  <body class="td-section">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -163,7 +161,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Documentation</a>
+    <a  href="/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
   </li>
   <ul>
     <li class="collapse show" id="">
@@ -226,7 +224,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/installation/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Installation</a>
+    <a  href="/installation/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Installation</a>
   </li>
   <ul>
     <li class="collapse show" id="installation">
@@ -475,11 +473,42 @@ if (!doNotTrack) {
   <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
   
   
+    <a id="print" href="/installation/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  
   </div>
 
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#macos-or-linux">MacOS or Linux</a></li>
+    <li><a href="#releases">Releases</a>
+      <ul>
+        <li><a href="#01116">0.11.16</a></li>
+        <li><a href="#01110">0.11.10</a></li>
+        <li><a href="#0119">0.11.9</a></li>
+        <li><a href="#0118">0.11.8</a></li>
+        <li><a href="#0117">0.11.7</a></li>
+        <li><a href="#0116">0.11.6</a></li>
+        <li><a href="#0115">0.11.5</a></li>
+        <li><a href="#0114">0.11.4</a></li>
+        <li><a href="#0112">0.11.2</a></li>
+        <li><a href="#010">0.10</a></li>
+        <li><a href="#09">0.9</a></li>
+        <li><a href="#07">0.7</a></li>
+        <li><a href="#06">0.6</a></li>
+        <li><a href="#05">0.5</a></li>
+        <li><a href="#04">0.4</a></li>
+        <li><a href="#03">0.3</a></li>
+        <li><a href="#02">0.2</a></li>
+        <li><a href="#01">0.1</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
 
 
@@ -493,20 +522,183 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/search/">Search Results</a>
+	<a href="/installation/">Installation</a>
 </li>
 
 	</ol>
 </nav	>
 
             
-<section class="row td-search-result">
-<div class="col-12 col-md-8 offset-md-2">
-<h2 class="ml-4">Search Results</h2>
+<div class="td-content">
+	<h1>Installation</h1>
+	<div class="lead">Installation Instructions</div>
+	<h2 id="prerequisites">Prerequisites</h2>
+<p>Opta currently has the following system prerequisites to operate normally:</p>
+<ul>
+<li>A supported macos or debian distro release.</li>
+<li><a href="https://www.terraform.io/downloads.html">terraform</a> (v0.14+)</li>
+<li><a href="https://docker.com/products/docker-desktop">docker</a> (v19+)</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> (also packaged with
+docker-for-mac)</li>
+<li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a> (For GCP only)</li>
+<li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2) (For AWS only)</li>
+</ul>
+<h2 id="macos-or-linux">MacOS or Linux</h2>
+<p>Run this script to install the latest version of opta (see below for changelog
+and release history).</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+</code></pre></div><p>You can specify a particular version as well.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.runx.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+</code></pre></div><h2 id="releases">Releases</h2>
+<h3 id="01116">0.11.16</h3>
+<ul>
+<li>Added support for multiple public_uri</li>
+</ul>
+<h3 id="01110">0.11.10</h3>
+<ul>
+<li>Added support for GCP!</li>
+</ul>
+<h3 id="0119">0.11.9</h3>
+<ul>
+<li>AWS Nodegroup module added</li>
+</ul>
+<h3 id="0118">0.11.8</h3>
+<h4 id="changelog">Changelog</h4>
+<ul>
+<li>Fix for when tf.state is empty</li>
+</ul>
+<h3 id="0117">0.11.7</h3>
+<ul>
+<li>Added release automation</li>
+</ul>
+<h3 id="0116">0.11.6</h3>
+<ul>
+<li>Removed buggy rollback from cli</li>
+</ul>
+<h3 id="0115">0.11.5</h3>
+<h4 id="changelog-1">Changelog</h4>
+<ul>
+<li>Fixing the terraform init issue with envs</li>
+<li>fixing tests</li>
+</ul>
+<h3 id="0114">0.11.4</h3>
+<ul>
+<li>Pin linkerd version to avoid automatic updates</li>
+<li>Schema validation bug fixes</li>
+</ul>
+<hr>
+<h3 id="0112">0.11.2</h3>
+<ul>
+<li>Container logs and k8s events are streamed to shell during deploys</li>
+<li>10x faster CLI by reducing calls to terraform init</li>
+<li>opta validate</li>
+<li>opta deploy sets up infra and deploys in one go</li>
+</ul>
+<h4 id="changelog-2">Changelog</h4>
+<ul>
+<li>opta deploy, opta logs and opta shell</li>
+<li>Bugfixes</li>
+</ul>
+<hr>
+<h3 id="010">0.10</h3>
+<h4 id="changelog-3">Changelog</h4>
+<ul>
+<li>opta deploy, opta logs and opta shell</li>
+<li>Bugfixes</li>
+</ul>
+<hr>
+<h3 id="09">0.9</h3>
+<h4 id="changelog-4">Changelog</h4>
+<ul>
+<li>Revamped the Opta API</li>
+<li>Implemented opta inspect</li>
+<li>Bugfixes</li>
+</ul>
+<hr>
+<h3 id="07">0.7</h3>
+<h4 id="changelog-5">Changelog</h4>
+<ul>
+<li>Introduced org_id in env yaml files</li>
+<li>Bugfixes</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/32dfe0ae4cc0f61dc6ad34bed69932cf05af0538">32dfe0a</a></p>
+<hr>
+<h3 id="06">0.6</h3>
+<h4 id="changelog-6">Changelog</h4>
+<ul>
+<li>Added support for websockets</li>
+<li>Updated port syntax (BREAKING CHANGE)</li>
+<li>Bunch of bugfixes!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/8dec38d34d72eb82dd46e2f5f423b627e50d5729">8dec38d</a></p>
+<hr>
+<h3 id="05">0.5</h3>
+<h4 id="changelog-7">Changelog</h4>
+<ul>
+<li>Added opta configure-kubectl</li>
+<li>Updated link syntax (BREAKING CHANGE)</li>
+<li>Bugfix for deleting/renaming resources</li>
+<li>Bugfix for deleting rds/docdb</li>
+<li>Added opta push</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/85185d87719e5f86219d47d35b5872d4a5dc237a">85185d8</a></p>
+<hr>
+<h3 id="04">0.4</h3>
+<h4 id="changelog-8">Changelog</h4>
+<ul>
+<li>Added opta secret list</li>
+<li>Added opta output</li>
+<li>Added support for document db</li>
+<li>Bugfix for redis</li>
+<li>Misc cleanup</li>
+<li>zip packaging for faster runtime!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/0a60153da5d2756ccc3220ab346f8ba276357deb">0a60153</a></p>
+<hr>
+<h3 id="03">0.3</h3>
+<h4 id="changelog-9">Changelog</h4>
+<ul>
+<li>No changes in opta but the binaries are generated by an automated mechanism</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/163fb775ce31c1c45568ba3de1e04447e23da59c">163fb77</a></p>
+<hr>
+<h3 id="02">0.2</h3>
+<h4 id="changelog-10">Changelog</h4>
+<ul>
+<li>Added tests</li>
+<li>Added sentry and amplitude</li>
+<li>Added support for multiple environments</li>
+<li>Added support for s3</li>
+<li>Added support for elastic cache</li>
+<li>Misc stability and bug fixes</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/dcd6a83bd8737ad3f0b4a22455d94fc8dc4fbd86">dcd6a83</a></p>
+<hr>
+<h3 id="01">0.1</h3>
+<h4 id="changelog-11">Changelog</h4>
+<ul>
+<li>First release!</li>
+</ul>
+<p>Github: <a href="https://github.com/run-x/runxc/commit/ff53aad6a0a3b86cffb9e21b3112fd7b29b26e65">ff53aad</a></p>
+<hr>
 
+        <div class="section-index">
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+    
 </div>
-</section>
-
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified May 24, 2021: <a  href="/commit/d9ad27822ec4cfb87553c847457428d1eda51dfa">remove front page (#42) (d9ad278)</a>
+</div>
+</div>
 
           </main>
         </div>
