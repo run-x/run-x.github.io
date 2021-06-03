@@ -257,6 +257,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneouscustom_image" href="/miscellaneous/custom_image/">Custom Image</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneousservice2service" href="/miscellaneous/service2service/">Inter Service Communication</a>
       
       
@@ -436,35 +442,6 @@ if (!doNotTrack) {
 
       
       
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/tutorials/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Tutorials</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="tutorials">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscustom_image" href="/tutorials/custom_image/">Custom Image</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
     </li>
   </ul>
 </ul>
@@ -525,8 +502,8 @@ if (!doNotTrack) {
 	<h1>Getting Started</h1>
 	<div class="lead">The first steps in working with Opta.</div>
 	<h2 id="installation">Installation</h2>
-<p>One line installation (<a href="/docs/installation">detailed instructions</a>):</p>
-<pre><code>/bin/bash -c &quot;$(curl -fsSL https://docs.runx.dev/install.sh)&quot;
+<p>One line installation (<a href="/installation">detailed instructions</a>):</p>
+<pre><code>/bin/bash -c &quot;$(curl -fsSL https://docs.opta.dev/install.sh)&quot;
 </code></pre><p>Opta works on AWS and GCP - so make sure the appropriate cloud credentails are configured in your terminal.</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.
@@ -700,10 +677,10 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 
 <div class="tab-pane fade" id="tab22" role="tabpanel" aria-labelledby="nav-tabName2">
 
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging/opta.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -742,12 +719,12 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy
 </code></pre></div><h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Use your own docker image: <a href="/docs/tutorials/custom_image">Custom Image</a></li>
-<li>Set up a domain name for your service: <a href="/docs/tutorials/ingress">Ingress</a></li>
-<li>Use secrets: <a href="/docs/tutorials/secrets/">Secrets</a></li>
-<li>Set up full datadog integration in one line(!): <a href="/docs/tutorials/datadog_integration/">Datadog</a></li>
-<li>Explore all the infrastructure that opta sets up for you: <a href="/docs/architecture/">Architecture</a></li>
-<li>Explore the api for all modules: <a href="/docs/modules-reference/">Reference</a></li>
+<li>Use your own docker image: <a href="/miscellaneous/custom_image">Custom Image</a></li>
+<li>Set up a domain name for your service: <a href="/miscellaneous/ingress">Ingress</a></li>
+<li>Use secrets: <a href="/miscellaneous/secrets/">Secrets</a></li>
+<li>Set up full datadog integration in one line(!): <a href="/miscellaneous/datadog_integration/">Datadog</a></li>
+<li>Explore all the infrastructure that opta sets up for you: <a href="/architecture/">Architecture</a></li>
+<li>Explore the api for all modules: <a href="/modules-reference/">Reference</a></li>
 </ul>
 
         <div class="section-index">
@@ -764,7 +741,7 @@ We will create another <code>opta.yml</code> file, which defines high level conf
 </div>
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 3, 2021: <a  href="/commit/d37decf6da56f7c69d119423bf6833fb9b29dd0f">Update config.toml (d37decf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 3, 2021: <a  href="/commit/29f203144888ec83250b4e78544bf01a8f738124">Misc doc changes (#45) (29f2031)</a>
 </div>
 </div>
 

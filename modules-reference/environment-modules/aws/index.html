@@ -18,19 +18,19 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>AWS environment modules | Opta</title><meta property="og:title" content="AWS environment modules" />
-<meta property="og:description" content="aws-base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
+<meta property="og:description" content="base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
 Fields
  total_ipv4_cidr_block &ndash; Optional. This is the total cidr block for the VPC." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/modules-reference/environment-modules/aws/" />
 <meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-03T10:35:05-07:00" /><meta property="og:site_name" content="Opta" />
+<meta property="article:modified_time" content="2021-06-03T11:30:03-10:00" /><meta property="og:site_name" content="Opta" />
 <meta itemprop="name" content="AWS environment modules">
-<meta itemprop="description" content="aws-base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
+<meta itemprop="description" content="base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
 Fields
  total_ipv4_cidr_block &ndash; Optional. This is the total cidr block for the VPC.">
 <meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-03T10:35:05-07:00" />
+<meta itemprop="dateModified" content="2021-06-03T11:30:03-10:00" />
 <meta itemprop="wordCount" content="596">
 
 
@@ -38,7 +38,7 @@ Fields
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS environment modules"/>
-<meta name="twitter:description" content="aws-base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
+<meta name="twitter:description" content="base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
 Fields
  total_ipv4_cidr_block &ndash; Optional. This is the total cidr block for the VPC."/>
 
@@ -267,6 +267,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneouscustom_image" href="/miscellaneous/custom_image/">Custom Image</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneousservice2service" href="/miscellaneous/service2service/">Inter Service Communication</a>
       
       
@@ -446,35 +452,6 @@ if (!doNotTrack) {
 
       
       
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/tutorials/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Tutorials</a>
-  </li>
-  <ul>
-    <li class="collapse show" id="tutorials">
-      
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscustom_image" href="/tutorials/custom_image/">Custom Image</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
     </li>
   </ul>
 </ul>
@@ -505,9 +482,9 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#aws-base">aws-base</a></li>
-    <li><a href="#aws-dns">aws-dns</a></li>
-    <li><a href="#aws-eks">aws-eks</a></li>
+    <li><a href="#base">base</a></li>
+    <li><a href="#dns">dns</a></li>
+    <li><a href="#k8s-cluster">k8s-cluster</a></li>
     <li><a href="#aws-nodegroup">aws-nodegroup</a></li>
     <li><a href="#k8s-base">k8s-base</a></li>
   </ul>
@@ -555,7 +532,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>AWS environment modules</h1>
 	
-	<h2 id="aws-base">aws-base</h2>
+	<h2 id="base">base</h2>
 <p>This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the
 db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them
 if you have them), so <em>no need to set any of the fields or know what the outputs do</em>.</p>
@@ -580,11 +557,11 @@ we setup for your environment</li>
 <li><code>public_subnets_ids</code> &ndash; The IDs of the public <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">subnets</a>
 we setup for your environment</li>
 </ul>
-<h2 id="aws-dns">aws-dns</h2>
+<h2 id="dns">dns</h2>
 <p>This module creates a <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-working-with.html">Route53 hosted zone</a> for
 your given domain. The <a href="#k8s-base">k8s-base</a> module automatically hooks up the load balancer to it
 for the domain and subdomain specified, but in order for this to actually receive traffic you will need to complete
-the <a href="/docs/tutorials/ingress">dns setup</a>.</p>
+the <a href="/miscellaneous/ingress">dns setup</a>.</p>
 <p><em>Fields</em></p>
 <ul>
 <li>domain &ndash; Required. The domain you want (you will also get the subdomains for your use)</li>
@@ -598,7 +575,7 @@ the <a href="/docs/tutorials/ingress">dns setup</a>.</p>
 <li>cert_arn &ndash; The arn of the <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">ACM certificate </a> which
 is used for ssl.</li>
 </ul>
-<h2 id="aws-eks">aws-eks</h2>
+<h2 id="k8s-cluster">k8s-cluster</h2>
 <p>This module creates an <a href="https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html">EKS cluster</a>, and a default
 nodegroup to host your applications in. This needs to be added in the environment opta yml if you wish to deploy services
 as opta services run on Kubernetes.</p>
@@ -641,7 +618,7 @@ None</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 3, 2021: <a  href="/commit/d37decf6da56f7c69d119423bf6833fb9b29dd0f">Update config.toml (d37decf)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 3, 2021: <a  href="/commit/29f203144888ec83250b4e78544bf01a8f738124">Misc doc changes (#45) (29f2031)</a>
 </div>
 </div>
 
