@@ -17,22 +17,27 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Opta</title><meta property="og:title" content="" />
-<meta property="og:description" content="GCP For GCP our environments are currently setup within a single region/subnet which google can automatically distribute between all the region&rsquo;s availability zones. The subnet is a private one and only the load balancer and GCS buckets are allowed to be reachable from the public internet (although the GCS buckets would typically require credentials). In order to keep networking as private as possible, we setup a service networking peering so that the databases and caches can be accessed via private connection and so have no public endpoints." />
+<title>GCP Architecture | Opta</title><meta property="og:title" content="GCP Architecture" />
+<meta property="og:description" content="Architecture overview for GCP deployments of Opta
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/architecture/gcp/" />
-<meta property="article:modified_time" content="2021-06-17T20:20:30-07:00" /><meta property="og:site_name" content="Opta" />
-<meta itemprop="name" content="">
-<meta itemprop="description" content="GCP For GCP our environments are currently setup within a single region/subnet which google can automatically distribute between all the region&rsquo;s availability zones. The subnet is a private one and only the load balancer and GCS buckets are allowed to be reachable from the public internet (although the GCS buckets would typically require credentials). In order to keep networking as private as possible, we setup a service networking peering so that the databases and caches can be accessed via private connection and so have no public endpoints.">
-<meta itemprop="dateModified" content="2021-06-17T20:20:30-07:00" />
+<meta property="article:published_time" content="2020-06-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-06-17T20:41:18-07:00" /><meta property="og:site_name" content="Opta" />
+<meta itemprop="name" content="GCP Architecture">
+<meta itemprop="description" content="Architecture overview for GCP deployments of Opta
+">
+<meta itemprop="datePublished" content="2020-06-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-06-17T20:41:18-07:00" />
 <meta itemprop="wordCount" content="563">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="GCP For GCP our environments are currently setup within a single region/subnet which google can automatically distribute between all the region&rsquo;s availability zones. The subnet is a private one and only the load balancer and GCS buckets are allowed to be reachable from the public internet (although the GCS buckets would typically require credentials). In order to keep networking as private as possible, we setup a service networking peering so that the databases and caches can be accessed via private connection and so have no public endpoints."/>
+<meta name="twitter:title" content="GCP Architecture"/>
+<meta name="twitter:description" content="Architecture overview for GCP deployments of Opta
+"/>
 
 
 <script type="application/javascript">
@@ -97,7 +102,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Opta</title>
+    <title>GCP Architecture | Opta</title>
   </head>
   <body class="td-page">
     <header>
@@ -470,19 +475,19 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureaws" href="/architecture/aws/"></a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureaws" href="/architecture/aws/">AWS</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-architecturegcp" href="/architecture/gcp/"></a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-architecturegcp" href="/architecture/gcp/">GCP</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturekubernetes" href="/architecture/kubernetes/"></a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturekubernetes" href="/architecture/kubernetes/">Kubernetes</a>
       
       
     </li>
@@ -541,7 +546,7 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/architecture/gcp/"></a>
+	<a href="/architecture/gcp/">GCP</a>
 </li>
 
 	</ol>
@@ -549,8 +554,8 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1></h1>
-	
+	<h1>GCP Architecture</h1>
+	<div class="lead">Architecture overview for GCP deployments of Opta</div>
 	<h2 id="gcp">GCP</h2>
 <p><img src="/images/opta_gcp_architecture.png" alt="image alt text">
 For GCP our environments are currently setup within a single region/subnet which google can automatically distribute
@@ -603,7 +608,7 @@ VPN feature is added).</li>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 17, 2021: <a  href="/commit/8f3071fbc92a9a7a93e3785be16cc07d3276b3a3">Adding GCP architecture and some updates/refactoring (#51) (8f3071f)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 17, 2021: <a  href="/commit/13367d6282d8f3b82bc8e29a9c42f5d4a6baec41">bugfixing (13367d6)</a>
 </div>
 </div>
 
