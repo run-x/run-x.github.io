@@ -24,14 +24,14 @@ Fields
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/modules-reference/service-modules/aws/" />
 <meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-16T19:28:42-07:00" /><meta property="og:site_name" content="Opta" />
+<meta property="article:modified_time" content="2021-06-17T20:20:30-07:00" /><meta property="og:site_name" content="Opta" />
 <meta itemprop="name" content="AWS service modules">
 <meta itemprop="description" content="aws-documentdb This module creates an AWS Documentdb cluster. It is made in the private subnets automatically created for the environment. macro and so can only be accessed in the VPC or through some proxy (e.g. VPN). It is encrypted at rest with a kms key created in the env setup and in transit via tls.
 Fields
  instance_class &ndash; Optional. This is the RDS instance type used for the documentdb cluster instances.">
 <meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-16T19:28:42-07:00" />
-<meta itemprop="wordCount" content="1666">
+<meta itemprop="dateModified" content="2021-06-17T20:20:30-07:00" />
+<meta itemprop="wordCount" content="1704">
 
 
 
@@ -475,6 +475,24 @@ if (!doNotTrack) {
       
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureaws" href="/architecture/aws/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturegcp" href="/architecture/gcp/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturekubernetes" href="/architecture/kubernetes/"></a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -522,7 +540,6 @@ if (!doNotTrack) {
     </li>
     <li><a href="#aws-iam-role">aws-iam-role</a></li>
     <li><a href="#aws-iam-user">aws-iam-user</a></li>
-    <li><a href="#aws-ses">aws-ses</a></li>
     <li><a href="#aws-sqs">aws-sqs</a></li>
     <li><a href="#aws-sns">aws-sns</a></li>
   </ul>
@@ -682,11 +699,10 @@ language sdks however, as they all support TLS.</p>
 <li><code>bucket_arn</code> &ndash; The arn of the bucket.</li>
 </ul>
 <p><em>Linking</em></p>
-<p>When linked to a k8s-service, this adds the necessary IAM permissions to read
+<p>When linked to a k8s-service or IAM role/user, this adds the necessary IAM permissions to read
 (e.g. list objects and get objects) and/or write (e.g. list, get,
 create, destroy, and update objects) to the given s3 bucket.
-The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;. These need to be
-specified when you add the link.</p>
+The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;, defaulting to &ldquo;write&rdquo; if none specified</p>
 <h2 id="k8s-service">k8s-service</h2>
 <p>The most important module for deploying apps, k8s-service deploys a kubernetes app.
 It deploys your service as a rolling update securely and with simple autoscaling right off the bat&ndash; you
@@ -794,19 +810,7 @@ permission to access them.</p>
       - notifcationsQueue
       - schedulesQueue
       - topic
-</code></pre><h2 id="aws-ses">aws-ses</h2>
-<p>Sets up AWS SES for sending domains via your root domain. Note:</p>
-<ul>
-<li>It&rsquo;s required to set up the aws-dns module with this.</li>
-<li>Opta also files a ticket with AWS support to get out of SES sandbox mode.</li>
-</ul>
-<p><em>Fields</em></p>
-<ul>
-<li><code>mail_from_prefix</code> &ndash; Optional. Subdomain to use with root domain. <code>mail</code> by default.</li>
-</ul>
-<p><em>Outputs</em>
-None</p>
-<h2 id="aws-sqs">aws-sqs</h2>
+</code></pre><h2 id="aws-sqs">aws-sqs</h2>
 <p>Sets up a AWS SQS queue.</p>
 <p><em>Fields</em></p>
 <ul>
@@ -822,6 +826,11 @@ None</p>
 <li><code>queue_id</code> &ndash; ID of the Queue</li>
 <li><code>queue_name</code> &ndash; Name of the Queue</li>
 </ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service or IAM role/user, this adds the necessary IAM permissions to publish
+(e.g. put new messages) and/or subscribe (e.g. read/remove messages) to the given queue.
+The current permissions are, &ldquo;publish&rdquo; and &ldquo;subscribe&rdquo;, defaulting to [&ldquo;publish&rdquo;, &ldquo;subscribe&rdquo;,] if none specified.
+Link also grants encrypt/decrypt permission for the queue&rsquo;s KMS key.</p>
 <h2 id="aws-sns">aws-sns</h2>
 <p>Sets up a AWS SNS topic.</p>
 <p><em>Fields</em></p>
@@ -834,10 +843,14 @@ None</p>
 <ul>
 <li><code>topic_arn</code> &ndash; ARN for the topic</li>
 </ul>
+<p><em>Linking</em></p>
+<p>When linked to a k8s-service or IAM role/user, this adds the necessary IAM permissions to publish
+notifications to the topic.  The current permission allowed is just, &ldquo;publish&rdquo;.
+Link also grants encrypt/decrypt permission for the topic&rsquo;s KMS key.</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 16, 2021: <a  href="/commit/cfa6889dd9e2a7d3c013f9aa3d15c6be4911a2b6">Doc updates for latest opta release (#50) (cfa6889)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 17, 2021: <a  href="/commit/8f3071fbc92a9a7a93e3785be16cc07d3276b3a3">Adding GCP architecture and some updates/refactoring (#51) (8f3071f)</a>
 </div>
 </div>
 

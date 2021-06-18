@@ -24,14 +24,14 @@ Fields
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/modules-reference/environment-modules/aws/" />
 <meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-16T19:28:42-07:00" /><meta property="og:site_name" content="Opta" />
+<meta property="article:modified_time" content="2021-06-17T20:20:30-07:00" /><meta property="og:site_name" content="Opta" />
 <meta itemprop="name" content="AWS environment modules">
 <meta itemprop="description" content="base This module is the &ldquo;base&rdquo; module for creating an environment in aws. It sets up the VPCs, default kms key and the db/cache subnets. Defaults are set to work 99% of the time, assuming no funny networking constraints (you&rsquo;ll know them if you have them), so no need to set any of the fields or know what the outputs do.
 Fields
  total_ipv4_cidr_block &ndash; Optional. This is the total cidr block for the VPC.">
 <meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-16T19:28:42-07:00" />
-<meta itemprop="wordCount" content="741">
+<meta itemprop="dateModified" content="2021-06-17T20:20:30-07:00" />
+<meta itemprop="wordCount" content="794">
 
 
 
@@ -475,6 +475,24 @@ if (!doNotTrack) {
       
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureaws" href="/architecture/aws/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturegcp" href="/architecture/gcp/"></a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturekubernetes" href="/architecture/kubernetes/"></a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -516,6 +534,7 @@ if (!doNotTrack) {
     <li><a href="#k8s-cluster">k8s-cluster</a></li>
     <li><a href="#aws-nodegroup">aws-nodegroup</a></li>
     <li><a href="#k8s-base">k8s-base</a></li>
+    <li><a href="#aws-ses">aws-ses</a></li>
   </ul>
 </nav>
 
@@ -653,10 +672,22 @@ None</p>
 None for the user, we allow no configuration at the time.</p>
 <p><em>Outputs</em>
 None</p>
+<h2 id="aws-ses">aws-ses</h2>
+<p>Sets up AWS SES for sending domains via your root domain. Note:</p>
+<ul>
+<li>It&rsquo;s required to set up the aws-dns module with this.</li>
+<li>Opta also files a ticket with AWS support to get out of SES sandbox mode.</li>
+</ul>
+<p><em>Fields</em></p>
+<ul>
+<li><code>mail_from_prefix</code> &ndash; Optional. Subdomain to use with root domain. <code>mail</code> by default.</li>
+</ul>
+<p><em>Outputs</em>
+None</p>
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 16, 2021: <a  href="/commit/cfa6889dd9e2a7d3c013f9aa3d15c6be4911a2b6">Doc updates for latest opta release (#50) (cfa6889)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 17, 2021: <a  href="/commit/8f3071fbc92a9a7a93e3785be16cc07d3276b3a3">Adding GCP architecture and some updates/refactoring (#51) (8f3071f)</a>
 </div>
 </div>
 
