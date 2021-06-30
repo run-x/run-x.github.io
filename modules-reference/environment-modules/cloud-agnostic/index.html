@@ -19,21 +19,19 @@
 
 <title>Cloud agnostic environment modules | Opta</title><meta property="og:title" content="Cloud agnostic environment modules" />
 <meta property="og:description" content="datadog This module setups the Datadog Kubernetes integration onto the EKS cluster created for this environment. Please read the datadog tutorial for all the details of the features.
-Fields None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.
-Outputs None
-runx Integrate with the RunX UI. This UI gives you an overview of all your environments and services." />
+Fields
+ api_key &ndash; Optional. Datadog API key. If you don&rsquo;t provide this in the yaml, opta will prompt you for it and store it in secrets. timeout &ndash; Optional. Time to wait for this module to stabilize. Default 600 (seconds) values &ndash; Optional." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/modules-reference/environment-modules/cloud-agnostic/" />
 <meta property="article:published_time" content="2020-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-06-17T20:41:18-07:00" /><meta property="og:site_name" content="Opta" />
+<meta property="article:modified_time" content="2021-06-30T07:34:26-10:00" /><meta property="og:site_name" content="Opta" />
 <meta itemprop="name" content="Cloud agnostic environment modules">
 <meta itemprop="description" content="datadog This module setups the Datadog Kubernetes integration onto the EKS cluster created for this environment. Please read the datadog tutorial for all the details of the features.
-Fields None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.
-Outputs None
-runx Integrate with the RunX UI. This UI gives you an overview of all your environments and services.">
+Fields
+ api_key &ndash; Optional. Datadog API key. If you don&rsquo;t provide this in the yaml, opta will prompt you for it and store it in secrets. timeout &ndash; Optional. Time to wait for this module to stabilize. Default 600 (seconds) values &ndash; Optional.">
 <meta itemprop="datePublished" content="2020-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-06-17T20:41:18-07:00" />
-<meta itemprop="wordCount" content="82">
+<meta itemprop="dateModified" content="2021-06-30T07:34:26-10:00" />
+<meta itemprop="wordCount" content="107">
 
 
 
@@ -41,9 +39,8 @@ runx Integrate with the RunX UI. This UI gives you an overview of all your envir
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Cloud agnostic environment modules"/>
 <meta name="twitter:description" content="datadog This module setups the Datadog Kubernetes integration onto the EKS cluster created for this environment. Please read the datadog tutorial for all the details of the features.
-Fields None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.
-Outputs None
-runx Integrate with the RunX UI. This UI gives you an overview of all your environments and services."/>
+Fields
+ api_key &ndash; Optional. Datadog API key. If you don&rsquo;t provide this in the yaml, opta will prompt you for it and store it in secrets. timeout &ndash; Optional. Time to wait for this module to stabilize. Default 600 (seconds) values &ndash; Optional."/>
 
 
 <script type="application/javascript">
@@ -265,6 +262,18 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse show" id="miscellaneous">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneousenvironment_variables" href="/miscellaneous/environment_variables/">Environment Variables</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-miscellaneoustemplatization" href="/miscellaneous/templatization/">Templatization</a>
       
       
       
@@ -576,8 +585,12 @@ if (!doNotTrack) {
 <p>This module setups the <a href="https://docs.datadoghq.com/agent/kubernetes/?tab=helm">Datadog Kubernetes</a> integration onto
 the EKS cluster created for this environment. Please read the <a href="/observability/datadog">datadog tutorial</a> for all the
 details of the features.</p>
-<p><em>Fields</em>
-None. It&rsquo;ll prompt the use for a valid api key the first time it&rsquo;s run, but nothing else, and nothing in the yaml.</p>
+<p><em>Fields</em></p>
+<ul>
+<li><code>api_key</code> &ndash; Optional. Datadog API key. If you don&rsquo;t provide this in the yaml, opta will prompt you for it and store it in secrets.</li>
+<li><code>timeout</code> &ndash; Optional. Time to wait for this module to stabilize. Default 600 (seconds)</li>
+<li><code>values</code> &ndash; Optional. Additional configuration for datadog. <a href="https://github.com/DataDog/helm-charts/blob/master/charts/datadog/README.md#values">Available options</a></li>
+</ul>
 <p><em>Outputs</em>
 None</p>
 <h2 id="runx">runx</h2>
@@ -587,7 +600,7 @@ environments and services. Talk to the RunX team to get set up: <a href="mailto:
 
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified June 17, 2021: <a  href="/commit/13367d6282d8f3b82bc8e29a9c42f5d4a6baec41">bugfixing (13367d6)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified June 30, 2021: <a  href="/commit/db31029d5614af9327e209168b4c2a0c3b94434d">Update docs for datadog and k8s-base (#53) (db31029)</a>
 </div>
 </div>
 
