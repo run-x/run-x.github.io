@@ -1,0 +1,1616 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>datadog | Opta</title><meta property="og:title" content="datadog" />
+<meta property="og:description" content="Integrates datadog for observability" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reference/reference/azurerm/environment_modules/datadog/" />
+<meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-09-17T11:19:58-07:00" /><meta property="og:site_name" content="Opta" />
+<meta itemprop="name" content="datadog">
+<meta itemprop="description" content="Integrates datadog for observability">
+<meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-09-17T11:19:58-07:00" />
+<meta itemprop="wordCount" content="80">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="datadog"/>
+<meta name="twitter:description" content="Integrates datadog for observability"/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-188763285-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.a4f4923899f9878a84cfd83f594a4cec69ffb2fa0e75cb0d777edae060863ead.css" as="style">
+<link href="/scss/main.min.a4f4923899f9878a84cfd83f594a4cec69ffb2fa0e75cb0d777edae060863ead.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+    (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+    ;r.type="text/javascript"
+    ;r.integrity="sha384-girahbTbYZ9tT03PWWj0mEVgyxtZoyDF9KVZdL+R53PP5wCY0PiVUKq0jeRlMx9M"
+    ;r.crossOrigin="anonymous";r.async=true
+    ;r.src="https://cdn.amplitude.com/libs/amplitude-7.2.1-min.gz.js"
+    ;r.onload=function(){if(!e.amplitude.runQueuedFunctions){
+        console.log("[Amplitude] Error: could not load SDK")}}
+    ;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+    ;function s(e,t){e.prototype[t]=function(){
+        this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+        var o=function(){this._q=[];return this}
+        ;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
+        ;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
+            ;return this}
+        ;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+        ;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
+        ;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId", "enableTracking", "setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","onInit","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
+        ;function v(e){function t(t){e[t]=function(){
+            e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+            for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+            e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+            ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
+        ;e.amplitude=n})(window,document);
+
+    amplitude.getInstance().init("3c2edcd34808a6431499f4cd9b034e34");
+
+    amplitude.getInstance().logEvent("Viewed " + document.title + " Page", {
+        url: window.location.href,
+    });
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+
+
+
+    <title>datadog | Opta</title>
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"><svg width="113" height="32" viewBox="0 0 113 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4425 25.3675 7.86982 20.2459C7.71992 20.2625 7.49507 20.2709 7.19527 20.2709H3.24786V25.3675H0V7.87903H7.19527C8.71093 7.87903 10.0267 8.12886 11.1427 8.62854 12.2753 9.12821 13.1414 9.8444 13.741 10.7771 14.3406 11.7098 14.6404 12.8174 14.6404 14.0999 14.6404 15.4157 14.3156 16.5483 13.666 17.4977 13.0331 18.4471 12.117 19.1549 10.9178 19.6213L14.9402 25.3675H11.4425zM11.3675 14.0999C11.3675 12.984 11.0011 12.1262 10.2682 11.5266 9.53539 10.927 8.4611 10.6272 7.04536 10.6272H3.24786v6.9704H7.04536C8.4611 17.5976 9.53539 17.2978 10.2682 16.6982 11.0011 16.082 11.3675 15.2159 11.3675 14.0999z" fill="#fff"/><path d="M29.7915 25.6174C27.3765 25.6174 25.4944 24.9428 24.1452 23.5937 22.7961 22.2279 22.1216 20.2792 22.1216 17.7475V7.87903H25.3694V17.6226C25.3694 21.0537 26.8518 22.7692 29.8165 22.7692 32.7646 22.7692 34.2386 21.0537 34.2386 17.6226V7.87903H37.4365V17.7475C37.4365 20.2792 36.7619 22.2279 35.4128 23.5937 34.0804 24.9428 32.2066 25.6174 29.7915 25.6174z" fill="#fff"/><path d="M61.5222 7.87903V25.3675H58.849L49.2053 13.5253V25.3675H45.9824V7.87903H48.6557L58.2993 19.7212V7.87903H61.5222z" fill="#fff"/><path d="M96.8415 25.3675 93.2189 19.9461 89.6463 25.3675H84L90.3708 16.5233 84.2748 7.87903H89.8461L93.3438 12.9257 96.7916 7.87903H102.138L96.0421 16.3235 102.538 25.3675H96.8415z" fill="#fff"/><path d="M107.453 32V30.5299H111.248V1.47008H107.453V0H112.957V32H107.453z" fill="#fe794f"/><path d="M72.5.0H78.0043V1.47009H74.2094V30.5299H78.0043V32H72.5V0z" fill="#fe794f"/></svg></span><span class="text-uppercase font-weight-bold">Opta</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a  class="nav-link" href="https://github.com/run-x/opta" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a  class="nav-link" href="https://slack.opta.dev" target="_blank" ><span>Slack</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a  class="nav-link active" href="/" ><span class="active">Documentation</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="overview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting Started</a>
+  </li>
+  <ul>
+    <li class="collapse " id="getting-started">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/installation/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="installation">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/observability/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Observability</a>
+  </li>
+  <ul>
+    <li class="collapse " id="observability">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-observabilitydatadog" href="/observability/datadog/">Datadog Integration</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-observabilitylogdna" href="/observability/logdna/">LogDNA Integration</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">References</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="reference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceaws">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/aws/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceawsenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-nodegroup" href="/reference/aws/environment_modules/aws-nodegroup/">aws-nodegroup</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-ses" href="/reference/aws/environment_modules/aws-ses/">aws-ses</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-base" href="/reference/aws/environment_modules/aws-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesdatadog" href="/reference/aws/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-dns" href="/reference/aws/environment_modules/aws-dns/">dns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesexternal-ssl-cert" href="/reference/aws/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-k8s-base" href="/reference/aws/environment_modules/aws-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-eks" href="/reference/aws/environment_modules/aws-eks/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesrunx" href="/reference/aws/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceawsservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-documentdb" href="/reference/aws/service_modules/aws-documentdb/">aws-documentdb</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-iam-role" href="/reference/aws/service_modules/aws-iam-role/">aws-iam-role</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-iam-user" href="/reference/aws/service_modules/aws-iam-user/">aws-iam-user</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-s3" href="/reference/aws/service_modules/aws-s3/">aws-s3</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-sns" href="/reference/aws/service_modules/aws-sns/">aws-sns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-sqs" href="/reference/aws/service_modules/aws-sqs/">aws-sqs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_moduleshelm-chart" href="/reference/aws/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-k8s-service" href="/reference/aws/service_modules/aws-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-postgres" href="/reference/aws/service_modules/aws-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-redis" href="/reference/aws/service_modules/aws-redis/">redis</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">azure</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceazurerm">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/azurerm/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceazurermenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesazure-base" href="/reference/azurerm/environment_modules/azure-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesdatadog" href="/reference/azurerm/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesexternal-ssl-cert" href="/reference/azurerm/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesazure-k8s-base" href="/reference/azurerm/environment_modules/azure-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesazure-aks" href="/reference/azurerm/environment_modules/azure-aks/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermenvironment_modulesrunx" href="/reference/azurerm/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/azurerm/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referenceazurermservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_moduleshelm-chart" href="/reference/azurerm/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_modulesazure-k8s-service" href="/reference/azurerm/service_modules/azure-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_modulesazure-postgres" href="/reference/azurerm/service_modules/azure-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_modulesazure-redis" href="/reference/azurerm/service_modules/azure-redis/"></a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">google</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencegoogle">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/google/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencegoogleenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-base" href="/reference/google/environment_modules/gcp-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesdatadog" href="/reference/google/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-dns" href="/reference/google/environment_modules/gcp-dns/">dns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-k8s-base" href="/reference/google/environment_modules/gcp-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-gke" href="/reference/google/environment_modules/gcp-gke/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesrunx" href="/reference/google/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/google/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencegoogleservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-gcs" href="/reference/google/service_modules/gcp-gcs/">gcp-gcs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_moduleshelm-chart" href="/reference/google/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-k8s-service" href="/reference/google/service_modules/gcp-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-mysql" href="/reference/google/service_modules/gcp-mysql/">mysql</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-postgres" href="/reference/google/service_modules/gcp-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-redis" href="/reference/google/service_modules/gcp-redis/">redis</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">References</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="referencereference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferenceaws">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/aws/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferenceawsenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-nodegroup" href="/reference/reference/aws/environment_modules/aws-nodegroup/">aws-nodegroup</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-ses" href="/reference/reference/aws/environment_modules/aws-ses/">aws-ses</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-base" href="/reference/reference/aws/environment_modules/aws-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesdatadog" href="/reference/reference/aws/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-dns" href="/reference/reference/aws/environment_modules/aws-dns/">dns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesexternal-ssl-cert" href="/reference/reference/aws/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-k8s-base" href="/reference/reference/aws/environment_modules/aws-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesaws-eks" href="/reference/reference/aws/environment_modules/aws-eks/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsenvironment_modulesrunx" href="/reference/reference/aws/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/aws/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferenceawsservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-documentdb" href="/reference/reference/aws/service_modules/aws-documentdb/">aws-documentdb</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-iam-role" href="/reference/reference/aws/service_modules/aws-iam-role/">aws-iam-role</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-iam-user" href="/reference/reference/aws/service_modules/aws-iam-user/">aws-iam-user</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-s3" href="/reference/reference/aws/service_modules/aws-s3/">aws-s3</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-sns" href="/reference/reference/aws/service_modules/aws-sns/">aws-sns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-sqs" href="/reference/reference/aws/service_modules/aws-sqs/">aws-sqs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_moduleshelm-chart" href="/reference/reference/aws/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-k8s-service" href="/reference/reference/aws/service_modules/aws-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-postgres" href="/reference/reference/aws/service_modules/aws-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceawsservice_modulesaws-redis" href="/reference/reference/aws/service_modules/aws-redis/">redis</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/azurerm/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">azure</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="referencereferenceazurerm">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/azurerm/environment_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="referencereferenceazurermenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermenvironment_modulesazure-base" href="/reference/reference/azurerm/environment_modules/azure-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referencereferenceazurermenvironment_modulesdatadog" href="/reference/reference/azurerm/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermenvironment_modulesexternal-ssl-cert" href="/reference/reference/azurerm/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermenvironment_modulesazure-k8s-base" href="/reference/reference/azurerm/environment_modules/azure-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermenvironment_modulesazure-aks" href="/reference/reference/azurerm/environment_modules/azure-aks/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermenvironment_modulesrunx" href="/reference/reference/azurerm/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/azurerm/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferenceazurermservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermservice_moduleshelm-chart" href="/reference/reference/azurerm/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermservice_modulesazure-k8s-service" href="/reference/reference/azurerm/service_modules/azure-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermservice_modulesazure-postgres" href="/reference/reference/azurerm/service_modules/azure-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferenceazurermservice_modulesazure-redis" href="/reference/reference/azurerm/service_modules/azure-redis/"></a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">google</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferencegoogle">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/google/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferencegoogleenvironment_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesgcp-base" href="/reference/reference/google/environment_modules/gcp-base/">base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesdatadog" href="/reference/reference/google/environment_modules/datadog/">datadog</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesgcp-dns" href="/reference/reference/google/environment_modules/gcp-dns/">dns</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesgcp-k8s-base" href="/reference/reference/google/environment_modules/gcp-k8s-base/">k8s-base</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesgcp-gke" href="/reference/reference/google/environment_modules/gcp-gke/">k8s-cluster</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleenvironment_modulesrunx" href="/reference/reference/google/environment_modules/runx/">runx</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/reference/reference/google/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+  </li>
+  <ul>
+    <li class="collapse " id="referencereferencegoogleservice_modules">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-gcs" href="/reference/reference/google/service_modules/gcp-gcs/">gcp-gcs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-service-account" href="/reference/reference/google/service_modules/gcp-service-account/">gcp-service-account</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_moduleshelm-chart" href="/reference/reference/google/service_modules/helm-chart/">helm-chart</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-k8s-service" href="/reference/reference/google/service_modules/gcp-k8s-service/">k8s-service</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-mysql" href="/reference/reference/google/service_modules/gcp-mysql/">mysql</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-postgres" href="/reference/reference/google/service_modules/gcp-postgres/">postgres</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencereferencegoogleservice_modulesgcp-redis" href="/reference/reference/google/service_modules/gcp-redis/">redis</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/tutorials/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Tutorials</a>
+  </li>
+  <ul>
+    <li class="collapse " id="tutorials">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscontinuous_deployment" href="/tutorials/continuous_deployment/">Continuous Deployment</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscustom_image" href="/tutorials/custom_image/">Custom Image</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsdebugging" href="/tutorials/debugging/">Debugging</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsenvironment_variables" href="/tutorials/environment_variables/">Environment Variables</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsiam" href="/tutorials/iam/">IAM</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsingress" href="/tutorials/ingress/">Ingress</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsservice2service" href="/tutorials/service2service/">Inter Service Communication</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialssecrets" href="/tutorials/secrets/">Secrets</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization" href="/tutorials/templatization/">Templatization</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/compliance/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Compliance</a>
+  </li>
+  <ul>
+    <li class="collapse " id="compliance">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/architecture/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Architecture &amp; Security</a>
+  </li>
+  <ul>
+    <li class="collapse " id="architecture">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureaws" href="/architecture/aws/">AWS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architectureazure" href="/architecture/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturegcp" href="/architecture/gcp/">GCP</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-architecturekubernetes" href="/architecture/kubernetes/">Kubernetes</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+  
+  
+  
+  
+  
+  <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+  
+    
+    
+      
+    
+    
+    
+    
+    
+    
+    
+
+    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/Reference/azurerm/environment_modules/datadog.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/Reference/azurerm/environment_modules/datadog.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta/issues/new?title=datadog" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    
+
+  
+  
+    <a id="print" href="/reference/reference/azurerm/environment_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  
+  </div>
+
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reference/">References</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reference/reference/">References</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reference/reference/azurerm/">azure</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/reference/reference/azurerm/environment_modules/">Environment</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/reference/reference/azurerm/environment_modules/datadog/">datadog</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>datadog</h1>
+	<div class="lead">Integrates datadog for observability</div>
+	<p>This module setups the <a href="https://docs.datadoghq.com/agent/kubernetes/?tab=helm">Datadog Kubernetes</a> integration onto
+the kubernetes cluster created for this environment. Please read the <a href="/observability/datadog">datadog tutorial</a> for all the
+details of the features.</p>
+<h2 id="fields">Fields</h2>
+<ul>
+<li><code>api_key</code> - Optional. Datadog API key. If you don&rsquo;t provide this in the yaml, Opta will prompt you for it and store it in secrets. Default None</li>
+<li><code>timeout</code> - Optional. Time to wait for this module to stabilize. Default 600</li>
+<li><code>values</code> - Optional. Additional configuration for datadog. <a href="https://github.com/DataDog/helm-charts/blob/master/charts/datadog/README.md#values">Available options</a> Default {}</li>
+</ul>
+<h2 id="outputs">Outputs</h2>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified September 17, 2021: <a  href="https://github.com/run-x/opta/commit/8dd4977097d19d9fe8840abaecbbafdd7831791d">stuff (8dd4977)</a>
+</div>
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="support@runx.dev">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/run-x/opta">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Slack" aria-label="Slack">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://join.slack.com/t/opta-group/shared_invite/zt-r1p9k1iv-4MP1IMZCT9mwwwdJH0HRyA">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 RunX Labs Inc. All Rights Reserved</small>
+        <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></small>
+	
+		
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+        apiKey: '45a325ff63b40a0ee70998f1049e20c3',
+        indexName: 'runx',
+        inputSelector: '.td-search-input',
+        debug: false 
+    });
+</script>
+
+
+
+  </body>
+</html>
