@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/azurerm/environment_modules/external-ssl-cert/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-27T18:29:15-07:00" />
+<meta property="article:modified_time" content="2021-10-11T14:19:26-07:00" />
 <meta itemprop="name" content="external-ssl-cert">
 <meta itemprop="description" content="External SSL Certicate">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-09-27T18:29:15-07:00" />
-<meta itemprop="wordCount" content="119">
+<meta itemprop="dateModified" content="2021-10-11T14:19:26-07:00" />
+<meta itemprop="wordCount" content="124">
 
 
 
@@ -53,8 +53,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" as="style">
-<link href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" as="style">
+<link href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -160,6 +160,10 @@ if (!doNotTrack) {
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile" style="display: flex" class="justify-content-center align-items-center">
+    <button style="display: block" class="btn btn-link td-sidebar__toggle d-md-none fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </div>
   <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
     
     
@@ -211,6 +215,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedazure" href="/getting-started/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedlocal" href="/getting-started/local/">Local</a>
       
       
     </li>
@@ -304,7 +314,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse " id="referenceaws">
@@ -487,7 +497,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
     <li class="collapse show" id="referenceazurerm">
@@ -616,7 +626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">google</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
     <li class="collapse " id="referencegoogle">
@@ -662,6 +672,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-nodepool" href="/reference/google/environment_modules/gcp-nodepool/">gcp-nodegpool</a>
       
       
       
@@ -780,6 +796,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="tutorials">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
       
       
       
@@ -970,16 +992,57 @@ if (!doNotTrack) {
 environment in the case dns delegation is not preferred. Please see the <a href="/tutorials/ingress">ingress docs</a>
 for more details.</p>
 <h2 id="fields">Fields</h2>
-<ul>
-<li><code>domain</code> - Required. The domain which the ssl cert is for (used for validation of the certificate files).</li>
-<li><code>private_key_file</code> - Required. The private key pem file for the ssl certificate.</li>
-<li><code>certificate_body_file</code> - Required. The body of the ssl certificate in the form of a pem file. This file should just have the final certificate and not other certificates on the chain</li>
-<li><code>certificate_chain_file</code> - Required. The file containing the chain certificate for the current ssl certificate.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td>The domain which the ssl cert is for (used for validation of the certificate files).</td>
+<td><code>default_value</code></td>
+<td>True</td>
+</tr>
+<tr>
+<td><code>private_key_file</code></td>
+<td>The private key pem file for the ssl certificate.</td>
+<td><code>None</code></td>
+<td>True</td>
+</tr>
+<tr>
+<td><code>certificate_body_file</code></td>
+<td>The body of the ssl certificate in the form of a pem file. This file should just have the final certificate and not other certificates on the chain</td>
+<td><code>None</code></td>
+<td>True</td>
+</tr>
+<tr>
+<td><code>certificate_chain_file</code></td>
+<td>The file containing the chain certificate for the current ssl certificate.</td>
+<td><code>None</code></td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
 <h2 id="outputs">Outputs</h2>
-<ul>
-<li>domain - The domain passed in.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>domain</code></td>
+<td>The domain passed in.</td>
+</tr>
+</tbody>
+</table>
 
 	
 	

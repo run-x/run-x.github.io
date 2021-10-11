@@ -46,8 +46,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" as="style">
-<link href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" as="style">
+<link href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -153,6 +153,10 @@ if (!doNotTrack) {
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile" style="display: flex" class="justify-content-center align-items-center">
+    <button style="display: block" class="btn btn-link td-sidebar__toggle d-md-none fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </div>
   <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
     
     
@@ -204,6 +208,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedazure" href="/getting-started/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedlocal" href="/getting-started/local/">Local</a>
       
       
     </li>
@@ -297,7 +307,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse " id="referenceaws">
@@ -480,7 +490,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
     <li class="collapse " id="referenceazurerm">
@@ -609,7 +619,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">google</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
     <li class="collapse show" id="referencegoogle">
@@ -655,6 +665,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-nodepool" href="/reference/google/environment_modules/gcp-nodepool/">gcp-nodegpool</a>
       
       
       
@@ -773,6 +789,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="tutorials">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
       
       
       
@@ -957,8 +979,7 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>Service</h1>
 	<div class="lead">This section provides the list of module types for the user to use in a service Opta yaml for this cloud, along with their inputs and outputs.</div>
-	<p>This section provides the list of module types for the user to use in a service Opta yaml for this cloud, along with their inputs and outputs.</p>
-
+	
         <div class="section-index">
     
     
@@ -966,6 +987,8 @@ if (!doNotTrack) {
     
     
     <hr class="panel-line">
+        
+            
         
             
         
@@ -1019,14 +1042,14 @@ if (!doNotTrack) {
             
         
             
+        
+            
                 <div class="entry">
                     <h5>
                         <a href="/reference/google/service_modules/gcp-service-account/">gcp-service-account</a>
                     </h5>
                     <p>Creates a GCP service account</p>
                 </div>
-            
-        
             
         
             

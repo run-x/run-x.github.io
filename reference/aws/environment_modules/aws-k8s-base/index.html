@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/environment_modules/aws-k8s-base/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-27T18:29:15-07:00" />
+<meta property="article:modified_time" content="2021-10-11T14:19:26-07:00" />
 <meta itemprop="name" content="k8s-base">
 <meta itemprop="description" content="Creates base infrastructure for k8s environments">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-09-27T18:29:15-07:00" />
-<meta itemprop="wordCount" content="150">
+<meta itemprop="dateModified" content="2021-10-11T14:19:26-07:00" />
+<meta itemprop="wordCount" content="143">
 
 
 
@@ -53,8 +53,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" as="style">
-<link href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" as="style">
+<link href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -160,6 +160,10 @@ if (!doNotTrack) {
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile" style="display: flex" class="justify-content-center align-items-center">
+    <button style="display: block" class="btn btn-link td-sidebar__toggle d-md-none fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </div>
   <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
     
     
@@ -211,6 +215,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedazure" href="/getting-started/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedlocal" href="/getting-started/local/">Local</a>
       
       
     </li>
@@ -304,7 +314,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">aws</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse show" id="referenceaws">
@@ -487,7 +497,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
     <li class="collapse " id="referenceazurerm">
@@ -616,7 +626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">google</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
     <li class="collapse " id="referencegoogle">
@@ -662,6 +672,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-nodepool" href="/reference/google/environment_modules/gcp-nodepool/">gcp-nodegpool</a>
       
       
       
@@ -780,6 +796,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="tutorials">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
       
       
       
@@ -957,18 +979,6 @@ if (!doNotTrack) {
 
 
 
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#features">Features</a></li>
-      </ul>
-    </li>
-    <li><a href="#fields">Fields</a></li>
-    <li><a href="#outputs">Outputs</a></li>
-  </ul>
-</nav>
-
 
 
           </div>
@@ -989,14 +999,48 @@ if (!doNotTrack) {
 <li><a href="https://cert-manager.io/docs/">Cert Manager</a> for internal ssl.</li>
 </ul>
 <h2 id="fields">Fields</h2>
-<ul>
-<li><code>nginx_high_availability</code> - Optional. Deploy the nginx ingress in a high-availability configuration. Default False</li>
-<li><code>linkerd_high_availability</code> - Optional. Deploy the linkerd service mesh in a high-availability configuration for its control plane. Default False</li>
-<li><code>linkerd_enabled</code> - Optional. Enable the linkerd service mesh installation. Default True</li>
-<li><code>admin_arns</code> - Optional. ARNs for users/roles who should be K8s admins. The user running Opta is by default an admin. Default []</li>
-<li><code>nginx_config</code> - Optional. Additional configuration for nginx ingress. <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-options">Available options</a> Default {}</li>
-</ul>
-<h2 id="outputs">Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nginx_high_availability</code></td>
+<td>Deploy the nginx ingress in a high-availability configuration.</td>
+<td><code>False</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>linkerd_high_availability</code></td>
+<td>Deploy the linkerd service mesh in a high-availability configuration for its control plane.</td>
+<td><code>False</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>linkerd_enabled</code></td>
+<td>Enable the linkerd service mesh installation.</td>
+<td><code>True</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>admin_arns</code></td>
+<td>ARNs for users/roles who should be K8s admins. The user running Opta is by default an admin.</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>nginx_config</code></td>
+<td>Additional configuration for nginx ingress. <a href="https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#configuration-options">Available options</a></td>
+<td><code>{}</code></td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
 
 	
 	

@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/google/environment_modules/gcp-gke/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-09-27T18:29:15-07:00" />
+<meta property="article:modified_time" content="2021-10-11T14:19:26-07:00" />
 <meta itemprop="name" content="k8s-cluster">
 <meta itemprop="description" content="Creates a GKE cluster and a default nodegroup to host your applications in">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-09-27T18:29:15-07:00" />
-<meta itemprop="wordCount" content="168">
+<meta itemprop="dateModified" content="2021-10-11T14:19:26-07:00" />
+<meta itemprop="wordCount" content="269">
 
 
 
@@ -53,8 +53,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" as="style">
-<link href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" as="style">
+<link href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -160,6 +160,10 @@ if (!doNotTrack) {
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile" style="display: flex" class="justify-content-center align-items-center">
+    <button style="display: block" class="btn btn-link td-sidebar__toggle d-md-none fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </div>
   <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
     
     
@@ -211,6 +215,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedazure" href="/getting-started/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedlocal" href="/getting-started/local/">Local</a>
       
       
     </li>
@@ -304,7 +314,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse " id="referenceaws">
@@ -487,7 +497,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
     <li class="collapse " id="referenceazurerm">
@@ -616,7 +626,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">google</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
     <li class="collapse show" id="referencegoogle">
@@ -662,6 +672,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-nodepool" href="/reference/google/environment_modules/gcp-nodepool/">gcp-nodegpool</a>
       
       
       
@@ -780,6 +796,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="tutorials">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
       
       
       
@@ -970,19 +992,77 @@ if (!doNotTrack) {
 node pool to host your applications in. This needs to be added in the environment Opta yml if you wish to deploy services
 as Opta services run on Kubernetes.</p>
 <h2 id="fields">Fields</h2>
-<ul>
-<li><code>max_nodes</code> - Optional. The maximum number of nodes to be set by the autoscaler in for the default nodegroup. Default 5</li>
-<li><code>min_nodes</code> - Optional. The minimum number of nodes to be set by the autoscaler in for the default nodegroup. Default 1</li>
-<li><code>node_disk_size</code> - Optional. The size of disk to give the nodes' vms in GB. Default 20</li>
-<li><code>node_instance_type</code> - Optional. The <a href="https://cloud.google.com/compute/docs/machine-types">gcloud machine type</a> for the nodes. Default n2-highcpu-4</li>
-<li><code>gke_channel</code> - Optional. The GKE K8s <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">release channel</a> to bind the cluster too. Gives you automatic K8s version management for the lcuster and node pools. Default REGULAR</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>max_nodes</code></td>
+<td>The maximum number of nodes to be set by the autoscaler in for the default nodegroup.</td>
+<td><code>5</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>min_nodes</code></td>
+<td>The minimum number of nodes to be set by the autoscaler in for the default nodegroup.</td>
+<td><code>1</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>node_disk_size</code></td>
+<td>The size of disk to give the nodes' vms in GB.</td>
+<td><code>20</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>node_instance_type</code></td>
+<td>The <a href="https://cloud.google.com/compute/docs/machine-types">gcloud machine type</a> for the nodes.</td>
+<td><code>n2-highcpu-4</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>gke_channel</code></td>
+<td>The GKE K8s <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">release channel</a> to bind the cluster too. Gives you automatic K8s version management for the lcuster and node pools.</td>
+<td><code>REGULAR</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>preemptible</code></td>
+<td>A boolean specifying whether to use <a href="https://cloud.google.com/compute/docs/instances/preemptible">preemptible instances</a> for the default nodegroup or not. The preemptible instances will be configured to have the max price equal to the on-demand price (so no danger of overcharging). <em>WARNING</em>: By using preemptible instances you must accept the real risk of frequent abrupt node terminations and possibly (although extremely rarely) even full blackouts (all nodes die). The former is a small risk as containers of Opta services will be automatically restarted on surviving nodes. So just make sure to specify a minimum of more than 1 containers &ndash; Opta by default attempts to spread them out amongst many nodes.</td>
+<td><code>False</code></td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
 <h2 id="outputs">Outputs</h2>
-<ul>
-<li>k8s_endpoint - The endpoint to communicate to the kubernetes cluster through.</li>
-<li>k8s_ca_data - The certificate authority used by the kubernetes cluster for ssl.</li>
-<li>k8s_cluster_name - The name of the kubernetes cluster.</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>k8s_endpoint</code></td>
+<td>The endpoint to communicate to the kubernetes cluster through.</td>
+</tr>
+<tr>
+<td><code>k8s_ca_data</code></td>
+<td>The certificate authority used by the kubernetes cluster for ssl.</td>
+</tr>
+<tr>
+<td><code>k8s_cluster_name</code></td>
+<td>The name of the kubernetes cluster.</td>
+</tr>
+</tbody>
+</table>
 
 	
 	

@@ -46,8 +46,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" as="style">
-<link href="/scss/main.min.ff058417e09bbb88f3004c3951f10ba782513916e30dd62df61e9e089a6e1c31.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" as="style">
+<link href="/scss/main.min.4ecc7575c0514328b0e8bfc31ee0a6f87759a078ed0acb9ab2c2d3195716e1ab.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -153,6 +153,10 @@ if (!doNotTrack) {
 
 
 <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile" style="display: flex" class="justify-content-center align-items-center">
+    <button style="display: block" class="btn btn-link td-sidebar__toggle d-md-none fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </div>
   <nav class="collapse td-sidebar-nav pt-4 pl-2" id="td-section-nav">
     
     
@@ -204,6 +208,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedazure" href="/getting-started/azure/">Azure</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-getting-startedlocal" href="/getting-started/local/">Local</a>
       
       
     </li>
@@ -297,7 +307,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">aws</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse " id="referenceaws">
@@ -480,7 +490,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
     <li class="collapse " id="referenceazurerm">
@@ -609,7 +619,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">google</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
     <li class="collapse " id="referencegoogle">
@@ -655,6 +665,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesgcp-nodepool" href="/reference/google/environment_modules/gcp-nodepool/">gcp-nodegpool</a>
       
       
       
@@ -773,6 +789,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="tutorials">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
       
       
       
@@ -978,6 +1000,7 @@ docker-for-mac)</li>
 <li><a href="https://cloud.google.com/sdk/docs/install">GCP SDK</a> (For GCP only)</li>
 <li><a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli">Azure Cli</a> (For Azure only)</li>
 <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">AWS CLI</a> (v2) (For AWS only)</li>
+<li>Opta assumes that git, curl and unzip tools are already installed on the command line; in addition if you are using Ubuntu/Debian Linux then the <code>language-pack-en</code> package should be installed; you may also need to add <code>export LC_CTYPE=en_US.UTF-8</code> to your profile.</li>
 </ul>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install the latest version of Opta (see below for changelog
