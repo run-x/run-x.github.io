@@ -22,12 +22,12 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/getting-started/local/" />
-<meta property="article:modified_time" content="2021-10-11T14:19:26-07:00" />
+<meta property="article:modified_time" content="2021-10-11T19:33:17-04:00" />
 <meta itemprop="name" content="Local">
 <meta itemprop="description" content="Getting started with Opta Local on your local machine.
 ">
-<meta itemprop="dateModified" content="2021-10-11T14:19:26-07:00" />
-<meta itemprop="wordCount" content="1382">
+<meta itemprop="dateModified" content="2021-10-11T19:33:17-04:00" />
+<meta itemprop="wordCount" content="961">
 
 
 
@@ -802,7 +802,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">opta_local_troubleshooting</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsopta_local_troubleshooting" href="/tutorials/opta_local_troubleshooting/">Local Troubleshooting</a>
       
       
       
@@ -996,13 +996,6 @@ if (!doNotTrack) {
         <li><a href="#manual-cleanup">Manual Cleanup</a></li>
       </ul>
     </li>
-    <li><a href="#troubleshooting">Troubleshooting</a>
-      <ul>
-        <li><a href="#docker">Docker</a></li>
-        <li><a href="#kind-kubernetes-cluster">Kind Kubernetes Cluster</a></li>
-        <li><a href="#container-registry">Container Registry</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
 
@@ -1104,132 +1097,6 @@ KCLUSTER=`docker ps -aqf &quot;name=opta-local-cluster-control-plane&quot;`
 docker stop $KCLUSTER
 docker rm $KCLUSTER
 </code></pre><p>You can confirm that the docker containers named <code>opta-local-cluster-control-plane</code> and <code>opta-local-registry</code> have been removed by issuing the <code>docker ps</code> command.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If things don&rsquo;t seem to be working as expected, here are some places to start debugging Opta Local</p>
-<h3 id="docker">Docker</h3>
-<p>Opta Local runs two containers on the local machine. Confirm both are running; like so</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
- docker ps
-
- <span style="color:#8f5902;font-style:italic"># Output</span>
-CONTAINER ID   IMAGE                  COMMAND                  CREATED      STATUS        PORTS                                                                    NAMES
-71d2f8a13961   kindest/node:v1.21.1   <span style="color:#4e9a06">&#34;/usr/local/bin/entr…&#34;</span>   <span style="color:#0000cf;font-weight:bold">2</span> days ago   Up <span style="color:#0000cf;font-weight:bold">10</span> hours   0.0.0.0:8080-&gt;80/tcp, 0.0.0.0:6443-&gt;443/tcp, 127.0.0.1:39499-&gt;6443/tcp   opta-local-cluster-control-plane
-ac9b78c91776   registry:2             <span style="color:#4e9a06">&#34;/entrypoint.sh /etc…&#34;</span>   <span style="color:#0000cf;font-weight:bold">2</span> days ago   Up <span style="color:#0000cf;font-weight:bold">10</span> hours   127.0.0.1:5000-&gt;5000/tcp                                                 opta-local-registry
-
-</code></pre></div><p>If these containers are not running, then debug the docker containers so Opta Local can start correctly.</p>
-<h3 id="kind-kubernetes-cluster">Kind Kubernetes Cluster</h3>
-<ol>
-<li>
-<p>Confirm that the <code>kubectl</code> context is correctly set.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
-kubectl config get-contexts  
-<span style="color:#8f5902;font-style:italic"># Output</span>
-</code></pre></div></li>
-</ol>
-<p>&hellip;</p>
-<ul>
-<li>
-<pre><code>    kind-opta-local-cluster                                        kind-opta-local-cluster                                        kind-opta-local-cluster     
-</code></pre>
-</li>
-</ul>
-<p>&hellip;</p>
-<pre><code>Note the &quot;*&quot; in front of the `kind-opta-local-cluster`. In case the current context is not set to the kind cluster, you can set it like so:
-
-```bash
-# Command
-kubectl config use-context kind-opta-local-cluster
-# Output
-Switched to context &quot;kind-opta-local-cluster&quot;.
-</code></pre><ol start="2">
-<li>
-<p>Check that the Kind Kubernetes Cluster is functioning</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   <span style="color:#8f5902;font-style:italic"># Command</span>
-   kubectl cluster-info
-   <span style="color:#8f5902;font-style:italic"># Output</span>
-   Kubernetes master is running at https://127.0.0.1:42937
-   CoreDNS is running at https://127.0.0.1:42937/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-
-   <span style="color:#8f5902;font-style:italic"># Command</span>
-   kubectl cluster-info
-    <span style="color:#8f5902;font-style:italic"># Output</span>
-   Kubernetes master is running at https://127.0.0.1:42937
-   CoreDNS is running at https://127.0.0.1:42937/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-</code></pre></div><p>To further debug and diagnose cluster problems, use <code>kubectl cluster-info dump</code> and <code>kubectl get node</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> <span style="color:#8f5902;font-style:italic"># Command</span>
- kubectl get node
- <span style="color:#8f5902;font-style:italic"># Output</span>
-   NAME                               STATUS   ROLES                  AGE   VERSION
-   opta-local-cluster-control-plane   Ready    control-plane,master   14m   v1.21.1
-</code></pre></div></li>
-<li>
-<p>You can interact with the local Kubernetes cluster with the <code>kubectl</code> cli tool. Browse through additional  <code>kubectl</code> commands <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">here</a></p>
-</li>
-</ol>
-<h3 id="container-registry">Container Registry</h3>
-<p>Opta Local creates a local Docker container registry at <code>http://localhost:5000</code>. This is used during <a href="../tutorials/continuous_deployment.md">Opta Deploy</a> to host your images. Confirm it is functioning:</p>
-<ol>
-<li>
-<p>Curl the address <code>http://localhost:5000/v2/</code>
-```bash</p>
-<h1 id="command">Command</h1>
-<p>curl -v http://localhost:5000/v2/</p>
-<h1 id="output">Output</h1>
-<ul>
-<li>Trying 127.0.0.1:5000&hellip;</li>
-<li>TCP_NODELAY set</li>
-<li>Connected to localhost (127.0.0.1) port 5000 (#0)</li>
-</ul>
-<blockquote>
-<p>GET /v2/ HTTP/1.1
-Host: localhost:5000
-User-Agent: curl/7.68.0
-Accept: <em>/</em></p>
-</blockquote>
-<ul>
-<li>Mark bundle as not supporting multiuse
-&lt; HTTP/1.1 200 OK
-&lt; Content-Length: 2
-&lt; Content-Type: application/json; charset=utf-8
-&lt; Docker-Distribution-Api-Version: registry/2.0
-&lt; X-Content-Type-Options: nosniff
-&lt; Date: Mon, 27 Sep 2021 02:05:38 GMT
-&lt;</li>
-<li>Connection #0 to host localhost left intact
-{}</li>
-</ul>
-</li>
-</ol>
-<pre><code>```
-
-
-Note the `200 OK` Http response and the {} braces in the output.
-</code></pre>
-<ol start="2">
-<li>Confirm that images can be tagged and pushed into the docker registry. Example:</li>
-</ol>
-<pre><code>```bash
-  # Command
-  docker pull alpine
-
-  #Output
-  Using default tag: latest
-  latest: Pulling from library/alpine
-  a0d0a0d46f8b: Pull complete 
-  Digest: sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
-  Status: Downloaded newer image for alpine:latest
-  docker.io/library/alpine:latest
-  
-  # Command
-  docker tag alpine:latest localhost:5000/alpine:latest
-  docker push localhost:5000/alpine:latest 
-  
-  # Output
-  The push refers to repository [localhost:5000/alpine]
-  e2eb06d8af82: Pushed 
-  latest: digest: sha256:69704ef328d05a9f806b6b8502915e6a0a4faa4d72018dc42343f511490daf8a size: 528
-```
-</code></pre>
 
 	
 	
