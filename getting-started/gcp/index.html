@@ -22,12 +22,12 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/getting-started/gcp/" />
-<meta property="article:modified_time" content="2021-10-11T19:33:17-04:00" />
+<meta property="article:modified_time" content="2021-11-03T13:25:17-07:00" />
 <meta itemprop="name" content="GCP">
 <meta itemprop="description" content="Getting started with Opta on GCP.
 ">
-<meta itemprop="dateModified" content="2021-10-11T19:33:17-04:00" />
-<meta itemprop="wordCount" content="398">
+<meta itemprop="dateModified" content="2021-11-03T13:25:17-07:00" />
+<meta itemprop="wordCount" content="473">
 
 
 
@@ -455,6 +455,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-dynamodb" href="/reference/aws/service_modules/aws-dynamodb/">dynamodb-table</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_moduleshelm-chart" href="/reference/aws/service_modules/helm-chart/">helm-chart</a>
       
       
@@ -826,6 +832,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsdeploy_to_aws_button" href="/tutorials/deploy_to_aws_button/">Deploy to AWS Button</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsenvironment_variables" href="/tutorials/environment_variables/">Environment Variables</a>
       
       
@@ -982,7 +994,11 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#installation">Installation</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#authentication-prerequisite">Authentication Prerequisite</a></li>
+      </ul>
+    </li>
     <li><a href="#environment-creation">Environment creation</a></li>
     <li><a href="#service-creation">Service creation</a></li>
     <li><a href="#service-deployment">Service Deployment</a></li>
@@ -1003,8 +1019,24 @@ if (!doNotTrack) {
 	<h2 id="installation">Installation</h2>
 <p>One line installation (<a href="/installation">detailed instructions</a>):</p>
 <pre><code>/bin/bash -c &quot;$(curl -fsSL https://docs.opta.dev/install.sh)&quot;
-</code></pre><p>Make sure the gcp cloud credentails are configured in your terminal.</p>
-<h2 id="environment-creation">Environment creation</h2>
+</code></pre><h3 id="authentication-prerequisite">Authentication Prerequisite</h3>
+<p>Make sure the gcp cloud credentials are configured in your terminal.</p>
+<ol>
+<li>Create a <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating">Service Account</a> for your project. Make sure the Service Account has the following roles assigned
+<ul>
+<li>CA Service Certificate Manager</li>
+<li>Cloud KMS Admin</li>
+<li>Compute Network Admin</li>
+<li>Kubernetes Engine Admin</li>
+<li>Project IAM Admin</li>
+<li>Secret Manager Secret Accessor</li>
+</ul>
+</li>
+<li>Once the Service Account is created, <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">create and download a Service Account Key JSON file</a></li>
+<li>Since opta can run outside of the GCP environment, be sure to set the GCP credentials environment variable:</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">export</span> <span style="color:#000">GOOGLE_APPLICATION_CREDENTIALS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/path/to/keyfile.json&#34;</span>
+</code></pre></div><h2 id="environment-creation">Environment creation</h2>
 <p>In this step we will create an environment (example staging, qa, prod) for your organization.</p>
 <p>You can use the CLI option described below or checkout our <a href="https://app.runx.dev/yaml-generator">interactive app</a> to build your first environment and service.</p>
 <p>Start by running:</p>

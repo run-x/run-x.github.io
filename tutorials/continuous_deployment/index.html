@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/continuous_deployment/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-11T19:33:17-04:00" />
+<meta property="article:modified_time" content="2021-11-03T13:25:17-07:00" />
 <meta itemprop="name" content="Continuous Deployment">
 <meta itemprop="description" content="Instructions to integrate with the CI/CD platform of your choice
 ">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-10-11T19:33:17-04:00" />
+<meta itemprop="dateModified" content="2021-11-03T13:25:17-07:00" />
 <meta itemprop="wordCount" content="178">
 
 
@@ -457,6 +457,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-dynamodb" href="/reference/aws/service_modules/aws-dynamodb/">dynamodb-table</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_moduleshelm-chart" href="/reference/aws/service_modules/helm-chart/">helm-chart</a>
       
       
@@ -828,6 +834,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsdeploy_to_aws_button" href="/tutorials/deploy_to_aws_button/">Deploy to AWS Button</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsenvironment_variables" href="/tutorials/environment_variables/">Environment Variables</a>
       
       
@@ -1007,8 +1019,8 @@ if (!doNotTrack) {
 <h3 id="authentication">Authentication</h3>
 <p>In order for the deploy action to execute properly, you will need to use other github actions for authentication.</p>
 <ol>
-<li><a href="https://github.com/run-x/webfactory/ssh-agent"><code>webfactory/ssh-agent</code></a>, to allow access to other repositories' Opta configuration files. Note that you only need to use this if you have opta.yml files in other repos.</li>
-<li><a href="https://github.com/run-x/aws-actions/configure-aws-credentials"><code>aws-actions/configure-aws-credentials</code></a>, to allow push and deploy to AWS. Make sure that the API key associated with this account has admin permissions.</li>
+<li><a href="https://github.com/webfactory/ssh-agent"><code>webfactory/ssh-agent</code></a>, to allow access to other repositories' Opta configuration files. Note that you only need to use this if you have opta.yml files in other repos.</li>
+<li><a href="https://github.com/aws-actions/configure-aws-credentials"><code>aws-actions/configure-aws-credentials</code></a>, to allow push and deploy to AWS. Make sure that the API key associated with this account has admin permissions.</li>
 </ol>
 <h3 id="example">Example</h3>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">CI-CD</span><span style="color:#f8f8f8;text-decoration:underline">

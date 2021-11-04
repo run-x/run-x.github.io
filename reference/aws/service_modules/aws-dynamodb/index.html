@@ -17,24 +17,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>external-ssl-cert | </title><meta property="og:title" content="external-ssl-cert" />
-<meta property="og:description" content="External SSL Certicate" />
+<title>dynamodb-table | </title><meta property="og:title" content="dynamodb-table" />
+<meta property="og:description" content="Creates a dynamodb table to use" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/reference/google/environment_modules/external-ssl-cert/" />
+<meta property="og:url" content="/reference/aws/service_modules/aws-dynamodb/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-11-03T13:25:17-07:00" />
-<meta itemprop="name" content="external-ssl-cert">
-<meta itemprop="description" content="External SSL Certicate">
+<meta itemprop="name" content="dynamodb-table">
+<meta itemprop="description" content="Creates a dynamodb table to use">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-11-03T13:25:17-07:00" />
-<meta itemprop="wordCount" content="124">
+<meta itemprop="wordCount" content="161">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="external-ssl-cert"/>
-<meta name="twitter:description" content="External SSL Certicate"/>
+<meta name="twitter:title" content="dynamodb-table"/>
+<meta name="twitter:description" content="Creates a dynamodb table to use"/>
 
 
 <script type="application/javascript">
@@ -99,7 +99,7 @@ if (!doNotTrack) {
 
 
 
-    <title>external-ssl-cert | </title>
+    <title>dynamodb-table | </title>
   </head>
   <body class="td-page">
     <header>
@@ -314,10 +314,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceaws">
+    <li class="collapse show" id="referenceaws">
       
       
       
@@ -408,10 +408,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceawsservice_modules">
+    <li class="collapse show" id="referenceawsservice_modules">
       
       
       
@@ -454,7 +454,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-dynamodb" href="/reference/aws/service_modules/aws-dynamodb/">dynamodb-table</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsservice_modulesaws-dynamodb" href="/reference/aws/service_modules/aws-dynamodb/">dynamodb-table</a>
       
       
       
@@ -632,10 +632,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">GCP</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
-    <li class="collapse show" id="referencegoogle">
+    <li class="collapse " id="referencegoogle">
       
       
       
@@ -649,10 +649,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/environment_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Environment</a>
+    <a  href="/reference/google/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
   </li>
   <ul>
-    <li class="collapse show" id="referencegoogleenvironment_modules">
+    <li class="collapse " id="referencegoogleenvironment_modules">
       
       
       
@@ -677,7 +677,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesexternal-ssl-cert" href="/reference/google/environment_modules/external-ssl-cert/">external-ssl-cert</a>
       
       
       
@@ -976,20 +976,32 @@ if (!doNotTrack) {
     
     
 
-    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/google/environment_modules/external-ssl-cert.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/google/environment_modules/external-ssl-cert.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta/issues/new?title=external-ssl-cert" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/aws/service_modules/aws-dynamodb.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/aws/service_modules/aws-dynamodb.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta/issues/new?title=dynamodb-table" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
 
   
   
-    <a id="print" href="/reference/google/environment_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+    <a id="print" href="/reference/aws/service_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
   
   </div>
 
 
 
 
+
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#linking">Linking</a></li>
+      </ul>
+    </li>
+    <li><a href="#fields">Fields</a></li>
+    <li><a href="#outputs">Outputs</a></li>
+  </ul>
+</nav>
 
 
 
@@ -998,11 +1010,13 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>external-ssl-cert</h1>
-	<div class="lead">External SSL Certicate</div>
-	<p>This is the external ssl certificate module used to pass in pre-existing ssl cerificates to add to the opta
-environment in the case dns delegation is not preferred. Please see the <a href="/tutorials/ingress">ingress docs</a>
-for more details.</p>
+	<h1>dynamodb-table</h1>
+	<div class="lead">Creates a dynamodb table to use</div>
+	<p>This module creates a dynamodb table as per the specifications in the input.</p>
+<h3 id="linking">Linking</h3>
+<p>When linked to a k8s-service or IAM role/user, this adds the necessary IAM permissions to publish
+notifications to the topic. The current permissions allowed are &ldquo;read&rdquo; and &ldquo;write&rdquo; (defaults to &ldquo;write).
+Link also grants encrypt/decrypt permission for the table&rsquo;s KMS key.</p>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -1015,26 +1029,38 @@ for more details.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>domain</code></td>
-<td>The domain which the ssl cert is for (used for validation of the certificate files).</td>
-<td><code>default_value</code></td>
-<td>True</td>
+<td><code>read_capacity</code></td>
+<td>This is the read capacaity for your dynamodb table</td>
+<td><code>20</code></td>
+<td>False</td>
 </tr>
 <tr>
-<td><code>private_key_file</code></td>
-<td>The private key pem file for the ssl certificate.</td>
+<td><code>write_capacity</code></td>
+<td>This is the write capacaity for your dynamodb table</td>
+<td><code>20</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>billing_mode</code></td>
+<td>The billing mode for you dynamodb table</td>
+<td><code>PROVISIONED</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>hash_key</code></td>
+<td>The hash key for your table</td>
+<td>`` | True |</td>
+<td></td>
+</tr>
+<tr>
+<td><code>range_key</code></td>
+<td>The range key for your table</td>
 <td><code>None</code></td>
-<td>True</td>
+<td>False</td>
 </tr>
 <tr>
-<td><code>certificate_body_file</code></td>
-<td>The body of the ssl certificate in the form of a pem file. This file should just have the final certificate and not other certificates on the chain</td>
-<td><code>None</code></td>
-<td>True</td>
-</tr>
-<tr>
-<td><code>certificate_chain_file</code></td>
-<td>The file containing the chain certificate for the current ssl certificate.</td>
+<td><code>attributes</code></td>
+<td>The list of attributes (name and type) for this dynamodb table</td>
 <td><code>None</code></td>
 <td>True</td>
 </tr>
@@ -1050,8 +1076,20 @@ for more details.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>domain</code></td>
-<td>The domain passed in.</td>
+<td><code>table_arn</code></td>
+<td>The arn of the table</td>
+</tr>
+<tr>
+<td><code>table_id</code></td>
+<td>The id of the table</td>
+</tr>
+<tr>
+<td><code>kms_arn</code></td>
+<td>The arn of the table&rsquo;s kms encryption key</td>
+</tr>
+<tr>
+<td><code>kms_id</code></td>
+<td>The id of the table&rsquo;s kms encryption key</td>
 </tr>
 </tbody>
 </table>
