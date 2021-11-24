@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/service_modules/aws-s3/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-16T15:25:50-08:00" />
+<meta property="article:modified_time" content="2021-11-24T13:33:01-08:00" />
 <meta itemprop="name" content="aws-s3">
 <meta itemprop="description" content="Creates an S3 bucket for storage purposes">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-11-16T15:25:50-08:00" />
-<meta itemprop="wordCount" content="161">
+<meta itemprop="dateModified" content="2021-11-24T13:33:01-08:00" />
+<meta itemprop="wordCount" content="378">
 
 
 
@@ -413,6 +413,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse show" id="referenceawsservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulescloudfront-distribution" href="/reference/aws/service_modules/cloudfront-distribution/">cloudfront-distribution</a>
       
       
       
@@ -1020,6 +1026,8 @@ if (!doNotTrack) {
     <li>
       <ul>
         <li><a href="#example">Example</a></li>
+        <li><a href="#file-uploading">File uploading</a></li>
+        <li><a href="#cloudfront">Cloudfront</a></li>
         <li><a href="#linking">Linking</a></li>
       </ul>
     </li>
@@ -1039,16 +1047,39 @@ if (!doNotTrack) {
 	<div class="lead">Creates an S3 bucket for storage purposes</div>
 	<p>This module creates an S3 bucket for storage purposes. It is created with server-side AES256 encryption.</p>
 <h3 id="example">Example</h3>
-<pre><code>  - name: bucky
-    type: aws-s3
-    bucket_name: dev-runx-bucky
-    cors_rule:
-      allowed_methods:
-        - &quot;PUT&quot;
-      max_age_seconds: 3600
-      allowed_origins:
-        - &quot;runx.dev&quot;
-</code></pre><h3 id="linking">Linking</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bucky</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dev-runx-bucky</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">cors_rule</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_methods</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#4e9a06">&#34;PUT&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">max_age_seconds</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">3600</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allowed_origins</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#4e9a06">&#34;runx.dev&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h3 id="file-uploading">File uploading</h3>
+<p>To upload files to s3, just set the <code>files</code> field to the path (relative to the yaml or absolute) of a local directory.
+On the next apply, all the files and subdirectories will be automatically uploaded to the bucket!</p>
+<p>So for example if you called the module like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">blah</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;opta-is-testing-cloudfront&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">files</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>And the <code>../blah</code> directory had the following structure:</p>
+<pre><code>../blah
+├── hello2.html
+├── hello2.txt
+├── hello3.txt
+└── subdir
+    └── hello3.html
+</code></pre><p>Then Opta would upload 4 files to your S3 bucket, with the S3 keys being <code>hello2.html</code>, <code>hello2.txt</code>, <code>hello3.txt</code> and
+<code>subdir/hello3.html</code>.</p>
+<p>Opta will also catch any changes to the files on the next <code>opta apply</code> and will push updates as needed. Opta supports
+extensive MIME parsing, so it also makes sure to set the content type correctly.</p>
+<h3 id="cloudfront">Cloudfront</h3>
+<p>This module can be <a href="/reference/aws/service_modules/cloudfront-distribution/">linked to Opta&rsquo;s cloudfront module</a> in order to serve static files.</p>
+<p>To securely work with cloudfront, the module additionally creates a Cloudfront Origin Access Identity with read
+privileges to be used by cloudfront to access its contents.</p>
+<h3 id="linking">Linking</h3>
 <p>When linked to a k8s-service or IAM role/user, this adds the necessary IAM permissions to read
 (e.g. list objects and get objects) and/or write (e.g. list, get,
 create, destroy, and update objects) to the given s3 bucket.
@@ -1094,6 +1125,12 @@ The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;, default
 <td><code>None</code></td>
 <td>False</td>
 </tr>
+<tr>
+<td><code>files</code></td>
+<td>The path (can be relative to the opta yaml) to a directory holding files which you wish to upload to the s3 bucket. The files will have the same names and any subdirectories will similarly be included and uploaded as subdir/path/filename.</td>
+<td><code>None</code></td>
+<td>False</td>
+</tr>
 </tbody>
 </table>
 <h2 id="outputs">Outputs</h2>
@@ -1112,6 +1149,10 @@ The current permissions are, &ldquo;read&rdquo; and &ldquo;write&rdquo;, default
 <tr>
 <td><code>bucket_arn</code></td>
 <td>The arn of the S3 bucket</td>
+</tr>
+<tr>
+<td><code>cloudfront_read_path</code></td>
+<td>The path of the cloud front origin access identity created for reading objects in this bucket</td>
 </tr>
 </tbody>
 </table>

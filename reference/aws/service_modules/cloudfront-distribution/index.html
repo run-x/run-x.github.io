@@ -17,24 +17,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>mysql | </title><meta property="og:title" content="mysql" />
-<meta property="og:description" content="Creates a MySQL database instance" />
+<title>cloudfront-distribution | </title><meta property="og:title" content="cloudfront-distribution" />
+<meta property="og:description" content="Set up a cloudfront distribution" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/reference/google/service_modules/gcp-mysql/" />
-<meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
+<meta property="og:url" content="/reference/aws/service_modules/cloudfront-distribution/" />
+<meta property="article:published_time" content="2021-11-16T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-11-24T13:33:01-08:00" />
-<meta itemprop="name" content="mysql">
-<meta itemprop="description" content="Creates a MySQL database instance">
-<meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
+<meta itemprop="name" content="cloudfront-distribution">
+<meta itemprop="description" content="Set up a cloudfront distribution">
+<meta itemprop="datePublished" content="2021-11-16T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-11-24T13:33:01-08:00" />
-<meta itemprop="wordCount" content="177">
+<meta itemprop="wordCount" content="557">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="mysql"/>
-<meta name="twitter:description" content="Creates a MySQL database instance"/>
+<meta name="twitter:title" content="cloudfront-distribution"/>
+<meta name="twitter:description" content="Set up a cloudfront distribution"/>
 
 
 <script type="application/javascript">
@@ -99,7 +99,7 @@ if (!doNotTrack) {
 
 
 
-    <title>mysql | </title>
+    <title>cloudfront-distribution | </title>
   </head>
   <body class="td-page">
     <header>
@@ -314,10 +314,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">AWS</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceaws">
+    <li class="collapse show" id="referenceaws">
       
       
       
@@ -408,17 +408,17 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
+    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceawsservice_modules">
+    <li class="collapse show" id="referenceawsservice_modules">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulescloudfront-distribution" href="/reference/aws/service_modules/cloudfront-distribution/">cloudfront-distribution</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsservice_modulescloudfront-distribution" href="/reference/aws/service_modules/cloudfront-distribution/">cloudfront-distribution</a>
       
       
       
@@ -650,10 +650,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">GCP</a>
+    <a  href="/reference/google/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">GCP</a>
   </li>
   <ul>
-    <li class="collapse show" id="referencegoogle">
+    <li class="collapse " id="referencegoogle">
       
       
       
@@ -738,10 +738,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/google/service_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service</a>
+    <a  href="/reference/google/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
   </li>
   <ul>
-    <li class="collapse show" id="referencegoogleservice_modules">
+    <li class="collapse " id="referencegoogleservice_modules">
       
       
       
@@ -778,7 +778,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referencegoogleservice_modulesgcp-mysql" href="/reference/google/service_modules/gcp-mysql/">mysql</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesgcp-mysql" href="/reference/google/service_modules/gcp-mysql/">mysql</a>
       
       
       
@@ -1006,14 +1006,14 @@ if (!doNotTrack) {
     
     
 
-    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/google/service_modules/gcp-mysql.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/google/service_modules/gcp-mysql.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta/issues/new?title=mysql" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/aws/service_modules/cloudfront-distribution.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/aws/service_modules/cloudfront-distribution.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta/issues/new?title=cloudfront-distribution" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
 
   
   
-    <a id="print" href="/reference/google/service_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+    <a id="print" href="/reference/aws/service_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
   
   </div>
 
@@ -1025,11 +1025,13 @@ if (!doNotTrack) {
   <ul>
     <li>
       <ul>
-        <li><a href="#backups">Backups</a></li>
-        <li><a href="#linking">Linking</a></li>
+        <li><a href="#non-opta-s3-bucket-handling">Non-opta S3 bucket handling</a></li>
+        <li><a href="#cloudfront-caching">Cloudfront Caching</a></li>
+        <li><a href="#using-your-own-domain">Using your own domain</a></li>
       </ul>
     </li>
     <li><a href="#fields">Fields</a></li>
+    <li><a href="#outputs">Outputs</a></li>
   </ul>
 </nav>
 
@@ -1040,32 +1042,53 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>mysql</h1>
-	<div class="lead">Creates a MySQL database instance</div>
-	<p>This module creates a MySQL <a href="https://cloud.google.com/sql/docs/introduction">GCP Cloud SQL</a> database. It is made with
-the <a href="https://cloud.google.com/vpc/docs/private-services-access">private service access</a>, ensuring private communication.</p>
-<h3 id="backups">Backups</h3>
-<p>Opta will provision your database with 7 days of automatic daily backups in the form of
-<a href="https://cloud.google.com/sql/docs/postgres/backup-recovery/backups">Cloud SQL Backups</a>.
-You can find them either programmatically via the gcloud cli, or through the GCP web console inside your db description
-page.</p>
-<h3 id="linking">Linking</h3>
-<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
-<ul>
-<li><code>{module_name}_db_user</code></li>
-<li><code>{module_name}_db_password</code></li>
-<li><code>{module_name}_db_name</code></li>
-<li><code>{module_name}_db_host</code></li>
-</ul>
-<p>The permission list can optionally have one entry which should be a map for renaming the default environment variable
-names to a user-defined value:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">db_user</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBUSER</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db_host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBHOST</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBNAME</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db_password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBPASS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>If present, this map must have renames for all 4 fields.</p>
+	<h1>cloudfront-distribution</h1>
+	<div class="lead">Set up a cloudfront distribution</div>
+	<p>This module sets up a cloudfront distribution for you, tailored towards serving static websites/files from an Opta s3
+bucket (currently just for a single S3, but will expand for more complex usage in the future). Now, hosting your
+static site with opta can be as simple as:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testing-cloufront</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXXXXXXXX</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">blah</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;opta-is-testing-cloudfront&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">files</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-site-files&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># See S3 module for more info about uploading your files t S3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cloudfront-distribution</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Uncomment the following and fill in to support your domain with ssl</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    acm_cert_arn: &#34;arn:aws:acm:us-east-1:XXXXXXXXXX:certificate/cert-id&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    domains:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      - &#34;your.domain.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">blah</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Once you Opta apply, check out the <code>cloudfront_domain</code> output and go to the site. You should see the files of your S3
+bucket (both those uploaded with Opta and outside of Opta) being served there&ndash; simply refer to them by key name in the
+path (e.g. if in your bucket you have hello.txt and subdir/hello.txt, then you should see them via
+<a href="https://the.cloudfront.domain/hello.txt">https://the.cloudfront.domain/hello.txt</a> and <a href="https://the.cloudfront.domain/subdir/hello.txt)">https://the.cloudfront.domain/subdir/hello.txt)</a>.</p>
+<h3 id="non-opta-s3-bucket-handling">Non-opta S3 bucket handling</h3>
+<p>If you wish to link to a bucket created outside of opta, then you can manually set the <code>bucket_name</code> and
+<code>origin_access_identity_path</code> fields to the name of the bucket which you wish to link to, and the path of an
+origin access identity that has read permissions to your bucket.</p>
+<h3 id="cloudfront-caching">Cloudfront Caching</h3>
+<p>While your S3 bucket is the ultimate source of truth about what cloudfront serves, Cloudfronts flagship feature is its
+caching capabilities. That means that while delivery speeds are significantly faster, cloudfront may take some time
+(~1hr) to reflect changes into your static site deployment. Please keep this in mind when deploying such changes. You
+may immediately verify the latest copy by downloading from your S3 bucket directly.</p>
+<h3 id="using-your-own-domain">Using your own domain</h3>
+<p>If you are ready to start hosting your site with your domain via the cloudfront distribution, then proceed as follows:</p>
+<ol>
+<li>Get an <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">AWS ACM certificate</a> for your site.
+Make sure that you get it in region us-east-1. If you already have one at hand in your account (e.g. from another
+active Opta deployment), then feel free to reuse that.</li>
+<li>In whatever hosted zone you are using to manage the DNS for your domain (or the parent domain), create a new CNAME
+record for the domain you wish to use for cloudfront and point it at the <code>cloudfront_domain</code> gotten above.</li>
+<li>Set the acm_cert_arn and domains fields in opta accordingly</li>
+<li>Opta apply and you&rsquo;re done!</li>
+</ol>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -1078,22 +1101,73 @@ names to a user-defined value:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>instance_tier</code></td>
-<td>This is the RDS instance type used for the cloud sql instance <a href="https://cloud.google.com/sql/pricing">instances</a>.</td>
-<td><code>db-f1-micro</code></td>
+<td><code>bucket_name</code></td>
+<td>The name of the s3 bucket to link to this cloudfront distribution</td>
+<td>`` | False |</td>
+<td></td>
+</tr>
+<tr>
+<td><code>origin_access_identity_path</code></td>
+<td>The Cloudfront OAI path to use to access the buckets</td>
+<td>`` | False |</td>
+<td></td>
+</tr>
+<tr>
+<td><code>default_page_file</code></td>
+<td>The name of the existing s3 object in your bucket which will serve as the default page.</td>
+<td><code>index.html</code></td>
 <td>False</td>
 </tr>
 <tr>
-<td><code>safety</code></td>
-<td>Set to &ldquo;true&rdquo;, if you want to disable the database deletion in Opta. You would have to manually set this &ldquo;false&rdquo; to enable DB deletion.</td>
-<td><code>False</code></td>
+<td><code>status_404_page_file</code></td>
+<td>The name of the existing s3 object in your bucket which will serve as the 404 page.</td>
+<td><code>None</code></td>
 <td>False</td>
 </tr>
 <tr>
-<td><code>engine_version</code></td>
-<td>The version of the database to use.</td>
-<td><code>5_7</code></td>
+<td><code>status_500_page_file</code></td>
+<td>The name of the existing s3 object in your bucket which will serve as the 500 page.</td>
+<td><code>None</code></td>
 <td>False</td>
+</tr>
+<tr>
+<td><code>price_class</code></td>
+<td>The cloudfront price class for this distribution. Can be PriceClass_All, PriceClass_200, or PriceClass_100</td>
+<td><code>PriceClass_200</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>acm_cert_arn</code></td>
+<td>The ACM certificate arn you wish to use to handle ssl (needed if you want https for your site)</td>
+<td><code>None</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>domains</code></td>
+<td>The domains which you want your cloudfront distribution to support.</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td>The linked s3 buckets to attach to your cloudfront distribution (currently only supports one).</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<h2 id="outputs">Outputs</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cloudfront_domain</code></td>
+<td>The domain of the cloudfront distribution</td>
 </tr>
 </tbody>
 </table>

@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/environment_modules/aws-eks/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-11-16T15:25:50-08:00" />
+<meta property="article:modified_time" content="2021-11-24T13:33:01-08:00" />
 <meta itemprop="name" content="k8s-cluster">
 <meta itemprop="description" content="Creates an EKS cluster and a default nodegroup to host your applications in">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-11-16T15:25:50-08:00" />
-<meta itemprop="wordCount" content="358">
+<meta itemprop="dateModified" content="2021-11-24T13:33:01-08:00" />
+<meta itemprop="wordCount" content="373">
 
 
 
@@ -413,6 +413,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referenceawsservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulescloudfront-distribution" href="/reference/aws/service_modules/cloudfront-distribution/">cloudfront-distribution</a>
       
       
       
@@ -1027,6 +1033,8 @@ if (!doNotTrack) {
 	<p>This module creates an <a href="https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html">EKS cluster</a>, and a default
 nodegroup to host your applications in. This needs to be added in the environment Opta yml if you wish to deploy services
 as Opta services run on Kubernetes.</p>
+<p>For information about the default IAM permissions given to the node group please see
+<a href="/reference/aws/environment_modules/aws-nodegroup">here</a>.</p>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
