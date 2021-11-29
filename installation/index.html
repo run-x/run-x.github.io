@@ -1019,6 +1019,7 @@ if (!doNotTrack) {
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#macos-or-linux">MacOS or Linux</a></li>
     <li><a href="#releases">Releases</a></li>
+    <li><a href="#gcp-authentication">GCP Authentication</a></li>
   </ul>
 </nav>
 
@@ -1052,7 +1053,24 @@ and release history).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="releases">Releases</h2>
 <p><a href="https://github.com/run-x/opta/releases">Github</a></p>
-
+<h2 id="gcp-authentication">GCP Authentication</h2>
+<p>To make sure the gcp cloud credentials are configured in your terminal.</p>
+<ol>
+<li>Create a <a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating">Service Account</a> for your project. Make sure the Service Account has the following roles assigned
+<ul>
+<li>CA Service Certificate Manager</li>
+<li>Cloud KMS Admin</li>
+<li>Compute Network Admin</li>
+<li>Kubernetes Engine Admin</li>
+<li>Project IAM Admin</li>
+<li>Secret Manager Secret Accessor</li>
+</ul>
+</li>
+<li>Once the Service Account is created, <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">create and download a Service Account Key JSON file</a></li>
+<li>Since opta can run outside of the GCP environment, be sure to set the GCP credentials environment variable:</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">export</span> <span style="color:#000">GOOGLE_APPLICATION_CREDENTIALS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/path/to/keyfile.json&#34;</span>
+</code></pre></div>
         <div class="section-index">
     
     

@@ -22,12 +22,12 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/getting-started/aws/" />
-<meta property="article:modified_time" content="2021-11-24T13:33:01-08:00" />
+<meta property="article:modified_time" content="2021-11-29T13:28:36-08:00" />
 <meta itemprop="name" content="AWS">
 <meta itemprop="description" content="Getting started with Opta on AWS.
 ">
-<meta itemprop="dateModified" content="2021-11-24T13:33:01-08:00" />
-<meta itemprop="wordCount" content="407">
+<meta itemprop="dateModified" content="2021-11-29T13:28:36-08:00" />
+<meta itemprop="wordCount" content="386">
 
 
 
@@ -1042,21 +1042,24 @@ if (!doNotTrack) {
 <div class="td-content">
 	<h1>AWS</h1>
 	<div class="lead">Getting started with Opta on AWS.</div>
-	<h2 id="installation">Installation</h2>
+	<p>To use Opta, you first need to create some simple yaml configuration files that describe your needs. You can use our <a href="https://app.runx.dev/yaml-generator"><strong>Magical UI</strong></a> to help generate these files or do it manually (described below).</p>
+<h2 id="installation">Installation</h2>
 <p>One line installation (<a href="/installation">detailed instructions</a>):</p>
 <pre><code>/bin/bash -c &quot;$(curl -fsSL https://docs.opta.dev/install.sh)&quot;
 </code></pre><p>Make sure the AWS cloud credentails are configured in your terminal for the account you would be using in this demo.</p>
 <h2 id="environment-creation">Environment creation</h2>
-<p>In this step we will create an environment (example staging, qa, prod) for your organization.</p>
-<p>You can use the CLI option described below or checkout our <a href="https://app.runx.dev/yaml-generator">interactive app</a> to build your first environment and service.</p>
-<p>Start by running:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta init env aws
-</code></pre></div><p>This will create a <code>staging.yml</code> file with initial configurations for your environment. Below are examples of the resulting yaml files for each environment.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># A unique identifier for your environment</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># A unique identifier for your organization</span><span style="color:#f8f8f8;text-decoration:underline">
+<p>Before you can deploy your app, you need to first create an environment (like staging, prod etc.)
+This will set up the base infrastructure (like network and cluster) that will be the foundation for your app.</p>
+<blockquote>
+<p>Note that it costs around $5 per day to run this on AWS. So make sure to destroy it after you&rsquo;re done
+(opta has a destroy command so it should be easy :))!</p>
+</blockquote>
+<p>Create this file and name it <code>staging.yaml</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;something unique&gt;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># A unique identifier for your organization</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region: us-east-1 # Your aws region. You can find a list of them here</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Your 12 digit account id</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1067,33 +1070,26 @@ if (!doNotTrack) {
 </code></pre></div><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces.</p>
 <h2 id="service-creation">Service creation</h2>
 <p>In this step we will create a service - which is basically a docker container and associated database.
-We will create another <code>hello-world.yml</code> file, which defines high level configuration of this service.</p>
-<p>To get started, run</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta init service &lt;YOUR_ENV_FILE_PATH&gt; k8s
-</code></pre></div><p>This will prompt you for some information and create a starting
-point for your <code>hello-world.yml</code> file. Then, update the fields specific to your service setup. You can see examples of resulting files below.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># service names are unique per-environment</span><span style="color:#f8f8f8;text-decoration:underline">
+In this example we are using the popular <a href="https://httpbin.org/">httbin</a> container as our application.</p>
+<p>Create this file and name it <code>hello_world.yaml</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;staging.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Note that this is the file we created in step 2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">docker.io/kennethreitz/httpbin:latest</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Or you can specify your own</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">docker.io/kennethreitz/httpbin:latest</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">healthcheck_path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/get&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">all</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">db</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">postgres</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Will spawn a RDS database and credentials will be passed via env vars</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;all&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now you are ready to deploy your service.</p>
 <h2 id="service-deployment">Service Deployment</h2>
 <p>One line deployment:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c hello-world.yml
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c hello_world.yaml
 </code></pre></div><p>Now, once this step is complete, you should be to curl your service by specifying the load balancer url/ip.</p>
-<p>Run <code>output</code> and note down <code>load_balancer_raw_dns</code></p>
+<p>Run <code>opta output -c staging.yaml</code> and note down <code>load_balancer_raw_dns</code></p>
 <p>Now you can:</p>
 <ul>
 <li>Access your service at http://&lt;dns&gt;/</li>
@@ -1102,8 +1098,8 @@ point for your <code>hello-world.yml</code> file. Then, update the fields specif
 </ul>
 <h2 id="cleanup">Cleanup</h2>
 <p>Once you&rsquo;re finished playing around with these examples, you may clean up by running the following command from the environment directory:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy -c hello-world.yml
-opta destroy -c staging.yml
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy -c hello_world.yaml
+opta destroy -c staging.yaml
 </code></pre></div><h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Check out more examples: <a href="https://github.com/run-x/opta/tree/main/examples">github</a></li>
