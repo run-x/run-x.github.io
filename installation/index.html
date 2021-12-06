@@ -1018,6 +1018,11 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#macos-or-linux">MacOS or Linux</a></li>
+    <li><a href="#run-opta-in-a-docker-container-via-optash-script-pre-release">Run Opta in a Docker Container via opta.sh script (Pre-release)</a>
+      <ul>
+        <li><a href="#caveats-of-optash">Caveats of opta.sh</a></li>
+      </ul>
+    </li>
     <li><a href="#releases">Releases</a></li>
     <li><a href="#gcp-authentication">GCP Authentication</a></li>
   </ul>
@@ -1051,7 +1056,27 @@ and release history).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><p>You can specify a particular version as well.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
-</code></pre></div><h2 id="releases">Releases</h2>
+</code></pre></div><h2 id="run-opta-in-a-docker-container-via-optash-script-pre-release">Run Opta in a Docker Container via opta.sh script (Pre-release)</h2>
+<p>We are now offering a pre-release version for running opta via a docker container with alpha support. <strong>Please do not use this for production workloads currently.</strong></p>
+<p>If you prefer to install Opta and its dependencies (terraform, kubectl, gcp sdk, aws cli) in a docker container then you can
+download the <code>opta.sh</code> script that runs Opta inside a docker container. With this approach you can be assured that the correct
+versions of all of Opta&rsquo;s dependencies are invoked when run.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
+sudo curl https://raw.githubusercontent.com/run-x/opta-docs/opta-via-docker/static/opta.sh -o /usr/local/bin/opta.sh
+chmod +x /usr/local/bin/opta.sh
+./opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation builds a docker image</span>
+</code></pre></div><p>Invoke opta using opta.sh instead; for example</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta.sh apply -c mycode/foo.yaml
+
+</code></pre></div><p>Any environment variables needed by opta can be set in the terminal invoking <code>opta.sh</code>; they will be automatically transferred into the docker container running opta.</p>
+<p>Your home directory ($HOME) will be mounted into the <code>opta.sh</code> docker container as well.</p>
+<h3 id="caveats-of-optash">Caveats of opta.sh</h3>
+<ol>
+<li>This script assumes you are logged in as a user that has docker permissions; this is the default when <a href="https://docs.docker.com/desktop/mac/install/">docker desktop</a> is installed on Mac; for <a href="https://docs.docker.com/engine/install/linux-postinstall/">Linux</a> see this documentation.</li>
+<li>This script will not work for the newest Mac OS devices with the M1 processor; it should work on Intel-based Mac computers.</li>
+<li>This script assumes that your opta yaml files are contained within your <code>home</code> directory (Run <code>echo $HOME</code> to ascertain this is the case)</li>
+</ol>
+<h2 id="releases">Releases</h2>
 <p><a href="https://github.com/run-x/opta/releases">Github</a></p>
 <h2 id="gcp-authentication">GCP Authentication</h2>
 <p>To make sure the gcp cloud credentials are configured in your terminal.</p>
