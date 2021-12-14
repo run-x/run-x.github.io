@@ -17,24 +17,22 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>mongodb-atlas | </title><meta property="og:title" content="mongodb-atlas" />
-<meta property="og:description" content="Creates a Mongodb Atlas database instance" />
+<title>custom-terraform | </title><meta property="og:title" content="custom-terraform" />
+<meta property="og:description" content="Allows user to bring in their own custom terraform module" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/reference/aws/service_modules/mongodb-atlas/" />
-<meta property="article:published_time" content="2021-10-12T00:00:00+00:00" />
+<meta property="og:url" content="/reference/aws/environment_modules/custom-terraform/" />
 <meta property="article:modified_time" content="2021-12-14T09:42:13-08:00" />
-<meta itemprop="name" content="mongodb-atlas">
-<meta itemprop="description" content="Creates a Mongodb Atlas database instance">
-<meta itemprop="datePublished" content="2021-10-12T00:00:00+00:00" />
+<meta itemprop="name" content="custom-terraform">
+<meta itemprop="description" content="Allows user to bring in their own custom terraform module">
 <meta itemprop="dateModified" content="2021-12-14T09:42:13-08:00" />
-<meta itemprop="wordCount" content="130">
+<meta itemprop="wordCount" content="482">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="mongodb-atlas"/>
-<meta name="twitter:description" content="Creates a Mongodb Atlas database instance"/>
+<meta name="twitter:title" content="custom-terraform"/>
+<meta name="twitter:description" content="Allows user to bring in their own custom terraform module"/>
 
 
 <script type="application/javascript">
@@ -99,7 +97,7 @@ if (!doNotTrack) {
 
 
 
-    <title>mongodb-atlas | </title>
+    <title>custom-terraform | </title>
   </head>
   <body class="td-page">
     <header>
@@ -331,10 +329,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/environment_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Environment</a>
+    <a  href="/reference/aws/environment_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Environment</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceawsenvironment_modules">
+    <li class="collapse show" id="referenceawsenvironment_modules">
       
       
       
@@ -395,7 +393,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
       
       
     </li>
@@ -414,10 +412,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Service</a>
+    <a  href="/reference/aws/service_modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Service</a>
   </li>
   <ul>
-    <li class="collapse show" id="referenceawsservice_modules">
+    <li class="collapse " id="referenceawsservice_modules">
       
       
       
@@ -436,7 +434,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsservice_modulesmongodb-atlas" href="/reference/aws/service_modules/mongodb-atlas/">mongodb-atlas</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesmongodb-atlas" href="/reference/aws/service_modules/mongodb-atlas/">mongodb-atlas</a>
       
       
       
@@ -1024,32 +1022,20 @@ if (!doNotTrack) {
     
     
 
-    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/aws/service_modules/mongodb-atlas.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/aws/service_modules/mongodb-atlas.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta/issues/new?title=mongodb-atlas" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta/edit/master/content/en/Reference/aws/environment_modules/custom-terraform.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta/new/master/content/en/Reference/aws/environment_modules/custom-terraform.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta/issues/new?title=custom-terraform" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
 
   
   
-    <a id="print" href="/reference/aws/service_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+    <a id="print" href="/reference/aws/environment_modules/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
   
   </div>
 
 
 
 
-
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#backups">Backups</a></li>
-        <li><a href="#linking">Linking</a></li>
-      </ul>
-    </li>
-    <li><a href="#fields">Fields</a></li>
-  </ul>
-</nav>
 
 
 
@@ -1058,26 +1044,121 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>mongodb-atlas</h1>
-	<div class="lead">Creates a Mongodb Atlas database instance</div>
-	<p>This module creates a MondoDB Atlas cluster. Currently only supports AWS and Local providers in Opta.</p>
-<h3 id="backups">Backups</h3>
-<p>TBD</p>
-<h3 id="linking">Linking</h3>
-<p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
-<ul>
-<li><code>{module_name}_db_user</code></li>
-<li><code>{module_name}_db_password</code></li>
-<li>`{module_name}_mongodb_connection_string</li>
-</ul>
-<p>The permission list can optionally have one entry which should be a map for renaming the default environment variable
-names to a user-defined value:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">db</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">db_user</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBUSER</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db_password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBPASS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">db_mongodb_connection_string</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">DBCONNSTRING</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>If present, this map must have renames for all 3 fields.</p>
+	<h1>custom-terraform</h1>
+	<div class="lead">Allows user to bring in their own custom terraform module</div>
+	<p>This module allows a user to bring in their own custom terraform code into the opta ecosystem, to use in tandem with
+their other opta modules, and even reference them. All a user needs to do is specify the path (absolute or relative to
+the opta yaml) to your module with the <code>path_to_module</code> input, and the desired inputs to your module (if any) via the
+<code>terraform_inputs</code> input.</p>
+<h2 id="exampledemo">Example/Demo</h2>
+<p>Suppose you have an opta gcp environment written in <code>gcp-env.yml</code> and you want to deploy your custom terraform module
+&ldquo;blah&rdquo; that creates something you want (in our case a vm instance). What you could do is create a service for your
+environment which uses custom-terraform to call your module (NOTE: custom-terraform doesn&rsquo;t need to be in an opta
+service&ndash; it can be in the environment too). For our example, let&rsquo;s say that the file structure looks like so:</p>
+<pre><code>.
+├── README.md
+├── gcp-env.yml
+└── dummy-service
+    ├── blah
+    │   └── main.tf
+    └── opta.yml
+</code></pre><p>The new service is written in <code>dummy-service/opta.yml</code> and looks like this:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">vm1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;world&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">subnet_self_link</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># You can call it multiple times if you like</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#  - type: custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    name: vm2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    path_to_module: &#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    terraform_inputs:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      hello: &#34;world2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      subnet_self_link: &#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>You can see that the path to your module is specified by <code>path_to_module</code> (you can use relative or absolute paths),
+as are the expected inputs <code>hello</code> and <code>subnet_self_link</code>. Note that you can use opta interpolation to use variables or
+the outputs of the parent environment or other modules as input.</p>
+<p>Lastly, you can use the following as content to the main.tf file of the blah module to complete the example/demo:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"><span style="color:#204a87;font-weight:bold">variable</span> <span style="color:#4e9a06">&#34;hello&#34;</span> {
+<span style="color:#000">  type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">string</span>
+}
+
+<span style="color:#204a87;font-weight:bold">variable</span> <span style="color:#4e9a06">&#34;subnet_self_link&#34;</span> {
+<span style="color:#000">  type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">string</span>
+}
+
+<span style="color:#204a87;font-weight:bold">data</span> <span style="color:#4e9a06">&#34;google_compute_subnetwork&#34; &#34;my-subnetwork&#34;</span> {
+<span style="color:#000">  self_link</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">var</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">subnet_self_link</span>
+}
+
+<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;random_string&#34; &#34;suffix&#34;</span> {
+<span style="color:#000">  length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">4</span>
+<span style="color:#000">  upper</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
+<span style="color:#000">  special</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
+}
+
+<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_service_account&#34; &#34;default&#34;</span> {
+<span style="color:#000">  account_id</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;custom-terraform-${random_string.suffix.result}&#34;</span>
+<span style="color:#000">  display_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Service Account&#34;</span>
+}
+
+<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_compute_firewall&#34; &#34;k8s_extra_rules&#34;</span> {
+<span style="color:#000">  name</span>      <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;custom-terraform-${random_string.suffix.result}&#34;</span>
+<span style="color:#000">  network</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">data</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">google_compute_subnetwork</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">my</span><span style="color:#a40000">-</span><span style="color:#204a87;font-weight:bold">subnetwork</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">network</span>
+<span style="color:#000">  direction</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;INGRESS&#34;</span>
+  <span style="color:#204a87;font-weight:bold">allow</span> {
+<span style="color:#000">    protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
+<span style="color:#000">    ports</span>    <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;22&#34;</span><span style="color:#000;font-weight:bold">]</span>
+  }
+<span style="color:#000">  source_ranges</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;0.0.0.0/0&#34;</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#000">  target_tags</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;open-to-public-${random_string.suffix.result}&#34;</span><span style="color:#000;font-weight:bold">]</span>
+}
+
+<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_compute_instance&#34; &#34;default&#34;</span> {
+<span style="color:#000">  name</span>         <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;test-${random_string.suffix.result}&#34;</span>
+<span style="color:#000">  machine_type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;n2-standard-4&#34;</span>
+<span style="color:#000">  zone</span>         <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;us-central1-a&#34;</span>
+
+<span style="color:#000">  tags</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;open-to-public-${random_string.suffix.result}&#34;</span><span style="color:#000;font-weight:bold">]</span>
+
+  <span style="color:#204a87;font-weight:bold">boot_disk</span> {
+    <span style="color:#204a87;font-weight:bold">initialize_params</span> {
+<span style="color:#000">      image</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;debian-cloud/debian-9&#34;</span>
+    }
+  }
+
+  <span style="color:#a40000">//</span> <span style="color:#204a87;font-weight:bold">Local</span> <span style="color:#204a87;font-weight:bold">SSD</span> <span style="color:#204a87;font-weight:bold">disk</span>
+  <span style="color:#204a87;font-weight:bold">scratch_disk</span> {
+<span style="color:#000">    interface</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;SCSI&#34;</span>
+  }
+
+  <span style="color:#204a87;font-weight:bold">network_interface</span> {
+<span style="color:#000">    subnetwork</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">var</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">subnet_self_link</span>
+    <span style="color:#204a87;font-weight:bold">access_config</span> {
+      <span style="color:#a40000">//</span> <span style="color:#204a87;font-weight:bold">Ephemeral</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">IP</span>
+    }
+  }
+
+<span style="color:#000">  metadata</span> <span style="color:#ce5c00;font-weight:bold">=</span> {
+<span style="color:#000">    foo</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;bar&#34;</span>
+  }
+
+<span style="color:#000">  metadata_startup_script</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;echo ${var.hello} &gt; /test.txt&#34;</span>
+
+  <span style="color:#204a87;font-weight:bold">service_account</span> {<span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">    email</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">google_service_account</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">default</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">email</span>
+<span style="color:#000">    scopes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;cloud-platform&#34;</span><span style="color:#000;font-weight:bold">]</span>
+  }
+}
+</code></pre></div><p>Once you opta apply the service you should see your new compute instance up and running in the GCP console and be able
+to ssh into it.</p>
 <h2 id="fields">Fields</h2>
 <table>
 <thead>
@@ -1090,34 +1171,16 @@ names to a user-defined value:</p>
 </thead>
 <tbody>
 <tr>
-<td><code>region</code></td>
-<td>MongoDB Atlas Cluster Region, must be a mongodb region for the provider.</td>
+<td><code>path_to_module</code></td>
+<td>The path to your terraform module</td>
 <td><code>None</code></td>
 <td>True</td>
 </tr>
 <tr>
-<td><code>mongodb_instance_size</code></td>
-<td>MongoDB Atlas Cluster size, see this: <a href="https://docs.atlas.mongodb.com/cluster-tier/">https://docs.atlas.mongodb.com/cluster-tier/</a></td>
-<td><code>M0</code></td>
-<td>True</td>
-</tr>
-<tr>
-<td><code>mongodbversion</code></td>
-<td>The version of the database to use.</td>
-<td><code>4.4</code></td>
+<td><code>terraform_inputs</code></td>
+<td>The variables which you wish to pass into your custom module.</td>
+<td><code>{}</code></td>
 <td>False</td>
-</tr>
-<tr>
-<td><code>database_name</code></td>
-<td>The name of the mongodb database</td>
-<td><code>mongodb_database</code></td>
-<td>False</td>
-</tr>
-<tr>
-<td><code>mongodb_atlas_project_id</code></td>
-<td>The Atlas project ID</td>
-<td><code>Notknown</code></td>
-<td>True</td>
 </tr>
 </tbody>
 </table>

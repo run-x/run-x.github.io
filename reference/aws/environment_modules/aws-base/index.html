@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/environment_modules/aws-base/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-06T13:43:34-08:00" />
+<meta property="article:modified_time" content="2021-12-14T09:42:13-08:00" />
 <meta itemprop="name" content="base">
 <meta itemprop="description" content="Sets up VPCs, a default KMS key, and the db/cache subnets for your environment">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-12-06T13:43:34-08:00" />
-<meta itemprop="wordCount" content="196">
+<meta itemprop="dateModified" content="2021-12-14T09:42:13-08:00" />
+<meta itemprop="wordCount" content="210">
 
 
 
@@ -392,6 +392,12 @@ if (!doNotTrack) {
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesrunx" href="/reference/aws/environment_modules/runx/">runx</a>
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -413,6 +419,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referenceawsservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_moduleslambda-function" href="/reference/aws/service_modules/lambda-function/">aws-lambda</a>
       
       
       
@@ -720,6 +732,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulesrunx" href="/reference/google/environment_modules/runx/">runx</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleenvironment_modulescustom-terraform" href="/reference/google/environment_modules/custom-terraform/">custom-terraform</a>
       
       
     </li>
@@ -1047,6 +1065,12 @@ if you have them), so in most cases, there is <em>no need to set any of the fiel
 <td><code>total_ipv4_cidr_block</code></td>
 <td>This is the total cidr block for the VPC.</td>
 <td><code>10.0.0.0/16</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>vpc_log_retention</code></td>
+<td>The retention period (days) for the flow logs of your vpc.</td>
+<td><code>90</code></td>
 <td>False</td>
 </tr>
 <tr>
