@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/architecture/aws/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-14T09:42:13-08:00" />
+<meta property="article:modified_time" content="2021-12-22T10:01:25-08:00" />
 <meta itemprop="name" content="AWS Architecture">
 <meta itemprop="description" content="Architecture overview for AWS deployments of Opta
 ">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-12-14T09:42:13-08:00" />
-<meta itemprop="wordCount" content="618">
+<meta itemprop="dateModified" content="2021-12-22T10:01:25-08:00" />
+<meta itemprop="wordCount" content="614">
 
 
 
@@ -852,6 +852,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialschanging_domain" href="/tutorials/changing_domain/">Changing Domains</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscron" href="/tutorials/cron/">Cron jobs</a>
       
       
@@ -918,7 +924,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization" href="/tutorials/templatization/">Templatization</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization_variables" href="/tutorials/templatization_variables/">Templatization Variables</a>
       
       
     </li>
@@ -1052,8 +1058,10 @@ if (!doNotTrack) {
 	<h1>AWS Architecture</h1>
 	<div class="lead">Architecture overview for AWS deployments of Opta</div>
 	<h2 id="aws">AWS</h2>
-<p><img src="/images/opta_aws_architecture.png" alt="image alt text">
-For AWS our environments are currently setup within a single region, but our networking is set up across 3 availability
+<a href="/images/opta_aws_architecture.png" target="_blank">
+  <img src="/images/opta_aws_architecture.png" align="center"/>
+</a>
+<p>For AWS our environments are currently setup within a single region, but our networking is set up across 3 availability
 zones by default, split between a private and public subnet (which we provision as we do not use the default vpc).
 The public subnet is solely used for the public load balancer, while the ec2s (VMs) and databases all exist within
 the private subnet.</p>
@@ -1077,7 +1085,7 @@ to add permissions for the listed resources with the permissions which they spec
 <p>Lastly, DNS and SSL are currently handled via one Route53 hosted zone and one ACM certificate respectively. ACM cert
 verification is done with Route53 record manipulation in the given hosted zone. Records will be added to the hosted
 zone directing to the load balancer via an open source integration (see K8s section).</p>
-<h3 id="security-concerns">Security Concerns</h3>
+<h3 id="security-overview">Security Overview</h3>
 <ul>
 <li>With linkerd and domain delegation complete, Opta environments will have end-to-end encryption on all Opta services.</li>
 <li>All databases and ec2s are run within the private subnets (i.e. can access the internet via a nat gateway, but
@@ -1100,7 +1108,6 @@ manner, with no long-lived credentials.</li>
 <li>Currently, the EKS cluster is built with a public endpoint for the simple usage (can add private option later on once
 VPN feature is added).</li>
 </ul>
-<p>For specific compliance concerns</p>
 
 	
 	

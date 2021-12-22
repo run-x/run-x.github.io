@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/architecture/gcp/" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-14T09:42:13-08:00" />
+<meta property="article:modified_time" content="2021-12-22T10:01:25-08:00" />
 <meta itemprop="name" content="GCP Architecture">
 <meta itemprop="description" content="Architecture overview for GCP deployments of Opta
 ">
 <meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-12-14T09:42:13-08:00" />
+<meta itemprop="dateModified" content="2021-12-22T10:01:25-08:00" />
 <meta itemprop="wordCount" content="533">
 
 
@@ -852,6 +852,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialschanging_domain" href="/tutorials/changing_domain/">Changing Domains</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscron" href="/tutorials/cron/">Cron jobs</a>
       
       
@@ -918,7 +924,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization" href="/tutorials/templatization/">Templatization</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization_variables" href="/tutorials/templatization_variables/">Templatization Variables</a>
       
       
     </li>
@@ -1052,8 +1058,10 @@ if (!doNotTrack) {
 	<h1>GCP Architecture</h1>
 	<div class="lead">Architecture overview for GCP deployments of Opta</div>
 	<h2 id="gcp">GCP</h2>
-<p><img src="/images/opta_gcp_architecture.png" alt="image alt text">
-For GCP our environments are currently setup within a single region/subnet which google can automatically distribute
+<a href="/images/opta_gcp_architecture.png" target="_blank">
+  <img src="/images/opta_gcp_architecture.png" align="center"/>
+</a>
+<p>For GCP our environments are currently setup within a single region/subnet which google can automatically distribute
 between all the region&rsquo;s availability zones. The subnet is a private one and only the load balancer and GCS buckets
 are allowed to be reachable from the public internet (although the GCS buckets would typically require credentials).
 In order to keep networking as private as possible, we setup a
@@ -1073,7 +1081,7 @@ and all the buckets are encrypted at rest with the environment&rsquo;s base kms 
 <p>Lastly, DNS and SSL are currently handled via one Cloud DNS hosted zone and one Google-managed ssl certificate
 respectively. SSL cert verification is done automatically by GCP by manipulating existing resources. Records will be
 added to the hosted zone directing to the load balancer via an open source integration (see K8s section).</p>
-<h3 id="security-concerns">Security Concerns</h3>
+<h3 id="security-overview">Security Overview</h3>
 <ul>
 <li>With linkerd and domain delegation complete, Opta environments will have end-to-end encryption on all Opta services.</li>
 <li>All vms are run within the private subnet (i.e. can access the internet via a nat gateway, but

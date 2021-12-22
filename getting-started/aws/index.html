@@ -22,12 +22,12 @@
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/getting-started/aws/" />
-<meta property="article:modified_time" content="2021-12-14T09:42:13-08:00" />
+<meta property="article:modified_time" content="2021-12-22T10:01:25-08:00" />
 <meta itemprop="name" content="AWS">
 <meta itemprop="description" content="Getting started with Opta on AWS.
 ">
-<meta itemprop="dateModified" content="2021-12-14T09:42:13-08:00" />
-<meta itemprop="wordCount" content="386">
+<meta itemprop="dateModified" content="2021-12-22T10:01:25-08:00" />
+<meta itemprop="wordCount" content="401">
 
 
 
@@ -850,6 +850,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialschanging_domain" href="/tutorials/changing_domain/">Changing Domains</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscron" href="/tutorials/cron/">Cron jobs</a>
       
       
@@ -916,7 +922,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization" href="/tutorials/templatization/">Templatization</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization_variables" href="/tutorials/templatization_variables/">Templatization Variables</a>
       
       
     </li>
@@ -1085,9 +1091,11 @@ This will set up the base infrastructure (like network and cluster) that will be
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now, run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c staging.yml
-</code></pre></div><p>This step will create an EKS cluster for you and set up VPC, networking and various other infrastructure pieces.</p>
+</code></pre></div><p>For the first run, this step takes approximately 15 min.<br>
+It will create an EKS cluster and set up the VPC, networking and various other infrastructure pieces.<br>
+For more information about what is created, see <a href="/architecture/aws/">AWS Architecture</a>.</p>
 <h2 id="service-creation">Service creation</h2>
-<p>In this step we will create a service - which is basically a docker container and associated database.
+<p>In this step we will create a service - which is basically a docker container.
 In this example we are using the popular <a href="https://httpbin.org/">httbin</a> container as our application.</p>
 <p>Create this file and name it <code>hello_world.yaml</code></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello-world</span><span style="color:#f8f8f8;text-decoration:underline">

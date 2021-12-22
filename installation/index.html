@@ -18,15 +18,15 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Installation | </title><meta property="og:title" content="Installation" />
+<title>Installation and Upgrade | </title><meta property="og:title" content="Installation and Upgrade" />
 <meta property="og:description" content="Documentation for Opta." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/installation/" />
 
-<meta itemprop="name" content="Installation">
+<meta itemprop="name" content="Installation and Upgrade">
 <meta itemprop="description" content="Documentation for Opta.">
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installation"/>
+<meta name="twitter:title" content="Installation and Upgrade"/>
 <meta name="twitter:description" content="Documentation for Opta."/>
 
 
@@ -92,7 +92,7 @@ if (!doNotTrack) {
 
 
 
-    <title>Installation | </title>
+    <title>Installation and Upgrade | </title>
   </head>
   <body class="td-section">
     <header>
@@ -842,6 +842,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialschanging_domain" href="/tutorials/changing_domain/">Changing Domains</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscron" href="/tutorials/cron/">Cron jobs</a>
       
       
@@ -908,7 +914,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization" href="/tutorials/templatization/">Templatization</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialstemplatization_variables" href="/tutorials/templatization_variables/">Templatization Variables</a>
       
       
     </li>
@@ -1019,7 +1025,7 @@ if (!doNotTrack) {
 
     <a href="https://github.com/run-x/opta/edit/master/content/en/Installation/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
     <a href="https://github.com/run-x/opta/new/master/content/en/Installation/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta/issues/new?title=Installation" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta/issues/new?title=Installation%20and%20Upgrade" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
 
   
@@ -1053,7 +1059,7 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>Installation</h1>
+	<h1>Installation and Upgrade</h1>
 	
 	<h2 id="prerequisites">Prerequisites</h2>
 <p>Opta currently has the following system prerequisites to operate normally:</p>
@@ -1069,14 +1075,14 @@ docker-for-mac)</li>
 <li>Opta assumes that git, curl and unzip tools are already installed on the command line; in addition if you are using Ubuntu/Debian Linux then the <code>language-pack-en</code> package should be installed; you may also need to add <code>export LC_CTYPE=en_US.UTF-8</code> to your profile.</li>
 </ul>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
-<p>Run this script to install the latest version of Opta (see below for changelog
+<p>Run this script to install or upgrade to the latest version of Opta (see below for changelog
 and release history).</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><p>You can specify a particular version as well.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="run-opta-in-a-docker-container-via-optash-script-pre-release">Run Opta in a Docker Container via opta.sh script (Pre-release)</h2>
 <p>We are now offering a pre-release version for running opta via a docker container with alpha support. <strong>Please do not use this for production workloads currently.</strong></p>
-<p>If you prefer to install Opta and its dependencies (terraform, kubectl, gcp sdk, aws cli) in a docker container then you can
+<p>If you prefer to install or upgrade Opta and its dependencies (terraform, kubectl, gcp sdk, aws cli) in a docker container then you can
 download the <code>opta.sh</code> script that runs Opta inside a docker container. With this approach you can be assured that the correct
 versions of all of Opta&rsquo;s dependencies are invoked when run.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
