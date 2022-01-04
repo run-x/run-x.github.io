@@ -56,6 +56,9 @@ if (!doNotTrack) {
   crossorigin="anonymous"></script>
 
 
+
+<link rel="stylesheet" href="/css/prism.css"/>
+
 <script type="text/javascript">
     (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
     ;r.type="text/javascript"
@@ -489,6 +492,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-mysql" href="/reference/aws/service_modules/aws-mysql/">postgres</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-postgres" href="/reference/aws/service_modules/aws-postgres/">postgres</a>
       
       
@@ -860,6 +869,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsvpc_peering" href="/tutorials/vpc_peering/">AWS VPC Peering</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialscontinuous_deployment" href="/tutorials/continuous_deployment/">Continuous Deployment</a>
       
       
@@ -884,7 +899,19 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsecr_access" href="/tutorials/ecr_access/">ECR Access</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsenvironment_variables" href="/tutorials/environment_variables/">Environment Variables</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-tutorialsgcr_access" href="/tutorials/gcr_access/">GCR Access</a>
       
       
       
@@ -1084,9 +1111,9 @@ and release history).</p>
 download the <code>opta.sh</code> script that runs Opta inside a docker container. With this approach you can be assured that the correct
 versions of all of Opta&rsquo;s dependencies are invoked when run.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
-sudo curl https://raw.githubusercontent.com/run-x/opta-docs/opta-via-docker/static/opta.sh -o /usr/local/bin/opta.sh
-chmod +x /usr/local/bin/opta.sh
-./opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation builds a docker image</span>
+sudo curl  https://docs.opta.dev/opta.sh -o /usr/local/bin/opta.sh
+sudo chmod +x /usr/local/bin/opta.sh
+opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation builds a docker image</span>
 </code></pre></div><p>Invoke opta using opta.sh instead; for example</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta.sh apply -c mycode/foo.yaml
 
@@ -1182,7 +1209,7 @@ chmod +x /usr/local/bin/opta.sh
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2021 RunX Labs Inc. All Rights Reserved</small>
+        <small class="text-white">&copy; 2022 RunX Labs Inc. All Rights Reserved</small>
         <small class="ml-1"><a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></small>
 	
 		
@@ -1209,6 +1236,9 @@ chmod +x /usr/local/bin/opta.sh
 
 <script src="/js/main.min.b5fc1b29d2465835844254bd4d804738eaf24c0cec53009b4c6899989be55a47.js" integrity="sha256-tfwbKdJGWDWEQlS9TYBHOOryTAzsUwCbTGiZmJvlWkc=" crossorigin="anonymous"></script>
 
+
+
+<script src='/js/prism.js'></script>
 
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
