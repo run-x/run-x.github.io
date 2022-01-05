@@ -3,488 +3,488 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/reference/aws/service_modules/lambda-function/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/cloudfront-distribution/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/mongodb-atlas/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/service_modules/mongodb-atlas/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/mongodb-atlas/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/architecture/aws/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-documentdb/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-iam-role/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-iam-user/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-nodegroup/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-s3/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-ses/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-sns/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-sqs/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/architecture/azure/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/azure-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/gcp-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/datadog/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/datadog/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/datadog/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-dns/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/gcp-dns/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-dynamodb/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/external-ssl-cert/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/external-ssl-cert/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/external-ssl-cert/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/architecture/gcp/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-gcs/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/gcp-nodepool/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-service-account/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/helm-chart/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/service_modules/helm-chart/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/helm-chart/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-k8s-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/azure-k8s-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/gcp-k8s-base/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/aws-eks/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/azure-aks/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/gcp-gke/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-k8s-service/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-k8s-service/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/architecture/kubernetes/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-mysql/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-mysql/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-postgres/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-postgres/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/service_modules/aws-redis/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/service_modules/gcp-redis/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/runx/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/environment_modules/runx/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/google/environment_modules/runx/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/getting-started/aws/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/aws/environment_modules/custom-terraform/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/google/environment_modules/custom-terraform/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/lambda-function/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/cloudfront-distribution/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/mongodb-atlas/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/service_modules/mongodb-atlas/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/mongodb-atlas/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/architecture/aws/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-documentdb/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-iam-role/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-iam-user/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-nodegroup/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-s3/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-ses/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-sns/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-sqs/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/architecture/azure/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/azure-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/gcp-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/datadog/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/datadog/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/datadog/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-dns/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/gcp-dns/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-dynamodb/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/external-ssl-cert/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/external-ssl-cert/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/external-ssl-cert/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/architecture/gcp/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-gcs/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/gcp-nodepool/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-service-account/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/helm-chart/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/service_modules/helm-chart/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/helm-chart/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-k8s-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/azure-k8s-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/gcp-k8s-base/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/aws-eks/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/azure-aks/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/gcp-gke/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-k8s-service/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-k8s-service/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/architecture/kubernetes/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-mysql/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-mysql/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-postgres/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-postgres/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/service_modules/aws-redis/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/service_modules/gcp-redis/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/runx/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/environment_modules/runx/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/google/environment_modules/runx/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aws/environment_modules/custom-terraform/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/aws/environment_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/azurerm/environment_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/google/environment_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/aws/service_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/azurerm/service_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/google/service_modules/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/getting-started/gcp/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/getting-started/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/getting-started/azure/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/installation/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/getting-started/local/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/observability/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/observability/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/compliance/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/architecture/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/changing_domain/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/cron/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/opta_local_troubleshooting/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/vpc_peering/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/continuous_deployment/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/cron/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/custom_image/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/observability/datadog/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/debugging/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/deploy_to_aws_button/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/ecr_access/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/environment_variables/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/gcr_access/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorials/iam/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/ingress/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/service2service/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/service_modules/azure-k8s-service/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/observability/logdna/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/azurerm/service_modules/azure-postgres/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/secrets/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorials/templatization_variables/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/opta_local_troubleshooting/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/vpc_peering/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/observability/datadog/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/deploy_to_aws_button/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/ecr_access/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/gcr_access/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorials/iam/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/service_modules/azure-k8s-service/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/azurerm/service_modules/azure-postgres/</loc>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/azurerm/service_modules/azure-redis/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
   <url>
     <loc>/search/</loc>
-    <lastmod>2022-01-04T15:15:30-08:00</lastmod>
+    <lastmod>2022-01-05T11:38:59-08:00</lastmod>
   </url>
   
 </urlset>
