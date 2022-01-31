@@ -21,11 +21,13 @@
 <meta property="og:description" content="Allows user to bring in their own custom terraform module" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/environment_modules/custom-terraform/" />
-<meta property="article:modified_time" content="2022-01-28T12:53:56-08:00" />
+<meta property="article:published_time" content="2022-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-31T11:39:36-08:00" />
 <meta itemprop="name" content="custom-terraform">
 <meta itemprop="description" content="Allows user to bring in their own custom terraform module">
-<meta itemprop="dateModified" content="2022-01-28T12:53:56-08:00" />
-<meta itemprop="wordCount" content="567">
+<meta itemprop="datePublished" content="2022-01-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-01-31T11:39:36-08:00" />
+<meta itemprop="wordCount" content="584">
 
 
 
@@ -350,6 +352,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-nodegroup" href="/reference/aws/environment_modules/aws-nodegroup/">aws-nodegroup</a>
       
       
@@ -401,12 +409,6 @@ if (!doNotTrack) {
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesrunx" href="/reference/aws/environment_modules/runx/">runx</a>
       
       
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
-      
-      
     </li>
   </ul>
 </ul>
@@ -428,6 +430,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referenceawsservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesk8s-manifest" href="/reference/aws/service_modules/k8s-manifest/">kubernetes-manifest</a>
       
       
       
@@ -628,6 +636,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_modulesk8s-manifest" href="/reference/azurerm/service_modules/k8s-manifest/">kubernetes-manifest</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_moduleshelm-chart" href="/reference/azurerm/service_modules/helm-chart/">helm-chart</a>
       
       
@@ -770,6 +784,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referencegoogleservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesk8s-manifest" href="/reference/google/service_modules/k8s-manifest/">kubernetes-manifest</a>
       
       
       
@@ -1075,7 +1095,8 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#exampledemo">Example/Demo</a></li>
+    <li><a href="#use-local-terraform-files">Use local terraform files</a></li>
+    <li><a href="#use-a-remote-terraform-module">Use a remote terraform module</a></li>
     <li><a href="#using-outputs-from-your-custom-terraform-module">Using Outputs from your Custom Terraform Module</a></li>
     <li><a href="#fields">Fields</a></li>
   </ul>
@@ -1092,133 +1113,207 @@ if (!doNotTrack) {
 	<div class="lead">Allows user to bring in their own custom terraform module</div>
 	
 	<p>This module allows a user to bring in their own custom terraform code into the opta ecosystem, to use in tandem with
-their other opta modules, and even reference them. All a user needs to do is specify the path (absolute or relative to
-the opta yaml) to your module with the <code>path_to_module</code> input, and the desired inputs to your module (if any) via the
+their other opta modules, and even reference them. All a user needs to do is specify the
+<a href="https://www.terraform.io/language/modules/sources#module-sources">source</a>
+to your module with the <code>source</code> input, and the desired inputs to your module (if any) via the
 <code>terraform_inputs</code> input.</p>
-<h2 id="exampledemo">Example/Demo</h2>
-<p>Suppose you have an opta gcp environment written in <code>gcp-env.yaml</code> and you want to deploy your custom terraform module
-&ldquo;blah&rdquo; that creates something you want (in our case a vm instance). What you could do is create a service for your
-environment which uses custom-terraform to call your module (NOTE: custom-terraform doesn&rsquo;t need to be in an opta
-service&ndash; it can be in the environment too). For our example, let&rsquo;s say that the file structure looks like so:</p>
+<h2 id="use-local-terraform-files">Use local terraform files</h2>
+<p>Let&rsquo;s create a AWS EC2 instance using terraform.</p>
+<p>Here is the directory structure for this example:</p>
 <pre><code>.
-├── README.md
-├── gcp-env.yaml
-└── dummy-service
-    ├── blah
-    │   └── main.tf
-    └── opta.yaml
-</code></pre><p>The new service is written in <code>dummy-service/opta.yaml</code> and looks like this:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+├── opta.yaml       # the opta environment file for AWS
+├── custom-tf.yaml  # define the opta custom-terraform module
+└── my-terraform    # place all the terraform files in this directory
+    └── main.tf
+</code></pre><nav>
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+		
+		
+		
+		
+
+		
+
+		<a class="nav-item nav-link  active "
+		   id="nav-abcefd" data-toggle="tab" href="#abcefd"
+		   role="tab" aria-controls="nav-home" aria-selected="true"></a>
+
+		
+
+		<a class="nav-item nav-link "
+		   id="nav-eadfbc" data-toggle="tab" href="#eadfbc"
+		   role="tab" aria-controls="nav-home" aria-selected="true"></a>
+
+		
+
+		<a class="nav-item nav-link "
+		   id="nav-daefbc" data-toggle="tab" href="#daefbc"
+		   role="tab" aria-controls="nav-home" aria-selected="true"></a>
+
+		
+
+	</div>
+</nav>
+
+<div class="tab-content" id="nav-tab-content">
+
+	
+
+
+
+
+
+<div class="tab-pane fade show active " id="abcefd" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># custom-tf.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../opta.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">vm1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># where the terraform files are located</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-terraform&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;world&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">subnet_self_link</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># You can call it multiple times if you like</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#  - type: custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    name: vm2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    path_to_module: &#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    terraform_inputs:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      hello: &#34;world2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      subnet_self_link: &#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>You can see that the path to your module is specified by <code>path_to_module</code> (you can use relative or absolute paths),
-as are the expected inputs <code>hello</code> and <code>subnet_self_link</code>. Note that you can use opta interpolation to use variables or
-the outputs of the parent environment or other modules as input.</p>
-<p>Lastly, you can use the following as content to the main.tf file of the blah module to complete the example/demo:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-hcl" data-lang="hcl"><span style="color:#204a87;font-weight:bold">variable</span> <span style="color:#4e9a06">&#34;hello&#34;</span> {
-<span style="color:#000">  type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">string</span>
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># some input variables for terraform</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">instance_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;hello-world&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># use opta interpolation to use variable from the parent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">private_subnet_ids</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent.private_subnet_ids}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+<div class="tab-pane fade show " id="eadfbc" role="tabpanel" aria-labelledby="nav-1">
+
+	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># opta.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># A unique identifier for your organization</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Your 12 digit AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
+
+</div>
+
+
+
+
+
+
+
+<div class="tab-pane fade show " id="daefbc" role="tabpanel" aria-labelledby="nav-1">
+
+	<pre><code># main.tf
+
+# set by opta in terraform_inputs.private_subnet_ids
+variable &quot;private_subnet_ids&quot; {
+  description = &quot;Use existing Private subnet ids&quot;
+  type        = list(string)
+  default     = null
 }
 
-<span style="color:#204a87;font-weight:bold">variable</span> <span style="color:#4e9a06">&#34;subnet_self_link&#34;</span> {
-<span style="color:#000">  type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">string</span>
+# set by opta in terraform_inputs.instance_name
+variable &quot;instance_name&quot; {
+  description = &quot;Name your instance&quot;
+  type        = string
+  default     = null
 }
 
-<span style="color:#204a87;font-weight:bold">data</span> <span style="color:#4e9a06">&#34;google_compute_subnetwork&#34; &#34;my-subnetwork&#34;</span> {
-<span style="color:#000">  self_link</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">var</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">subnet_self_link</span>
-}
+data &quot;aws_ami&quot; &quot;ubuntu&quot; {
+  most_recent = true
 
-<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;random_string&#34; &#34;suffix&#34;</span> {
-<span style="color:#000">  length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">4</span>
-<span style="color:#000">  upper</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
-<span style="color:#000">  special</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">false</span>
-}
-
-<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_service_account&#34; &#34;default&#34;</span> {
-<span style="color:#000">  account_id</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;custom-terraform-${random_string.suffix.result}&#34;</span>
-<span style="color:#000">  display_name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;Service Account&#34;</span>
-}
-
-<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_compute_firewall&#34; &#34;k8s_extra_rules&#34;</span> {
-<span style="color:#000">  name</span>      <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;custom-terraform-${random_string.suffix.result}&#34;</span>
-<span style="color:#000">  network</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">data</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">google_compute_subnetwork</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">my</span><span style="color:#a40000">-</span><span style="color:#204a87;font-weight:bold">subnetwork</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">network</span>
-<span style="color:#000">  direction</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;INGRESS&#34;</span>
-  <span style="color:#204a87;font-weight:bold">allow</span> {
-<span style="color:#000">    protocol</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;tcp&#34;</span>
-<span style="color:#000">    ports</span>    <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;22&#34;</span><span style="color:#000;font-weight:bold">]</span>
-  }
-<span style="color:#000">  source_ranges</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;0.0.0.0/0&#34;</span><span style="color:#000;font-weight:bold">]</span>
-<span style="color:#000">  target_tags</span>   <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;open-to-public-${random_string.suffix.result}&#34;</span><span style="color:#000;font-weight:bold">]</span>
-}
-
-<span style="color:#204a87;font-weight:bold">resource</span> <span style="color:#4e9a06">&#34;google_compute_instance&#34; &#34;default&#34;</span> {
-<span style="color:#000">  name</span>         <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;test-${random_string.suffix.result}&#34;</span>
-<span style="color:#000">  machine_type</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;n2-standard-4&#34;</span>
-<span style="color:#000">  zone</span>         <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;us-central1-a&#34;</span>
-
-<span style="color:#000">  tags</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;open-to-public-${random_string.suffix.result}&#34;</span><span style="color:#000;font-weight:bold">]</span>
-
-  <span style="color:#204a87;font-weight:bold">boot_disk</span> {
-    <span style="color:#204a87;font-weight:bold">initialize_params</span> {
-<span style="color:#000">      image</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;debian-cloud/debian-9&#34;</span>
-    }
-  }
-
-  <span style="color:#a40000">//</span> <span style="color:#204a87;font-weight:bold">Local</span> <span style="color:#204a87;font-weight:bold">SSD</span> <span style="color:#204a87;font-weight:bold">disk</span>
-  <span style="color:#204a87;font-weight:bold">scratch_disk</span> {
-<span style="color:#000">    interface</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;SCSI&#34;</span>
+  filter {
+    name   = &quot;name&quot;
+    values = [&quot;ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*&quot;]
   }
 
-  <span style="color:#204a87;font-weight:bold">network_interface</span> {
-<span style="color:#000">    subnetwork</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">var</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">subnet_self_link</span>
-    <span style="color:#204a87;font-weight:bold">access_config</span> {
-      <span style="color:#a40000">//</span> <span style="color:#204a87;font-weight:bold">Ephemeral</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#204a87;font-weight:bold">IP</span>
-    }
+  filter {
+    name   = &quot;virtualization-type&quot;
+    values = [&quot;hvm&quot;]
   }
 
-<span style="color:#000">  metadata</span> <span style="color:#ce5c00;font-weight:bold">=</span> {
-<span style="color:#000">    foo</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;bar&#34;</span>
-  }
-
-<span style="color:#000">  metadata_startup_script</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;echo ${var.hello} &gt; /test.txt&#34;</span>
-
-  <span style="color:#204a87;font-weight:bold">service_account</span> {<span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">    email</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">google_service_account</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">default</span><span style="color:#000;font-weight:bold">.</span><span style="color:#204a87;font-weight:bold">email</span>
-<span style="color:#000">    scopes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;cloud-platform&#34;</span><span style="color:#000;font-weight:bold">]</span>
-  }
+  # Canonical: Publisher of Ubuntu
+  owners = [&quot;099720109477&quot;]
 }
-</code></pre></div><p>Once you opta apply the service you should see your new compute instance up and running in the GCP console and be able
-to ssh into it.</p>
+
+resource &quot;aws_instance&quot; &quot;my_instance&quot; {
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = &quot;t3.micro&quot;
+  subnet_id     = var.private_subnet_ids[0]
+
+  tags = {
+    Name = &quot;${var.instance_name}&quot;
+  }
+
+}
+</code></pre>
+
+</div>
+
+
+
+
+</div>
+<p>Run opta apply to create the custom terraform resources:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c custom-tf.yaml
+</code></pre></div><pre><code class="language-console" data-lang="console">╒══════════╤══════════════════════════╤══════════╤════════╤══════════╕
+│ module   │ resource                 │ action   │ risk   │ reason   │
+╞══════════╪══════════════════════════╪══════════╪════════╪══════════╡
+│ customtf │ aws_instance.my_instance │ create   │ LOW    │ creation │
+╘══════════╧══════════════════════════╧══════════╧════════╧══════════╛
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+</code></pre><p>Once you opta apply the service you should see your new EC2 instance up and running in the AWS console and be able to ssh into it.</p>
+<p>When done, you can destroy the custom terraform resource:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy -c custom-tf.yaml
+</code></pre></div><h2 id="use-a-remote-terraform-module">Use a remote terraform module</h2>
+<p>The <code>source</code> input uses terraform&rsquo;s <a href="https://www.terraform.io/language/modules/sources#module-sources">module source</a>
+logic behind the scenes and so follows the same format/limitations. Thus, you can use this for locally available modules,
+or modules available remotely, like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../opta.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bucket</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;terraform-aws-modules/s3-bucket/aws&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># See https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;2.13.0&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># version needs to be specified for remote registry modules</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;dummy-bucket-{aws.account_id}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">acl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;private&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">versioning</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enabled</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p><strong>WARNING</strong> Be very, very, careful about what remote modules you are using, as they leave you wide open to supply chain
+attacks, depending on the security and character of the owner of said module. It&rsquo;s highly advised to use either
+<a href="https://registry.terraform.io/browse/modules">official modules</a> or modules under your company&rsquo;s control.</p>
 <h2 id="using-outputs-from-your-custom-terraform-module">Using Outputs from your Custom Terraform Module</h2>
 <p>Currently you can use outputs of your custom terraform module in the same yaml, like so:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../opta.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hi1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah1&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- This module has an output called output1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tf1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-terraform-1&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- This module has an output called output1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hi2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">tf2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-terraform-2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">input1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.hi1.output1}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- HERE. Note the ${{}} wrapping</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">input1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.tf1.output1}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- HERE. Note the ${{}} wrapping</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>These outputs, however, currently can not be used in other yamls (e.g. if you put custom terraform in an environment
 yaml its outputs can&rsquo;t be used in the services), and will not show up in the <code>opta output</code> command. Work on supporting
 this is ongoing.</p>
@@ -1234,10 +1329,22 @@ this is ongoing.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>path_to_module</code></td>
-<td>The path to your terraform module</td>
+<td><code>source</code></td>
+<td>The source of your terraform module. For more info, check out <a href="https://www.terraform.io/language/modules/sources#module-sources">https://www.terraform.io/language/modules/sources#module-sources</a></td>
 <td><code>None</code></td>
-<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>path_to_module</code></td>
+<td>Deprecated, use source</td>
+<td><code>None</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>The version of the remote module to use. For more info, check out <a href="https://www.terraform.io/language/modules/syntax#version">https://www.terraform.io/language/modules/syntax#version</a></td>
+<td><code>None</code></td>
+<td>False</td>
 </tr>
 <tr>
 <td><code>terraform_inputs</code></td>
@@ -1315,8 +1422,8 @@ this is ongoing.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    January 28, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/a8031c08d04e1829b7eabae94b4349cdcb1c21ca">Adding nots and script for support of centos/amazon (#127) (a8031c0)</a>
+    January 31, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/6c8d65afded2acb0257c35e16b75d0e848abbf4b">Release 0.25 (#130) (6c8d65a)</a>
 
 </div>
 

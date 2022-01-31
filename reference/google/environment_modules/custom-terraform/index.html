@@ -21,11 +21,11 @@
 <meta property="og:description" content="Allows user to bring in their own custom terraform module" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/google/environment_modules/custom-terraform/" />
-<meta property="article:modified_time" content="2022-01-28T12:53:56-08:00" />
+<meta property="article:modified_time" content="2022-01-31T11:39:36-08:00" />
 <meta itemprop="name" content="custom-terraform">
 <meta itemprop="description" content="Allows user to bring in their own custom terraform module">
-<meta itemprop="dateModified" content="2022-01-28T12:53:56-08:00" />
-<meta itemprop="wordCount" content="567">
+<meta itemprop="dateModified" content="2022-01-31T11:39:36-08:00" />
+<meta itemprop="wordCount" content="692">
 
 
 
@@ -350,6 +350,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesaws-nodegroup" href="/reference/aws/environment_modules/aws-nodegroup/">aws-nodegroup</a>
       
       
@@ -401,12 +407,6 @@ if (!doNotTrack) {
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulesrunx" href="/reference/aws/environment_modules/runx/">runx</a>
       
       
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsenvironment_modulescustom-terraform" href="/reference/aws/environment_modules/custom-terraform/">custom-terraform</a>
-      
-      
     </li>
   </ul>
 </ul>
@@ -428,6 +428,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referenceawsservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesk8s-manifest" href="/reference/aws/service_modules/k8s-manifest/">kubernetes-manifest</a>
       
       
       
@@ -628,6 +634,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_modulesk8s-manifest" href="/reference/azurerm/service_modules/k8s-manifest/">kubernetes-manifest</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermservice_moduleshelm-chart" href="/reference/azurerm/service_modules/helm-chart/">helm-chart</a>
       
       
@@ -770,6 +782,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referencegoogleservice_modules">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegoogleservice_modulesk8s-manifest" href="/reference/google/service_modules/k8s-manifest/">kubernetes-manifest</a>
       
       
       
@@ -1075,7 +1093,8 @@ if (!doNotTrack) {
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#exampledemo">Example/Demo</a></li>
+    <li><a href="#use-local-terraform-files">Use local terraform files</a></li>
+    <li><a href="#use-a-remote-terraform-module">Use a remote terraform module</a></li>
     <li><a href="#using-outputs-from-your-custom-terraform-module">Using Outputs from your Custom Terraform Module</a></li>
     <li><a href="#fields">Fields</a></li>
   </ul>
@@ -1092,10 +1111,11 @@ if (!doNotTrack) {
 	<div class="lead">Allows user to bring in their own custom terraform module</div>
 	
 	<p>This module allows a user to bring in their own custom terraform code into the opta ecosystem, to use in tandem with
-their other opta modules, and even reference them. All a user needs to do is specify the path (absolute or relative to
-the opta yaml) to your module with the <code>path_to_module</code> input, and the desired inputs to your module (if any) via the
+their other opta modules, and even reference them. All a user needs to do is specify the
+<a href="https://www.terraform.io/language/modules/sources#module-sources">source</a>
+to your module with the <code>source</code> input, and the desired inputs to your module (if any) via the
 <code>terraform_inputs</code> input.</p>
-<h2 id="exampledemo">Example/Demo</h2>
+<h2 id="use-local-terraform-files">Use local terraform files</h2>
 <p>Suppose you have an opta gcp environment written in <code>gcp-env.yaml</code> and you want to deploy your custom terraform module
 &ldquo;blah&rdquo; that creates something you want (in our case a vm instance). What you could do is create a service for your
 environment which uses custom-terraform to call your module (NOTE: custom-terraform doesn&rsquo;t need to be in an opta
@@ -1105,28 +1125,28 @@ service&ndash; it can be in the environment too). For our example, let&rsquo;s s
 ├── gcp-env.yaml
 └── dummy-service
     ├── blah
-    │   └── main.tf
+    │    └── main.tf
     └── opta.yaml
 </code></pre><p>The new service is written in <code>dummy-service/opta.yaml</code> and looks like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">vm1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">hello</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;world&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">subnet_self_link</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># You can call it multiple times if you like</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#  - type: custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    name: vm2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    path_to_module: &#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    source: &#34;./blah&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    terraform_inputs:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      hello: &#34;world2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      subnet_self_link: &#34;{parent.private_subnet_self_link}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>You can see that the path to your module is specified by <code>path_to_module</code> (you can use relative or absolute paths),
+</span></code></pre></div><p>You can see that the path to your module is specified by <code>source</code> (you can use relative or absolute paths),
 as are the expected inputs <code>hello</code> and <code>subnet_self_link</code>. Note that you can use opta interpolation to use variables or
 the outputs of the parent environment or other modules as input.</p>
 <p>Lastly, you can use the following as content to the main.tf file of the blah module to complete the example/demo:</p>
@@ -1204,19 +1224,47 @@ the outputs of the parent environment or other modules as input.</p>
 }
 </code></pre></div><p>Once you opta apply the service you should see your new compute instance up and running in the GCP console and be able
 to ssh into it.</p>
+<h2 id="use-a-remote-terraform-module">Use a remote terraform module</h2>
+<p>The <code>source</code> input uses terraform&rsquo;s <a href="https://www.terraform.io/language/modules/sources#module-sources">module source</a>
+logic behind the scenes and so follows the same format/limitations. Thus, you can use this for locally available modules,
+or modules available remotely, like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">buckets</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;terraform-google-modules/cloud-storage/google&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># See https://registry.terraform.io/modules/terraform-google-modules/cloud-storage/google/latest</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;~&gt; 3.1&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># version needs to be specified for remote registry modules</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">project_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;&lt;PROJECT ID&gt;&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">names</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;first&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;second&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">prefix</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;my-unique-prefix&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">set_admin_roles</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">admins</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;group:foo-admins@example.com&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">versioning</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">first</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>}<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket_admins</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>{<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">second</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;user:spam@example.com,eggs@example.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>}<span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p><strong>WARNING</strong> Be very, very, careful about what remote modules you are using, as they leave you wide open to supply chain
+attacks, depending on the security and character of the owner of said module. It&rsquo;s highly advised to use either
+<a href="https://registry.terraform.io/browse/modules">official modules</a> or modules under your company&rsquo;s control.</p>
 <h2 id="using-outputs-from-your-custom-terraform-module">Using Outputs from your Custom Terraform Module</h2>
 <p>Currently you can use outputs of your custom terraform module in the same yaml, like so:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcp-example</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;../gcp-env.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">baloney</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">customtf</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hi1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah1&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- This module has an output called output1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah1&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- This module has an output called output1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">custom-terraform</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hi2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path_to_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">source</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./blah2&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">terraform_inputs</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">input1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.hi1.output1}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- HERE. Note the ${{}} wrapping</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>These outputs, however, currently can not be used in other yamls (e.g. if you put custom terraform in an environment
@@ -1234,10 +1282,22 @@ this is ongoing.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>path_to_module</code></td>
-<td>The path to your terraform module</td>
+<td><code>source</code></td>
+<td>The source of your terraform module. For more info, check out <a href="https://www.terraform.io/language/modules/sources#module-sources">https://www.terraform.io/language/modules/sources#module-sources</a></td>
 <td><code>None</code></td>
-<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>path_to_module</code></td>
+<td>Deprecated, use source</td>
+<td><code>None</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>The version of the remote module to use. For more info, check out <a href="https://www.terraform.io/language/modules/syntax#version">https://www.terraform.io/language/modules/syntax#version</a></td>
+<td><code>None</code></td>
+<td>False</td>
 </tr>
 <tr>
 <td><code>terraform_inputs</code></td>
@@ -1315,8 +1375,8 @@ this is ongoing.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    January 28, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/a8031c08d04e1829b7eabae94b4349cdcb1c21ca">Adding nots and script for support of centos/amazon (#127) (a8031c0)</a>
+    January 31, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/6c8d65afded2acb0257c35e16b75d0e848abbf4b">Release 0.25 (#130) (6c8d65a)</a>
 
 </div>
 
