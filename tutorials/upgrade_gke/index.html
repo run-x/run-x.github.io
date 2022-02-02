@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/tutorials/upgrade_gke/" />
 <meta property="article:published_time" content="2022-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-01T16:11:38-05:00" />
+<meta property="article:modified_time" content="2022-02-02T14:46:49-05:00" />
 <meta itemprop="name" content="GKE Upgrades">
 <meta itemprop="description" content="Dealing with GKE upgrades
 ">
 <meta itemprop="datePublished" content="2022-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-02-01T16:11:38-05:00" />
-<meta itemprop="wordCount" content="425">
+<meta itemprop="dateModified" content="2022-02-02T14:46:49-05:00" />
+<meta itemprop="wordCount" content="406">
 
 
 
@@ -1120,8 +1120,8 @@ if (!doNotTrack) {
 	
 	<h1 id="upgrading-google-kubernetes-engine-version">Upgrading Google Kubernetes Engine Version</h1>
 <p>The Kubernetes Project releases minor version updates every quarter, and users are expected to update their infrastructure to at least within a few minor versions of the latest Kubernetes release. With Google GKE, Opta relies on GCP&rsquo;s <a href="https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels">release channels</a> to automatically upgrade the Kubernetes control plane and worker nodes. When Opta installs your GKE cluster, it uses the &ldquo;regular&rdquo; GKE channel. Currently (Feb 1, 2022), this channel will install a Kubernetes 1.21.x cluster. You can run the <code>kubectl version</code> command and look for the &ldquo;Server Version&rdquo; key to know what version your cluster is currently running.</p>
-<p>In the next days the GKE regular channel will start updating Kubernetes to 1.22.x; which will mean that your opta-deployed Kubernetes cluster will be automatically upgraded to a 1.22.x version. This version of Kubernetes removes several deprecated Kubernetes APIs (read the GKE deprecation guide <a href="https://cloud.google.com/kubernetes-engine/docs/deprecations/apis-1-22">here</a>. So there are two aspects we need to proactively manage in order to prevent downtime and application issues.</p>
-<p>Before the upgrade to Kubernetes v1.22.x, you should verify that the Kubernetes API used in Kubernetes v1.22.x version still supports your helm charts and kubernetes manifests. Please refer to this Kubernetes API deprecation guide to change your code accordingly. <a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/;">https://kubernetes.io/docs/reference/using-api/deprecation-guide/;</a> we recommend paying particular attention to the <a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122">Ingress changes</a>: <code>extensions/v1beta1</code> and <code>networking.k8s.io/v1beta1</code> APIs that are removed in Kubernetes v1.22.x; replace these with the corresponding <code>networking.k8s.io/v1</code> API objects. You can also use code-scanners such as <a href="https://github.com/FairwindsOps/pluto">Pluto</a> to help with this process.</p>
+<p>In the next days the GKE regular channel will start updating Kubernetes to 1.22.x; which will mean that your opta-deployed Kubernetes cluster will be automatically upgraded to a 1.22.x version. This version of Kubernetes removes several deprecated Kubernetes APIs (read the GKE deprecation guide <a href="https://cloud.google.com/kubernetes-engine/docs/deprecations/apis-1-22">here</a>).</p>
+<p>Before the upgrade to Kubernetes v1.22.x, you should verify that the Kubernetes API used in Kubernetes v1.22.x version still supports your helm charts and kubernetes manifests. Please refer to <a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/">this</a> Kubernetes API deprecation guide to change your code accordingly; we recommend paying particular attention to the <a href="https://kubernetes.io/docs/reference/using-api/deprecation-guide/#ingress-v122">Ingress changes</a>: <code>extensions/v1beta1</code> and <code>networking.k8s.io/v1beta1</code> APIs that are removed in Kubernetes v1.22.x; replace these with the corresponding <code>networking.k8s.io/v1</code> API objects. You can also use code-scanners such as <a href="https://github.com/FairwindsOps/pluto">Pluto</a> to help with this process.</p>
 <p>Next, you should go ahead and upgrade Opta and your Kubernetes clusters:</p>
 <ol>
 <li>
@@ -1204,8 +1204,8 @@ if (!doNotTrack) {
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    February 1, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/c2bad265497c4916a45c6afe43f6b942cfb02e4c">Adding gke122 upgrade doc (#132) (c2bad26)</a>
+    February 2, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/5dff848d3476624ec50d022028a5164a700db391">Some minor fixes to the formatting and urls (#133) (5dff848)</a>
 
 </div>
 
