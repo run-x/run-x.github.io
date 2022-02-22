@@ -19,15 +19,15 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title></title><meta property="og:title" content="Opta" />
-<meta property="og:description" content="Create secure, scalable, compliant Infrastructure stack for your startup in less than an hour." />
+<meta property="og:description" content="Higher level Infrastructure-As-Code" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
 
 <meta itemprop="name" content="Opta">
-<meta itemprop="description" content="Create secure, scalable, compliant Infrastructure stack for your startup in less than an hour.">
+<meta itemprop="description" content="Higher level Infrastructure-As-Code">
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Opta"/>
-<meta name="twitter:description" content="Create secure, scalable, compliant Infrastructure stack for your startup in less than an hour."/>
+<meta name="twitter:description" content="Higher level Infrastructure-As-Code"/>
 
 
 <script type="application/javascript">
@@ -506,7 +506,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-mysql" href="/reference/aws/service_modules/aws-mysql/">postgres</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsservice_modulesaws-mysql" href="/reference/aws/service_modules/aws-mysql/">mysql</a>
       
       
       
@@ -1101,8 +1101,7 @@ if (!doNotTrack) {
 <nav id="TableOfContents">
   <ul>
     <li><a href="#what-is-opta">What is Opta?</a></li>
-    <li><a href="#who-is-it-for">Who is it for?</a></li>
-    <li><a href="#what-you-get-with-opta">What you get with Opta</a></li>
+    <li><a href="#why-use-opta">Why use Opta</a></li>
     <li><a href="#how-it-works">How it works?</a></li>
     <li><a href="#next-steps">Next steps</a></li>
   </ul>
@@ -1116,12 +1115,12 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>Opta</h1>
-	<div class="lead">Create secure, scalable, compliant Infrastructure stack for your startup in less than an hour.</div>
+	<div class="lead">Higher level Infrastructure-As-Code</div>
 	<h2 id="what-is-opta">What is Opta?</h2>
-<p>Opta is a new kind of Infrastructure-As-Code framework where you work with high-level constructs
-instead of getting lost in low level cloud configuration. Imagine just being able to say that you want
-an autoscaling docker container that talks to a RDS database - instead of figuring out the details of VPC,
-IAM, Kubernetes, Elastic Load Balancing etc &ndash; that&rsquo;s what Opta does!</p>
+<p>Opta is an Infrastructure-As-Code framework where you work with high-level constructs instead of getting lost
+in low level cloud configuration. Opta gives you a vast library of modules that you can connect together to
+build your ideal Infrastructure stack. Best of all, Opta uses Terraform under the hood - so you&rsquo;re never locked in.
+You can always write custom Terraform or even take the Opta generated Terraform and go your own way!</p>
 <p align="center">
   <iframe src="https://www.youtube.com/embed/nja_EfpGexE" 
       width="560" 
@@ -1131,23 +1130,16 @@ IAM, Kubernetes, Elastic Load Balancing etc &ndash; that&rsquo;s what Opta does!
       allowfullscreen>
   </iframe>
 </p>
-<h2 id="who-is-it-for">Who is it for?</h2>
-<p>Opta is designed for folks who are not Infrastructure or Devops experts but still want to build amazing,
-scalable, secure Infra in the cloud. Majority of Opta&rsquo;s users are early stage startups who use it for their
-dev/staging/production environments.</p>
-<p>If you&rsquo;d like to try it out or have any questions - feel free to join our <a href="https://slack.opta.dev/">Slack</a>!</p>
-<h2 id="what-you-get-with-opta">What you get with Opta</h2>
-<ul>
-<li>Production ready <a href="https://docs.opta.dev/architecture/aws/">Architecture</a></li>
-<li>SOC2 compliance from day 1</li>
-<li>Continuous Deployment for containerized workloads</li>
-<li>Hardened network and security configurations</li>
-<li>Support for multiple environments (like Dev/QA/Staging/Prod)</li>
-<li>Integrations with observability tools (like Datadog/LogDNA/Prometheus/SumoLogic)</li>
-<li>Support for non-kubernetes resources like RDS, Cloud SQL, DocumentDB etc</li>
-<li>Built-in auto-scaling and high availability (HA)</li>
-<li>Support for spot instances</li>
-</ul>
+<h2 id="why-use-opta">Why use Opta</h2>
+<p>Infrastructure as code (IaC) has rapidly become the standard for provisioning and managing Infrastructure and
+for the right reasons! But the leading IaC tools are still complicated to use and require deep Cloud/Infrastructure
+expertise. Opta was conceptualized to help address this complexity. Opta is a simpler IaC framework with best practices
+built-in. It enables users to set up automated, scalable and secure infrastructure without being a cloud expert or
+spending days figuring out cloud minutiae!</p>
+<p>We are confident it can drastically reduce the cloud complexity and devops headaches of most fast moving
+organizations. It is already being used by companies - big and small :)</p>
+<p>To read more about the vision behind Opta, check out this <a href="https://blog.runx.dev/infrastructure-as-code-for-everyone-7dad6b813cbc">blog post</a>.</p>
+<p>If you&rsquo;d like to try it out or have any questions - feel free to join our <a href="https://slack.opta.dev">Slack</a> or explore the <a href="/getting-started">Getting Started Guide</a>!</p>
 <h2 id="how-it-works">How it works?</h2>
 <p>Opta is based around the concept of Infrastructure-As-Code. You write configuration files and then run the Opta CLI -
 which connects to your cloud account and sets things up to reflect the configuration. The Opta CLI can be run from your local machine or a CI/CD system (like jenkins or Github actions).</p>
@@ -1245,8 +1237,8 @@ resources that this container needs - and Opta will connect them seamlessly.</li
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    February 2, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5dff848d3476624ec50d022028a5164a700db391">Some minor fixes to the formatting and urls (#133) (5dff848)</a>
+    February 18, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/5741820b1a707e92f93051e0c962ef43889f4dd9">Bump nanoid from 3.1.23 to 3.2.0 (#137) (5741820)</a>
 
 </div>
 
