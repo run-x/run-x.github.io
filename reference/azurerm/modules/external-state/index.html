@@ -17,19 +17,24 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>DNS Configuration | </title><meta property="og:title" content="DNS Configuration" />
-<meta property="og:description" content="Configure Domain Name Service
-" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/features/dns/" />
+<title>external-state | </title><meta property="og:title" content="external-state" />
+<meta property="og:description" content="Adds the ability to refer to external, preexisting terraform states in Opta." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/reference/azurerm/modules/external-state/" />
+<meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta itemprop="name" content="external-state">
+<meta itemprop="description" content="Adds the ability to refer to external, preexisting terraform states in Opta.">
+<meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+<meta itemprop="wordCount" content="248">
 
-<meta itemprop="name" content="DNS Configuration">
-<meta itemprop="description" content="Configure Domain Name Service
-">
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="DNS Configuration"/>
-<meta name="twitter:description" content="Configure Domain Name Service
-"/>
+<meta name="twitter:title" content="external-state"/>
+<meta name="twitter:description" content="Adds the ability to refer to external, preexisting terraform states in Opta."/>
 
 
 <script type="application/javascript">
@@ -97,9 +102,9 @@ if (!doNotTrack) {
 
 
 
-    <title>DNS Configuration | </title>
+    <title>external-state | </title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -315,10 +320,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/features/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Features</a>
+    <a  href="/features/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Features</a>
   </li>
   <ul>
-    <li class="collapse show" id="features">
+    <li class="collapse " id="features">
       
       
       
@@ -343,25 +348,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featurescron" href="/features/cron/">Cron jobs</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-featurescustom_image" href="/features/custom_image/">Custom Image</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresenvironment_variables" href="/features/environment_variables/">Environment Variables</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresservice2service" href="/features/service2service/">Service Mesh</a>
       
       
       
@@ -415,6 +402,100 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
+    <a  href="/features/jobs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Jobs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="featuresjobs">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresjobscron" href="/features/jobs/cron/">Cron jobs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresjobsone_time_jobs" href="/features/jobs/one_time_jobs/">One-time Jobs</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresjobsdb_migration" href="/features/jobs/db_migration/">Opta DB Migrations</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/features/networking/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Networking</a>
+  </li>
+  <ul>
+    <li class="collapse " id="featuresnetworking">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresnetworkingnetwork_overview" href="/features/networking/network_overview/">Network Overview</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresnetworkinghigh_availability" href="/features/networking/high_availability/">High Availability</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresnetworkingnetwork_monitoring" href="/features/networking/network_monitoring/">Network Monitoring</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresnetworkingsubnetting" href="/features/networking/subnetting/">Subnetting</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresnetworkingother_mesh" href="/features/networking/other_mesh/">Using Other Service Meshes</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
     <a  href="/features/observability/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Observability</a>
   </li>
   <ul>
@@ -450,23 +531,64 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/features/dns/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">DNS Configuration</a>
+    <a  href="/features/variables/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Variables</a>
   </li>
   <ul>
-    <li class="collapse show" id="featuresdns">
+    <li class="collapse " id="featuresvariables">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresdnsdns" href="/features/dns/dns/">Configure DNS</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresvariablesinput_variables" href="/features/variables/input_variables/">Input Variables</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresdnsupdate-dns" href="/features/dns/update-dns/">Update DNS</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresvariablesenvironment_variables" href="/features/variables/environment_variables/">Environment Variables</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/features/dns-and-cert/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">DNS and Certificate Configuration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="featuresdns-and-cert">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresdns-and-certexpose_self_signed_ssl" href="/features/dns-and-cert/expose_self_signed_ssl/">SSL without configuring DNS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresdns-and-certdns" href="/features/dns-and-cert/dns/">Configure DNS</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresdns-and-certupdate-dns" href="/features/dns-and-cert/update-dns/">Update DNS</a>
       
       
     </li>
@@ -561,10 +683,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">References</a>
+    <a  href="/reference/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">References</a>
   </li>
   <ul>
-    <li class="collapse " id="reference">
+    <li class="collapse show" id="reference">
       
       
       
@@ -583,24 +705,6 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="referenceaws">
       
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_upgrade" href="/reference/aws/eks_upgrade/">EKS Upgrade</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsdeploy_to_aws_button" href="/reference/aws/deploy_to_aws_button/">Deploy to AWS Button</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsvpc_peering" href="/reference/aws/vpc_peering/">VPC Peering</a>
       
       
       
@@ -731,6 +835,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmoduleshelm-chart" href="/reference/aws/modules/helm-chart/">helm-chart</a>
       
       
@@ -782,6 +892,24 @@ if (!doNotTrack) {
 
       
       
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_upgrade" href="/reference/aws/eks_upgrade/">EKS Upgrade</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsdeploy_to_aws_button" href="/reference/aws/deploy_to_aws_button/">Deploy to AWS Button</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsvpc_peering" href="/reference/aws/vpc_peering/">VPC Peering</a>
+      
+      
     </li>
   </ul>
 </ul>
@@ -798,10 +926,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Azure</a>
+    <a  href="/reference/azurerm/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Azure</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceazurerm">
+    <li class="collapse show" id="referenceazurerm">
       
       
       
@@ -815,10 +943,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/azurerm/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
+    <a  href="/reference/azurerm/modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Modules</a>
   </li>
   <ul>
-    <li class="collapse " id="referenceazurermmodules">
+    <li class="collapse show" id="referenceazurermmodules">
       
       
       
@@ -844,6 +972,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulesexternal-ssl-cert" href="/reference/azurerm/modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceazurermmodulesexternal-state" href="/reference/azurerm/modules/external-state/">external-state</a>
       
       
       
@@ -919,12 +1053,6 @@ if (!doNotTrack) {
       
       
       
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglegke_upgrade" href="/reference/google/gke_upgrade/">GKE Upgrade</a>
-      
-      
-      
-      
 
 
 
@@ -968,6 +1096,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglemodulesexternal-ssl-cert" href="/reference/google/modules/external-ssl-cert/">external-ssl-cert</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglemodulesexternal-state" href="/reference/google/modules/external-state/">external-state</a>
       
       
       
@@ -1046,6 +1180,12 @@ if (!doNotTrack) {
   </ul>
 </ul>
 
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglegke_upgrade" href="/reference/google/gke_upgrade/">GKE Upgrade</a>
       
       
     </li>
@@ -1143,9 +1283,9 @@ if (!doNotTrack) {
     
     
 
-    <a href="https://github.com/run-x/opta-docs/edit/main/content/en/Features/dns/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/run-x/opta-docs/new/main/content/en/Features/dns/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta-docs/issues/new?title=DNS%20Configuration" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta-docs/edit/main/content/en/Reference/azurerm/modules/external-state.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta-docs/new/main/content/en/Reference/azurerm/modules/external-state.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta-docs/issues/new?title=external-state" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/run-x/opta/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -1166,81 +1306,102 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>DNS Configuration</h1>
-	<div class="lead">Configure Domain Name Service</div>
+	<h1>external-state</h1>
+	<div class="lead">Adds the ability to refer to external, preexisting terraform states in Opta.</div>
 	
-        <div class="section-index">
-    
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/features/dns/dns/">Configure DNS</a>
-                    </h5>
-                    <p>How to expose your app on the internet</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/features/dns/update-dns/">Update DNS</a>
-                    </h5>
-                    <p>How to change update DNS for your Opta environment.</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-    
+	<p>This module grants users the ability to import outputs from
+<a href="https://www.terraform.io/language/settings/backends">external terraform backends</a> (e.g. pre-existing
+or created outside of Opta, or another Opta service/environment). All the terraform outputs of that state
+will be captured and referenceable under the <code>outputs</code> output for this module (Opta will error out if
+the desired value is not found in the outputs).</p>
+<p>For instance, you can refer values such as the name of an S3 bucket created in another Opta service like so:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./staging.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">max_containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-service1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">opta-tf-state-my-org-staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-service2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">AUTO</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">SOURCE_QUEUE</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.external.outputs.sqs_queue_name}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>The service will now have an environment variables known as SOURCE_BUCKET SOURCE_QUEUE could be the name of the
+queue they wish grab data from (assuming IAM permissions are configured externally for simplicity).</p>
+
+
+<div class="alert alert-orange" role="alert">
+<h4 class="alert-heading">NOTE</h4>
+
+    Usage is reliant on what the external state outputs and names. Please make sure that the data you seek
+is both outputted and has the expected name. If the state is created by Opta you can find the outputs
+and name by running opta apply on that state&rsquo;s manifest yaml.
+
 </div>
+
+<h2 id="how-to-properly-configure">How to Properly Configure</h2>
+<p>This module takes just 2 inputs, <code>backend_type</code> and <code>config</code>, which directly map to an available terraform
+backend name and its configuration. For full details please see <a href="https://www.terraform.io/language/settings/backends">here</a>,
+but for convenience we have below some common examples:</p>
+<p>For S3 (Opta AWS)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">s3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-bucket-name</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-key</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>For GCS (Opta GCP)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcs</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-bucket-name</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">prefix</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-prefix</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>For Azurerm (Opta Azure)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">azurerm</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">storage_account_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-storage-account</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">container_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-container</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-key</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backend_type</code></td>
+<td>The type of backend this external state is using (<a href="https://www.terraform.io/language/settings/backends">https://www.terraform.io/language/settings/backends</a>)</td>
+<td><code>None</code></td>
+<td>True</td>
+</tr>
+<tr>
+<td><code>config</code></td>
+<td>The configuration to connect to this remote state</td>
+<td><code>{}</code></td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+
 	
 		<style>
   .feedback--answer {
@@ -1308,12 +1469,13 @@ if (!doNotTrack) {
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    March 2, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/6ed318487cedaef2930b509e4fef1a84ffabd9fd">Release 0.27.0 (#153) (6ed3184)</a>
+    March 15, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
 
 </div>
 
 </div>
+
 
           </main>
         </div>
