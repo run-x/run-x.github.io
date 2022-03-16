@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,20 +21,16 @@
 <meta property="og:description" content="Allow your users to fill out their AWS Opta templates with the click of a button.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/reference/aws/deploy_to_aws_button/" />
+<meta property="og:url" content="/reference/aws/deploy_to_aws_button/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta property="article:modified_time" content="2022-03-15T16:58:19-07:00" />
+
 <meta itemprop="name" content="Deploy to AWS Button">
 <meta itemprop="description" content="Allow your users to fill out their AWS Opta templates with the click of a button.
-">
-<meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+"><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T16:58:19-07:00" />
 <meta itemprop="wordCount" content="353">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deploy to AWS Button"/>
 <meta name="twitter:description" content="Allow your users to fill out their AWS Opta templates with the click of a button.
 "/>
@@ -56,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1328,12 +1324,12 @@ if (!doNotTrack) {
 	<h2 id="overview">Overview</h2>
 <p>Opta&rsquo;s Deploy to AWS button allows users to deploy complex applications using Opta by simply filling out a form, downloading a file, and running <code>opta deploy</code>. This button is great to put into README files or on your website.</p>
 <p>Below is an example button that deploys an open source tool called Retool.</p>
-<p><a href="http://app.runx.dev/deploy-with-aws?url=https%3A%2F%2Fgithub.com%2Frun-x%2Ftest-opta-template%2Fblob%2Fmain%2Fopta%2Ftemplate.yaml&amp;name=Retool"><img src="https://raw.githubusercontent.com/run-x/opta/main/assets/deploy-to-aws-button.svg" alt="Deploy to AWS Button"></a></p>
+<p><a href="https://app.runx.dev/deploy-with-aws?url=https%3A%2F%2Fgithub.com%2Frun-x%2Ftest-opta-template%2Fblob%2Fmain%2Fopta%2Ftemplate.yaml&amp;name=Retool"><img src="https://raw.githubusercontent.com/run-x/opta/main/assets/deploy-to-aws-button.svg" alt="Deploy to AWS Button"></a></p>
 <h2 id="creating-a-button">Creating a button</h2>
 <h3 id="step-1-creating-an-opta-template-file">Step 1: Creating an Opta Template File</h3>
 <p>The first step in creating your button is creating an Opta template. The format of a template is simple: it&rsquo;s a normal opta.yaml, except some parts of replaced with variables. The format of a variable is: <code>&lt;&lt;variable_name::variable_type::description&gt;&gt;</code>.</p>
 <p>Here is an example of an template file for a service called Retool:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">retool</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">retool</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;&lt;org_name::org_name::Your Organization Name&gt;&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1405,7 +1401,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <h3 id="step-2-generating-button-html-and-testing">Step 2: Generating Button HTML and Testing</h3>
-<p>To create your button, simply go to <a href="http://app.runx.dev/make-aws-button">our button creation UI</a> and enter what you would like to name your template as well as the URL of your opta template. The UI will render your button. Click on the button and make sure that the resulting form looks like you expect it to.</p>
+<p>To create your button, simply go to <a href="https://app.runx.dev/make-aws-button">our button creation UI</a> and enter what you would like to name your template as well as the URL of your opta template. The UI will render your button. Click on the button and make sure that the resulting form looks like you expect it to.</p>
 <h3 id="step-3-putting-the-button-everywhere">Step 3: Putting the button everywhere!</h3>
 <p>Once you&rsquo;re sure that everything&rsquo;s working as you expected, copy and paste the HTML from the button creation page, and put it whereever you&rsquo;d like!</p>
 
@@ -1477,7 +1473,7 @@ if (!doNotTrack) {
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1497,9 +1493,15 @@ if (!doNotTrack) {
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1564,7 +1566,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

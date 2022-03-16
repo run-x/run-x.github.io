@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,20 +21,16 @@
 <meta property="og:description" content="Getting started with Opta Local on your local machine.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/getting-started/local/" />
+<meta property="og:url" content="/getting-started/local/" /><meta property="article:section" content="Getting started" />
 <meta property="article:published_time" content="2022-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta property="article:modified_time" content="2022-03-15T16:58:19-07:00" />
+
 <meta itemprop="name" content="Local">
 <meta itemprop="description" content="Getting started with Opta Local on your local machine.
-">
-<meta itemprop="datePublished" content="2022-01-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+"><meta itemprop="datePublished" content="2022-01-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T16:58:19-07:00" />
 <meta itemprop="wordCount" content="1682">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Local"/>
 <meta name="twitter:description" content="Getting started with Opta Local on your local machine.
 "/>
@@ -56,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1336,10 +1332,10 @@ if (!doNotTrack) {
 	<h1>Local</h1>
 	<div class="lead">Getting started with Opta Local on your local machine.</div>
 	
-	<p>Opta Local enables you to setup a local Kubernetes environment on your PC using the <a href="https://docs.opta.dev/overview/">Opta CLI</a> so that you can test services locally without having to pay for cloud resources or waiting for real infrastructure to spin up and down in your cloud provider. It is designed to get you quickly started with Opta and Kubernetes for development and testing without the complexity, cost and learning curve of using a public cloud provider. When you are ready to go to production, the Opta infrastructure-as-code files you create for Opta Local can be used to deploy to AWS, Azure or Google Cloud.</p>
+	<p>Opta Local enables you to setup a local Kubernetes environment on your PC using the <a href="/">Opta CLI</a> so that you can test services locally without having to pay for cloud resources or waiting for real infrastructure to spin up and down in your cloud provider. It is designed to get you quickly started with Opta and Kubernetes for development and testing without the complexity, cost and learning curve of using a public cloud provider. When you are ready to go to production, the Opta infrastructure-as-code files you create for Opta Local can be used to deploy to AWS, Azure or Google Cloud.</p>
 <h2 id="installation">Installation</h2>
 <p>To install Opta, follow this one line installation (<a href="/installation">detailed instructions</a>):</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="architecture">Architecture</h2>
 <p><img src="/images/optalocal-arch.png" alt="Opta Local Architecture"></p>
 <p>This diagram shows what an Opta local installation will look like inside your local machine. Opta Local installs a <a href="https://kind.sigs.k8s.io/">Kubernetes Kind cluster</a>. Kind is a tool for running local Kubernetes clusters using Docker container “nodes”. Kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.</p>
@@ -1360,7 +1356,7 @@ if (!doNotTrack) {
 <p>Running your application in Opta Local environment is almost identical to how you would run them on public cloud using the Opta CLI. We show a couple of opta yaml examples to get you started.</p>
 <h4 id="example-1-deploy-a-service-using-an-existing-docker-image">Example 1: Deploy a service using an existing docker image</h4>
 <p>We will deploy a simple <a href="https://github.com/run-x/hello-opta">hello app</a> by defining these files.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">localorg </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Optional, this can be set to your organization&#39;s name</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1374,7 +1370,7 @@ if (!doNotTrack) {
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/hello&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Opta will install a local Kubernetes cluster on your laptop the first time you deploy your application locally.</p>
 <p>Deploy your application by running:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply --local -c hello.yaml --auto-approve
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply --local -c hello.yaml --auto-approve
 
 <span style="color:#8f5902;font-style:italic"># example of output</span>
 ...
@@ -1411,7 +1407,7 @@ Apply complete! Resources: <span style="color:#0000cf;font-weight:bold">1</span>
 <ul>
 <li>SSH into the container</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta shell --local -c hello.yaml
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta shell --local -c hello.yaml
 
 root@staging-hello-k8s-service-57d8b6f478-vwzkc:/#
 </code></pre></div><ul>
@@ -1425,7 +1421,7 @@ root@staging-hello-k8s-service-57d8b6f478-vwzkc:/#
 </code></pre><ul>
 <li>If you have <code>kubectl</code> installed, you can use it to connect to the local kubernetes cluster</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># configure the kubeconfig file</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># configure the kubeconfig file</span>
 <span style="color:#8f5902;font-style:italic"># note: if you don&#39;t want to use the default path $HOME/.kube/config, set the env var KUBECONFIG first</span>
 opta configure-kubectl
 
@@ -1473,19 +1469,19 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-bdacfe" data-toggle="tab" href="#bdacfe"
+		   id="nav-dcfaeb" data-toggle="tab" href="#dcfaeb"
 		   role="tab" aria-controls="nav-home" aria-selected="true">hello.yaml</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-bdceaf" data-toggle="tab" href="#bdceaf"
+		   id="nav-cbfdae" data-toggle="tab" href="#cbfdae"
 		   role="tab" aria-controls="nav-home" aria-selected="true">app.py</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-fecadb" data-toggle="tab" href="#fecadb"
+		   id="nav-bfdace" data-toggle="tab" href="#bfdace"
 		   role="tab" aria-controls="nav-home" aria-selected="true">Dockerfile</a>
 
 		
@@ -1501,9 +1497,9 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show active " id="bdacfe" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="dcfaeb" role="tabpanel" aria-labelledby="nav-1">
 
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">runx</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1524,11 +1520,11 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show " id="bdceaf" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cbfdae" role="tabpanel" aria-labelledby="nav-1">
 
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">flask</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Flask</span>
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">flask</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Flask</span>
 <span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Flask</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">__name__</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#5c35cc;font-weight:bold">@app.route</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#5c35cc;font-weight:bold">@app</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">route</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;/&#39;</span><span style="color:#000;font-weight:bold">)</span>
 <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">hello_world</span><span style="color:#000;font-weight:bold">():</span>
 <span style="display:block;width:100%;background-color:#dfdfdf">    <span style="color:#8f5902;font-style:italic">#3 Update the returned text</span>
 </span><span style="display:block;width:100%;background-color:#dfdfdf">    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;&lt;p&gt;Hello from Opta.! v2&lt;/p&gt;&#34;</span></span></code></pre></div>
@@ -1542,9 +1538,9 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show " id="fecadb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="bfdace" role="tabpanel" aria-labelledby="nav-1">
 
-	<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#204a87;font-weight:bold">FROM</span><span style="color:#4e9a06"> python:3.10-slim-buster</span><span style="color:#a40000">
+	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#204a87;font-weight:bold">FROM</span><span style="color:#4e9a06"> python:3.10-slim-buster</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">ENV</span> <span style="color:#000">FLASK_APP</span><span style="color:#ce5c00;font-weight:bold">=</span>app
 <span style="color:#204a87;font-weight:bold">WORKDIR</span><span style="color:#4e9a06"> /app</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">RUN</span> pip install <span style="color:#000">Flask</span><span style="color:#ce5c00;font-weight:bold">==</span>2.0.3<span style="color:#a40000">
@@ -1561,7 +1557,7 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 </div>
 <h1 id="deploy-the-application-locally">Deploy The Application Locally</h1>
 <p>Build the image locally, let&rsquo;s tag it with <code>v2</code> for this example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build . -t hello-opta:v2
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build . -t hello-opta:v2
 </code></pre></div><p>Deploy the new image version to the local kubernetes cluster.</p>
 <p>The <code>opta deploy</code> command will:</p>
 <ol>
@@ -1569,7 +1565,7 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 <li>Update the kubernetes deployment to use the new container image.</li>
 <li>Create new pods to use the new container image - automatically done by kubernetes.</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta deploy --local --auto-approve -c hello.yaml --image hello-opta:v2
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta deploy --local --auto-approve -c hello.yaml --image hello-opta:v2
 ...
 The push refers to repository <span style="color:#ce5c00;font-weight:bold">[</span>localhost:5000/hello/hello<span style="color:#ce5c00;font-weight:bold">]</span>
 ...
@@ -1595,7 +1591,7 @@ kubectl -n hello get deploy -o yaml | grep image:
           image: localhost:5000/hello/hello@sha256:859eab99a173f975ebe9ba1c54a9fbf4498bf428ae46faa55770cb4272962d7a
 
 </code></pre><p>When you are done, you can delete the hello application from your local Kubernetes cluster</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy --local --auto-approve  --config hello.yaml
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta destroy --local --auto-approve  --config hello.yaml
 
 </code></pre></div><h4 id="example-3-stateful-example-a-todo-list-with-prometheusgrafana">Example 3: Stateful Example: A Todo list with Prometheus/Grafana</h4>
 <p>In this example we will deploy a Todo list with a Vuejs single page application frontend, a Django Rest Framework API backend and a Postgres database to store state. Additionally, we will also show how to enable a Prometheus/Grafana observability stack.</p>
@@ -1617,14 +1613,14 @@ Learn more about Opta for public cloud <a href="https://docs.opta.dev/getting-st
 <p>The environment opta files contains a key for the <code>org_name</code>. For local deployment, if you wish to specify the Organization name you can add an <code>org_name</code> key to your service opta file. The organization defaults to <code>localorg</code> if this key is not specified. Remember to remove this key from the service yaml files for public clouds (aws/gcp/azure).</p>
 <h2 id="uninstallation-and-cleanup">Uninstallation and Cleanup</h2>
 <p>If you want to clean out Opta Local from the local machine, run these commands in the terminal</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">DOCKER_REGISTRY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">`</span>docker ps -aqf <span style="color:#4e9a06">&#34;name=opta-local-registry&#34;</span><span style="color:#4e9a06">`</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">DOCKER_REGISTRY</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">`</span>docker ps -aqf <span style="color:#4e9a06">&#34;name=opta-local-registry&#34;</span><span style="color:#4e9a06">`</span>
 docker stop <span style="color:#000">$DOCKER_REGISTRY</span>
 docker rm <span style="color:#000">$DOCKER_REGISTRY</span>
 ~/.opta/local/kind delete clusters opta-local-cluster
 rm -rf ~/.opta/local
 </code></pre></div><p>Running these commands should remove the Kind Kubernetes docker container (along with everything installed in Kubernetes) as well as the local docker registry container. You can confirm this via the <code>docker ps</code> command.</p>
 <p>In case you want to manually remove the Kubernetes Kind Docker container you can run</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">KCLUSTER</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">`</span>docker ps -aqf <span style="color:#4e9a06">&#34;name=opta-local-cluster-control-plane&#34;</span><span style="color:#4e9a06">`</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">KCLUSTER</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">`</span>docker ps -aqf <span style="color:#4e9a06">&#34;name=opta-local-cluster-control-plane&#34;</span><span style="color:#4e9a06">`</span>
 docker stop <span style="color:#000">$KCLUSTER</span>
 docker rm <span style="color:#000">$KCLUSTER</span>
 </code></pre></div><p>You can confirm that the docker containers named <code>opta-local-cluster-control-plane</code> and <code>opta-local-registry</code> have been removed by issuing the <code>docker ps</code> command.</p>
@@ -1697,7 +1693,7 @@ docker rm <span style="color:#000">$KCLUSTER</span>
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1717,9 +1713,15 @@ docker rm <span style="color:#000">$KCLUSTER</span>
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1784,7 +1786,7 @@ docker rm <span style="color:#000">$KCLUSTER</span>
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

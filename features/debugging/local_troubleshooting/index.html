@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,20 +21,16 @@
 <meta property="og:description" content="Troubleshooting Opta Local
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/features/debugging/local_troubleshooting/" />
+<meta property="og:url" content="/features/debugging/local_troubleshooting/" /><meta property="article:section" content="Features" />
 <meta property="article:published_time" content="2021-10-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta property="article:modified_time" content="2022-03-15T16:58:19-07:00" />
+
 <meta itemprop="name" content="Local Troubleshooting">
 <meta itemprop="description" content="Troubleshooting Opta Local
-">
-<meta itemprop="datePublished" content="2021-10-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+"><meta itemprop="datePublished" content="2021-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T16:58:19-07:00" />
 <meta itemprop="wordCount" content="467">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Local Troubleshooting"/>
 <meta name="twitter:description" content="Troubleshooting Opta Local
 "/>
@@ -56,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1329,7 +1325,7 @@ if (!doNotTrack) {
 <p>If things don&rsquo;t seem to be working as expected, here are some places to start debugging Opta Local</p>
 <h3 id="docker">Docker</h3>
 <p>Opta Local runs two containers on the local machine. Confirm both are running; like so</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
  docker ps
 
  <span style="color:#8f5902;font-style:italic"># Output</span>
@@ -1342,21 +1338,21 @@ ac9b78c91776   registry:2             <span style="color:#4e9a06">&#34;/entrypoi
 <ol>
 <li>Confirm that the <code>kubectl</code> context is correctly set.</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
 kubectl config get-contexts  
 <span style="color:#8f5902;font-style:italic"># Output</span>
 ...
 *         kind-opta-local-cluster                                        kind-opta-local-cluster                                        kind-opta-local-cluster     
 ...
 </code></pre></div><p>Note the &ldquo;*&rdquo; in front of the <code>kind-opta-local-cluster</code>. In case the current context is not set to the kind cluster, you can set it like so:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
 kubectl config use-context kind-opta-local-cluster
 <span style="color:#8f5902;font-style:italic"># Output</span>
 Switched to context <span style="color:#4e9a06">&#34;kind-opta-local-cluster&#34;</span>.
 </code></pre></div><ol start="2">
 <li>Check that the Kind Kubernetes Cluster is functioning</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
 kubectl cluster-info
 <span style="color:#8f5902;font-style:italic"># Output</span>
 Kubernetes master is running at https://127.0.0.1:42937
@@ -1368,7 +1364,7 @@ kubectl cluster-info
 Kubernetes master is running at https://127.0.0.1:42937
 CoreDNS is running at https://127.0.0.1:42937/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 </code></pre></div><p>To further debug and diagnose cluster problems, use <code>kubectl cluster-info dump</code> and <code>kubectl get node</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Command</span>
 kubectl get node
 <span style="color:#8f5902;font-style:italic"># Output</span>
   NAME                               STATUS   ROLES                  AGE   VERSION
@@ -1381,7 +1377,7 @@ kubectl get node
 <ol>
 <li>Curl the address <code>http://localhost:5000/v2/</code></li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#8f5902;font-style:italic"># Command</span>
   curl -v http://localhost:5000/v2/ 
 
   <span style="color:#8f5902;font-style:italic"># Output</span>
@@ -1408,7 +1404,7 @@ kubectl get node
 <ol start="2">
 <li>Confirm that images can be tagged and pushed into the docker registry. Example:</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#8f5902;font-style:italic"># Command</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#8f5902;font-style:italic"># Command</span>
   docker pull alpine
 
   <span style="color:#8f5902;font-style:italic">#Output</span>
@@ -1499,7 +1495,7 @@ kubectl get node
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1519,9 +1515,15 @@ kubectl get node
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1586,7 +1588,7 @@ kubectl get node
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

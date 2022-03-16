@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,20 +21,16 @@
 <meta property="og:description" content="Getting started with Opta on AWS.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/getting-started/aws/" />
+<meta property="og:url" content="/getting-started/aws/" /><meta property="article:section" content="Getting started" />
 <meta property="article:published_time" content="2022-01-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta property="article:modified_time" content="2022-03-15T16:58:19-07:00" />
+
 <meta itemprop="name" content="AWS">
 <meta itemprop="description" content="Getting started with Opta on AWS.
-">
-<meta itemprop="datePublished" content="2022-01-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+"><meta itemprop="datePublished" content="2022-01-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T16:58:19-07:00" />
 <meta itemprop="wordCount" content="639">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AWS"/>
 <meta name="twitter:description" content="Getting started with Opta on AWS.
 "/>
@@ -56,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1325,7 +1321,7 @@ if (!doNotTrack) {
 	<p>To use Opta, you first need to create some simple yaml configuration files that describe your needs. You can use our <a href="https://app.runx.dev/yaml-generator"><strong>Magical UI</strong></a> to help generate these files or do it manually (described below).</p>
 <h2 id="installation">Installation</h2>
 <p>One line installation (<a href="/installation">detailed instructions</a>):</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><p>Make sure the AWS cloud credentails are configured in your terminal for the account you would be using in this demo.</p>
 <h2 id="environment-creation">Environment creation</h2>
 <p>Before you can deploy your app, you need to first create an environment (like staging, prod etc.)
@@ -1335,7 +1331,7 @@ This set up the base infrastructure (like network and cluster) that is the found
 (opta has a destroy command so it should be easy :))!</p>
 </blockquote>
 <p>Create this file and name it <code>opta.yaml</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># opta.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># opta.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># name of the environment</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># A unique identifier for your organization</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1347,17 +1343,17 @@ This set up the base infrastructure (like network and cluster) that is the found
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now, run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">opta apply
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">opta apply
 </code></pre></div><p>For the first run, this step takes approximately 15 min.<br>
 It configures 3 Opta modules:</p>
 <ul>
-<li><a href="/reference/aws/environment_modules/aws-base/">base</a>: setup networking</li>
-<li><a href="/reference/aws/environment_modules/aws-eks/">k8s-cluster</a>: create a EKS cluster</li>
-<li><a href="/reference/aws/environment_modules/aws-k8s-base/">k8s-base</a>: setup base infrastructure for k8s</li>
+<li><a href="/reference/aws/modules/aws-base/">base</a>: setup networking</li>
+<li><a href="/reference/aws/modules/aws-eks/">k8s-cluster</a>: create a EKS cluster</li>
+<li><a href="/reference/aws/modules/aws-k8s-base/">k8s-base</a>: setup base infrastructure for k8s</li>
 </ul>
 <p>For more information about what is created, see <a href="/security/aws/">AWS Architecture</a>.</p>
 <p>Once done, the <code>apply</code> command lists all the resource created, for example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#8f5902;font-style:italic"># partial output of opta apply
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tf" data-lang="tf"><span style="color:#8f5902;font-style:italic"># partial output of opta apply
 </span><span style="color:#8f5902;font-style:italic"></span>
 <span style="color:#c4a000">k8s_cluster_name</span> = <span style="color:#000;font-weight:bold">[</span><span style="color:#000">The</span> <span style="color:#000">Kubernetes</span> <span style="color:#000">cluster</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">]</span>
 <span style="color:#c4a000">load_balancer_raw_dns</span> = <span style="color:#000;font-weight:bold">[</span><span style="color:#000">Load</span> <span style="color:#000">Balancer</span> <span style="color:#000">hostname</span><span style="color:#000;font-weight:bold">]</span>
@@ -1367,7 +1363,7 @@ It configures 3 Opta modules:</p>
 <p>In this step we will create a service - which is basically a http server packaged in a docker container.<br>
 Here is a simple hello world app, the source code is <a href="https://github.com/run-x/hello-opta">here</a>.</p>
 <p>Create a new opta file for your service.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1383,8 +1379,8 @@ Here is a simple hello world app, the source code is <a href="https://github.com
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># path on the load balancer to access this service</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">public_uri</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;/hello&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Now you are ready to deploy your service.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c hello.yaml
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># partial output of opta apply -c hello.yaml</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta apply -c hello.yaml
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># partial output of opta apply -c hello.yaml</span>
 hello-hello-k8s-service-586447679-fgmld  * Running on http://10.0.147.114:80/
 ...
 module.hello.helm_release.k8s-service: Creation <span style="color:#204a87">complete</span> after 53s <span style="color:#ce5c00;font-weight:bold">[</span><span style="color:#000">id</span><span style="color:#ce5c00;font-weight:bold">=</span>staging-hello<span style="color:#ce5c00;font-weight:bold">]</span>
@@ -1394,7 +1390,7 @@ Opta updates complete!
 <ul>
 <li>Access your service using the load balancer (public)</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># see output above or run `opta output | grep load_balancer_raw_dns`</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># see output above or run `opta output | grep load_balancer_raw_dns`</span>
 <span style="color:#204a87">export</span> <span style="color:#000">load_balancer_raw_dns</span><span style="color:#ce5c00;font-weight:bold">=</span>...
 
 <span style="color:#8f5902;font-style:italic"># the service is reachable at /hello (set in the `public_uri` property)</span>
@@ -1404,13 +1400,13 @@ curl http://<span style="color:#000">$load_balancer_raw_dns</span>/hello
 </code></pre></div><ul>
 <li>SSH into the container</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta shell -c hello.yaml
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta shell -c hello.yaml
 
 root@staging-hello-k8s-service-57d8b6f478-vwzkc:/#
 </code></pre></div><ul>
 <li>See the application logs</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta logs -c hello.yaml             
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta logs -c hello.yaml             
 
 Showing the logs <span style="color:#204a87;font-weight:bold">for</span> server hello-hello-k8s-service-586447679-fgmld of your service
 hello-hello-k8s-service-586447679-fgmld  * Running on http://10.0.147.114:80/
@@ -1418,7 +1414,7 @@ hello-hello-k8s-service-586447679-fgmld 127.0.0.1 - - <span style="color:#ce5c00
 </code></pre></div><ul>
 <li>If you have <code>kubectl</code> installed, you can use it to connect to the kubernetes cluster</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># configure the kubeconfig file</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># configure the kubeconfig file</span>
 <span style="color:#8f5902;font-style:italic"># note: if you don&#39;t want to use the default path $HOME/.kube/config, set the env var KUBECONFIG first</span>
 opta configure-kubectl
 
@@ -1441,7 +1437,7 @@ NAME                                                            REFERENCE       
 horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-hello-k8s-service   18%/80%, 1%/80%   <span style="color:#0000cf;font-weight:bold">1</span>         <span style="color:#0000cf;font-weight:bold">3</span>         <span style="color:#0000cf;font-weight:bold">1</span>          17m
 </code></pre></div><h2 id="cleanup">Cleanup</h2>
 <p>Once you&rsquo;re finished playing around with these examples, you may clean up by running the following command from the environment directory:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># destroy the service resources</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># destroy the service resources</span>
 opta destroy -c hello.yaml
 
 <span style="color:#8f5902;font-style:italic"># destroy the environment resources</span>
@@ -1452,7 +1448,7 @@ opta destroy -c opta.yaml
 <li>Check out how to templatize with <a href="/features/variables/input_variables">input variables</a></li>
 <li>Check out more examples: <a href="https://github.com/run-x/opta/tree/main/examples">github</a></li>
 <li>Use your own docker image: <a href="/features/custom_image/">Custom Image</a></li>
-<li>Set up a domain name for your service: <a href="/features/dns/">Configure DNS</a></li>
+<li>Set up a domain name for your service: <a href="/features/dns-and-cert/dns/">Configure DNS</a></li>
 <li>Use secrets: <a href="/features/secrets/">Secrets</a></li>
 <li>Set up observability integrations in one line(!): <a href="/features/observability/">Observability</a></li>
 <li>Explore all the infrastructure that Opta sets up for you: <a href="/security/aws/">Architecture</a></li>
@@ -1527,7 +1523,7 @@ opta destroy -c opta.yaml
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1547,9 +1543,15 @@ opta destroy -c opta.yaml
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1614,7 +1616,7 @@ opta destroy -c opta.yaml
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

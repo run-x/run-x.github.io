@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,10 +21,9 @@
 <meta property="og:description" content="Documentation for Opta." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/installation/" />
-<meta property="og:updated_time" content="2022-03-15T13:49:32-07:00" />
+
 <meta itemprop="name" content="Installation and Upgrade">
-<meta itemprop="description" content="Documentation for Opta.">
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Documentation for Opta."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Installation and Upgrade"/>
 <meta name="twitter:description" content="Documentation for Opta."/>
 
@@ -45,8 +44,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1330,20 +1329,20 @@ docker-for-mac)</li>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install or upgrade to the latest version of Opta (see below for changelog
 and release history).</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><p>You can specify a particular version as well.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="run-opta-in-a-docker-container-via-optash-script-pre-release">Run Opta in a Docker Container via opta.sh script (Pre-release)</h2>
 <p>We are now offering a pre-release version for running opta via a docker container with alpha support. <strong>Please do not use this for production workloads currently.</strong></p>
 <p>If you prefer to install or upgrade Opta and its dependencies (terraform, kubectl, gcp sdk, aws cli) in a docker container then you can
 download the <code>opta.sh</code> script that runs Opta inside a docker container. With this approach you can be assured that the correct
 versions of all of Opta&rsquo;s dependencies are invoked when run.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
 sudo curl  https://docs.opta.dev/opta.sh -o /usr/local/bin/opta.sh
 sudo chmod +x /usr/local/bin/opta.sh
 opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation builds a docker image</span>
 </code></pre></div><p>Invoke opta using opta.sh instead; for example</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta.sh apply -c hello.yaml
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">opta.sh apply -c hello.yaml
 
 </code></pre></div><p>Any environment variables needed by opta can be set in the terminal invoking <code>opta.sh</code>; they will be automatically transferred into the docker container running opta.</p>
 <p>Your home directory ($HOME) will be mounted into the <code>opta.sh</code> docker container as well.</p>
@@ -1371,7 +1370,7 @@ opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation bu
 <li>Once the Service Account is created, <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">create and download a Service Account Key JSON file</a></li>
 <li>Since opta can run outside of the GCP environment, be sure to set the GCP credentials environment variable:</li>
 </ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">export</span> <span style="color:#000">GOOGLE_APPLICATION_CREDENTIALS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/path/to/keyfile.json&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ <span style="color:#204a87">export</span> <span style="color:#000">GOOGLE_APPLICATION_CREDENTIALS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;/path/to/keyfile.json&#34;</span>
 </code></pre></div>
         <div class="section-index">
     
@@ -1453,7 +1452,7 @@ opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation bu
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1472,9 +1471,15 @@ opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation bu
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1539,7 +1544,7 @@ opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation bu
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

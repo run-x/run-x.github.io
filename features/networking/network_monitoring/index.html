@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta name="generator" content="Hugo 0.87.0" /><META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,20 +21,16 @@
 <meta property="og:description" content="How to monitor the network
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/features/networking/network_monitoring/" />
+<meta property="og:url" content="/features/networking/network_monitoring/" /><meta property="article:section" content="Features" />
 <meta property="article:published_time" content="2022-03-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-03-15T13:49:32-07:00" />
+<meta property="article:modified_time" content="2022-03-15T16:58:19-07:00" />
+
 <meta itemprop="name" content="Network Monitoring">
 <meta itemprop="description" content="How to monitor the network
-">
-<meta itemprop="datePublished" content="2022-03-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-03-15T13:49:32-07:00" />
+"><meta itemprop="datePublished" content="2022-03-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-15T16:58:19-07:00" />
 <meta itemprop="wordCount" content="116">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Network Monitoring"/>
 <meta name="twitter:description" content="How to monitor the network
 "/>
@@ -56,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" as="style">
-<link href="/scss/main.min.6a2a31668c671e2f88b68027cb883948020385444ca5c1838a6b3bc4bc48f256.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" as="style">
+<link href="/scss/main.min.04b0348bc7a790ea1e87e0c4ab69e585ed6f74e27ce15ecb742c47ddb63b05bc.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1330,7 +1326,7 @@ if (!doNotTrack) {
 <p>Linkerd comes with an optional dashboard solution known as <a href="https://linkerd.io/2.11/features/dashboard/">Linkerd Viz</a>.
 It is not installed by default due to the non-negligible resource requirement (it installs Prometheus and Grafana
 as well as a few smaller tools), but can be easily added with the following commands:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fsL https://run.linkerd.io/install <span style="color:#000;font-weight:bold">|</span> sh   <span style="color:#8f5902;font-style:italic"># Install linkerd CLI</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl -fsL https://run.linkerd.io/install <span style="color:#000;font-weight:bold">|</span> sh   <span style="color:#8f5902;font-style:italic"># Install linkerd CLI</span>
 linkerd viz install <span style="color:#000;font-weight:bold">|</span> kubectl apply -f -        <span style="color:#8f5902;font-style:italic"># Install linkerd monitoring stack</span>
 linkerd viz dashboard                           <span style="color:#8f5902;font-style:italic"># open the dashboard</span>
 </code></pre></div><h3 id="datadog">Datadog</h3>
@@ -1406,7 +1402,7 @@ It can be installed through an opta module (<a href="/features/observability/dat
 
     Last modified
     March 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/5e992fcb1962eb757165978238d40ef5f8ae80b1">Docs for using input variables (#166) (5e992fc)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/4dd848ddca39d62886a35103b7e17a582ada05e0">Using html tests to check links in docs and make sure it&#39;s all good (#169) (4dd848d)</a>
 
 </div>
 
@@ -1426,9 +1422,15 @@ It can be installed through an opta module (<a href="/features/observability/dat
         
 <ul class="list-inline mb-0">
   
-  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support list" aria-label="User support list">
-    <a class="text-white" target="_blank" rel="noopener" href="support@runx.dev" aria-label="User support list">
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="User support email" aria-label="User support email">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto:info@runx.dev" aria-label="User support email">
       <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Mailing List" aria-label="Mailing List">
+    <a class="text-white" target="_blank" rel="noopener" href="https://bit.ly/3KC0HKF" aria-label="Mailing List">
+      <i class="fa fa-newspaper"></i>
     </a>
   </li>
   
@@ -1493,7 +1495,7 @@ It can be installed through an opta module (<a href="/features/observability/dat
 
 
 
-<script src="/js/main.min.77c88615773c4e1870aff3d1d71a5502a3ff02a94dffd042609b7c6b30a4d882.js" integrity="sha256-d8iGFXc8Thhwr/PR1xpVAqP/AqlN/9BCYJt8azCk2II=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 
