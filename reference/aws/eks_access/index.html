@@ -17,20 +17,20 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>external-state | </title><meta property="og:title" content="external-state" />
-<meta property="og:description" content="Adds the ability to refer to external, preexisting terraform states in Opta." />
+<title>EKS Access | </title><meta property="og:title" content="EKS Access" />
+<meta property="og:description" content="How to access your Opta EKS Cluster" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/reference/aws/modules/external-state/" /><meta property="article:section" content="Reference" />
-<meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
+<meta property="og:url" content="/reference/aws/eks_access/" /><meta property="article:section" content="Reference" />
+<meta property="article:published_time" content="2022-01-03T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
-<meta itemprop="name" content="external-state">
-<meta itemprop="description" content="Adds the ability to refer to external, preexisting terraform states in Opta."><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
+<meta itemprop="name" content="EKS Access">
+<meta itemprop="description" content="How to access your Opta EKS Cluster"><meta itemprop="datePublished" content="2022-01-03T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
-<meta itemprop="wordCount" content="248">
+<meta itemprop="wordCount" content="506">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="external-state"/>
-<meta name="twitter:description" content="Adds the ability to refer to external, preexisting terraform states in Opta."/>
+<meta name="twitter:title" content="EKS Access"/>
+<meta name="twitter:description" content="How to access your Opta EKS Cluster"/>
 
 
 <script type="application/javascript">
@@ -99,7 +99,7 @@ if (!doNotTrack) {
 
 
 
-    <title>external-state | </title>
+    <title>EKS Access | </title>
   </head>
   <body class="td-page">
     <header>
@@ -726,7 +726,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">AWS</a>
+    <a  href="/reference/aws/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">AWS</a>
   </li>
   <ul>
     <li class="collapse show" id="referenceaws">
@@ -736,7 +736,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
       
       
       
@@ -749,10 +749,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/reference/aws/modules/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Modules</a>
+    <a  href="/reference/aws/modules/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Modules</a>
   </li>
   <ul>
-    <li class="collapse show" id="referenceawsmodules">
+    <li class="collapse " id="referenceawsmodules">
       
       
       
@@ -867,7 +867,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
       
       
       
@@ -1321,9 +1321,9 @@ if (!doNotTrack) {
     
     
 
-    <a href="https://github.com/run-x/opta-docs/edit/main/content/en/Reference/aws/modules/external-state.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-    <a href="https://github.com/run-x/opta-docs/new/main/content/en/Reference/aws/modules/external-state.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-    <a href="https://github.com/run-x/opta-docs/issues/new?title=external-state" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+    <a href="https://github.com/run-x/opta-docs/edit/main/content/en/Reference/aws/eks_access.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+    <a href="https://github.com/run-x/opta-docs/new/main/content/en/Reference/aws/eks_access.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" target="_blank"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+    <a href="https://github.com/run-x/opta-docs/issues/new?title=EKS%20Access" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
     
       
       <a href="https://github.com/run-x/opta/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -1337,6 +1337,14 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#eks-access">EKS Access</a></li>
+    <li><a href="#k8s-rbac-groups">K8s RBAC Groups</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -1344,101 +1352,96 @@ if (!doNotTrack) {
             
             
 <div class="td-content">
-	<h1>external-state</h1>
-	<div class="lead">Adds the ability to refer to external, preexisting terraform states in Opta.</div>
+	<h1>EKS Access</h1>
+	<div class="lead">How to access your Opta EKS Cluster</div>
 	
-	<p>This module grants users the ability to import outputs from
-<a href="https://www.terraform.io/language/settings/backends">external terraform backends</a> (e.g. pre-existing
-or created outside of Opta, or another Opta service/environment). All the terraform outputs of that state
-will be captured and referenceable under the <code>outputs</code> output for this module (Opta will error out if
-the desired value is not found in the outputs).</p>
-<p>For instance, you can refer values such as the name of an S3 bucket created in another Opta service like so:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">environments</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">path</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./staging.yaml&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">variables</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">max_containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-service1</span><span style="color:#f8f8f8;text-decoration:underline">
+	<h2 id="eks-access">EKS Access</h2>
+<p>As each Kubernetes cluster maintains its own cloud-agnostic rbac system to govern its own usage, extra steps
+must be taken on each cloud provider to reconcile the given cloud&rsquo;s IAM with the cluster&rsquo;s. For EKS, this is done
+via the <code>aws-auth</code> <a href="https://kubernetes.io/docs/concepts/configuration/configmap/">configmap</a> stored in the <code>kube-system</code>
+namespace (see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-user-role.html">here</a> for the official documentation).
+This configmap is essentially a mapping stating &ldquo;AWS IAM user/role X is in group/has permissions A, B, C&rdquo; in this cluster.
+An admin can view this configmap via this command <code>kubectl get cm -n kube-system aws-auth -o yaml</code> and these configmaps
+typically look like so:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">data</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># NOTE there are separate sections for AWS IAM Users and AWS IAM roles.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">mapRoles</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">|</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">    - groups: [&#39;system:bootstrappers&#39;, &#39;system:nodes&#39;]
+</span><span style="color:#8f5902;font-style:italic">      rolearn: arn:aws:iam::ACCOUNT_ID:role/opta-live-example-dev-eks-default-node-group
+</span><span style="color:#8f5902;font-style:italic">      username: system:node:{{EC2PrivateDNSName}}
+</span><span style="color:#8f5902;font-style:italic">    - groups: [&#39;system:bootstrappers&#39;, &#39;system:nodes&#39;]
+</span><span style="color:#8f5902;font-style:italic">      rolearn: arn:aws:iam::ACCOUNT_ID:role/opta-live-example-dev-eks-nodegroup1-node-group
+</span><span style="color:#8f5902;font-style:italic">      username: system:node:{{EC2PrivateDNSName}}
+</span><span style="color:#8f5902;font-style:italic">    - groups: [&#39;system:masters&#39;]
+</span><span style="color:#8f5902;font-style:italic">      rolearn: arn:aws:iam::ACCOUNT_ID:role/live-example-dev-live-example-dev-deployerrole
+</span><span style="color:#8f5902;font-style:italic">      username: opta-managed</span><span style="color:#f8f8f8;text-decoration:underline">    
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">mapUsers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000;font-weight:bold">|</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">    - groups: [&#39;system:masters&#39;]
+</span><span style="color:#8f5902;font-style:italic">      userarn: arn:aws:iam::ACCOUNT_ID:user/live-example-dev-live-example-dev-deployeruser
+</span><span style="color:#8f5902;font-style:italic">      username: opta-managed</span><span style="color:#f8f8f8;text-decoration:underline">    
+</span></code></pre></div><blockquote>
+<p>Note: the IAM user/role who created the cluster is always considered root/admin and does not appear</p>
+</blockquote>
+<p>As you can see, each entry has the following fields:</p>
+<ul>
+<li>rolearn/userarn: the arn of the AWS IAM user/role to link.</li>
+<li>username: the human-friendly distinct name/alias to recognize the rbac request from.</li>
+<li>groups: the list of Kubernetes rbac groups to give the role/user access to.</li>
+</ul>
+<p>Please refer to the <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">official docs</a> for full details, but
+note that if you want admin privileges, you simply need the <code>system:masters</code> group. For convenience, Opta has exposed a
+field in the <code>k8s-base</code> module for AWS known as <code>admin_arns</code>, which is where users can quickly add IAM users/roles to
+add as admins without dealing with Kubernetes directly.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">providers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">aws</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Your 12 digit AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">s3</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">opta-tf-state-my-org-staging</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-service2</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">app</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-service</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">AUTO</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">http</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">80</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">env_vars</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">SOURCE_QUEUE</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;${{module.external.outputs.sqs_queue_name}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>The service will now have an environment variables known as SOURCE_BUCKET SOURCE_QUEUE could be the name of the
-queue they wish grab data from (assuming IAM permissions are configured externally for simplicity).</p>
-
-
-<div class="alert alert-orange" role="alert">
-<h4 class="alert-heading">NOTE</h4>
-
-    Usage is reliant on what the external state outputs and names. Please make sure that the data you seek
-is both outputted and has the expected name. If the state is created by Opta you can find the outputs
-and name by running opta apply on that state&rsquo;s manifest yaml.
-
-</div>
-
-<h2 id="how-to-properly-configure">How to Properly Configure</h2>
-<p>This module takes just 2 inputs, <code>backend_type</code> and <code>config</code>, which directly map to an available terraform
-backend name and its configuration. For full details please see <a href="https://www.terraform.io/language/settings/backends">here</a>,
-but for convenience we have below some common examples:</p>
-<p>For S3 (Opta AWS)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">s3</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-bucket-name</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-key</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">region</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">us-east-1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>For GCS (Opta GCP)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">gcs</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">bucket</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-bucket-name</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">prefix</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-prefix</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><p>For Azurerm (Opta Azure)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external-state</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">external</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">backend_type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">azurerm</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">config</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">storage_account_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-storage-account</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">container_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-container</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">key</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-key</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h2 id="fields">Fields</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>backend_type</code></td>
-<td>The type of backend this external state is using (<a href="https://www.terraform.io/language/settings/backends">https://www.terraform.io/language/settings/backends</a>)</td>
-<td><code>None</code></td>
-<td>True</td>
-</tr>
-<tr>
-<td><code>config</code></td>
-<td>The configuration to connect to this remote state</td>
-<td><code>{}</code></td>
-<td>True</td>
-</tr>
-</tbody>
-</table>
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">admin_arns</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#4e9a06">&#34;arn:aws:iam::XXXX:user/my-user&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#4e9a06">&#34;arn:aws:iam::XXXX:role/my-role&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><h2 id="k8s-rbac-groups">K8s RBAC Groups</h2>
+<p>Admittedly, Kubernetes rbac groups are
+<a href="https://stackoverflow.com/questions/51612976/how-to-view-members-of-subject-with-group-kind">currently difficult to view</a>,
+but you should be able to see details the current ones with the following command (you will need <code>jq</code> installed):
+<code>kubectl get clusterrolebindings -o json | jq -r '.items[] | select(.subjects[0].kind==&quot;Group&quot;)</code> and
+<code>kubectl get rolebindings -A -o json | jq -r '.items[] | select(.subjects[0].kind==&quot;Group&quot;)</code> (none for this by default).</p>
+<p>Essentially an rbac group is created by creating a ClusterRoleBinding (or RoleBinding for namespace-limited permissions)
+between the CluterRole/Role whose permissions you want to give and a new or pre-existing Group to give it to. Take the
+following yaml for instace:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rbac.authorization.k8s.io/v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ClusterRoleBinding</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-cluster-role-binding</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">roleRef</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">apiGroup</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rbac.authorization.k8s.io</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ClusterRole</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">system:discovery</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">subjects</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>- <span style="color:#204a87;font-weight:bold">apiGroup</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">rbac.authorization.k8s.io</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Group</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-group</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>For this case, this ClusterRoleBinding says &ldquo;give all member of the Group named my-group all the permissions of the
+ClusterRole named system:discovery on all namespaces&rdquo; (you can bind to ServiceAccounts as well, please see the docs for
+more details).</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So, to summarize:</p>
+<ul>
+<li>If you wish to add an IAM role/user to be an admin in the K8s cluster, go ahead and use the <code>admin_arns</code> field for the
+AWS <code>k8s-base</code> module</li>
+<li>If you wish to add an IAM role/user to a different set of K8s permissions already found in a pre-existing group, go
+ahead and manually add them in the <code>aws-auth</code> configmap on the <code>kube-system</code> namespace</li>
+<li>If you wish to create a new K8s group to capture a new set of permissions, go ahead and do so with role binding/cluster role bindings.</li>
+</ul>
 
 	
 		<style>

@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/concepts/environment/" /><meta property="article:section" content="Concepts" />
 
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="Environment">
 <meta itemprop="description" content="The common frame that powers your infrastructure.
 ">
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
-<meta itemprop="wordCount" content="110">
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
+<meta itemprop="wordCount" content="204">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Environment"/>
 <meta name="twitter:description" content="The common frame that powers your infrastructure.
@@ -738,6 +738,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -865,6 +871,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1332,6 +1344,7 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#what-is-an-environment">What is an Environment?</a></li>
     <li><a href="#definition">Definition</a></li>
+    <li><a href="#state-storage">State Storage</a></li>
     <li><a href="#next-steps">Next steps</a></li>
   </ul>
 </nav>
@@ -1368,7 +1381,13 @@ each member of your team an isolated development sandbox.</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># creates the network</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># additional modules, ex: k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></code></pre></div><h2 id="next-steps">Next steps</h2>
+</span></code></pre></div><h2 id="state-storage">State Storage</h2>
+<p>Unless you&rsquo;re using Opta&rsquo;s <code>local</code> option, the state will be stored in your cloud&rsquo;s native bucket solution (e.g. S3, GCS,
+etc&hellip;) in the account/project you specified. This bucket lives outside of the underlying terraform state (because of
+chicken-egg), but is still &ldquo;managed&rdquo; by Opta and will be cleaned up on deletion. Opta creates one bucket per environment
+and stores the state plus metadata of the environment and all services created there as different objects inside said
+bucket. The name of the bucket created will be shown in the opta outputs as <code>state_storage</code>.</p>
+<h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Learn about <a href="/concepts/module/">modules</a>.</li>
 </ul>
@@ -1440,8 +1459,8 @@ each member of your team an isolated development sandbox.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 

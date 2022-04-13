@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/modules/aws-nodegroup/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="aws-nodegroup">
 <meta itemprop="description" content="Creates an additional nodegroup for the primary EKS cluster."><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
-<meta itemprop="wordCount" content="554">
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
+<meta itemprop="wordCount" content="613">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="aws-nodegroup"/>
 <meta name="twitter:description" content="Creates an additional nodegroup for the primary EKS cluster."/>
@@ -735,6 +735,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -862,6 +868,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1436,12 +1448,6 @@ daemonsets to run their agents in each node, so please be careful and read their
 <td>False</td>
 </tr>
 <tr>
-<td><code>use_gpu</code></td>
-<td>Should we expect and use the gpus present in the ec2?</td>
-<td><code>False</code></td>
-<td>False</td>
-</tr>
-<tr>
 <td><code>spot_instances</code></td>
 <td>A boolean specifying whether to use <a href="https://aws.amazon.com/ec2/spot/">spot instances</a> for the default nodegroup or not. The spot instances will be configured to have the max price equal to the on-demand price (so no danger of overcharging). <em>WARNING</em>: By using spot instances you must accept the real risk of frequent abrupt node terminations and possibly (although extremely rarely) even full blackouts (all nodes die). The former is a small risk as containers of Opta services will be automatically restarted on surviving nodes. So just make sure to specify a minimum of more than 1 containers &ndash; Opta by default attempts to spread them out amongst many nodes. The former is a graver concern which can be addressed by having multiple node groups of different instance types (see aws nodegroup module) and ideally at least one non-spot.</td>
 <td><code>False</code></td>
@@ -1451,6 +1457,18 @@ daemonsets to run their agents in each node, so please be careful and read their
 <td><code>taints</code></td>
 <td>Taints to add to the nodes in this nodegroup.</td>
 <td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>use_gpu</code></td>
+<td>Should we expect and use the gpus present in the ec2? Note: This input would be deprecated in the coming releases. Please switch to using <code>ami_type</code>. Usage: If using, <code>use_gpu: false</code>, just remove it. If using <code>use_gpu: true</code> replace it with <code>ami_type: AL2_x86_64_GPU</code></td>
+<td><code>False</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>ami_type</code></td>
+<td>The AMI type to use for the nodes. For more information about this, please visit <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType">here</a> Note: Currently, &ldquo;CUSTOM&rdquo; ami type is not supported.</td>
+<td><code>AL2_x86_64</code></td>
 <td>False</td>
 </tr>
 </tbody>
@@ -1523,8 +1541,8 @@ daemonsets to run their agents in each node, so please be careful and read their
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 

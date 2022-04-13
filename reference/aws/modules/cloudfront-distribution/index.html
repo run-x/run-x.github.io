@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/modules/cloudfront-distribution/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-11-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="cloudfront-distribution">
 <meta itemprop="description" content="Set up a cloudfront distribution"><meta itemprop="datePublished" content="2021-11-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
-<meta itemprop="wordCount" content="584">
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
+<meta itemprop="wordCount" content="761">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cloudfront-distribution"/>
 <meta name="twitter:description" content="Set up a cloudfront distribution"/>
@@ -735,6 +735,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -862,6 +868,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1331,7 +1343,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#non-opta-s3-bucket-handling">Non-opta S3 bucket handling</a></li>
         <li><a href="#cloudfront-caching">Cloudfront Caching</a></li>
-        <li><a href="#using-your-own-domain">Using your own domain</a></li>
+        <li><a href="#domain--dns">Domain / DNS</a></li>
       </ul>
     </li>
     <li><a href="#fields">Fields</a></li>
@@ -1363,14 +1375,14 @@ static site with opta can be as simple as:</li>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXXXXXXXX</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">aws-s3</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testmodule</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">bucket_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;a-unique-s3-bucket-name&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">files</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-site-files&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># See S3 module for more info about uploading your files t S3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">files</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;./my-site-files&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># See S3 module for more info about uploading your files to S3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testmodule</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Fill in with your desired domain, or remove this whole entry if handling dns outside of Opta</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Set to true when ready -- see the &#34;Configure DNS&#34; page</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">linked_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cloudfront-distribution</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cloudfront-distribution</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># Uncomment the following and fill in to support your domain with ssl</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    acm_cert_arn: &#34;arn:aws:acm:us-east-1:XXXXXXXXXX:certificate/cert-id&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    domains:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      - &#34;your.domain.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">testmodule</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>Once you Opta apply, run <code>opta output</code> to get the value of your <code>cloudfront_domain</code>. <code>index.html</code> is automatically served at this domain.
@@ -1383,14 +1395,15 @@ static site with opta can be as simple as:</li>
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXXXXXXXX</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Fill in with your desired domain, or remove this whole entry if handling dns outside of Opta</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Set to true when ready -- see the &#34;Configure DNS&#34; page</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">linked_module</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cloudfront-distribution</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">testbase</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">expose_self_signed_ssl</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cloudfront-distribution</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    Uncomment the following and fill in to support your domain with ssl</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    acm_cert_arn: &#34;arn:aws:acm:us-east-1:XXXXXXXXXX:certificate/cert-id&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#    domains:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic">#      - &#34;your.domain.com&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">links</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">testbase</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><h3 id="non-opta-s3-bucket-handling">Non-opta S3 bucket handling</h3>
@@ -1402,15 +1415,22 @@ origin access identity that has read permissions to your bucket.</p>
 caching capabilities. That means that while delivery speeds are significantly faster, cloudfront may take some time
 (~1hr) to reflect changes into your static site deployment. Please keep this in mind when deploying such changes. You
 may immediately verify the latest copy by downloading from your S3 bucket directly.</p>
-<h3 id="using-your-own-domain">Using your own domain</h3>
-<p>If you are ready to start hosting your site with your domain via the cloudfront distribution, then proceed as follows:</p>
+<h3 id="domain--dns">Domain / DNS</h3>
+<p>If you are ready to start hosting your site with your domain via the cloudfront distribution, then go ahead and follow
+the <a href="/features/dns-and-cert/dns">configuring dns guide</a>, which will also set up your SSL. Traffic should
+start flowing from your domain to your cloudfront distribution and on towards your S3 bucket / K8s cluster. You could
+also manually configure DNS / SSL from outside of Opta using the following steps:</p>
 <ol>
+<li>Remove the dns module entirely from your yaml, if you haven&rsquo;t already.</li>
 <li>Get an <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html">AWS ACM certificate</a> for your site.
 Make sure that you get it in region us-east-1. If you already have one at hand in your account (e.g. from another
 active Opta deployment), then feel free to reuse that.</li>
 <li><a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">Validate</a> the certificate by adding the correct CNAME entries in your domain&rsquo;s DNS settings.</li>
-<li>Create a new separate CNAME record for the domain you wish to use for cloudfront and point it at the <code>cloudfront_domain</code> gotten above.</li>
-<li>Set the acm_cert_arn and domains fields in opta accordingly</li>
+<li>Fill in the <code>acm_cert_arn</code> field for the cloudfront module with the arn of your cert.</li>
+<li>In your hosted zone, create either an A record (if it&rsquo;s on the same AWS account) or a CNAME pointing to the cloudfront
+distribution url (the <code>cloudfront_domain</code> output). Alternatively, if it&rsquo;s a hosted zone on the same AWS account you could pass the <code>zone_id</code> to the
+cloudfront module to have Opta automatically take care of this for you.</li>
+<li>Fill in the <code>domains</code> field to include the domains for which you have the certificate for (no need to include wildcard repetition, that&rsquo;s automatic).</li>
 <li>Opta apply and you&rsquo;re done!</li>
 </ol>
 <h2 id="fields">Fields</h2>
@@ -1463,7 +1483,7 @@ active Opta deployment), then feel free to reuse that.</li>
 <tr>
 <td><code>acm_cert_arn</code></td>
 <td>The ACM certificate arn you wish to use to handle ssl (needed if you want https for your site)</td>
-<td><code>None</code></td>
+<td>``</td>
 <td>False</td>
 </tr>
 <tr>
@@ -1488,6 +1508,12 @@ active Opta deployment), then feel free to reuse that.</li>
 <td><code>cached_methods</code></td>
 <td>CloudFront caches the response to the specified HTTP method requests.</td>
 <td><code>['GET', 'HEAD', 'OPTIONS']</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>zone_id</code></td>
+<td>ID of Route53 hosted zone to add a record for. By default uses the one created by the DNS module if the module is found.</td>
+<td>``</td>
 <td>False</td>
 </tr>
 </tbody>
@@ -1575,8 +1601,8 @@ active Opta deployment), then feel free to reuse that.</li>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 

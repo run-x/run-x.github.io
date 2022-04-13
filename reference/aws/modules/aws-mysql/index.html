@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/modules/aws-mysql/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="mysql">
 <meta itemprop="description" content="Creates a MySQL Aurora RDS database instance"><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
-<meta itemprop="wordCount" content="365">
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
+<meta itemprop="wordCount" content="420">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="mysql"/>
 <meta name="twitter:description" content="Creates a MySQL Aurora RDS database instance"/>
@@ -735,6 +735,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -862,6 +868,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1330,6 +1342,7 @@ if (!doNotTrack) {
     <li>
       <ul>
         <li><a href="#backups">Backups</a></li>
+        <li><a href="#performance-and-scaling">Performance and Scaling</a></li>
         <li><a href="#linking">Linking</a></li>
       </ul>
     </li>
@@ -1355,6 +1368,10 @@ VPC or through some proxy (e.g. VPN).</p>
 <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html">RDS snapshots</a>.
 You can find them either programmatically via the aws cli, or through the AWS web console (they will be called
 system snapshots, and they have a different tab than the manual ones).</p>
+<h3 id="performance-and-scaling">Performance and Scaling</h3>
+<p>You can modify the DB instance class with the field <code>instance_class</code> in the module configuration.</p>
+<p>Storage scaling is automatically managed by AWS Aurora, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.html">official documentation</a>.</p>
+<p>To add replicas to an existing cluser, follow the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html">official guide</a>.</p>
 <h3 id="linking">Linking</h3>
 <p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
 <ul>
@@ -1420,6 +1437,12 @@ permission on this namespace.</p>
 <td><code>safety</code></td>
 <td>Add deletion protection to stop accidental db deletions</td>
 <td><code>False</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>db_name</code></td>
+<td>The name of the database to create. Follow naming conventions <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints">here</a></td>
+<td><code>app</code></td>
 <td>False</td>
 </tr>
 </tbody>
@@ -1492,8 +1515,8 @@ permission on this namespace.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 

@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/modules/aws-eks/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="k8s-cluster">
 <meta itemprop="description" content="Creates an EKS cluster and a default nodegroup to host your applications in"><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
-<meta itemprop="wordCount" content="393">
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
+<meta itemprop="wordCount" content="420">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="k8s-cluster"/>
 <meta name="twitter:description" content="Creates an EKS cluster and a default nodegroup to host your applications in"/>
@@ -735,6 +735,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -862,6 +868,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1411,6 +1423,12 @@ as Opta services run on Kubernetes.</p>
 <td><code>{}</code></td>
 <td>False</td>
 </tr>
+<tr>
+<td><code>ami_type</code></td>
+<td>The AMI type to use for the nodes. For more information about this, please visit <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType">here</a> Note: Currently, &ldquo;CUSTOM&rdquo; ami type is not supported.</td>
+<td><code>AL2_x86_64</code></td>
+<td>False</td>
+</tr>
 </tbody>
 </table>
 <h2 id="outputs">Outputs</h2>
@@ -1520,8 +1538,8 @@ as Opta services run on Kubernetes.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 

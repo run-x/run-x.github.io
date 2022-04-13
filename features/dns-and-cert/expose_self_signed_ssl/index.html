@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/features/dns-and-cert/expose_self_signed_ssl/" /><meta property="article:section" content="Features" />
 <meta property="article:published_time" content="2022-02-28T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-05T16:52:18-07:00" />
+<meta property="article:modified_time" content="2022-04-13T09:25:43-07:00" />
 
 <meta itemprop="name" content="SSL without configuring DNS">
 <meta itemprop="description" content="Add a Secure SSL on Load Balancer without configuring DNS. 
 "><meta itemprop="datePublished" content="2022-02-28T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-05T16:52:18-07:00" />
+<meta itemprop="dateModified" content="2022-04-13T09:25:43-07:00" />
 <meta itemprop="wordCount" content="200">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SSL without configuring DNS"/>
@@ -738,6 +738,12 @@ if (!doNotTrack) {
       
       
       
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawseks_access" href="/reference/aws/eks_access/">EKS Access</a>
+      
+      
+      
+      
 
 
 
@@ -865,6 +871,12 @@ if (!doNotTrack) {
       
       
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesexternal-state" href="/reference/aws/modules/external-state/">external-state</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesglobal-accelerator" href="/reference/aws/modules/global-accelerator/">global-accelerator</a>
       
       
       
@@ -1362,19 +1374,19 @@ if (!doNotTrack) {
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-bfadec" data-toggle="tab" href="#bfadec"
+		   id="nav-bfedca" data-toggle="tab" href="#bfedca"
 		   role="tab" aria-controls="nav-home" aria-selected="true">Aws</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-ebfcda" data-toggle="tab" href="#ebfcda"
+		   id="nav-dacfbe" data-toggle="tab" href="#dacfbe"
 		   role="tab" aria-controls="nav-home" aria-selected="true">Gcp</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-acefbd" data-toggle="tab" href="#acefbd"
+		   id="nav-feacdb" data-toggle="tab" href="#feacdb"
 		   role="tab" aria-controls="nav-home" aria-selected="true">Hello_Opta</a>
 
 		
@@ -1390,7 +1402,7 @@ if (!doNotTrack) {
 
 
 
-<div class="tab-pane fade show active " id="bfadec" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bfedca" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># env.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1413,7 +1425,7 @@ if (!doNotTrack) {
 
 
 
-<div class="tab-pane fade show " id="ebfcda" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dacfbe" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># env.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1436,7 +1448,7 @@ if (!doNotTrack) {
 
 
 
-<div class="tab-pane fade show " id="acefbd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="feacdb" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello-opta.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1540,8 +1552,8 @@ curl -vvI  <span style="color:#4e9a06">&#34;https://</span><span style="color:#0
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 5, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/d95559fb731b17d0f3993cc1aa204fc4d45ee9cc">Bugfix in docs (#176) (d95559f)</a>
+    April 13, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/4e2f0bca6dfa72500208ce89388f4773ffdb0080">all (#178) (4e2f0bc)</a>
 
 </div>
 
