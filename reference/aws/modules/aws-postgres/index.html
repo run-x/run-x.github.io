@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/aws/modules/aws-postgres/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-15T12:31:17+05:30" />
+<meta property="article:modified_time" content="2022-05-04T16:13:56-07:00" />
 
 <meta itemprop="name" content="postgres">
 <meta itemprop="description" content="Creates a postgres Aurora RDS database instance"><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-04-15T12:31:17+05:30" />
-<meta itemprop="wordCount" content="471">
+<meta itemprop="dateModified" content="2022-05-04T16:13:56-07:00" />
+<meta itemprop="wordCount" content="758">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="postgres"/>
 <meta name="twitter:description" content="Creates a postgres Aurora RDS database instance"/>
@@ -188,6 +188,12 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse show" id="">
       
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-faq" href="/faq/">FAQ</a>
       
       
       
@@ -549,37 +555,8 @@ if (!doNotTrack) {
       
       
       
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/features/variables/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Variables</a>
-  </li>
-  <ul>
-    <li class="collapse " id="featuresvariables">
       
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresvariablesinput_variables" href="/features/variables/input_variables/">Input Variables</a>
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresvariablesenvironment_variables" href="/features/variables/environment_variables/">Environment Variables</a>
-      
-      
-    </li>
-  </ul>
-</ul>
-
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-featuresvariables" href="/features/variables/">Variables</a>
       
       
       
@@ -759,13 +736,19 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesaws-vpn" href="/reference/aws/modules/aws-vpn/">aws-vpn</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulescustom-terraform" href="/reference/aws/modules/custom-terraform/">custom-terraform</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesk8s-manifest" href="/reference/aws/modules/k8s-manifest/">kubernetes-manifest</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceawsmodulesk8s-manifest" href="/reference/aws/modules/k8s-manifest/">k8s-manifest</a>
       
       
       
@@ -991,7 +974,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulesk8s-manifest" href="/reference/azurerm/modules/k8s-manifest/">kubernetes-manifest</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulesk8s-manifest" href="/reference/azurerm/modules/k8s-manifest/">k8s-manifest</a>
       
       
       
@@ -1109,7 +1092,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglemodulesk8s-manifest" href="/reference/google/modules/k8s-manifest/">kubernetes-manifest</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referencegooglemodulesk8s-manifest" href="/reference/google/modules/k8s-manifest/">k8s-manifest</a>
       
       
       
@@ -1343,6 +1326,8 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#backups">Backups</a></li>
         <li><a href="#performance-and-scaling">Performance and Scaling</a></li>
+        <li><a href="#restoring-from-snapshot">Restoring from Snapshot</a></li>
+        <li><a href="#adding-to-global-database">Adding to Global Database</a></li>
         <li><a href="#linking">Linking</a></li>
       </ul>
     </li>
@@ -1373,6 +1358,25 @@ system snapshots, and they have a different tab than the manual ones).</p>
 <p>You can modify the DB instance class with the field <code>instance_class</code> in the module configuration.</p>
 <p>Storage scaling is automatically managed by AWS Aurora, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Performance.html">official documentation</a>.</p>
 <p>To add replicas to an existing cluser, follow the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-replicas-adding.html">official guide</a>.</p>
+<h3 id="restoring-from-snapshot">Restoring from Snapshot</h3>
+<p>Opta supports creating a new database not just from scratch, but from database snapshots you have in your
+desired account + region. To do this, simply set the <code>restore_from_snapshot</code> to the ARN of said snapshot you
+wish to restore from.</p>
+<p>There is a big caveat: as Opta has no knowledge of the initial db setup from which the snapshot was created, we
+do not know what database name, username, or password the database would be created with&ndash; these will always
+be set to those of the original database. If you try to link this module to a k8s-service, the db name/username/password
+secrets will be set to <code>UNKNOWN_SEE_ORIGINAL_DB</code>. To overcome this limitation, please use <code>opta secret update</code>
+on the your k8s-service yaml to manually populate the secrets in with the original values.</p>
+<p><strong>NOTE</strong>: Do not remove the <code>restore_from_snapshot</code> input after creation, even if the snapshot is created as it
+will cause the database to recreate.</p>
+<h3 id="adding-to-global-database">Adding to Global Database</h3>
+<p>Opta supports distributed databases via AWS' Aurora Global database. This subject is talked in detail in the
+<a href="/features/multi-region/multi-region-dbs/">multi-region section of the docs</a></p>
+<p>There is a big caveat: as the execution of Opta has no knowledge of the initial db serving as the primary, we
+do not know what database name, username, or password the database would be created with&ndash; these will always
+be set to those of the original database. If you try to link this module to a k8s-service, the db name/username/password
+secrets will be set to <code>UNKNOWN_SEE_PRIMARY_DB</code>. To overcome this limitation, please use <code>opta secret update</code>
+on the your k8s-service yaml to manually populate the secrets in with the original values.</p>
 <h3 id="linking">Linking</h3>
 <p>When linked to a k8s-service, it adds connection credentials to your container&rsquo;s environment variables as:</p>
 <ul>
@@ -1464,6 +1468,12 @@ permission on this namespace.</p>
 <td><code>app</code></td>
 <td>False</td>
 </tr>
+<tr>
+<td><code>restore_from_snapshot</code></td>
+<td>The arn of the snapshot to &ldquo;restore&rdquo; this database from.</td>
+<td><code>None</code></td>
+<td>False</td>
+</tr>
 </tbody>
 </table>
 <h2 id="outputs">Outputs</h2>
@@ -1549,8 +1559,8 @@ permission on this namespace.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    April 15, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/66e7a3c974d3e77183a7e915cc47e8767aa2baa0">remove quotes (#179) (66e7a3c)</a>
+    May 4, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/3bdcc6b5bd7bc24c542267955b748fdcf0519fff">Opta 0.31.0 (#187) (3bdcc6b)</a>
 
 </div>
 
