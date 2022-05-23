@@ -23,13 +23,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/features/dns-and-cert/dns/" /><meta property="article:section" content="Features" />
 <meta property="article:published_time" content="2022-01-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-04T16:13:56-07:00" />
+<meta property="article:modified_time" content="2022-05-23T07:58:51-07:00" />
 
 <meta itemprop="name" content="Configure DNS">
 <meta itemprop="description" content="How to expose your app on the internet
 "><meta itemprop="datePublished" content="2022-01-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-04T16:13:56-07:00" />
-<meta itemprop="wordCount" content="1346">
+<meta itemprop="dateModified" content="2022-05-23T07:58:51-07:00" />
+<meta itemprop="wordCount" content="1421">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configure DNS"/>
 <meta name="twitter:description" content="How to expose your app on the internet
@@ -1031,6 +1031,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulescustom-terraform" href="/reference/azurerm/modules/custom-terraform/">custom-terraform</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulesazure-k8s-service" href="/reference/azurerm/modules/azure-k8s-service/">k8s-service</a>
       
       
@@ -1365,9 +1371,19 @@ or &ldquo;real&rdquo; names. To get those features, Opta offers 2 options:</p>
 <li>You &ldquo;import&rdquo; your SSL certificate into the Opta system and point your DNS zone straight to the load balancer&rsquo;s ip/dns name</li>
 </ol>
 <h3 id="setting-the-domain-for-an-environment-via-domain-delegation">Setting the domain for an Environment via Domain Delegation</h3>
-<p><em><strong>NOTE: Our Azure offering currently does not support domain delegation. Please use the external ssl and CNAME option below</strong></em></p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    Our Azure offering currently does not support domain delegation. Please use the external ssl and CNAME option below***
+
+</div>
+
 <p>With Opta, you can specify a domain for each environment which can be used by all the services running in that
-environment. This is done with the aws-dns/gcp-dns module like so:
+environment. This is done with the aws-dns/gcp-dns module with the following steps:</p>
+<h4 id="step-1-apply-your-opta-environment-yaml-with-the-dns-module-added">Step 1: Apply your Opta Environment YAML with the DNS module added</h4>
+<p>See the following for example:</p>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -1379,13 +1395,13 @@ environment. This is done with the aws-dns/gcp-dns module like so:
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-edbfca" data-toggle="tab" href="#edbfca"
+		   id="nav-bdfcea" data-toggle="tab" href="#bdfcea"
 		   role="tab" aria-controls="nav-home" aria-selected="true">AWS</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-fabecd" data-toggle="tab" href="#fabecd"
+		   id="nav-dbaecf" data-toggle="tab" href="#dbaecf"
 		   role="tab" aria-controls="nav-home" aria-selected="true">GCP</a>
 
 		
@@ -1401,7 +1417,7 @@ environment. This is done with the aws-dns/gcp-dns module like so:
 
 
 
-<div class="tab-pane fade show active " id="edbfca" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="bdfcea" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1411,11 +1427,11 @@ environment. This is done with the aws-dns/gcp-dns module like so:
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">account_id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Your 12 digit AWS account id</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span></span></code></pre></div>
-
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
 
 </div>
 
@@ -1424,7 +1440,7 @@ environment. This is done with the aws-dns/gcp-dns module like so:
 
 
 
-<div class="tab-pane fade show " id="fabecd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="dbaecf" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1434,40 +1450,43 @@ environment. This is done with the aws-dns/gcp-dns module like so:
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">project</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">XXXX</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Your GCP Project name</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">modules</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span></code></pre></div>
-
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
 
 </div>
 
 
 
-</div></p>
+</div>
 <p>As is, the dns module will create the &ldquo;hosted zone&rdquo; resource which manages your dns rules
 for the domain you listed. In order for it to receive public traffic and get ssl
-(to have https instead of http connections), you have to do some extra setup which
-<em>proves</em> that you own it.</p>
-<p>This extra setup is updating the domain&rsquo;s nameservers to point to your Opta environment&rsquo;s AWS/GCP &ldquo;hosted zone&rdquo;. This is how you do it:</p>
-<ul>
-<li>Run <code>opta apply</code> on the yaml file at least once to create the underlying resources</li>
-<li>Run <code>opta output</code> and note down the nameservers that get printed. It&rsquo;s usually a set of 4 servers.</li>
-<li>Assuming you own example.com and want to map staging.example.com to this environment. Then you&rsquo;d add the following NS records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.
+(to have https instead of http connections), continue with the next steps.</p>
+<h4 id="step-2-figure-out-your-hosted-zones-nameservers">Step 2: Figure out your hosted zone&rsquo;s nameservers</h4>
+<p>These values are needed in the next steps  to tell your domain registrar (e.g. Google Domains, Godaddy) where to
+delegate. You can find these values out by running <code>opta output</code> and note down the nameservers that get printed. It&rsquo;s
+usually a set of 4 servers.</p>
+<h4 id="step-3-update-your-domain-registrar-with-the-new-nameservers">Step 3: Update your domain registrar with the new nameservers</h4>
+<p>Assuming you own example.com and want to map staging.example.com to this environment. Then you&rsquo;d add the following NS
+records in your domain registrar, where ns1-ns4 are the nameservers from the previous step.</p>
 <pre><code>staging				1h			ns1
 staging				1h			ns2
 staging				1h			ns3
 staging				1h			ns4
-</code></pre></li>
-</ul>
-<p>It will take a few minutes for this change to sync with the internet, so just go and grab some coffee for 10 minutes.</p>
-<p>You can verify that you did this properly by running this command:</p>
+</code></pre><p>Typically you do this by selecting the option of adding a new dns record, selecting the NS type, and in the values
+you typically can pass in a list (so you only need to create 1 new record).</p>
+<h4 id="step-4-wait-10-minutes">Step 4: Wait ~10 minutes</h4>
+<p>Seriously, DNS propagation takes a while and there&rsquo;s no way of making it faster, so just go and grab some coffee for
+10 minutes. You can verify that you did this properly by running this command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dig staging.startup.com NS
 </code></pre></div><p>You should see your name servers under the <code>ANSWER SECTION</code> part.</p>
-<p>Once this is done and verified, please update your Opta yaml aws-dns/gcp-dns section to have a new field <code>delegated: true</code> like
-so:</p>
+<h4 id="step-5-set-delegated-to-true-in-your-dns-module-and-opta-apply">Step 5: Set delegated to true in your DNS module and Opta apply</h4>
+<p>Please update your Opta yaml aws-dns/gcp-dns section to have a new field <code>delegated: true</code>. Following the past
+yaml examples, it should look like:</p>
 <nav>
 	<div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -1479,13 +1498,13 @@ so:</p>
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-fedcab" data-toggle="tab" href="#fedcab"
+		   id="nav-cfbade" data-toggle="tab" href="#cfbade"
 		   role="tab" aria-controls="nav-home" aria-selected="true">AWS</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-fdcaeb" data-toggle="tab" href="#fdcaeb"
+		   id="nav-bfedac" data-toggle="tab" href="#bfedac"
 		   role="tab" aria-controls="nav-home" aria-selected="true">GCP</a>
 
 		
@@ -1501,7 +1520,7 @@ so:</p>
 
 
 
-<div class="tab-pane fade show active " id="fedcab" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cfbade" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1513,10 +1532,10 @@ so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span></code></pre></div>
-
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
 
 </div>
 
@@ -1525,7 +1544,7 @@ so:</p>
 
 
 
-<div class="tab-pane fade show " id="fdcaeb" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="bfedac" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1537,12 +1556,12 @@ so:</p>
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">base</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dns</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">domain</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging.startup.com</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="display:block;width:100%;background-color:#dfdfdf"><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">delegated</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># &lt;-- THIS</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subdomains</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-cluster</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span></code></pre></div>
-
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k8s-base</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div>
 
 </div>
 
@@ -1566,13 +1585,13 @@ an external ssl certificate and manually adding appropriate CNAME records.</p>
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-dbefac" data-toggle="tab" href="#dbefac"
+		   id="nav-cabfde" data-toggle="tab" href="#cabfde"
 		   role="tab" aria-controls="nav-home" aria-selected="true">AWS</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-cfeabd" data-toggle="tab" href="#cfeabd"
+		   id="nav-faebcd" data-toggle="tab" href="#faebcd"
 		   role="tab" aria-controls="nav-home" aria-selected="true">GCP</a>
 
 		
@@ -1588,7 +1607,7 @@ an external ssl certificate and manually adding appropriate CNAME records.</p>
 
 
 
-<div class="tab-pane fade show active " id="dbefac" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cabfde" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1614,7 +1633,7 @@ an external ssl certificate and manually adding appropriate CNAME records.</p>
 
 
 
-<div class="tab-pane fade show " id="cfeabd" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="faebcd" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">staging</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">org_name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">my-org</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1832,8 +1851,8 @@ With that complete your environment will be live to the public and secured with 
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    May 4, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/3bdcc6b5bd7bc24c542267955b748fdcf0519fff">Opta 0.31.0 (#187) (3bdcc6b)</a>
+    May 23, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/ba6432debe678c831cc5b4db30a56e38ebb44f9a">Docs for new release (#191) (ba6432d)</a>
 
 </div>
 

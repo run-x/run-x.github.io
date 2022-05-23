@@ -22,12 +22,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/reference/google/modules/gcp-k8s-service/" /><meta property="article:section" content="Reference" />
 <meta property="article:published_time" content="2021-07-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-05-04T16:13:56-07:00" />
+<meta property="article:modified_time" content="2022-05-23T07:58:51-07:00" />
 
 <meta itemprop="name" content="k8s-service">
 <meta itemprop="description" content="Deploys a kubernetes app"><meta itemprop="datePublished" content="2021-07-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-05-04T16:13:56-07:00" />
-<meta itemprop="wordCount" content="1536">
+<meta itemprop="dateModified" content="2022-05-23T07:58:51-07:00" />
+<meta itemprop="wordCount" content="1752">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="k8s-service"/>
 <meta name="twitter:description" content="Deploys a kubernetes app"/>
@@ -1028,6 +1028,12 @@ if (!doNotTrack) {
       
       
       
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulescustom-terraform" href="/reference/azurerm/modules/custom-terraform/">custom-terraform</a>
+      
+      
+      
+      
+      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-referenceazurermmodulesazure-k8s-service" href="/reference/azurerm/modules/azure-k8s-service/">k8s-service</a>
       
       
@@ -1375,7 +1381,7 @@ can even expose it to the world, complete with load balancing both internally an
 </span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;value&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></code></pre></div><p>With this configuration, your container will get an env var named <code>API_KEY</code> with
 the value <code>value</code>!</p>
-<p>You can also use <a href="(/features/variables/)">Opta&rsquo;s interpolation variables</a> features to refer to other values.</p>
+<p>You can also use <a href="/features/variables/">Opta&rsquo;s interpolation variables</a> features to refer to other values.</p>
 <h3 id="externalinternal-image">External/Internal Image</h3>
 <p>This module supports deploying from an &ldquo;external&rdquo; image repository (currently only public ones supported)
 by setting the <code>image</code> field to the repo (e.g. &ldquo;kennethreitz/httpbin&rdquo; in the examples). If you set the value to &ldquo;AUTO&rdquo; however,
@@ -1387,6 +1393,20 @@ command to push to it!</p>
 <p>tl;dr An (optional) liveness probe determines whether your server should be restarted, and an (optional) readiness probe determines if traffic should
 be sent to a replica or be temporarily rerouted to other replicas. Essentially smart healthchecks. For websockets Opta
 just checks the tcp connection on the given port.</p>
+<p>Opta supports 2 types of possible health checks (please be advised that while they&rsquo;re not required, they&rsquo;re highly
+recommended):</p>
+<h4 id="option-1-health-check-http-ping">Option 1: Health Check HTTP Ping</h4>
+<p>Quite straightforward, K8s does regular http get requests to your server under a specific given path.
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Any code greater than or equal to 200 and less than 400 indicates success</a>.
+Any other code indicates failure. You can specify this by setting the <code>healthcheck_path</code> input, or alternatively the
+<code>liveness_probe_path</code> and/or the <code>readiness_probe_path</code> if you want different behavior for the liveness and readiness
+checks.</p>
+<h4 id="option-2-health-check-command">Option 2: Health Check Command</h4>
+<p>Also simple to understand, K8s regularly execute a shell command of your choosing and considers the
+server healthy if it has and exit code of 0. Commands should be passed in as a list of the different
+parts (e.g. [&ldquo;echo&rdquo;, &ldquo;hello&rdquo;]). You can specify this by setting the <code>healthcheck_command</code> input, or alternatively the
+<code>liveness_probe_command</code> and/or the <code>readiness_probe_command</code> if you want different behavior for the liveness and
+readiness checks.</p>
 <h3 id="autoscaling">Autoscaling</h3>
 <p>As mentioned, autoscaling is available out of the box. We currently only support autoscaling
 based on the pod&rsquo;s cpu and memory usage, but we hope to soon offer the ability to use 3rd party metrics like datadog
@@ -1567,32 +1587,38 @@ The cron jobs will use the same resource requests/limits as the servers.</p>
 </tr>
 <tr>
 <td><code>healthcheck_path</code></td>
-<td>See the See the <a href="https://docs.opta.dev/reference/google/modules/gcp-k8s-service/#healthcheck-probe">liveness/readiness</a> section. Default <code>null</code> (i.e., no user-specified healthchecks)</td>
+<td>See the See the <a href="https://docs.opta.dev/reference/aws/modules/aws-k8s-service/#healthcheck-probe">healthcheck probe</a> section. Default <code>null</code> (i.e., no user-specified healthchecks)</td>
 <td><code>None</code></td>
 <td>False</td>
 </tr>
 <tr>
+<td><code>healthcheck_command</code></td>
+<td>See the See the <a href="https://docs.opta.dev/reference/aws/modules/aws-k8s-service/#healthcheck-probe">healthcheck probe</a> section. Default <code>[]</code> (i.e., no user-specified healthchecks)</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>liveness_probe_command</code></td>
+<td>Use if using shell command liveness checks and liveness probe != readiness probe</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>readiness_probe_command</code></td>
+<td>Use if using shell command readiness checks and liveness probe != readiness probe</td>
+<td><code>[]</code></td>
+<td>False</td>
+</tr>
+<tr>
 <td><code>liveness_probe_path</code></td>
-<td>Use if liveness probe != readiness probe</td>
+<td>Use if using http ping liveness checks and liveness probe != readiness probe</td>
 <td><code>None</code></td>
 <td>False</td>
 </tr>
 <tr>
 <td><code>readiness_probe_path</code></td>
-<td>Use if liveness probe != readiness probe</td>
+<td>Use if using http ping readiness checks and liveness probe != readiness probe</td>
 <td><code>None</code></td>
-<td>False</td>
-</tr>
-<tr>
-<td><code>initial_liveness_delay</code></td>
-<td>Use if the initial delay needs to be changed.</td>
-<td><code>30</code></td>
-<td>False</td>
-</tr>
-<tr>
-<td><code>initial_readiness_delay</code></td>
-<td>Use if the initial delay needs to be changed.</td>
-<td><code>30</code></td>
 <td>False</td>
 </tr>
 <tr>
@@ -1615,13 +1641,13 @@ The cron jobs will use the same resource requests/limits as the servers.</p>
 </tr>
 <tr>
 <td><code>resource_request</code></td>
-<td>See the <a href="https://docs.opta.dev/reference/google/modules/gcp-k8s-service/#resource-requests">resource requests</a> section. CPU is given in millicores, and Memory is in megabytes.</td>
+<td>See the <a href="https://docs.opta.dev/reference/google/modules/gcp-k8s-service/#resource-requests">container resources</a> section. CPU is given in millicores, and Memory is in megabytes.</td>
 <td><code>{'cpu': 100, 'memory': 128}</code></td>
 <td>False</td>
 </tr>
 <tr>
 <td><code>resource_limits</code></td>
-<td>See the <a href="#resource-limits">resource limits</a> section. Memory is in megabytes..</td>
+<td>See the <a href="https://docs.opta.dev/reference/google/modules/gcp-k8s-service/#resource-limits">container resources</a> section. Memory is in megabytes..</td>
 <td><code>None</code></td>
 <td>False</td>
 </tr>
@@ -1675,7 +1701,13 @@ The cron jobs will use the same resource requests/limits as the servers.</p>
 </tr>
 <tr>
 <td><code>pod_annotations</code></td>
-<td>These are extra annotations to add to k8s-service pod objects</td>
+<td>These are extra annotations to add to k8s-service pod objects / replace defaults</td>
+<td><code>{}</code></td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>pod_labels</code></td>
+<td>These are extra labels to add to k8s-service pod objects / replace defaults</td>
 <td><code>{}</code></td>
 <td>False</td>
 </tr>
@@ -1780,8 +1812,8 @@ The cron jobs will use the same resource requests/limits as the servers.</p>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    May 4, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/3bdcc6b5bd7bc24c542267955b748fdcf0519fff">Opta 0.31.0 (#187) (3bdcc6b)</a>
+    May 23, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/ba6432debe678c831cc5b4db30a56e38ebb44f9a">Docs for new release (#191) (ba6432d)</a>
 
 </div>
 
