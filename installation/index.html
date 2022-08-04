@@ -1342,16 +1342,16 @@ docker-for-mac)</li>
 <h2 id="macos-or-linux">MacOS or Linux</h2>
 <p>Run this script to install or upgrade to the latest version of Opta (see below for changelog
 and release history).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL http://run-x.github.io/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><p>You can specify a particular version as well.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL http://run-x.github.io/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">VERSION</span><span style="color:#ce5c00;font-weight:bold">=</span>0.x /bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="run-opta-in-a-docker-container-via-optash-script-pre-release">Run Opta in a Docker Container via opta.sh script (Pre-release)</h2>
 <p>We are now offering a pre-release version for running opta via a docker container with alpha support. <strong>Please do not use this for production workloads currently.</strong></p>
 <p>If you prefer to install or upgrade Opta and its dependencies (terraform, kubectl, gcp sdk, aws cli) in a docker container then you can
 download the <code>opta.sh</code> script that runs Opta inside a docker container. With this approach you can be assured that the correct
 versions of all of Opta&rsquo;s dependencies are invoked when run.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#8f5902;font-style:italic"># Download the script and add it as an executable on your machine</span>
-sudo curl  http://run-x.github.io/opta.sh -o /usr/local/bin/opta.sh
+sudo curl  https://docs.opta.dev/opta.sh -o /usr/local/bin/opta.sh
 sudo chmod +x /usr/local/bin/opta.sh
 opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation builds a docker image</span>
 </code></pre></div><p>Invoke opta using opta.sh instead; for example</p>
@@ -1465,7 +1465,7 @@ opta.sh <span style="color:#8f5902;font-style:italic"># This first invocation bu
 
     Last modified
     August 4, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/bfa63e1af74b6cc0a17de71ee977336816aad011">Update CNAME (bfa63e1)</a>
+    : <a  href="https://github.com/run-x/opta-docs/commit/ce2b879d771bf709ee813ad77c520bb4588cfbb0">Revert to opta domain (#196) (ce2b879)</a>
 
 </div>
 
