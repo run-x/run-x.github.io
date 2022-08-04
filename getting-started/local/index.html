@@ -23,12 +23,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/getting-started/local/" /><meta property="article:section" content="Getting started" />
 <meta property="article:published_time" content="2022-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-08-01T10:02:53-07:00" />
+<meta property="article:modified_time" content="2022-08-04T12:08:32-07:00" />
 
 <meta itemprop="name" content="Local">
 <meta itemprop="description" content="Getting started with Opta Local on your local machine.
 "><meta itemprop="datePublished" content="2022-01-04T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2022-08-01T10:02:53-07:00" />
+<meta itemprop="dateModified" content="2022-08-04T12:08:32-07:00" />
 <meta itemprop="wordCount" content="1682">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Local"/>
@@ -1348,7 +1348,7 @@ if (!doNotTrack) {
 	<p>Opta Local enables you to setup a local Kubernetes environment on your PC using the <a href="/">Opta CLI</a> so that you can test services locally without having to pay for cloud resources or waiting for real infrastructure to spin up and down in your cloud provider. It is designed to get you quickly started with Opta and Kubernetes for development and testing without the complexity, cost and learning curve of using a public cloud provider. When you are ready to go to production, the Opta infrastructure-as-code files you create for Opta Local can be used to deploy to AWS, Azure or Google Cloud.</p>
 <h2 id="installation">Installation</h2>
 <p>To install Opta, follow this one line installation (<a href="/installation">detailed instructions</a>):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL https://docs.opta.dev/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/bin/bash -c <span style="color:#4e9a06">&#34;</span><span style="color:#204a87;font-weight:bold">$(</span>curl -fsSL http://run-x.github.io/install.sh<span style="color:#204a87;font-weight:bold">)</span><span style="color:#4e9a06">&#34;</span>
 </code></pre></div><h2 id="architecture">Architecture</h2>
 <p><img src="/images/optalocal-arch.png" alt="Opta Local Architecture"></p>
 <p>This diagram shows what an Opta local installation will look like inside your local machine. Opta Local installs a <a href="https://kind.sigs.k8s.io/">Kubernetes Kind cluster</a>. Kind is a tool for running local Kubernetes clusters using Docker container “nodes”. Kind was primarily designed for testing Kubernetes itself, but may be used for local development or CI.</p>
@@ -1361,7 +1361,7 @@ if (!doNotTrack) {
 <li>A Mac OS or Linux PC with a minimum 8GB RAM and a recent i5 processor.</li>
 <li>Fast internet connection</li>
 <li>Ample diskspace (at least 10GB free) to store container images locally</li>
-<li>Please install the prerequistes for opta <a href="https://docs.opta.dev/installation/#prerequisites">listed here</a>. You can exclude the public cloud specific pre-requisites if you only want to run Opta Local.</li>
+<li>Please install the prerequistes for opta <a href="http://run-x.github.io/installation/#prerequisites">listed here</a>. You can exclude the public cloud specific pre-requisites if you only want to run Opta Local.</li>
 <li>Opta Local assumes that the logged-in user can operate docker without sudo; to enable this follow the steps here: <a href="https://docs.docker.com/desktop/mac/install/">MacOS</a> or <a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Linux</a> ).</li>
 <li>Opta Local requires local ports <code>5000</code> (docker registry) and <code>8080</code> (ingress port for local Kubernetes cluster) to be free.</li>
 </ol>
@@ -1482,19 +1482,19 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 		
 
 		<a class="nav-item nav-link  active "
-		   id="nav-fdbeca" data-toggle="tab" href="#fdbeca"
+		   id="nav-cabdfe" data-toggle="tab" href="#cabdfe"
 		   role="tab" aria-controls="nav-home" aria-selected="true">hello.yaml</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-eabfdc" data-toggle="tab" href="#eabfdc"
+		   id="nav-bfdace" data-toggle="tab" href="#bfdace"
 		   role="tab" aria-controls="nav-home" aria-selected="true">app.py</a>
 
 		
 
 		<a class="nav-item nav-link "
-		   id="nav-dbface" data-toggle="tab" href="#dbface"
+		   id="nav-cabdef" data-toggle="tab" href="#cabdef"
 		   role="tab" aria-controls="nav-home" aria-selected="true">Dockerfile</a>
 
 		
@@ -1510,7 +1510,7 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show active " id="fdbeca" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show active " id="cabdfe" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#8f5902;font-style:italic"># hello.yaml</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">hello</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1533,7 +1533,7 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show " id="eabfdc" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="bfdace" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">flask</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Flask</span>
 <span style="color:#000">app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Flask</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">__name__</span><span style="color:#000;font-weight:bold">)</span>
@@ -1551,7 +1551,7 @@ horizontalpodautoscaler.autoscaling/hello-hello-k8s-service   Deployment/hello-h
 
 
 
-<div class="tab-pane fade show " id="dbface" role="tabpanel" aria-labelledby="nav-1">
+<div class="tab-pane fade show " id="cabdef" role="tabpanel" aria-labelledby="nav-1">
 
 	<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#204a87;font-weight:bold">FROM</span><span style="color:#4e9a06"> python:3.10-slim-buster</span><span style="color:#a40000">
 </span><span style="color:#a40000"></span><span style="color:#204a87;font-weight:bold">ENV</span> <span style="color:#000">FLASK_APP</span><span style="color:#ce5c00;font-weight:bold">=</span>app
@@ -1619,7 +1619,7 @@ kubectl -n hello get deploy -o yaml | grep image:
 <li>Opta Local&rsquo;s Kubernetes cluster survives reboots, but it may be several minutes before the services deployed inside it are restored on the newly rebooted host. In general it is not recommended to store valuable information inside the local cluster.</li>
 </ol>
 <p>All these features are supported in the public cloud. Opta makes it super-convenient to graduate from Opta Local to any of the big-3 public cloud providers (AWS, Azure or GCP).<br>
-Learn more about Opta for public cloud <a href="https://docs.opta.dev/getting-started/">here</a>.</p>
+Learn more about Opta for public cloud <a href="http://run-x.github.io/getting-started/">here</a>.</p>
 <h2 id="a-note-on-the-environment-and-service-opta-files-for-local">A Note on the Environment and Service Opta Files for Local</h2>
 <p>You may take any Opta service file you currently use in a public cloud environment (aws/gcp/azure) and deploy it locally using the <code>--local</code> flag in Opta.</p>
 <p>For public cloud providers, opta usually uses an environment yaml file that deploys the infrastucture, and one or more service opta files to deploy applications. When you run Opta commands with the <code>--local</code> flag on any service opta file, the <code>environment</code> key within the service yaml file is ignored and the service is instead deployed on your local Kubernetes cluster.</p>
@@ -1705,8 +1705,8 @@ docker rm <span style="color:#000">$KCLUSTER</span>
 	<div class="text-muted mt-5 pt-3 border-top">
 
     Last modified
-    August 1, 2022
-    : <a  href="https://github.com/run-x/opta-docs/commit/51af0bee259acd6791fae08131b9a6f5e4ff489f">Release 0.35.0 (#194) (51af0be)</a>
+    August 4, 2022
+    : <a  href="https://github.com/run-x/opta-docs/commit/f3d7609c5425da0c026cca178591e4d81523bf18">Fix documentation references (#195) (f3d7609)</a>
 
 </div>
 
