@@ -3,375 +3,375 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/reference/aws/modules/aws-iam-policy/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-vpn/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/network_overview/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/custom-terraform/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/k8s-manifest/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/k8s-manifest/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/k8s-manifest/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/debugging/debugging/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/eks_access/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/lambda-function/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/cloudfront-distribution/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/mongodb-atlas/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/aws/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-documentdb/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-iam-role/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-iam-user/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-nodegroup/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-s3/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-ses/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-sns/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-sqs/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/azure/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/datadog/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/datadog/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/datadog/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-dns/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-dns/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-dynamodb/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/external-ssl-cert/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/external-ssl-cert/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/external-ssl-cert/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/external-state/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/external-state/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/external-state/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/gcp/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-gcs/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-nodepool/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-service-account/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/global-accelerator/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/helm-chart/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/helm-chart/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/helm-chart/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-k8s-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-k8s-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-k8s-base/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-eks/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-aks/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-gke/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-k8s-service/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-k8s-service/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/kubernetes/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-mysql/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-mysql/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-postgres/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-postgres/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/aws-redis/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/gcp-redis/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/custom-terraform/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/custom-terraform/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/faq/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/modules/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/modules/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/concepts/overview/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/high_availability/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/getting-started/aws/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/compliance/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/eks_upgrade/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/google/gke_upgrade/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/debugging/local_troubleshooting/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/aws/vpc_peering/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/concepts/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/concepts/environment/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/getting-started/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/network_monitoring/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/getting-started/gcp/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/installation/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/debugging/securely_accessing_network_locally/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/concepts/module/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/getting-started/azure/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/concepts/layer/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/subnetting/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/other_mesh/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/getting-started/local/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/multi-region/multi-region-dbs/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/multi-region/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/security/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/dns-and-cert/expose_self_signed_ssl/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/secrets/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/terraform/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/dns-and-cert/dns/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/continuous_deployment/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/jobs/cron/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/custom_image/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/observability/logdna/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/jobs/one_time_jobs/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/jobs/db_migration/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/dns-and-cert/update-dns/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/container-registry/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/observability/datadog/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/debugging/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/container-registry/ecr_access/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/container-registry/gcr_access/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/iam/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/jobs/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-k8s-service/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/access-k8s/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/networking/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/observability/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-postgres/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/variables/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/reference/azurerm/modules/azure-redis/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/dns-and-cert/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/features/iam/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url><url>
     <loc>/search/</loc>
-    <lastmod>2022-08-04T14:50:05-07:00</lastmod>
+    <lastmod>2022-08-05T14:46:30-05:00</lastmod>
   </url>
 </urlset>
